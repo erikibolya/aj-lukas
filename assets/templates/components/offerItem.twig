@@ -1,0 +1,41 @@
+<div class="link-box__wrapper link-box__wrapper--offer-item{% if className is defined %} {{ className }}{% endif %}">
+	<a href="{{ linkOfferDetail }}"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					<faker-name-jobTitle/>
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					<faker-address-streetAddress/>
+					,
+					<faker-address-city/>
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					<faker-company-companyName/>
+				</span>
+			</span>
+			<span class="">
+				{% if noSallary %}
+					<span class="d-inline-block px-2 bg-light mr-2 mb-2">Plat není uveden</span>
+				{% else %}
+					<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+				{% endif %}
+				<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+			{% if hotOffer %}
+				<small class="text-info"><span class="icon icon-hot mr-2"></span><strong>Horká nabídka</strong></small>
+			{% else %}
+				<small class="text-muted ">{% if offerSaved %}Uloženo{% else %}Přidáno{% endif %} <strong>včera</strong></small>
+			{% endif %}
+		</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon {% if offerSaved %}icon-star-fill{% else %}icon-star{% endif %}"></span>
+	</button>
+</div>
+

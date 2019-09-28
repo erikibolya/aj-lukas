@@ -1,0 +1,27 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Zrušit účet{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Zrušit účet</li>
+				</ol>
+			</nav>
+
+			<div class="bg-white p-3 py-sm-5">
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6 text-center">
+						<p class="text-danger"><strong>Pokud zrušíte účet</strong></p>
+						{% for i in 0..3 %}
+						<p><faker-lorem-sentence/></p>
+						{% endfor %}
+						<a href="#" class="btn btn-danger w-100">Zrušit účet</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

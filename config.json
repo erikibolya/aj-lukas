@@ -1,0 +1,37 @@
+{
+  "html": {
+    "src": "./dist/"
+  },
+
+  "templates": {
+    "src":"assets/templates/",
+    "dist": "dist/"
+  },
+
+  "styles": {
+    "src": "assets/public/scss/",
+    "dist": "dist/public/css/"
+  },
+
+  "scripts": {
+    "src": "assets/public/js/",
+    "dist": "dist/public/js/"
+  },
+
+
+  "img": {
+    "src": "assets/public/images/",
+    "dist": "dist/public/images/"
+  },
+
+  "svg": {
+    "src": "assets/public/svg/",
+    "dist": "dist/public/svg/"
+  },
+
+  "tasks": {
+    "default": ["styles", "scripts", "img","svg" , "templates"],
+    "build": ["styles:build", "scripts", "img" , "templates"]
+  }
+
+}

@@ -1,0 +1,57 @@
+<div class="section section--bg-decorative section--border-bottom py-3 py-sm-4 mt-3">
+	<div class="container">
+		{% set selectedButtons = [
+			"Asistentka",
+			"Jihlava",
+			"Plný úvazek",
+			"Od 25 000,- Kč",
+			"Pro studenta"
+		] %}
+		<div class="search-box__btn-container text-center">
+			{% for btn in selectedButtons %}
+				<button class="btn-filter-icon btn btn-secondary btn-sm m-1">
+					{{ btn }}
+					<span class="icon icon-cross-circle ml-2"></span>
+				</button>
+			{% endfor %}
+		</div>
+
+		<div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+			<div class="row">
+				{% set extendedFilter = [
+					"Pracovní poměr",
+					"Plat",
+					"Vzdělání",
+					"Vhodné pro",
+					"Stáří inzerátu",
+					"Zadavetel nabídky",
+				] %}
+
+
+				{% for i in extendedFilter %}
+					<div class="col-md-6 col-lg-4  mb-3">
+						<label class="form-label">{{ i }}</label>
+						<select class="form-control" id="exampleFormControlSelect1">
+							<option><faker-lorem-words/></option>
+							<option><faker-lorem-words/></option>
+							<option><faker-lorem-words/></option>
+							<option><faker-lorem-words/></option>
+							<option><faker-lorem-words/></option>
+						</select>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+</div>
+<div class="section bg-light text-center py-3 mb-3 mb-sm-5">
+	<div class="container">
+		<div class="text-center">
+			<button class="btn btn-success btn-collapse-toggle btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+				<span class="icon icon-search mr-2"></span>
+				Upravit hledání
+			</button>
+		</div>
+	</div>
+</div>

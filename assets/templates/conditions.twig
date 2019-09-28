@@ -1,0 +1,23 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Souhlasy{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Souhlasy</li>
+				</ol>
+			</nav>
+			{% for i in 0..2 %}
+			<div class="bg-white p-3 {% if not loop.last %} border-b{% endif %}">
+				<div class="form-group form-check px-3">
+					<input type="checkbox" class="form-check-input" id="exampleCheck{{ i }}">
+					<label class="form-check-label" for="exampleCheck{{ i }}"><faker-lorem-sentences/><a href="#" class="pl-2">Zobrazit více</a></label>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

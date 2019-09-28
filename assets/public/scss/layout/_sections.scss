@@ -1,0 +1,18 @@
+.section {
+
+	&__title {
+		margin-bottom: 0;
+	}
+
+	&--bg-decorative {
+		background-image: url(../images/pikto.png);
+	}
+
+	&--border-bottom {
+
+		@include media-breakpoint-up(sm) {
+			border-bottom: 1px solid $brand-success;
+		}
+	}
+}
+

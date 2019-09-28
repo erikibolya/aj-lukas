@@ -1,0 +1,57 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Výpis odpovědí{% endblock %}
+{% block body %}
+
+<div class="container">
+	<div class="section py-3">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Odpovědi</li>
+			</ol>
+		</nav>
+		{% for i in  0..2 %}
+		<div>
+			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+				<span class="link-box__title"><faker-name-jobTitle/></span>
+			</a>
+			<div class="bg-white p-3 mb-4">
+				<div class="icon-list">
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+						<div class="icon-list__info-col">Zaměstnavatel</div>
+						<div class="icon-list__text-col"><faker-address-city/></div>
+					</div>
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+						<div class="icon-list__info-col">Místo pracoviště</div>
+						<div class="icon-list__text-col"><faker-address-streetAddress/>,<faker-address-city/></div>
+					</div>
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
+						<div class="icon-list__info-col">Plat</div>
+						<div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
+					</div>
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+						<div class="icon-list__info-col">Datum odpovědi</div>
+						<div class="icon-list__text-col">26.03.2019</div>
+					</div>
+				</div>
+
+				<hr class="mx-minus-3">
+				<div class="row justify-content-center">
+					<div class="col-4 col-sm-6 col-md-3">
+						<button class="btn btn-secondary w-100"><span class="icon icon-cross"></span><span class="hidden-xs-down ml-2">Smazat</span></button>
+					</div>
+					<div class="col-8 col-sm-6 col-md-3">
+						<a href="{{ linkAnswerDetail }}" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+		{% include "components/pagination.twig" %}
+	</div>
+	{% endblock %}

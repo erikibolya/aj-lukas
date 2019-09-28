@@ -1,0 +1,61 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Můj ůčet{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			<div class="bg-white px-3 pt-3 mb-3 mb-sm-4">
+				{% set cards = [
+					{
+						"title": "Uložené nabídky",
+						"link": linkSavedOffers,
+						"icon": "star"
+					},{
+						"title": "Agenti",
+						"link": linkAgents,
+						"icon": "agent-fill"
+					},{
+						"title": "Odpovědí",
+						"link": linkAnswers,
+						"icon": "envelope"
+					},{
+						"title": "Změna hesla",
+						"link": linkPasswordChange,
+						"icon": "lock"
+					},{
+						"title": "Změna emailu",
+						"link": linkEmailChange,
+						"icon": "email"
+					},{
+						"title": "Souhlasy",
+						"link": linkConditions,
+						"icon": "check"
+					},{
+						"title": "Zrušení účtu",
+						"link": linkDeleteAccount,
+						"icon": "cross-circle"
+					},{
+						"title": "Odhlášení",
+						"link": linkHomepage,
+						"icon": "login"
+					},
+				] %}
+
+				<div class="row flex-wrap">
+					{% for card in cards %}
+						<div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+							<a href="{{ card.link }}" class="card card--box">
+								<span class="card--box__content">
+									<span class="display-5 icon icon-{{ card.icon }} mr-3 mr-sm-0 mb-sm-2"></span>
+									<span class="d-block">{{ card.title }}</span>
+								</span>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

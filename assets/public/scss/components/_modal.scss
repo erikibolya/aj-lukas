@@ -1,0 +1,151 @@
+.modal {
+    z-index: $zindex-modal;
+    padding-right: 0 !important;
+
+    &--fullscreen{
+        width: 100%;
+        height: 100%; 
+        background-color: white;
+
+    }
+    &--fixed-header{
+        padding-top: 2.5rem;
+    }
+    &--fixed-footer{
+        padding-bottom: 4.4375rem;
+    }
+
+    &--innerwindow{
+        padding: 0;
+        .modal-header,.modal-footer{
+            display: none;
+        }
+        .modal-custom-dialog{
+            overflow: hidden;
+        }
+
+    }
+}
+
+.modal-header {
+    background-color: $gray-lighter;
+    text-align: center;
+    padding: .5rem 2rem .5rem 1rem;
+    border-bottom: 0;
+    position: relative;
+    @at-root .modal--fixed-header &{
+        width: 100%;
+        z-index: $zindex-modal-header-fixed;
+        position: fixed;
+        top: 0;
+        left: 0;
+        /*border-bottom: 1rem solid #f7f7f9;*/
+        & ~ .modal-dialog{
+            .modal-content{
+
+                /*background-image: url(../images/pikto.png);*/
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        right: 1rem;
+        transform: translateY(-50%);
+        top: 50%;
+    }
+}
+
+.modal-footer {
+    display: block;
+
+    /*border: 1px solid $white;*/
+
+    @at-root .modal--fixed-footer  &{
+        z-index: $zindex-modal-footer-fixed;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: $gray-lighter;
+        padding: 1rem;
+        & ~ .modal-dialog{
+            .modal-content{
+
+            }
+        }
+    }
+
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .btn {
+        margin-left: 0;
+    }
+}
+
+.modal-custom-dialog{
+    position: relative;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-title {
+    margin: auto;
+    font-size: 1rem;
+}
+
+.modal-body {
+    /*border: 1px solid $white;*/
+    /*padding-top: 2rem;*/
+}
+
+.modal-content {
+    min-height: 100%;
+    border: none;
+
+    /*	border: 1px solid $gray-lighter;*/
+    @at-root .modal--fullscreen &{
+        height: 100%;
+    }
+}
+
+
+.close {
+    opacity: 1;
+    color: $brand-success;
+
+    &:hover {
+        opacity: 1;
+        color: darken($brand-success, 10%);
+    }
+}
+
+
+@include media-breakpoint-down(xs) {
+    .modal-dialog {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        max-width: none;
+        margin: 0;
+        height: 100%;
+    }
+
+    .modal-content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .modal-body {
+        padding-top: 1rem;
+    }
+}

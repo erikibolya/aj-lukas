@@ -1,0 +1,42 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Kontaktní osoby{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="section py-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkHomepage }}">Můj účet</a></li>
+					<li class="breadcrumb-item"><a href="{{ linkHomepage }}">Kontaktní osoby</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Úprava kontaktní osoby</li>
+				</ol>
+			</nav>
+
+			<div class="bg-white p-3 p-sm-5 mb-5">
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6">
+						<form>
+							<div class="form-group">
+								<label class="form-label" for="name">Jméno*</label>
+								<input type="text" class="form-control" id="name"  value="<faker-name-firstName/>" placeholder="Jméno" required>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="surname">Příjmení</label>
+								<input type="text" class="form-control" id="surname" value="<faker-name-lastName/>" placeholder="Příjmení" required>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="exampleInputEmail1">Kontakní email*</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" value="<faker-internet-email/>" aria-describedby="emailHelp" placeholder="Enter email" required>
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="phone">Telefon</label>
+								<input type="text" class="form-control" id="phone" placeholder="Telefon" value="<faker-phone-phoneNumber/>" required>
+							</div>
+							<a href="#" class="btn btn-success w-100">Uložit</a>
+						</form>
+					</div>
+				</div>
+		</div>
+	</div>
+
+
+{% endblock %}

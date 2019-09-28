@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="public/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext"
+      rel="stylesheet">
+
+
+        <title>Nabídky - ActiJobs</title>
+    </head>
+    <body>
+            <form id="popup-1" class="popup popup--hide">
+    <div class="popup__header">
+        <h5 class="popup__title" id="exampleModalLabel">Hledats</h5>
+        <button type="button" class="popup__button" data-popup-hide data-target="#popup-1">
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="popup__content">
+        <div class="col-12 mb-3">
+            <label class="form-label">Hledaná práce</label>
+            <input type="text" class="autocomplete__input form-control" id="exampleInputName" placeholder="Doprava, obchod, kuchař..">
+        </div>
+        <div class="col-12 mb-3">
+            <label class="form-label">Kde hledám práci</label>
+            <div class="col-12 p-0"> 
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Česká republika
+                    </option>
+                    <option>
+                        Slovenská republika
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 mb-3"> 
+            <input type="text" class="form-control" placeholder="Obec, město, kraj">
+        </div>
+        <div class="col-12 mb-3">
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>
+                    +10 km
+                </option>
+                                    <option>
+                        +10 km
+                    </option>
+                                    <option>
+                        +20 km
+                    </option>
+                                    <option>
+                        +30 km
+                    </option>
+                                    <option>
+                        +40 km
+                    </option>
+                                    <option>
+                        +50 km
+                    </option>
+                                    <option>
+                        +60 km
+                    </option>
+                                    <option>
+                        +70 km
+                    </option>
+                            </select>
+        </div>
+                            <div class="col-12  mb-3">
+                <label class="form-label">Pracovní poměr</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    harum ut sed
+                    </option>
+                    <option>
+                    autem earum ea
+                    </option>
+                    <option>
+                    et inventore ad
+                    </option>
+                    <option>
+                    recusandae vero facilis
+                    </option>
+                </select>
+            </div>
+                    <div class="col-12  mb-3">
+                <label class="form-label">Plat</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    quasi qui quae
+                    </option>
+                    <option>
+                    odio vel sunt
+                    </option>
+                    <option>
+                    quia vitae totam
+                    </option>
+                    <option>
+                    ut vero aut
+                    </option>
+                </select>
+            </div>
+                    <div class="col-12  mb-3">
+                <label class="form-label">Vzdělání</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    voluptatem voluptatem eaque
+                    </option>
+                    <option>
+                    esse hic consequuntur
+                    </option>
+                    <option>
+                    non accusantium vitae
+                    </option>
+                    <option>
+                    amet magni accusantium
+                    </option>
+                </select>
+            </div>
+                    <div class="col-12  mb-3">
+                <label class="form-label">Vhodné pro</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    reiciendis et odio
+                    </option>
+                    <option>
+                    esse ex harum
+                    </option>
+                    <option>
+                    quaerat architecto atque
+                    </option>
+                    <option>
+                    est omnis quis
+                    </option>
+                </select>
+            </div>
+                    <div class="col-12  mb-3">
+                <label class="form-label">Stáří inzerátu</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    praesentium consectetur libero
+                    </option>
+                    <option>
+                    voluptatem consequatur vero
+                    </option>
+                    <option>
+                    et ut expedita
+                    </option>
+                    <option>
+                    sunt illo sit
+                    </option>
+                </select>
+            </div>
+                    <div class="col-12  mb-3">
+                <label class="form-label">Zadavetel nabídky</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    consequatur cumque et
+                    </option>
+                    <option>
+                    officia est inventore
+                    </option>
+                    <option>
+                    eum ea mollitia
+                    </option>
+                    <option>
+                    voluptates dolore molestiae
+                    </option>
+                </select>
+            </div>
+            </div>
+    <div class="popup__footer">
+        <button type="submit" href="offers-2.html" class="btn btn-success w-100">
+            <span class="icon icon-search mr-2"></span>
+            <span class="hidden-sm-down ml-2">Zobrazit</span>150 nabídek
+        </button>
+    </div>
+</form>        <div class="site">
+            <header class="header">
+	<div class="bg-white">
+		<div class="container d-flex  justify-content-between align-items-center">
+			<a href="/" class="header__logo d-block">
+				<img src="./public/svg/images/logo.svg" 
+				     alt="Logo">
+			</a>
+			<div class="d-flex  justify-content-between">
+				<div class="btn-group">
+											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
+							<span class="btn-circle__label">someUsername</span>
+						</a>
+					
+					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
+						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
+					</div>
+				</div>
+								<div class="btn-group">
+					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
+						<span class="btn-circle__label">Čěština</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
+						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
+						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
+					</div>
+				</div>
+			</div>
+		</div>
+					<div class="bg-light">
+	<div class="container">
+		<nav class="menu">
+			<button type="buttom" class="menu__toggler">
+				<span class="menu-icon"></span>
+				<span>Nabídky</span>
+			</button>
+			<a href="/saved-offers.html" class="menu__extra-button">
+				<span class="icon icon-star-fill mr-2"></span><span
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(20)
+			</a>
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a class="menu__link menu__link--active"
+					   href="/">Home</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link"
+					   href="/offers.html">Nabídky</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="back-answers.html">Odpovědi</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/">Pro Uchazeče</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+			</div>
+</header>
+            <div class="site__content">
+                <div class="section section--bg-decorative section--border-bottom py-3 py-sm-5 mt-3">
+    <div class="container">
+        <div class="hidden-xs-down">
+            <div class="row">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <label class="form-label">Hledaná práce</label>
+                    <input class="form-control" id="jobsAutocomplete" type="text" placeholder="Doprava, obchod, kuchař..">
+                </div>
+                <div class="col-lg-6">
+                    <label class="form-label">Kde hledám práci</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="flag-icon flag-icon-cz"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cz mr-2"></span>Česká Republika</a>
+                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-sk mr-2"></span>Slovensko</a>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control input-group-center" placeholder="Obec, město, kraj">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                +10 km
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="#">+10 km</a>
+                                                                    <a class="dropdown-item" href="#">+20 km</a>
+                                                                    <a class="dropdown-item" href="#">+30 km</a>
+                                                                    <a class="dropdown-item" href="#">+40 km</a>
+                                                                    <a class="dropdown-item" href="#">+50 km</a>
+                                                                    <a class="dropdown-item" href="#">+60 km</a>
+                                                                    <a class="dropdown-item" href="#">+70 km</a>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+                <div class="row">
+                    
+
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Pracovní poměr</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                doloribus illo sit
+                                </option>
+                                <option>
+                                quis quo aut
+                                </option>
+                                <option>
+                                aspernatur magnam voluptatem
+                                </option>
+                                <option>
+                                beatae voluptas quia
+                                </option>
+                                <option>
+                                quidem necessitatibus aut
+                                </option>
+                            </select>
+                        </div>
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Plat</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                harum dolores atque
+                                </option>
+                                <option>
+                                voluptatem eum ea
+                                </option>
+                                <option>
+                                distinctio voluptatem ipsa
+                                </option>
+                                <option>
+                                minus adipisci commodi
+                                </option>
+                                <option>
+                                corrupti hic omnis
+                                </option>
+                            </select>
+                        </div>
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Vzdělání</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                qui fugit fugiat
+                                </option>
+                                <option>
+                                itaque pariatur dolorem
+                                </option>
+                                <option>
+                                sunt perferendis et
+                                </option>
+                                <option>
+                                enim consequatur et
+                                </option>
+                                <option>
+                                nobis veniam vel
+                                </option>
+                            </select>
+                        </div>
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Vhodné pro</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                laudantium tenetur voluptatem
+                                </option>
+                                <option>
+                                et rerum nihil
+                                </option>
+                                <option>
+                                eaque excepturi dicta
+                                </option>
+                                <option>
+                                libero eos dolorem
+                                </option>
+                                <option>
+                                id ullam id
+                                </option>
+                            </select>
+                        </div>
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Stáří inzerátu</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                impedit quae est
+                                </option>
+                                <option>
+                                optio sint dolore
+                                </option>
+                                <option>
+                                in ullam error
+                                </option>
+                                <option>
+                                unde quaerat repudiandae
+                                </option>
+                                <option>
+                                nisi nobis ab
+                                </option>
+                            </select>
+                        </div>
+                                            <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">Zadavetel nabídky</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                et ab distinctio
+                                </option>
+                                <option>
+                                similique quo ex
+                                </option>
+                                <option>
+                                sed necessitatibus veritatis
+                                </option>
+                                <option>
+                                quis rem neque
+                                </option>
+                                <option>
+                                aut aut nihil
+                                </option>
+                            </select>
+                        </div>
+                                    </div>
+            </div>
+            <div class="text-center mt-2 mt-sm-4">
+                <button class="btn btn-link btn-collapse-toggle text-primary" type="button" data-toggle="collapse"
+                        data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                    <span class="icon icon-arrow-down-point mr-2"></span>
+                    Rozšířené hledání
+                    <span class="icon icon-arrow-down-point ml-2"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden-sm-up">
+            <div class="text-center">
+                <p class="font-weight-bold">Vyberte si z 23443 nabídek práce</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success btn-bottom" data-toggle="modal" data-target="#search">
+                    <span class="icon icon-search mr-2"></span>
+                    Hledat práce
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal --> 
+<div class="modal modal--fullscreen modal--fixed-header modal--fixed-footer" id="search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hledat</h5>
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span class="icon icon-cross-circle-fill"></span>
+        </button>
+    </div>
+    <div class="modal-custom-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-12 p-0 mb-3">
+                    <label class="form-label">Hledaná práce</label>
+                    <input type="text" class="autocomplete__input form-control" id="exampleInputName" placeholder="Doprava, obchod, kuchař..">
+                </div>
+                <div class="col-12 p-0  mb-3">
+                    <label class="form-label">Kde hledám práci</label>
+                    <div class="col-12 p-0"> 
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                                Česká republika
+                            </option>
+                            <option>
+                                Slovenská republika
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 p-0 mb-3"> 
+                        <div class="autocomplete autocomplete--inwindow">
+        <div class="autocomplete__header">
+            <h5 class="autocomplete__title" id="exampleModalLabel">Kde hledám práci</h5>
+            <button type="button" class="autocomplete__button" data-autocomplete-close>
+                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+                </svg>
+            </button>
+        </div>
+        <input autocomplete="none" type="text"  class="autocomplete__input" 
+               id="autocomplete1"
+               data-placeholder="Obec, Město, Kraj"
+               data-dataset="names.json">
+    </div>
+    
+
+
+                </div>
+                <div class="col-12 p-0 mb-3">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>
+                            +10 km
+                        </option>
+                                                    <option>
+                                +10 km
+                            </option>
+                                                    <option>
+                                +20 km
+                            </option>
+                                                    <option>
+                                +30 km
+                            </option>
+                                                    <option>
+                                +40 km
+                            </option>
+                                                    <option>
+                                +50 km
+                            </option>
+                                                    <option>
+                                +60 km
+                            </option>
+                                                    <option>
+                                +70 km
+                            </option>
+                                            </select>
+                </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Pracovní poměr</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            eos sit sit
+                            </option>
+                            <option>
+                            vitae pariatur hic
+                            </option>
+                            <option>
+                            rerum doloremque perferendis
+                            </option>
+                            <option>
+                            mollitia velit eos
+                            </option>
+                            <option>
+                            fugiat itaque qui
+                            </option>
+                        </select>
+                    </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Plat</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            et molestiae ex
+                            </option>
+                            <option>
+                            expedita dolor dolores
+                            </option>
+                            <option>
+                            in officiis dicta
+                            </option>
+                            <option>
+                            quia tempora odio
+                            </option>
+                            <option>
+                            numquam saepe suscipit
+                            </option>
+                        </select>
+                    </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Vzdělání</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            est sequi sit
+                            </option>
+                            <option>
+                            id et quis
+                            </option>
+                            <option>
+                            corrupti quas rerum
+                            </option>
+                            <option>
+                            quaerat consequuntur est
+                            </option>
+                            <option>
+                            earum error accusamus
+                            </option>
+                        </select>
+                    </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Vhodné pro</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            saepe autem aliquid
+                            </option>
+                            <option>
+                            sapiente vitae quis
+                            </option>
+                            <option>
+                            rerum labore similique
+                            </option>
+                            <option>
+                            est qui et
+                            </option>
+                            <option>
+                            eveniet impedit hic
+                            </option>
+                        </select>
+                    </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Stáří inzerátu</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            quis recusandae aut
+                            </option>
+                            <option>
+                            rerum sint modi
+                            </option>
+                            <option>
+                            rerum commodi nobis
+                            </option>
+                            <option>
+                            eveniet nisi accusantium
+                            </option>
+                            <option>
+                            deleniti est consequuntur
+                            </option>
+                        </select>
+                    </div>
+                                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">Zadavetel nabídky</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            omnis unde dolorem
+                            </option>
+                            <option>
+                            amet quae facilis
+                            </option>
+                            <option>
+                            odio eum voluptates
+                            </option>
+                            <option>
+                            nulla eaque numquam
+                            </option>
+                            <option>
+                            officia quis ea
+                            </option>
+                        </select>
+                    </div>
+                            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="offers-2.html" class="btn btn-success w-100">
+            <span class="icon icon-search mr-2"></span>
+            <span class="hidden-sm-down ml-2">Zobrazit</span>150 nabídek
+        </a>
+    </div>
+</div>
+
+<div class="hidden-xs-down">
+    <div class="section bg-light text-center py-3 mb-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3 col-lg-2">
+                    <a href="#" class="btn btn-info w-100">
+                        <span class="icon icon-agent-fill"></span>
+                        <span class="hidden-sm-down ml-2">ActiAgent</span>
+                    </a>
+                </div>
+                <div class="col-9 col-lg-4">
+                    <a href="offers-2.html" class="btn btn-success w-100">
+                        <span class="icon icon-search mr-2"></span>
+                        <span class="hidden-sm-down ml-2">Zobrazit</span>150nabídek
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="section py-3">
+            <div class="d-flex flex-column align-items-lg-center flex-lg-row justify-content-sm-between">
+                <strong class="d-block mb-3">Našli jsme 256 389 nabídek</strong>
+            </div>
+
+            	<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Investor Web Associate
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					5312 Erdman Square
+					,
+					West Xavierside
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Schowalter - Hayes
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-info"><span class="icon icon-hot mr-2"></span><strong>Horká nabídka</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+			<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Senior Marketing Producer
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					958 Pearlie Roads
+					,
+					Port Christellemouth
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Murray - Kessler
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2">Plat není uveden</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Forward Metrics Administrator
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					368 VonRueden Turnpike
+					,
+					Graciefort
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Doyle LLC
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Corporate Tactics Planner
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					798 Hamill Summit
+					,
+					Kaylafort
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Pagac - Hodkiewicz
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Internal Directives Designer
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					6770 Ronaldo Junction
+					,
+					Lacyshire
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Thiel - Kohler
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Senior Accounts Planner
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					16019 Winifred Flat
+					,
+					Beckerville
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Kihn and Sons
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Human Group Planner
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					218 Daniella Fields
+					,
+					Bernardohaven
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Hettinger Group
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Internal Assurance Consultant
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					773 Bode Radial
+					,
+					Amirstad
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Terry, Cassin and Lakin
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Lead Response Executive
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					7601 Jacques Causeway
+					,
+					Port Albertstad
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Cassin, Parisian and Feil
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Legacy Configuration Designer
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					5132 Ebony Via
+					,
+					Manuelborough
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Runolfsdottir, Fahey and Champlin
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+				<div class="link-box__wrapper link-box__wrapper--offer-item mb-3">
+	<a href="/offer-detail.html"
+	   class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
+		<span class="d-block mb-2">
+			<h5 class="link-box__title mb-2">
+					Human Response Administrator
+			</h5>
+			<span class="d-block mb-2">
+				<span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-2"></span>
+					544 Runolfsson Expressway
+					,
+					Roweside
+				</span>
+				<span class="d-block d-sm-inline-block"><span class="icon icon-building mr-2"></span>
+					Kshlerin Group
+				</span>
+			</span>
+			<span class="">
+									<span class="d-inline-block px-2 bg-light mr-2 mb-2 text-success">30 000,- Kč - 75 000,- Kč</span>
+								<span class="badge badge-info px-2 d-inline-flex align-items-center">TIP</span>
+			</span>
+
+		</span>
+		<span class="d-inline-flex align-items-center text-right">
+							<small class="text-muted ">Přidáno <strong>včera</strong></small>
+					</span>
+	</a>
+
+	<button class="offer-item__star-btn btn btn-link">
+		<span class="icon icon-star"></span>
+	</button>
+</div>
+
+	        </div>
+        <div class="d-flex align-items-center flex-column mb-3">
+	<nav aria-label="Page navigation example">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-left"></span></a></li>
+			<li class="page-item active"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-right"></span></a></li>
+		</ul>
+	</nav>
+</div>
+
+<div class="mb-5 text-center">
+	<button class="btn btn-success btn-bottom">Načíst další</button>
+</div>
+    </div>
+
+
+
+        </div>
+        	<div class="bg-white">
+		<div class="container p-3 text-center">
+
+			<button type="button" class="btn btn-facebook-white btn-bottom"><span class="icon icon-facebook mr-2"></span>
+				Staňte se naším fanouškem
+			</button>
+
+		</div>
+
+	</div>
+
+	<div class="bg-light border-b">
+		<div class="container p-3 d-flex flex-column flex-sm-row justify-content-sm-between align-items-center">
+			<div class="text-left mb-3 mb-sm-0"><a href="" class="btn btn-success">Pro firmy<span
+									class="icon icon-arrow-right ml-3"></span></a></div>
+			<div class="text-right text-success">"Jednodušše práce"</div>
+		</div>
+	</div>
+
+	<div class="bg-light">
+		<div class="container p-3 d-flex justify-content-center justify-content-sm-start">
+			<ul class="nav nav-footer flex-wrap flex-column text-center flex-sm-row text-sm-left ">
+				<li class="nav-item"><a class="nav-link" href="/login.html">Přihlášení</a></li>
+				<li class="nav-item"><a class="nav-link" href="/registration.html">Registrace</a></li>
+				<li class="nav-item"><a class="nav-link" href="/business-conditions.html">Podmínky užívání</a></li>
+				<li class="nav-item"><a class="nav-link" href="/insert-offer.html">Vložit nabídku</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contact.html">Kontakt</a></li>
+				<li class="nav-item"><a class="nav-link" href="/operator.html">Provozovatel</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">ActiJobs.sk</a></li>
+			</ul>
+		</div>
+	</div>
+
+<div class="py-3 text-center bg-white">
+	<p class="text-muted"><small>&copy; 2019 Actiunit s.r.o.</small></p>
+	<img src="./public/svg/images/logo-actiunit.svg" width="160px">
+</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <script src="public/js/plugins/custom-autocomplete.js"></script>  
+    <script src="public/js/plugins/selectric.js"></script>
+    <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/custom.js"></script>
+    <script src="public/js/plugins/mobile-detect.js"></script>
+<script src="public/js/template.js"></script>
+</body>
+</html>
+

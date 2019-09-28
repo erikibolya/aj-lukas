@@ -1,0 +1,106 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Můj ůčet{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+			<div class="bg-white px-3 pt-3 mb-4">
+				{% set cards = [
+					{
+						"title": "Vytvořit nabídku práce",
+						"link": linkBackNewOffer,
+						"icon": "plus"
+					},{
+						"title": "Odpovědi",
+						"link": linkBackAnswers,
+						"icon": "megaphone"
+					},{
+						"title": "Dobít ActiBony",
+						"link": linkBackChargeActiBons,
+						"icon": "diamond"
+					}
+				] %}
+
+				<div class="row flex-wrap">
+					{% for card in cards %}
+						<div class="col-sm-4 mb-3">
+							<a href="{{ card.link }}" class="card card--box flex-row align-items-center d-flex flex-sm-column text-sm-center p-3 h-100">
+								<span class="display-5 icon icon-{{ card.icon }} mr-3 mr-sm-0 mb-sm-2"></span>
+								<span class="d-block">{{ card.title }}</span>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="mb-4">
+				{% include "components/sectionTitle.twig"  with { title: "Přehled"}  %}
+				<a href="{{ linkBackAnswers }}" class="link-box p-3 d-md-flex justify-content-between border-b">
+					<div class="link-box__title">Nové odpovědi / Odpovědi</div>
+					<div class="text-right">
+						<span class="text-info link-box__title">10</span> / <span class="link-box__title">100</span>
+					</div>
+				</a>
+				<a href="{{ linkBackAnswers }}" class="link-box p-3 d-md-flex justify-content-between border-b">
+					<div class="link-box__title">Uložené odpovědi</div>
+					<div class="text-right link-box__title"><span>100</span></div>
+				</a>
+				<a href="{{ linkBackOffers }}" class="link-box p-3 d-md-flex justify-content-between border-b">
+					<div class="link-box__title">Aktivní nabídky</div>
+					<div class="text-right link-box__title"><span>100</span></div>
+				</a>
+				<a href="#" class="link-box link-box--disabled p-3 d-md-flex justify-content-between border-b">
+					<div class="link-box__title">Ukončené nabídky</div>
+					<div class="text-right link-box__title"><span>100</span></div>
+				</a>
+				<a href="{{ linkBackOffers }}" class="link-box p-3 d-md-flex justify-content-between">
+					<div class="link-box__title">Koncepty nabídek</div>
+					<div class="text-right link-box__title"><span>100</span></div>
+				</a>
+			</div>
+
+			{% include "components/sectionTitle.twig"  with { title: "Členství", center: true}  %}
+			<div class="bg-white p-3 mb-4 text-center">
+				<p class="text-success">Členství <strong>Classic</strong> je platné ještě <strong>225 dní</strong></p>
+				<p><faker-lorem-sentences/>
+				<hr class="mx-minus-3">
+				<div class="text-center">
+					<a href="{{ linkBackOrder }}" class="btn btn-info btn-bottom mb-2 mr-sm-3">Aktivovat VIP členství</a>
+					<a href="{{ linkBackOrder }}" class="btn btn-success btn-bottom mb-2">Prodloužit členství</a>
+				</div>
+			</div>
+
+			<div class="mb-4">
+				{% include "components/sectionTitle.twig"  with { title: "Pěněženka"}  %}
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<div>Zakoupených</div>
+					<div class="text-right"><faker-random-number/> AB</div>
+				</div>
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<div>Získaných</div>
+					<div class="text-right"><faker-random-number/> AB</div>
+				</div>
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<div>Využitých</div>
+					<div class="text-right"><faker-random-number/> AB</div>
+				</div>
+				<div class="bg-white p-3 d-md-flex justify-content-between text-success font-weight-bold">
+					<div>Zůstatek</div>
+					<div class="text-right"><faker-random-number/> AB</div>
+				</div>
+			</div>
+
+
+			{% include "components/sectionTitle.twig"  with { title: "Affiliate", center: true}  %}
+			<div class="bg-white p-3  text-center">
+				<p class="text-success">Získejte <strong>7500 AB</strong> za každé doporučení klubu ActiJobs</p>
+				<p><faker-lorem-sentences/>
+				<p><small>Affiliate link</small></p>
+				<div class="border mb-3">
+					<code class="p-3">ACTIJOBS-AV258DFB-4P62VBGH</code>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

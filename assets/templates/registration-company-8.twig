@@ -1,0 +1,21 @@
+{% extends "layout/layout-lite.twig" %}
+{% block title %}Objednávka služeb{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+			{% include "components/sectionTitle.twig"  with { title: "Objednávka služeb", center: true}  %}
+			<div class="bg-white p-3 py-sm-5 mb-3 mb-sm-5">
+				<div class="row justify-content-center text-center">
+					<div class="col-sm-10 col-md-8 col-lg-6">
+						<p class="text-success font-weight-bold">Děkujeme za zaplacení objednávky</p>
+						<p class="text-info font-weight-bold"><faker-lorem-sentence/></p>
+						<p><faker-lorem-sentence/></p>
+						<p><small><faker-lorem-sentence/></small></p>
+						<a href="{{ linkRegistrationCompany }}" class="btn btn-success w-100">Pokračovat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

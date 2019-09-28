@@ -1,0 +1,19 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Icons{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row mb-5">
+		{% for icon in icons %}
+			<div class="col-2  mb-2 text-center">
+				<span class="display-4 icon icon-{{ icon }}"></span>
+				<code class="d-block">icon-{{ icon }}</code>
+			</div>
+		{% endfor %}
+	</div>
+	<h3>Usage:</h3>
+	Add <code>class="icon icon-[name]"</code> to element. For ex.  <code>class="icon icon-car"</code>
+</div>
+{% endblock %}
+
+
+

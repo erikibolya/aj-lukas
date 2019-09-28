@@ -1,0 +1,94 @@
+{% extends "layout/layout-lite.twig" %}
+{% block title %}Údaje společnosti{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+
+			{% include "components/sectionTitle.twig"  with { title: "Údaje společnosti", center: true} %}
+			<div class="bg-white p-3 py-sm-5">
+				<form>
+					<div class="row justify-content-center">
+						<div class="col-sm-10 col-md-8 col-lg-6">
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">Název společnosti*</label>
+								<input type="text" value="<faker-company-companyName/>" class="form-control" id="exampleInputName"
+								       required>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">IČO*</label>
+								<input type="text" value="111222333" class="form-control" id="exampleInputName" required>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">DIČ</label>
+								<input type="text" value="CZ111222333" class="form-control" id="exampleInputName">
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">Ulice*</label>
+								<input type="text" value="<faker-address-streetName/>" class="form-control" id="exampleInputName"
+								       required>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="exampleInputName" class="form-label">Číslo popisné*</label>
+										<input type="text" value="10" class="form-control" id="exampleInputName" required>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label for="exampleInputName" class="form-label">Číslo Orientační</label>
+										<input type="text" value="227" class="form-control" id="exampleInputName">
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">Město*</label>
+								<input type="text" value="<faker-address-city/>" class="form-control" id="exampleInputName" required>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">PSČ*</label>
+								<input type="text" value="<faker-address-zipCode/>" class="form-control" id="exampleInputName" required>
+							</div>
+
+
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">Stát*</label>
+								<input type="text" value="<faker-address-county/>" class="form-control" id="exampleInputName" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label">Typ společnosti*</label>
+								<select class="form-control" id="exampleFormControlSelect1">
+									<option>
+										<faker-lorem-words/>
+									</option>
+									<option>
+										<faker-lorem-words/>
+									</option>
+									<option>
+										<faker-lorem-words/>
+									</option>
+									<option>
+										<faker-lorem-words/>
+									</option>
+									<option>
+										<faker-lorem-words/>
+									</option>
+								</select>
+							</div>
+							<a href="{{ linkRegistrationCompany }}" class="btn btn-success w-100">Pokračovat</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

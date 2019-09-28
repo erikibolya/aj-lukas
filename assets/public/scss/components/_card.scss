@@ -1,0 +1,33 @@
+a.card {
+
+	&:hover {
+		background-color: $gray-lightest;
+	}
+}
+
+.card {
+
+	&--box {
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&__content {
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+		}
+
+		@include media-breakpoint-up(sm) {
+			height: 150px;
+			padding: 10%;
+
+
+			&__content {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+}

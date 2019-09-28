@@ -1,0 +1,72 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Nový agent{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="section py-3 mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Nový agent</li>
+                </ol>
+            </nav>
+            <div class="bg-white p-3 border-b text-info text-center">
+                Nastavte si kriteria... Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </div>
+            <div class="bg-white p-3 pb-sm-5">
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8 col-lg-6">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Hledání práce</label>
+                                <input class="form-control" id="jobsAutocomplete" type="text" placeholder="Doprava, obchod, kuchař..">
+                            </div>
+                            <div class="mb-3">
+                                {% include "components/autocompleteInput.twig" with {type: "search",autocompleteLabel: "Kde hledám práci"} %}
+                            </div>
+                            {% set extendedFilter = {
+							"Pracovní poměr": ["Nezáleží","Plný úvazek","Zkrácený úvazek","IČO/Živnostenský list","Dohoda (brigáda)","Intership/Stáž"],
+							"Plat": ["Nezáleží","od 10 000 Kč","od 15 000 Kč","od 20 000 Kč","od 25 000 Kč","od 30 000 Kč","od 50 000 Kč"],
+							"Vzdělání": ["Nezáleží","Základní","Odborné vyučení s výčním listem","Odborné vyučení s maturitou","Středoškolské s maturitou","Vyšší odborné","Bakalářské","Vysokoškolské/Univerzitní","Dokorantské"],
+							"Vhodné pro": ["Nezáleží","Osoby bez praxe","Absolventy SŠ","Absolventy VŠ","Studenty","Důchodce","Osoby na rodičovské dovolené"],
+							"Zadavetel nabídky": ["Nezáleží","Zaměstnavatel","Personální agentura"],
+						} %}
+
+                            {% for name,values in extendedFilter %}
+                                <div class="mb-3">
+                                    <label class="form-label">{{ name }}</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                        {% for value in values %}
+                                            <option>
+                                                {{ value }}
+                                            </option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                            {% endfor %}
+                            <label class="form-label">Upozornění a oznámení</label>
+                            <hr class="mt-0">
+                            <div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
+                                <div>Zasílat upozorněni na e-mail</div>
+                                <label class="switch">
+                                    <input type="checkbox" class="switch__state">
+                                    <span class="switch__toggle"></span>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="switch__wrapper d-flex justify-content-between align-items-center">
+                                <div>Zobrazovat oznámení v tomto zařízení</div>
+                                <label class="switch">
+                                    <input type="checkbox" class="switch__state">
+                                    <span class="switch__toggle"></span>
+                                </label>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-success w-100">Uložit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

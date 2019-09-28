@@ -1,0 +1,39 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Nabídky{% endblock %}
+{% block body %}
+	{% include "components/searchBox-2.twig" %}
+
+	<div class="container">
+		<div class="section py-3">
+			<div class="d-flex flex-column align-items-lg-center flex-lg-row justify-content-sm-between">
+				<strong class="d-block mb-3">Našli jsme 256 389 nabídek</strong>
+
+				<div class="btn-radio__group">
+					<div class="custom-radio__wrapper btn-radio">
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+							<label class="form-check-label" for="inlineRadio1">
+								Všechny
+							</label>
+						</div>
+					</div>
+					<div class="custom-radio__wrapper btn-radio">
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+							<label class="form-check-label" for="inlineRadio2">
+								Nové
+							</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		{% include "lists/offersList.twig" with {hotOfferTop: true} %}
+		</div>
+		{% include "components/pagination.twig" %}
+	</div>
+
+
+
+{% endblock %}

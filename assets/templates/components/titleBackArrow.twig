@@ -1,0 +1,12 @@
+<div class="d-flex mb-1{% if className is defined %} {{ className }}{% endif %}">
+	<a href="{{ linkAccount }}" class="bg-white px-3 py-2 d-block mr-1">
+		<span class="icon icon-arrow-left"></span>
+	</a>
+	<h1 class="h5 bg-white w-100 mb-0 d-inline-flex align-items-center justify-content-center">{{ title }}</h1>
+	{% if agent %}
+		<a href="{{ linkAgentCreate }}" class="btn btn-info ml-1"><span class="icon icon-plus-circle mr-2"></span>Nový agent</a>
+	{% endif %}
+	{% if person %}
+		<a href="{{ linkAgentCreate }}" class="btn btn-info ml-1"><span class="icon icon-plus-circle mr-2"></span>Nová osoba</a>
+	{% endif %}
+</div>

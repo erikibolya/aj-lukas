@@ -1,0 +1,416 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Výpis odpovědí{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="section py-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ linkBackOffers }}">Nabídky</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Nová nabídka</li>
+                </ol>
+            </nav>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Základní údaje"}  %}
+                <div class="bg-white p-3">
+                    <div class="form-group">
+                        <label for="exampleInputName" class="form-label">Název pozice*</label>
+                        <input type="text" class="form-control" id="exampleInputName"  placeholder="" required>
+                    </div>
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocomplete1", name: "Obor*", placeholder: "+ Obor", dataset: "names.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":false, id:"autocomplete2", name: "Profese*", placeholder: "+ Profese", dataset: "lorem.json"} %}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Místo výkonu práce"}  %}
+                <div class="bg-white p-3">
+                    <div class="show-content__wrapper">
+                        <div class="mb-3">
+                            <input class="form-check-input show-content__controll" type="radio" name="jobLocation" id="exampleRadios1" value="work" checked>
+                            <label class="form-check-label" for="exampleRadios1">Práce vykonávaná na pravidelném pracovišti</label>
+                        </div>
+                        <div class="mt-3 show-content__content">
+                            <div class="form-group">
+                                <label for="exampleInputName" class="form-label">Stát*</label>
+                                <select class="form-control" data-selectric required>
+                                    <option value="1">Česká Republika</option>
+                                    <option value="2">Slovenská Republika</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                {% include "components/autocompleteInput.twig" with {type:"search", "preview":false, id:"autocomplete3", name: "Adresa/Lokalita*", placeholder: "Adresa, Ulice, Obec, Město, Okres, Kraj", dataset: "lorem.json"} %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios2" value="home">
+                        <label class="form-check-label" for="exampleRadios2">Práce nevyžaduje návštěvu pracoviště (např. Práce doma)</label>
+                    </div>
+                    <section class="travel-input__wrapper">
+                        <div class="mb-3">
+                            <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios3" value="remote">
+                            <label class="form-check-label" for="exampleRadios3">Práce vyžaduje cestování (např. Řidič, Obchodní zástupce)</label>
+                        </div>
+                        <div class="travel-input__content hidden">
+                            {% include "components/autocompleteInput.twig" with {type:"tag","preview":true, id:"autocomplete4",name: "Lokalita/y*", placeholder: "+ Okres, Kraj, Země", dataset: "lorem.json"} %}
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Popis pozice"}  %}
+                <div class="bg-white p-3">
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Pracovní poměr"}  %}
+                {% set work = ["Plný úvazek", "Zkrácený úvazek", "Živnostenský list", "Brigáda", "Stáž"] %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        {% for item in work %}
+                            <div class="col-sm-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="work{{ loop.index }}">
+                                    <label class="form-check-label" for="work{{ loop.index }}">
+                                        {{item}}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                {% include "components/sectionTitle.twig"  with { title: "Práce je vhodná i pro"}  %}
+                {% set qualification = ["Osoby bez praxe", "Absolventy SŠ", "Absolventy VŠ", "Studenty", "Důchodce", "Osoby na mateřské dovolené"] %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        {% for item in qualification %}
+                            <div class="col-sm-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck{{ loop.index }}">
+                                    <label class="form-check-label" for="defaultCheck{{ loop.index }}">
+                                        {{item}}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Práci mohou vykonávat i OZP"}  %}
+                <div class="bg-white p-3">
+                    <div class="form-group">
+                        <select class="form-control" data-selectric required>
+                            <option value="1">Ne</option>
+                            <option value="2">Ano</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                {% include "components/sectionTitle.twig"  with { title: "Nástup možnný od"}  %}
+                <div class="bg-white p-3">
+                    <div class="form-group">
+                        <input type="date" class="form-control" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Požadované vzdělání uchazeče"}  %}
+                {% set school = ["Nazáleží", "Základní", "Odborné s výučním listem", "Odborné s maturitou", "Středoškolské s maturitou", "Vyšší odborné studium", "Bakalářské", "Vysokoškolské", "Doktorandské"] %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        {% for item in school %}
+                            <div class="col-sm-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="school{{ loop.index }}">
+                                    <label class="form-check-label" for="school{{ loop.index }}">
+                                        {{item}}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Jazykové znalosti uchazeče"}  %}
+                <div class="bg-white p-3">
+                    <label for="exampleInputName" class="form-label">Čeština nutností*</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" data-selectric required>
+                                    <option value="1">Ano</option>
+                                    <option value="2">Ne</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" data-selectric required>
+                                    <option value="1">Rodilý mluvčí</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr class="mx-minus-3">
+
+                    <label for="exampleInputName" class="form-label">Vyberte cizí jazyk</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control" required>
+                                    <option value="1">Vyberte úroveň</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control disabled" disabled required>
+                                    <option value="1">Vyberte úroveň</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Požadované vzdělání uchazeče"}  %}
+                {% set licence = ["A", "B", "BE", "C", "CE", "D", "E", "T"] %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        {% for item in licence %}
+                            <div class="col-sm-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="licence{{ loop.index }}">
+                                    <label class="form-check-label" for="licence{{ loop.index }}">
+                                        {{item}}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Počítačové znalosti uchazeče"}  %}
+                {% set computer = ["Interner", "MS Word", "MS Excel", "Interner", "MS Word", "MS Excel", "Interner", "MS Word", "MS Excel"] %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        {% for item in computer %}
+                            <div class="col-sm-6 col-md-4 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="computer{{ loop.index }}">
+                                    <label class="form-check-label" for="computer{{ loop.index }}">
+                                        {{item}}
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete5",name: "Další počitačové znalosti*", placeholder: "+ PHP, C#, Java, HTML", dataset: "lorem.json"} %}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Další znalosti uchazeče"}  %}
+                <div class="bg-white p-3">
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti*", placeholder: "+ Strojopis, Mzdové účetníctví", dataset: "lorem.json"} %}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Nabízená mzda"}  %}
+                <div class="bg-white p-3">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputName" class="form-label">Mzda od*</label>
+                                <input type="text" class="form-control" id="exampleInputName"  value="20000" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputName" class="form-label">Mzda do*</label>
+                                <input type="text" class="form-control" id="exampleInputName"  value="40000" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Měna</label>
+                                <select class="form-control" required>
+                                    <option value="1">CZK</option>
+                                    <option value="2">EUR</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Za období</label>
+                                <select class="form-control" required>
+                                    <option value="1">Měšíčně</option>
+                                    <option value="2">Denně</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="payment">
+                        <label class="form-check-label" for="payment">
+                            Skrýt mzdu v inzerátu
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Nabízené benefity" }%}
+                <div class="bg-white p-3">
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete7", name: "Benefity",placeholder: "+ např. Závodní stravování", dataset: "lorem.json"} %}
+                </div>
+            </div>
+
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Kontakt"}  %}
+                <div class="bg-white p-3">
+                    <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
+                    <div class="form-group">
+                        <select class="form-control" required>
+                            <option value="1"><faker-name-firstName/> <faker-name-lastName/></option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="form-label">Kontaktní email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<faker-internet-email/>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="contactPhone" class="form-label">Kontaktní telefon</label>
+                                <input type="texst" class="form-control" id="contactPhone" value="777 100 332" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="sidlo">
+                                <label class="form-check-label" for="sidlo">Zobrazit v inzerátu sídlo firmy</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-check pl-3">
+                                <input type="checkbox" class="form-check-input" id="telefon">
+                                <label class="form-check-label" for="telefon">Zobrazit v inzerátu telefon</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Inzerovat v" }%}
+                <div class="bg-white p-3">
+                    <div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
+                        <div>Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small></div>
+                        <label class="switch">
+                            <input type="checkbox" class="switch__state">
+                            <span class="switch__toggle"></span>
+                        </label>
+                    </div>
+                    <hr class="mx-minus-3">
+                    <div class="switch__wrapper d-flex justify-content-between  align-items-center">
+                        <div>Inzerovat na Slovensku <small class="text-muted">(Actijobs.sk)</small></div>
+                        <label class="switch">
+                            <input type="checkbox" class="switch__state">
+                            <span class="switch__toggle"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                {% set memberClass = ["Bronze", "Silver", "Gold", "Platinum"] %}
+                {% include "components/sectionTitle.twig"  with { title: "Možnost zvýhodnění*"}  %}
+                {% for class in memberClass %}
+                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between{% if not loop.last %} border-b{% endif %} {% if loop.first%}custom-radio__wrapper--checked{% endif%}">
+                        <div>
+                            <div class="custom-radio">
+                                <input class="form-check-input" type="radio" name="classes" id="class{{ loop.index }}" value="option1" {% if loop.first %}checked{% endif %}>
+                                <label class="form-check-label font-weight-bold" for="class{{ loop.index }}">{{class}}</label>
+                            </div>
+                            <ul>
+
+                                {%for i in 0..loop.index %}
+                                    <li><faker-lorem-sentence/></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
+                            <label for="class{{ loop.index }}" class="text-right">
+                                {% if loop.index > 1 %}
+                                    <strong class="display-6">{{ loop.index }} 999 AB</strong>
+                                    <p>*1000 Kč</p>
+                                {% else %}
+                                    <strong class="display-6">Zdarma</strong>
+                                    <p>(v rámci ročního členství</p>
+                                {% endif %}
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+                <small class="text-muted d-block  mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+            </div>
+
+
+            <div class="row justify-content-center mb-3 mb-sm-5">
+                <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+                    <button class="btn btn-secondary w-100">
+                        <span class="icon icon-search mr-2"></span>
+                        Náhled
+                    </button>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+                    <button class="btn btn-secondary w-100">
+                        <span class="icon icon-arrow-down-point mr-2"></span>
+                        Uložit do konceptů
+                    </button>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <button class="btn btn-success w-100">
+                        <span class="icon icon-toggle-on mr-2"></span>
+                        Inzerovat
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

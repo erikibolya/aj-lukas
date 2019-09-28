@@ -1,0 +1,17 @@
+.svgicon{
+    width: 1.25rem;
+    height: 1.25rem;
+    display: block;
+    @at-root .choices__item__ico &{
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+.svgicon__path{
+    fill: $brand-success;
+
+    @at-root .choices__item__ico &{
+        fill: $brand-text;
+    }
+}

@@ -1,0 +1,70 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Registrace uživatele{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+
+
+			{% include "components/sectionTitle.twig"  with { title: "Registrace uživatele", center: true}  %}
+
+			<div class="bg-white p-3 py-sm-5">
+
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6">
+						<form>
+							<fieldset disabled>
+								<div class="form-group">
+									<label for="exampleInputEmail1" class="form-label">Váš e-mail*</label>
+									<input type="email" value="<faker-internet-email/>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+								</div>
+							</fieldset>
+
+							<div class="form-group">
+								<label for="exampleInputPassword2" class="form-label">Heslo *</label>
+								<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+								<small id="passwordHelpBlock" class="form-text text-muted">
+									Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+								</small>
+							</div>
+
+							<div class="form-group is-invalid">
+								<label for="exampleInputPassword3" class="form-label">Heslo znovu*</label>
+								<input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" required>
+								<div class="invalid-feedback">
+									Heslo neobsahuje .......
+								</div>
+							</div>
+							<small id="passwordHelpBlock" class="form-text text-muted">
+								<faker-lorem-paragraph/>
+							</small>
+
+							<div class="form-check mt-3">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+								<label class="form-check-label" for="defaultCheck1">
+									<faker-lorem-sentence/>
+									<a href="{{ linkBusinessConditions }}">Více zde</a>
+								</label>
+							</div>
+
+
+							<div class="form-check mt-3 is-invalid">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+								<label class="form-check-label" for="defaultCheck2">
+									<faker-lorem-sentence/>
+									<a href="{{ linkBusinessConditions }}">Více zde</a>
+								</label>
+								<div class="invalid-feedback">
+									Musíte souhlasit s bla bla bla
+								</div>
+							</div>
+							<div class="mt-3">
+									<a href="#" class="btn btn-success w-100">Dokončit registraci</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

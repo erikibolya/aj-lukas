@@ -1,0 +1,21 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Registrace uživatele{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+
+			{% include "components/sectionTitle.twig"  with { title: "Registrace uživatele", center: true}  %}
+
+			<div class="bg-white p-3 py-sm-5 text-center">
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6 text-center">
+						<p>Pro dokončení registrace klikněte na odkaz, který jsme Vám zaslali na Váš email.</p>
+						<p class="text-info font-weight-bold"><faker-internet-email/></p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

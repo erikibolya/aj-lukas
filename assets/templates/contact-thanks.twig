@@ -1,0 +1,23 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Kontakt{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-5">
+
+			{% include "components/sectionTitle.twig"  with { title: "Kontaktujte nás", center: true}  %}
+
+			<div class="bg-white p-3 py-sm-5 text-center">
+				<p class="text-success">Vaše zpráva byla úspěšně odeslána</p>
+				<p>
+					<a href="{{ linkContact }}">Napsat další zprávu</a>
+				</p>
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6">
+						<a href="{{ linkRegistrationCompany }}" class="btn btn-success w-100">Pokračovat</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

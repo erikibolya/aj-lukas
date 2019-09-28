@@ -1,0 +1,39 @@
+
+.popup-open{
+    height: 100vh;
+}
+
+.popup{
+    height: 100%;
+    background-color: brown; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+
+    &--show{
+        display: block;
+        & ~ *{
+            display: none !important;
+        }
+    }
+    &--hide{
+        display: none;
+    }
+}
+
+.popup__content{
+    flex-grow: 1;
+    max-height: 200px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.popup__header{
+    flex-shrink: 0;
+    height: 2rem;
+}
+
+.popup__footer{
+    height: 2rem;
+}

@@ -1,0 +1,20 @@
+{% extends "layout/layout-saved-offers.twig" %}
+{% block title %}Uložené nabídky{% endblock %}
+{% block body %}
+
+	<div class="container pb-3">
+		<div class="section py-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Uložené nabídky</li>
+				</ol>
+			</nav>
+			{% include "lists/offersList.twig" with {offerSaved: true} %}
+		</div>
+		{% include "components/pagination.twig" %}
+	</div>
+
+
+
+{% endblock %}

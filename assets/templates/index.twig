@@ -1,0 +1,28 @@
+{% extends "layout/layout-not-logged.twig" %}
+{% block title %}Index{% endblock %}
+{% block body %}
+    {% include "components/searchBox.twig" %}
+
+    <div class="container">
+        <div class="bg-white p-3 mb-3">
+            {% include "components/historyBlock.twig" %}
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="section py-3">
+            {% include "components/sectionTitle.twig" with {title: "Vybrané nabídky", className: "mb-3"} %}
+            {% include "lists/offersList.twig" with {hotOfferTop: true} %}
+        </div>
+        <div class="text-center mb-5">
+            <a href="{{ linkOffers }}" class="btn btn-success btn-bottom">Zobrazit všechny nabídky</a>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block footerScripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="public/js/plugins/tagsinput.js"></script>
+{% endblock %}

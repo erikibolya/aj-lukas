@@ -1,0 +1,52 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Můj ůčet{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			<div class="bg-white mb-3">
+				<div class="d-flex justify-content-between">
+					<ul class="hidden-md-down navbar--offers-top navbar-nav w-100 flex-sm-row mr-sm-1">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Aktivní</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Koncepty</a>
+						</li>
+						<li class="nav-item disabled">
+							<span class="nav-link" href="#">Ukončené</span>
+						</li>
+					</ul>
+					<nav class="hidden-lg-up w-100 mr-2 navbar--offers-top">
+						<select class="form-control  w-100" data-role="responsive-select">
+							<option value="#">Aktivní</option>
+							<option value="#">Koncepty</option>
+							<option value="#">Ukončené</option>
+						</select>
+					</nav>
+
+					<a href="" class="btn btn-info d-inline-flex align-items-center"><span class="icon icon-plus"></span><span class="hidden-xs-down ml-2">Přidat nabídku</span></a>
+				</div>
+			</div>
+
+			<div class="bg-light p-3 mb-3">
+				<div class="row">
+					<div class="col-lg-7">
+						{% include "components/autocompleteInput.twig" with {type:"search", autocompleteLabel: "Pozice / Místo"} %}
+					</div>
+					<div class="col-lg-5">
+						<div class="form-group">
+							<label for="exampleInputName" class="form-label">Kontaktní osoba</label>
+							<select class="form-control" required>
+								<option value="1">Vše</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% include "lists/backOffersList.twig" %}
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Nákup Actibonů{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="section py-3 mb-5">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkHomepage }}">Můj účet</a></li>
+					<li class="breadcrumb-item"><a href="{{ linkHomepage }}">Peneženka</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Nákup Actibonů</li>
+				</ol>
+			</nav>
+
+			<div class="mb-4">
+				{% include "components/sectionTitle.twig"  with { title: "ActiBony"} %}
+				<div class="bg-white p-3 border-b text-center text-info">
+					<faker-lorem-sentence/>
+				</div>
+				{% for i in 0..5 %}
+					<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
+						<div class="custom-radio mr-3">
+							<input class="form-check-input" type="radio" name="optradio-ab" id="optradio-ab{{ loop.index }}"
+							       value="option1">
+							<label class="form-check-label" for="optradio-ab{{ loop.index }}">{{ loop.index }}000
+								AB {% if loop.last %}
+									<div class="text-info">-45% sleva</div>{% endif %}</label>
+						</div>
+						<div class="custom-radio__indicator text-right">
+							<faker-commerce-price/>
+							Kč
+							{% if loop.last %}
+								<div class="text-muted text-s">
+									<del>
+										<faker-commerce-price/>
+										Kč
+									</del>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="mb-4">
+				{% include "components/sectionTitle.twig"  with { title: "Souhrn"} %}
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<strong>50 000 ActiBonů</strong>
+					<div class="text-right">
+						<faker-commerce-price/>
+						Kč
+					</div>
+				</div>
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<div>Cena bez DPH</div>
+					<div class="text-right">
+						<faker-commerce-price/>
+						Kč
+					</div>
+				</div>
+				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+					<div>DPH 21%</div>
+					<div class="text-right">
+						<faker-commerce-price/>
+						Kč
+					</div>
+				</div>
+				<div class="bg-white p-3 d-sm-flex justify-content-between font-weight-bold text-success">
+					<strong>Cena celkem</strong>
+					<div class="text-right">
+						<faker-commerce-price/>
+						Kč
+					</div>
+				</div>
+			</div>
+
+			{% set paymentMethods = ["Platební kartou", "Komerční banka (online převod)",  "ČSOB (online převod)",  "FIO (online převod)",  "Česká spořitelna (online převod)"] %}
+			<div class="mb-4">
+				{% include "components/sectionTitle.twig"  with { title: "Platební metody"} %}
+				{% for method in paymentMethods %}
+					<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
+						<div class="custom-radio mr-3">
+							<input class="form-check-input" type="radio" name="optradioPay" id="optradioPay{{ loop.index }}"
+							       value="option1">
+							<label class="form-check-label" for="optradioPay{{ loop.index }}">{{ method }}</label>
+						</div>
+						<div class="custom-radio__indicator text-right">ihned</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="text-center">
+				<a href="#" class="btn btn-success btn-bottom">Objednat a zaplatit</a>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}

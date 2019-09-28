@@ -1,0 +1,234 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Vyskakovací okna {% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			{% include "components/sectionTitle.twig"  with { title: "Vyskakovací okna"}  %}
+
+			<div class="bg-white p-3 py-sm-5">
+
+			  {#	Oblíbené nabídky start #}
+				{% embed "components/modal.twig" with {modalName: "Oblíbené nabídky", modalId: "no1"}%}
+					{% block modalBody %}
+						<p class="text-center">
+							Pro přidání do oblíbených se prosím přihlaste
+						</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="{{ linkLogin }}" class="btn btn-primary w-100">Přihlásit se</a></div>
+							<div class="col-sm-6 "><a href="{{ linkRegistration }}" class="btn btn-success w-100">Registrovat</a></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Oblíbené nabídky end #}
+
+				{#	Smazaní agenta start #}
+				{% embed "components/modal.twig" with {modalName: "Smazání ActiAgenta", modalId: "no2"}%}
+					{% block modalBody %}
+						<p class="text-center">
+							Opravdu si přejete smazat ActiAgenta
+						</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="#" class="btn btn-primary w-100">Ano</a></div>
+							<div class="col-sm-6"><button data-dismiss="modal" aria-label="Close" class="btn btn-success w-100 ">Ne</button></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Smazaní agenta end #}
+
+
+				{#	Uložit agenta start #}
+				{% embed "components/modal.twig" with {modalName: "Uložit ActiAgenta", modalId: "no3"}%}
+					{% block modalBody %}
+						<p class="text-center">Opravdu si přejete uložit ActiAgenta</p>
+						<p class="text-muted text-center">Agenta najdete na stránce "Home" nebo v "Můj účet</p>
+						<hr>
+						<div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
+							<div>Zasílat upozorněni na e-mail</div>
+							<label class="switch">
+								<input type="checkbox" class="switch__state">
+								<span class="switch__toggle"></span>
+							</label>
+						</div>
+						<hr>
+						<div class="switch__wrapper d-flex justify-content-between align-items-center">
+							<div>Zobrazovat oznámení v tomto zařízení</div>
+							<label class="switch">
+								<input type="checkbox" class="switch__state">
+								<span class="switch__toggle"></span>
+							</label>
+						</div>
+
+						<hr class="mb-0">
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="#" class="btn btn-primary w-100">Ano</a></div>
+							<div class="col-sm-6"><button data-dismiss="modal" aria-label="Close" class="btn btn-success w-100 ">Ne</button></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Uložit agenta end #}
+
+				{# Agent start #}
+				{% embed "components/modal.twig" with {modalName: "ActiAgent", modalId: "no4"}%}
+					{% block modalBody %}
+						<hr class="mt-0">
+						<div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
+							<div>Zasílat upozorněni na e-mail</div>
+							<label class="switch">
+								<input type="checkbox" class="switch__state">
+								<span class="switch__toggle"></span>
+							</label>
+						</div>
+						<hr>
+						<div class="switch__wrapper d-flex justify-content-between align-items-center">
+							<div>Zobrazovat oznámení v tomto zařízení</div>
+							<label class="switch">
+								<input type="checkbox" class="switch__state">
+								<span class="switch__toggle"></span>
+							</label>
+						</div>
+						<hr class="mb-0">
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="{{ linkRegistration }}" class="btn btn-primary w-100">Smazat Agenta</a></div>
+							<div class="col-sm-6"><a href="{{ linkLogin }}" class="btn btn-success w-100 ">Ponechat Agenta</a></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Agent end #}
+
+				{#	Agent 2 start #}
+				{% embed "components/modal.twig" with {modalName: "ActiAgent 2", modalId: "no5"}%}
+					{% block modalBody %}
+						<p class="text-center">
+							Pro ukládání ActiAgentů se prosím přihlaste
+						</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="{{ linkLogin }}" class="btn btn-primary w-100">Přihlásit se</a></div>
+							<div class="col-sm-6 "><a href="{{ linkRegistration }}" class="btn btn-success w-100">Registrovat</a></div>
+						</div>
+						<p class="text-center my-3 text-muted">nebo si nechte nabídky pouze zasílat na Váš email</p>
+
+						<button class="btn btn-secondary w-100">Zadat e-mail</button>
+					{% endblock %}
+				{% endembed %}
+				{#	Agent 2 end #}
+
+				{#	Zasílání nabídek e-mailem  start #}
+				{% embed "components/modal.twig" with {modalName: "Zasílání nabídek e-mailem", modalId: "no6"}%}
+					{% block modalBody %}
+						<p class="text-center">
+							Pokud si přejete zasílat nabídky z tohoto hledání, zadejte Váš email
+						</p>
+						<div class="form-group mb-0">
+							<label for="exampleInputEmail1" class="form-label">Emailová adresa</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Emailová adresa">
+							<small id="emailHelp" class="form-text text-muted">
+								Za účelem zasílání pracovních nabídek, bude provozovatel ActiJobs.cz uchovávat Vámi zadaný email.
+								<a href="#">Zobrazit více</a>. <a href="{{ linkConditions }}">Podmínky užívání</a>
+							</small>
+						</div>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="d-flex justify-content-between w-100">
+							<a href="{{ linkLogin }}" class="btn btn-success w-100">Chci odebírat nabídky emailem</a>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Zasílání nabídek e-mailem end #}
+
+				{#	Odpověď start #}
+				{% embed "components/modal.twig" with {modalName: "Odpověď", modalId: "no7"}%}
+					{% block modalBody %}
+						<p class="text-center">Úspěšně jste odpověděli na inzerát</p>
+						<p class="text-muted text-center">Vaši odpověď jsme předali personalistům Auto Esa</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="text-center">
+							<button type="button" class="btn btn-success w-50" data-dismiss="modal" aria-label="Close">OK</button>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Odpověď end #}
+
+				{#	Zrušení souhlasu start #}
+				{% embed "components/modal.twig" with {modalName: "Zrušení souhlasu", modalId: "no8"}%}
+					{% block modalBody %}
+						<p class="text-center">Pokud zrušíte tento souhlas, budeme Vám muset zrušit účet</p>
+						<p class="text-center">Opravdu si přejete přejít ke zrušení účtu</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="#" class="btn btn-primary w-100">Ano</a></div>
+							<div class="col-sm-6"><button data-dismiss="modal" aria-label="Close" class="btn btn-success w-100 ">Ne</button></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Zrušení souhlasu end #}
+
+
+				{#	Zrušení účtu start #}
+				{% embed "components/modal.twig" with {modalName: "Zrušení účtu", modalId: "no9"}%}
+					{% block modalBody %}
+						<div class="text-center">
+							<p>Opravdu si přejete zrušit účet uchazeče</p>
+							<strong class="text-info"><faker-internet-email/></strong>
+						</div>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="#" class="btn btn-primary w-100">Ano</a></div>
+							<div class="col-sm-6"><button data-dismiss="modal" aria-label="Close" class="btn btn-success w-100 ">Ne</button></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Zrušení účtu end #}
+
+				{#	Zrušení účtu 2start #}
+				{% embed "components/modal.twig" with {modalName: "Zrušení účtu 2", modalId: "no10"}%}
+					{% block modalBody %}
+						<p class="text-center">Účet uchazeče byl zrušen a data vymazána</p>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="text-center">
+							<button type="button" class="btn btn-success w-50" data-dismiss="modal" aria-label="Close">OK</button>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Zrušení účtu 2 end #}
+
+				{#	Smazání odpovědi start #}
+				{% embed "components/modal.twig" with {modalName: "Smazání odpovědi", modalId: "n11"}%}
+					{% block modalBody %}
+						<div class="text-center">
+							<p>Opravdu si přejete smazat odpověď k této nabídce</p>
+						</div>
+					{% endblock %}
+					{% block modalFooter %}
+						<div class="row">
+							<div class="col-sm-6 mb-2 mb-sm-0"><a href="#" class="btn btn-primary w-100">Ano</a></div>
+							<div class="col-sm-6"><button data-dismiss="modal" aria-label="Close" class="btn btn-success w-100 ">Ne</button></div>
+						</div>
+					{% endblock %}
+				{% endembed %}
+				{#	Smazání odpovědi end #}
+
+
+
+
+
+
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

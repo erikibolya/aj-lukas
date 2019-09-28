@@ -1,0 +1,73 @@
+<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+	<span class="link-box__title"><faker-name-jobTitle/></span>
+</a>
+<div class="bg-white p-3 border-b">
+	<div class="icon-list">
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+			<div class="icon-list__info-col">Místo pracoviště</div>
+			<div class="icon-list__text-col"><faker-address-city/></div>
+		</div>
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
+			<div class="icon-list__info-col">Zobrazeno</div>
+			<div class="icon-list__text-col">22x</div>
+		</div>
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-edit"></span></div>
+			<div class="icon-list__info-col">Odpovědi</div>
+			<div class="icon-list__text-col"><a href="{{ linkBackAnswers }}">2x</a></div>
+		</div>
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-graph"></span></div>
+			<div class="icon-list__info-col">Typ inzerce</div>
+			<div class="icon-list__text-col">Brozne (ČR)
+				<a href="{{ linkBackUpgradeOffer }}" class="text-info pl-3 link-icon">
+					<span class="icon icon-arrow-up-point"></span>
+					<span class="px-1 link-icon__text">	Zvýhodnit</span>
+					<span class="icon icon-arrow-up-point"></span>
+				</a></div>
+		</div>
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
+			<div class="icon-list__info-col">Aktivní do</div>
+			<div class="icon-list__text-col">{% include "../components/randomDate.twig" with {hours: true}  %}</div>
+		</div>
+		<div class="icon-list__row">
+			<div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
+			<div class="icon-list__info-col">Sdílení</div>
+			<div class="icon-list__text-col">
+				<a href="" class="btn btn-facebook btn-sm mr-3"><span class="icon icon-facebook mr-2"></span>Sdílet na Facebooku</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="bg-white p-3 mb-4">
+	<div class="row justify-content-center">
+		<div class="col-4 col-sm-2 col-lg-3">
+			<button class="btn btn-secondary w-100 mb-3 mb-sm-0">
+				<span class="icon icon-cross"></span>
+				<span class="hidden-md-down ml-2">Smazat</span>
+			</button>
+		</div>
+		<div class="col-4 col-sm-2 col-lg-3">
+			<button class="btn btn-secondary w-100 mb-3 mb-sm-0">
+				<span class="icon icon-toggle-off"></span>
+				<span class="hidden-md-down ml-2">Ukončit inzerci</span>
+			</button>
+		</div>
+		<div class="col-4 col-sm-2 col-lg-3">
+			<button class="btn btn-secondary w-100 mb-3 mb-sm-0">
+				<span class="icon icon-edit"></span>
+				<span class="hidden-md-down ml-2">Upravit</span>
+			</button>
+		</div>
+		<div class="col-sm-6 col-lg-3">
+			<button class="btn btn-success w-100">
+				<span class="icon icon-search"></span>
+				<span class="ml-2">Upravit</span>
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+{% extends "layout/layout-lite.twig" %}
+{% block title %}Údaje společnosti{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3 mb-sm-5">
+			{% include "components/sectionTitle.twig"  with { title: "Údaje společnosti", center: true}  %}
+			<div class="bg-white p-3 py-sm-5">
+				<form>
+					<div class="row justify-content-center">
+						<div class="col-sm-10 col-md-8 col-lg-6">
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">IČO*</label>
+								<input type="text" class="form-control" id="exampleInputName"  placeholder="" required>
+							</div>
+							<a href="{{ linkRegistrationCompany2 }}" class="btn btn-success w-100">Pokračovat</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

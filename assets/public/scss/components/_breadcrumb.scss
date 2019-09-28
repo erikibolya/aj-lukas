@@ -1,0 +1,10 @@
+.breadcrumb {
+
+	.active {
+		font-weight: bold;
+	}
+
+	.breadcrumb-item:before {
+		font-weight: normal;
+	}
+}

@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
+
+// 2. Vendors
+@import
+'vendor/bootstrap-customizer',
+'vendor/tagsinput',
+'vendor/selectric',
+'vendor/flag-icons';
+// 'vendor/bootstrap-select';
+
+
+// 3. Base stuff
+@import
+'base/base',
+'base/fonts',
+'base/typography',
+'base/helpers',
+'base/icon-font';
+
+// 4. Layout-related sections
+@import
+'layout/header',
+'layout/sections',
+'layout/footer';
+
+// 5. Components
+@import 
+'components/agent',
+'components/box',
+'components/alert',
+'components/breadcrumb',
+'components/card',
+'components/dropdown',
+'components/navbar',
+'components/icon-list',
+'components/link',
+'components/offer',
+'components/modal',
+'components/form',
+'components/search-box',
+'components/button',
+'components/autocomplete',
+'components/svgicon',
+'components/popup',
+'components/choices';
+
+
+// 6. Page-specific styles
+@import
+'pages/home';
+
+// 7. Themes
+@import
+'themes/default';

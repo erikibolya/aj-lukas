@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.nav-footer  {
+
+	.nav-link {
+
+		&:hover {
+			text-decoration: underline;
+			color: $brand-primary;
+		}
+	}
+}
+

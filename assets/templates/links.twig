@@ -1,0 +1,16 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Icons{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="p-5 bg-white">
+
+			{% for link in links %}
+				<div><a href="{{ link }}">{{ link }}</a></div>
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock %}
+
+
+

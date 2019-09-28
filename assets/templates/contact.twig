@@ -1,0 +1,53 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Kontakt{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3  mb-5">
+
+			{% include "components/sectionTitle.twig"  with { title: "Kontaktujte nás", center: true}  %}
+
+			<div class="bg-white p-3 py-sm-5">
+				<div class="row justify-content-center">
+					<div class="col-sm-10 col-md-8 col-lg-6">
+						<form>
+							<div class="form-group">
+								<label for="exampleInputName" class="form-label">Vaše jméno*</label>
+								<input type="text" class="form-control" id="exampleInputName"  placeholder="Vaše jméno" required>
+							</div>
+
+							<fieldset disabled>
+								<div class="form-group">
+									<label for="exampleInputEmail1" class="form-label">Váš e-mail*</label>
+									<input type="email" value="jmeno@email.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+								</div>
+							</fieldset>
+
+							<div class="form-group">
+								<label for="exampleInputEmail2" class="form-label">Váš e-mail*</label>
+								<input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email" required>
+							</div>
+
+							<div class="form-group">
+								<label class="form-label">Téma*</label>
+								<select class="form-control" id="exampleFormControlSelect1">
+									<option><faker-lorem-words/></option>
+									<option><faker-lorem-words/></option>
+									<option><faker-lorem-words/></option>
+									<option><faker-lorem-words/></option>
+									<option><faker-lorem-words/></option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1" class="font-weight-bold">Example textarea</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+							</div>
+							<a href="{{ linkRegistrationCompany }}" class="btn btn-success w-100">Objednat a zaplatit</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

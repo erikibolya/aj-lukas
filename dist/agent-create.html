@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="public/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext"
+      rel="stylesheet">
+
+
+
+        <title>Nový agent - ActiJobs</title>
+    </head>
+    <body>
+                        <div class="site">
+            <header class="header">
+	<div class="bg-white">
+		<div class="container d-flex  justify-content-between align-items-center">
+			<a href="/" class="header__logo d-block">
+				<img src="./public/svg/images/logo.svg" 
+				     alt="Logo">
+			</a>
+			<div class="d-flex  justify-content-between">
+				<div class="btn-group">
+											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
+							<span class="btn-circle__label">someUsername</span>
+						</a>
+					
+					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
+						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
+					</div>
+				</div>
+								<div class="btn-group">
+					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
+						<span class="btn-circle__label">Čěština</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
+						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
+						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
+					</div>
+				</div>
+			</div>
+		</div>
+					<div class="bg-light">
+	<div class="container">
+		<nav class="menu">
+			<button type="buttom" class="menu__toggler">
+				<span class="menu-icon"></span>
+				<span>Nabídky</span>
+			</button>
+			<a href="/saved-offers.html" class="menu__extra-button">
+				<span class="icon icon-star-fill mr-2"></span><span
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(32)
+			</a>
+			<ul class="menu__list">
+				<li class="menu__item">
+					<a class="menu__link menu__link--active"
+					   href="/">Home</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link"
+					   href="/offers.html">Nabídky</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="back-answers.html">Odpovědi</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/">Pro Uchazeče</a>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+			</div>
+</header>
+            <div class="site__content">
+            
+    <div class="container">
+        <div class="section py-3 mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/my-account.html">Můj účet</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Nový agent</li>
+                </ol>
+            </nav>
+            <div class="bg-white p-3 border-b text-info text-center">
+                Nastavte si kriteria... Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </div>
+            <div class="bg-white p-3 pb-sm-5">
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8 col-lg-6">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Hledání práce</label>
+                                <input class="form-control" id="jobsAutocomplete" type="text" placeholder="Doprava, obchod, kuchař..">
+                            </div>
+                            <div class="mb-3">
+                                    <div class="form-group">
+        <label for="" class="form-label"></label>
+        <div class="autocomplete autocomplete--search ">
+        <div class="autocomplete__header">
+            <h5 class="autocomplete__title" id="exampleModalLabel"></h5>
+            <button type="button" class="autocomplete__button" data-autocomplete-close>
+                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+                </svg>
+            </button>
+        </div>
+                    <input autocomplete="none" type="text"  class="autocomplete__input" 
+                   id=""
+                   data-placeholder=""
+                   data-dataset="">
+        
+    </div>
+        </div>
+
+
+
+                            </div>
+                            
+                                                            <div class="mb-3">
+                                    <label class="form-label">Pracovní poměr</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                                                                    <option>
+                                                Nezáleží
+                                            </option>
+                                                                                    <option>
+                                                Plný úvazek
+                                            </option>
+                                                                                    <option>
+                                                Zkrácený úvazek
+                                            </option>
+                                                                                    <option>
+                                                IČO/Živnostenský list
+                                            </option>
+                                                                                    <option>
+                                                Dohoda (brigáda)
+                                            </option>
+                                                                                    <option>
+                                                Intership/Stáž
+                                            </option>
+                                                                            </select>
+                                </div>
+                                                            <div class="mb-3">
+                                    <label class="form-label">Plat</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                                                                    <option>
+                                                Nezáleží
+                                            </option>
+                                                                                    <option>
+                                                od 10 000 Kč
+                                            </option>
+                                                                                    <option>
+                                                od 15 000 Kč
+                                            </option>
+                                                                                    <option>
+                                                od 20 000 Kč
+                                            </option>
+                                                                                    <option>
+                                                od 25 000 Kč
+                                            </option>
+                                                                                    <option>
+                                                od 30 000 Kč
+                                            </option>
+                                                                                    <option>
+                                                od 50 000 Kč
+                                            </option>
+                                                                            </select>
+                                </div>
+                                                            <div class="mb-3">
+                                    <label class="form-label">Vzdělání</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                                                                    <option>
+                                                Nezáleží
+                                            </option>
+                                                                                    <option>
+                                                Základní
+                                            </option>
+                                                                                    <option>
+                                                Odborné vyučení s výčním listem
+                                            </option>
+                                                                                    <option>
+                                                Odborné vyučení s maturitou
+                                            </option>
+                                                                                    <option>
+                                                Středoškolské s maturitou
+                                            </option>
+                                                                                    <option>
+                                                Vyšší odborné
+                                            </option>
+                                                                                    <option>
+                                                Bakalářské
+                                            </option>
+                                                                                    <option>
+                                                Vysokoškolské/Univerzitní
+                                            </option>
+                                                                                    <option>
+                                                Dokorantské
+                                            </option>
+                                                                            </select>
+                                </div>
+                                                            <div class="mb-3">
+                                    <label class="form-label">Vhodné pro</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                                                                    <option>
+                                                Nezáleží
+                                            </option>
+                                                                                    <option>
+                                                Osoby bez praxe
+                                            </option>
+                                                                                    <option>
+                                                Absolventy SŠ
+                                            </option>
+                                                                                    <option>
+                                                Absolventy VŠ
+                                            </option>
+                                                                                    <option>
+                                                Studenty
+                                            </option>
+                                                                                    <option>
+                                                Důchodce
+                                            </option>
+                                                                                    <option>
+                                                Osoby na rodičovské dovolené
+                                            </option>
+                                                                            </select>
+                                </div>
+                                                            <div class="mb-3">
+                                    <label class="form-label">Zadavetel nabídky</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                                                                    <option>
+                                                Nezáleží
+                                            </option>
+                                                                                    <option>
+                                                Zaměstnavatel
+                                            </option>
+                                                                                    <option>
+                                                Personální agentura
+                                            </option>
+                                                                            </select>
+                                </div>
+                                                        <label class="form-label">Upozornění a oznámení</label>
+                            <hr class="mt-0">
+                            <div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
+                                <div>Zasílat upozorněni na e-mail</div>
+                                <label class="switch">
+                                    <input type="checkbox" class="switch__state">
+                                    <span class="switch__toggle"></span>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="switch__wrapper d-flex justify-content-between align-items-center">
+                                <div>Zobrazovat oznámení v tomto zařízení</div>
+                                <label class="switch">
+                                    <input type="checkbox" class="switch__state">
+                                    <span class="switch__toggle"></span>
+                                </label>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-success w-100">Uložit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        	<div class="bg-white">
+		<div class="container p-3 text-center">
+
+			<button type="button" class="btn btn-facebook-white btn-bottom"><span class="icon icon-facebook mr-2"></span>
+				Staňte se naším fanouškem
+			</button>
+
+		</div>
+
+	</div>
+
+	<div class="bg-light border-b">
+		<div class="container p-3 d-flex flex-column flex-sm-row justify-content-sm-between align-items-center">
+			<div class="text-left mb-3 mb-sm-0"><a href="" class="btn btn-success">Pro firmy<span
+									class="icon icon-arrow-right ml-3"></span></a></div>
+			<div class="text-right text-success">"Jednodušše práce"</div>
+		</div>
+	</div>
+
+	<div class="bg-light">
+		<div class="container p-3 d-flex justify-content-center justify-content-sm-start">
+			<ul class="nav nav-footer flex-wrap flex-column text-center flex-sm-row text-sm-left ">
+				<li class="nav-item"><a class="nav-link" href="/login.html">Přihlášení</a></li>
+				<li class="nav-item"><a class="nav-link" href="/registration.html">Registrace</a></li>
+				<li class="nav-item"><a class="nav-link" href="/business-conditions.html">Podmínky užívání</a></li>
+				<li class="nav-item"><a class="nav-link" href="/insert-offer.html">Vložit nabídku</a></li>
+				<li class="nav-item"><a class="nav-link" href="/contact.html">Kontakt</a></li>
+				<li class="nav-item"><a class="nav-link" href="/operator.html">Provozovatel</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">ActiJobs.sk</a></li>
+			</ul>
+		</div>
+	</div>
+
+<div class="py-3 text-center bg-white">
+	<p class="text-muted"><small>&copy; 2019 Actiunit s.r.o.</small></p>
+	<img src="./public/svg/images/logo-actiunit.svg" width="160px">
+</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
+    <script src="public/js/plugins/choices.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/selectric.js"></script>
+    <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
+    <script src="public/js/plugins/custom.js"></script>
+    <script src="public/js/plugins/mobile-detect.js"></script>
+<script src="public/js/template.js"></script>
+</body>
+</html>
+

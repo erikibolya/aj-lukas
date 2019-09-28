@@ -1,0 +1,195 @@
+<div class="section section--bg-decorative section--border-bottom py-3 py-sm-5 mt-3">
+    <div class="container">
+        <div class="hidden-xs-down">
+            <div class="row">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <label class="form-label">Hledaná práce</label>
+                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "Doprava, obchod, kuchař...", dataset: "names.json"} %}
+                </div>
+                <div class="col-lg-6">
+                    <label class="form-label">Kde hledám práci</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="flag-icon flag-icon-cz"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cz mr-2"></span>Česká Republika</a>
+                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-sk mr-2"></span>Slovensko</a>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control input-group-center" placeholder="Obec, město, kraj">
+                        <div class="btn-group">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                +10 km
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                {% for i in 0..6 %}
+                                    <a class="dropdown-item" href="#">+{{ loop.index }}0 km</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+                <div class="row">
+                    {% set extendedFilter = [
+						"Pracovní poměr",
+						"Plat",
+						"Vzdělání",
+						"Vhodné pro",
+						"Stáří inzerátu",
+						"Zadavetel nabídky",
+					] %}
+
+
+                    {% for i in extendedFilter %}
+                        <div class="col-md-6 col-lg-4  mb-3">
+                            <label class="form-label">{{ i }}</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>
+                                <faker-lorem-words/>
+                                </option>
+                                <option>
+                                <faker-lorem-words/>
+                                </option>
+                                <option>
+                                <faker-lorem-words/>
+                                </option>
+                                <option>
+                                <faker-lorem-words/>
+                                </option>
+                                <option>
+                                <faker-lorem-words/>
+                                </option>
+                            </select>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="text-center mt-2 mt-sm-4">
+                <button class="btn btn-link btn-collapse-toggle text-primary" type="button" data-toggle="collapse"
+                        data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                    <span class="icon icon-arrow-down-point mr-2"></span>
+                    Rozšířené hledání
+                    <span class="icon icon-arrow-down-point ml-2"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden-sm-up">
+            <div class="text-center">
+                <p class="font-weight-bold">Vyberte si z 23443 nabídek práce</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success btn-bottom" data-toggle="modal" data-target="#search">
+                    <span class="icon icon-search mr-2"></span>
+                    Hledat práce
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal --> 
+<div class="modal modal--fullscreen modal--fixed-header modal--fixed-footer" id="search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hledat</h5>
+        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+            <span class="icon icon-cross-circle-fill"></span>
+        </button>
+    </div>
+    <div class="modal-custom-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-12 p-0 mb-3">
+                    <label class="form-label">Hledaná práce</label>
+
+                </div>
+                <div class="col-12 p-0  mb-3">
+                    <label class="form-label">Kde hledám práci</label>
+                    <div class="col-12 p-0"> 
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                                Česká republika
+                            </option>
+                            <option>
+                                Slovenská republika
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 p-0 mb-3"> 
+                    {% include "autocompleteInput.twig" with {type:"search",id:"autocomplete1", plain: true, inWindow: true, name: "Kde hledám práci", placeholder: "Obec, Město, Kraj", dataset: "names.json"} %}
+                </div>
+                <div class="col-12 p-0 mb-3">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>
+                            +10 km
+                        </option>
+                        {% for i in 0..6 %}
+                            <option>
+                                +{{ loop.index }}0 km
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% for i in extendedFilter %}
+                    <div class="col-12 mb-3 p-0">
+                        <label class="form-label">{{ i }}</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>
+                            <faker-lorem-words/>
+                            </option>
+                            <option>
+                            <faker-lorem-words/>
+                            </option>
+                            <option>
+                            <faker-lorem-words/>
+                            </option>
+                            <option>
+                            <faker-lorem-words/>
+                            </option>
+                            <option>
+                            <faker-lorem-words/>
+                            </option>
+                        </select>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="offers-2.html" class="btn btn-success w-100">
+            <span class="icon icon-search mr-2"></span>
+            <span class="hidden-sm-down ml-2">Zobrazit</span>150 nabídek
+        </a>
+    </div>
+</div>
+
+<div class="hidden-xs-down">
+    <div class="section bg-light text-center py-3 mb-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-3 col-lg-2">
+                    <a href="#" class="btn btn-info w-100">
+                        <span class="icon icon-agent-fill"></span>
+                        <span class="hidden-sm-down ml-2">ActiAgent</span>
+                    </a>
+                </div>
+                <div class="col-9 col-lg-4">
+                    <a href="offers-2.html" class="btn btn-success w-100">
+                        <span class="icon icon-search mr-2"></span>
+                        <span class="hidden-sm-down ml-2">Zobrazit</span>150nabídek
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

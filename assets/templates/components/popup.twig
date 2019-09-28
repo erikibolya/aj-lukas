@@ -1,0 +1,84 @@
+<form id="popup-{{id}}" class="popup popup--hide">
+    <div class="popup__header">
+        <h5 class="popup__title" id="exampleModalLabel">Hledats</h5>
+        <button type="button" class="popup__button" data-popup-hide data-target="#popup-1">
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
+    </div>
+    <div class="popup__content">
+        <div class="col-12 mb-3">
+            <label class="form-label">Hledaná práce</label>
+            <input type="text" class="autocomplete__input form-control" id="exampleInputName" placeholder="Doprava, obchod, kuchař..">
+        </div>
+        <div class="col-12 mb-3">
+            <label class="form-label">Kde hledám práci</label>
+            <div class="col-12 p-0"> 
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Česká republika
+                    </option>
+                    <option>
+                        Slovenská republika
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 mb-3"> 
+            <input type="text" class="form-control" placeholder="Obec, město, kraj">
+        </div>
+        <div class="col-12 mb-3">
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>
+                    +10 km
+                </option>
+                {% for i in 0..6 %}
+                    <option>
+                        +{{ loop.index }}0 km
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        {% set extendedFilter = [
+						"Pracovní poměr",
+						"Plat",
+						"Vzdělání",
+						"Vhodné pro",
+						"Stáří inzerátu",
+						"Zadavetel nabídky",
+                                                
+					] %}
+        {% for i in extendedFilter %}
+            <div class="col-12  mb-3">
+                <label class="form-label">{{ i }}</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>
+                        Nezáleží
+                    </option>
+                    <option>
+                    <faker-lorem-words/>
+                    </option>
+                    <option>
+                    <faker-lorem-words/>
+                    </option>
+                    <option>
+                    <faker-lorem-words/>
+                    </option>
+                    <option>
+                    <faker-lorem-words/>
+                    </option>
+                </select>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="popup__footer">
+        <button type="submit" href="offers-2.html" class="btn btn-success w-100">
+            <span class="icon icon-search mr-2"></span>
+            <span class="hidden-sm-down ml-2">Zobrazit</span>150 nabídek
+        </button>
+    </div>
+</form>

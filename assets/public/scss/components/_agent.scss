@@ -1,0 +1,15 @@
+.agent {
+	position: relative;
+
+	&__delete-btn {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		color: $gray-light;
+
+		&:hover {
+			color: $brand-danger;
+		}
+	}
+}
+

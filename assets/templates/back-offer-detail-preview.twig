@@ -1,0 +1,108 @@
+{% extends "layout/layout-back.twig" %}
+{% block title %}Offer detail{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ linkHomepage }}">Nabídky</a></li>
+					<li class="breadcrumb-item"aria-current="page"><a href="{{ linkHomepage }}">Úprava nabídky</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Náhled nabídky</li>
+				</ol>
+			</nav>
+
+			<h1 class="bg-white h5 p-3 border-b mb-0"><faker-name-jobTitle/></h1>
+			<div class="bg-white p-3 mb-3 mb-sm-4">
+				<div class="icon-list">
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+						<div class="icon-list__info-col">Zaměstnavatel</div>
+						<div class="icon-list__text-col"><faker-company-companyName/></div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+						<div class="icon-list__info-col">Místo pracoviště</div>
+						<div class="icon-list__text-col"><faker-address-streetAddress/>, <faker-address-city/></div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
+						<div class="icon-list__info-col">Plat</div>
+						<div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-clock-check"></span></div>
+						<div class="icon-list__info-col">Pracovní poměr</div>
+						<div class="icon-list__text-col">Plný úvazek</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-student"></span></div>
+						<div class="icon-list__info-col">Vzdělání</div>
+						<div class="icon-list__text-col">Středoškolské</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-quote"></span></div>
+						<div class="icon-list__info-col">Jazykové znalosti</div>
+						<div class="icon-list__text-col">Čeština (výborná)</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-car"></span></div>
+						<div class="icon-list__info-col">Řidičské znalosti</div>
+						<div class="icon-list__text-col">Skupina B</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-computer"></span></div>
+						<div class="icon-list__info-col">Počítačové znalosti</div>
+						<div class="icon-list__text-col">Windows, MS Office</div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
+						<div class="icon-list__info-col">Benefity</div>
+						<div class="icon-list__text-col"><faker-lorem-sentences/></div>
+					</div>
+
+					<div class="icon-list__row">
+						<div class="icon-list__icon-col"><span class="icon icon-cursor-box"></span></div>
+						<div class="icon-list__info-col">Zařazeno</div>
+						<div class="icon-list__text-col">Administrativa</div>
+					</div>
+				</div>
+			</div>
+
+			{% include "components/sectionTitle.twig" with {title: "Popis pozice"} %}
+			<div class="bg-white p-3 mb-3 mb-sm-4">
+				<h3 class="h6 mb-3">Kvalifikační požadavky</h3>
+				{% for i in 0..9 %}
+					<p><faker-lorem-sentence/></p>
+				{% endfor %}
+			</div>
+
+			{% include "components/contactModule.twig" %}
+
+			<div class="bg-white p-3 mb-3 mb-sm-4 text-center">
+				<a href="#" class="btn btn-success btn-bottom disabled">Odpovědět</a>
+			</div>
+
+			<div class="row mb-3 mb-sm-5">
+				<div class="col-sm-6 col-lg-3 mb-3"><button type="button" class="btn btn-secondary w-100" disabled><span class="icon icon-envelope mr-2"></span>Odeslat na email</button></div>
+				<div class="col-sm-6 col-lg-3 mb-3"><button type="button" class="btn btn-secondary w-100" disabled><span class="icon icon-download mr-2"></span>Stáhnout</button></div>
+				<div class="col-sm-6 col-lg-3 mb-3"><button type="button" class="btn btn-facebook w-100" disabled><span class="icon icon-facebook mr-2">Sdílet na Facebooku</button></div>
+				<div class="col-sm-6 col-lg-3 mb-3"><button type="button" class="btn btn-secondary w-100" disabled><span class="icon icon-star mr-2"></span>Uložit</button></div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+{% endblock %}

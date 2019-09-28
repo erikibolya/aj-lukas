@@ -1,0 +1,10 @@
+{% if hotOfferTop %}
+	{% include "../components/offerItem.twig" with {'className': 'mb-3', hotOffer: true} %}
+{% endif %}
+{% for i in 0..9 %}
+	{% if loop.first %}
+		{% include "../components/offerItem.twig" with {'className': 'mb-3', offerSaved: offerSaved, noSallary: true} %}
+	{% else %}
+		{% include "../components/offerItem.twig" with {'className': 'mb-3', offerSaved: offerSaved} %}
+	{% endif %}
+{% endfor %}

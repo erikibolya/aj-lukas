@@ -1,0 +1,38 @@
+{% extends "layout/layout.twig" %}
+{% block title %}Provozovatel{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="section py-3">
+			{% include "components/sectionTitle.twig"  with { title: "Provozovatel", center: true}  %}
+			<div class="bg-white p-3 px-sm-5 border-b">
+				<img src="./svg/images/logo-actiunit.svg" width="160px" alt="Logo">
+			</div>
+			<div class="bg-white p-3 p-sm-5 mb-3 mb-sm-5">
+				<p class="font-weight-bold">ActiUnit s.r.o.</p>
+				<p>
+					Prosecká 37/40 <br>
+					Praha 9 - Prosek<br>
+					190 00
+				</p>
+
+				<div class="row">
+					<div class="col-md-3">
+						<strong>IČO</strong>
+						<p>24736759</p>
+					</div>
+					<div class="col-md-3">
+						<strong>DIČ</strong>
+						<p>CZ24736759</p>
+					</div>
+					<div class="col-md-3">
+						<strong>Kontakt</strong>
+						<p><a href="">@ Kontaktujte nás</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

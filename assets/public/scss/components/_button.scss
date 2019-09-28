@@ -1,0 +1,153 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+.btn {
+	cursor: pointer;
+}
+
+.btn-bottom {
+	width: 100%;
+
+	@include media-breakpoint-up(md) {
+		width: auto;
+		min-width: 320px;
+	}
+}
+
+.btn-secondary {
+
+	&:hover,
+	&:active {
+		background: $gray-lightest;
+	}
+}
+
+.btn-filter-icon {
+	color: $gray;
+	background-color: $gray-lightest;
+
+	&:hover {
+		color: $gray;
+		background-color: $gray-lightest;
+
+		.icon {
+			color: $brand-danger;
+		}
+	}
+}
+
+.button-group {
+	margin-right: -.5rem;
+	margin-left: -.5rem;
+	overflow: auto;
+
+
+	&__btn-wrapper {
+		padding: 0 .5rem;
+		display: inline-flex;
+		float: left;
+	}
+
+	&__btn {
+		width: 100%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	&__btn-label {
+		margin-left: .5rem;
+	}
+}
+
+.btn-link:focus,
+.btn-link:hover {
+	text-decoration: none;
+}
+
+.btn-circle {
+	display: inline-block;
+	width: 2.5em;
+	height: 2.5em;
+	padding: .5rem;
+	border-radius: 100%;
+	background: $gray-lighter;
+	position: relative;
+
+	&__wrapper {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	&__icon {
+		position: absolute;
+		transform: translate3d(-50%, -50%, 0);
+		top: 50%;
+		left: 50%;
+	}
+
+	.icon {
+		font-size: 1.25em;
+	}
+
+
+	&__label {
+		margin-left: .5rem;
+		display: none;
+	}
+
+	@include media-breakpoint-up(md) {
+		&__label {
+			display: inline-block;
+		}
+	}
+}
+
+.btn-facebook {
+	@include button-variant($white, #3c5a99, #3c5a99);
+
+}
+
+.btn-facebook-white {
+	@include button-variant(#3C5A99, $white, $white);
+
+	&:hover {
+		background-color: $white;
+	}
+}
+
+.btn-radio {
+	background: $white;
+	flex-grow: 1;
+	display: inline-flex;
+	justify-content: center;
+	padding: .5rem 1rem;
+
+	&:first-child {
+		margin-right: .5rem;
+	}
+
+	&__group {
+		display: flex;
+		width: 100%;
+		margin-bottom: 1rem;
+
+		.form-check {
+			margin-bottom: 0;
+			padding-left: 0;
+		}
+	}
+
+	.form-check-label {
+	}
+
+	@include media-breakpoint-up(lg) {
+
+		&__group {
+			width: auto;
+		}
+	}
+
+}
