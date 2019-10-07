@@ -46,7 +46,6 @@
   border: $pagination-border-width solid $pagination-border-color;
 
   @include hover-focus {
-    color: $pagination-hover-color;
     text-decoration: none;
     background-color: $pagination-hover-bg;
     border-color: $pagination-hover-border;

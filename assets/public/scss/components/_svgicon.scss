@@ -14,4 +14,36 @@
     @at-root .choices__item__ico &{
         fill: $brand-text;
     }
+
+
+
+
+    @at-root .link-box__svg &{
+        &:not(.svgicon__path--transparent){
+            fill: #cccccc;
+        }
+    }
+
+    @at-root .link-box__startrigger:checked + .link-box__star &{
+        fill: $brand-success;
+        &--transparent{
+            fill: $brand-success;
+        }
+    }
+
+    @at-root .link-box__star:hover &{
+        fill: $brand-success;
+        &--transparent{
+            fill: $brand-success;
+        }
+    }
+
 }
+
+
+.svgicon__path--transparent{
+    fill: transparent;
+}
+
+
+

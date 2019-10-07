@@ -2,63 +2,63 @@
 {% block title %}Registrace{% endblock %}
 {% block body %}
 
-	<div class="container">
-		<div class="section py-3 mb-sm-5">
+    <div class="container">
+        <div class="section py-3 mb-sm-5">
 
 
-			{% include "components/sectionTitle.twig"  with { title: "Registrace", center: true}  %}
+            {% include "components/sectionTitle.twig"  with { title: "Registrace", center: true}  %}
 
-			<div class="bg-white p-3 py-sm-5">
+            <div class="bg-white p-3 py-sm-5">
 
-				<div class="row justify-content-center">
-					<div class="col-sm-10 col-md-8 col-lg-6">
-						<form>
-							<div class="d-sm-flex justify-content-center">
-								<div class="form-check mr-3">
-									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-									<label class="form-check-label" for="exampleRadios1">
-										Registrace uchazeče
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-									<label class="form-check-label" for="exampleRadios2">
-										Registrace firmy
-									</label>
-								</div>
-							</div>
-							<hr>
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8 col-lg-6">
+                        <form>
+                            <div class="d-sm-flex justify-content-center">
+                                <div class="form-check pl-0 mr-sm-4">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Registrace uchazeče
+                                    </label>
+                                </div>
+                                <div class="form-check pl-0 ">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Registrace firmy
+                                    </label>
+                                </div>
+                            </div>
+                            <hr>
 
-							<fieldset>
-								<div class="form-group">
-									<label for="exampleInputEmail1" class="form-label">Váš e-mail*</label>
-									<input type="email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-								</div>
-							</fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1" class="form-label">Váš e-mail*</label>
+                                    <input type="email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                </div>
+                            </fieldset>
 
-							<div class="form-check mt-3">
-								<input class="form-check-input" type="checkbox" value="" id="defaultCheck{{ i }}">
-								<label class="form-check-label" for="defaultCheck{{ i }}">
-									<faker-lorem-sentence/>
-									<a href="{{ linkBusinessConditions }}">Více zde</a>
-								</label>
-							</div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck{{ i }}">
+                                <label class="form-check-label" for="defaultCheck{{ i }}">
+                                    <faker-lorem-sentence/>
+                                    <a href="{{ linkBusinessConditions }}">Více zde</a>
+                                </label>
+                            </div>
 
-							<div class="mt-5">
-								<div>
-									<a href="{{ linkAccount }}" class="btn btn-success w-100">Registrovat</a>
-								</div>
-								<p class="text-center">
-									nebo se přihlaste
-								</p>
-								<div>
-									<a href="{{ linkAccount }}" class="btn btn-primary w-100">Příhlásit se</a>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+                            <a href="{{ linkAccount }}" class="btn btn-success w-100">Registrovat</a>
+
+                            <p class="text-center my-3">
+                                nebo se přihlaste
+                            </p>
+
+                            <a href="{{ linkAccount }}" class="btn btn-primary w-100">Příhlásit se</a>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

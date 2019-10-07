@@ -1,0 +1,9 @@
+<label class="custom-switch">
+    <div class="custom-switch__text">
+        {{text}} {% if muted is defined %}<small class="text-muted">{{muted}}</small>{%endif%}
+    </div>
+    <input type="checkbox" class="custom-switch__input" id="{{id}}" {%if checked %}checked{%endif%}>
+    <div class="custom-switch__wrapper">
+        <span class="custom-switch__bullet"></span>
+    </div>
+</label>

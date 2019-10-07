@@ -14,11 +14,9 @@
 
 @mixin hover-focus {
   @if $enable-hover-media-query {
-    &:focus { @content }
     @include hover { @content }
   }
   @else {
-    &:focus,
     &:hover {
       @content
     }
@@ -27,15 +25,13 @@
 
 @mixin plain-hover-focus {
   @if $enable-hover-media-query {
-    &,
-    &:focus {
+    &{
       @content
     }
     @include hover { @content }
   }
   @else {
     &,
-    &:focus,
     &:hover {
       @content
     }
@@ -44,14 +40,12 @@
 
 @mixin hover-focus-active {
   @if $enable-hover-media-query {
-    &:focus,
     &:active {
       @content
     }
     @include hover { @content }
   }
   @else {
-    &:focus,
     &:active,
     &:hover {
       @content

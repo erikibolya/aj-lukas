@@ -1,0 +1,70 @@
+$custom-switch-width: 1.875rem;
+$custom-switch-height: 1rem;
+$custom-switch-border-size: 0.125rem;
+$custom-switch-bullet-color: white;
+$custom-switch-background-color: #b3b3b3;
+$custom-switch-hover-background-color: #d2ebeb;
+$custom-switch-checked-bullet-color: white;
+$custom-switch-checked-background-color: $brand-success;
+$custom-switch-transition-duration: 300ms;
+$custom-switch-transition-timing-function: ease;
+
+
+.custom-switch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: content-box;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.custom-switch__input{
+    display: none;
+    &:checked{
+        & + .custom-switch__wrapper{
+            background-color: $custom-switch-checked-background-color;
+            border-color: $custom-switch-checked-background-color;
+            & .custom-switch__bullet{
+                margin-left: 100%;
+                transform: translateX(-100%);
+                background-color: $custom-switch-checked-bullet-color;
+            }
+        }
+
+    }
+}
+
+.custom-switch__wrapper{
+    flex-shrink: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: 1rem !important;
+    display: block;
+    width: $custom-switch-width;
+    height: $custom-switch-height;
+    border: $custom-switch-border-size solid $custom-switch-background-color;
+    border-radius: $custom-switch-width;
+    background-color: $custom-switch-background-color;
+    transition-property:background-color,border-color;
+    transition-duration: $custom-switch-transition-duration;
+    transition-timing-function: $custom-switch-transition-timing-function;
+    &::before,&::after{
+        content: none !important;
+
+    }
+}
+
+.custom-switch__bullet{
+    display: block;
+    background-color: $custom-switch-bullet-color;
+    border-radius: 50%;
+    width: $custom-switch-height;
+    height: $custom-switch-height;
+    margin-left: 0;
+    transition-property: margin-left, transform;
+    transition-duration: $custom-switch-transition-duration;
+    transition-timing-function: $custom-switch-transition-timing-function;
+    transform: translateX(0%);
+}

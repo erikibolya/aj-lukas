@@ -7,8 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+
 
 
 
@@ -64,7 +64,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(59)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(70)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -110,7 +110,7 @@
                         <label for="exampleInputName" class="form-label">Název pozice*</label>
                         <input type="text" class="form-control" id="exampleInputName"  placeholder="" required>
                     </div>
-                        <div class="form-group">
+                         <div class="form-group">
         <label for="autocomplete1" class="form-label">Obor*</label>
         <div class="autocomplete autocomplete--tag ">
         <div class="autocomplete__header">
@@ -124,7 +124,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete1" class="autocomplete__input" multiple>
+                    <select id="autocomplete1" class="autocomplete__input" multiple="multiple">
 
             </select>
         
@@ -133,7 +133,7 @@
 
 
 
-                        <div class="form-group">
+                         <div class="form-group">
         <label for="autocomplete2" class="form-label">Profese*</label>
         <div class="autocomplete autocomplete--tag ">
         <div class="autocomplete__header">
@@ -147,7 +147,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete2" class="autocomplete__input" multiple>
+                    <select id="autocomplete2" class="autocomplete__input" multiple="multiple">
 
             </select>
         
@@ -175,7 +175,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                    <div class="form-group">
+                                     <div class="form-group">
         <label for="autocomplete3" class="form-label">Adresa/Lokalita*</label>
         <div class="autocomplete autocomplete--search ">
         <div class="autocomplete__header">
@@ -203,7 +203,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3"> 
                         <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios2" value="home">
                         <label class="form-check-label" for="exampleRadios2">Práce nevyžaduje návštěvu pracoviště (např. Práce doma)</label>
                     </div>
@@ -213,7 +213,7 @@
                             <label class="form-check-label" for="exampleRadios3">Práce vyžaduje cestování (např. Řidič, Obchodní zástupce)</label>
                         </div>
                         <div class="travel-input__content hidden">
-                                <div class="form-group">
+                                 <div class="form-group">
         <label for="autocomplete4" class="form-label">Lokalita/y*</label>
         <div class="autocomplete autocomplete--tag ">
         <div class="autocomplete__header">
@@ -227,7 +227,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete4" class="autocomplete__input" multiple>
+                    <select id="autocomplete4" class="autocomplete__input" multiple="multiple">
 
             </select>
         
@@ -297,7 +297,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <h2 class="section__title h6 bg-light w-100 p-3">Práce je vhodná i pro</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
@@ -363,7 +363,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 <h2 class="section__title h6 bg-light w-100 p-3">Nástup možnný od</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <input type="date" class="form-control" required />
@@ -456,7 +456,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" data-selectric required>
+                                <select class="form-control" data-selectric data-disable-on-select="2" data-disable-target="languageLevel" required>
                                     <option value="1">Ano</option>
                                     <option value="2">Ne</option>
                                 </select>
@@ -465,8 +465,11 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" data-selectric required>
-                                    <option value="1">Rodilý mluvčí</option>
+                                <select id="languageLevel" class="form-control" data-selectric data- required>
+                                    <option value="1">Začátečník</option>
+                                    <option value="2">Mírně pokročilý</option>
+                                    <option value="3">Pokročilý</option>
+                                    <option value="4" selected>Rodilý mluvčí</option> 
                                 </select>
                             </div>
                         </div>
@@ -474,25 +477,29 @@
 
 
                     <hr class="mx-minus-3">
+                         <div class="form-group">
+        <label for="autocompleteJazyk" class="form-label">Vyberte cizí jazyk</label>
+        <div class="autocomplete autocomplete--tag ">
+        <div class="autocomplete__header">
+            <h5 class="autocomplete__title" id="exampleModalLabel">Vyberte cizí jazyk</h5>
+            <button type="button" class="autocomplete__button" data-autocomplete-close>
+                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+                </svg>
+            </button>
+        </div>
+                    <select id="autocompleteJazyk" class="autocomplete__input" multiple="multiple">
 
-                    <label for="exampleInputName" class="form-label">Vyberte cizí jazyk</label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <select class="form-control" required>
-                                    <option value="1">Vyberte úroveň</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <select class="form-control disabled" disabled required>
-                                    <option value="1">Vyberte úroveň</option>
-                                </select>
-                            </div>
-                        </div>
+            </select>
+        
+    </div>
+        </div>
 
-                    </div>
+
+
                 </div>
             </div>
 
@@ -643,7 +650,8 @@
                                 </div>
                             </div>
                                             </div>
-                        <div class="form-group">
+                    <hr class="mx-minus-3">
+                         <div class="form-group">
         <label for="autocomplete5" class="form-label">Další počitačové znalosti*</label>
         <div class="autocomplete autocomplete--search ">
         <div class="autocomplete__header">
@@ -672,11 +680,11 @@
 
             <div class="mb-4">
                 <h2 class="section__title h6 bg-light w-100 p-3">Další znalosti uchazeče</h2>                <div class="bg-white p-3">
-                        <div class="form-group">
-        <label for="autocomplete6" class="form-label">Další znalosti*</label>
+                         <div class="form-group">
+        <label for="autocomplete6" class="form-label">Další znalosti</label>
         <div class="autocomplete autocomplete--search ">
         <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Další znalosti*</h5>
+            <h5 class="autocomplete__title" id="exampleModalLabel">Další znalosti</h5>
             <button type="button" class="autocomplete__button" data-autocomplete-close>
                 <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
                 <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
@@ -717,7 +725,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
                                 <label class="form-label">Měna</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required data-selectric>
                                     <option value="1">CZK</option>
                                     <option value="2">EUR</option>
                                 </select>
@@ -726,7 +734,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
                                 <label class="form-label">Za období</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required data-selectric>
                                     <option value="1">Měšíčně</option>
                                     <option value="2">Denně</option>
                                 </select>
@@ -744,7 +752,7 @@
 
             <div class="mb-4">
                 <h2 class="section__title h6 bg-light w-100 p-3">Nabízené benefity</h2>                <div class="bg-white p-3">
-                        <div class="form-group">
+                         <div class="form-group">
         <label for="autocomplete7" class="form-label">Benefity</label>
         <div class="autocomplete autocomplete--search ">
         <div class="autocomplete__header">
@@ -776,15 +784,17 @@
                 <h2 class="section__title h6 bg-light w-100 p-3">Kontakt</h2>                <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
                     <div class="form-group">
-                        <select class="form-control" required>
-                            <option value="1">Ella Reynolds</option>
+                        <select class="form-control" data-selectric data-contact data-email-target="contactEmail" data-phone-target="contactPhone" required>
+                            <option value="1" data-email="tombombadyl@email.cz" data-phone="777 100 332" selected>Tom Bombadyl</option>
+                            <option value="2" data-email="jamesbond@email.cz" data-phone="777 100 333">James Bond</option>
+                            <option value="3" data-email="hulk@email.cz" data-phone="777 100 334">Hulk</option>
                         </select>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="form-label">Kontaktní email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="Edmund_Smith@gmail.com" disabled>
+                                <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" value="tombombadyl@email.cz" disabled>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -813,22 +823,23 @@
 
             <div class="mb-4">
                 <h2 class="section__title h6 bg-light w-100 p-3">Inzerovat v</h2>                <div class="bg-white p-3">
-                    <div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
-                        <div>Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small></div>
-                        <label class="switch">
-                            <input type="checkbox" class="switch__state">
-                            <span class="switch__toggle"></span>
-                        </label>
-                    </div>
+                    <label class="custom-switch">
+    <div class="custom-switch__text">
+        Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small>    </div>
+    <input type="checkbox" class="custom-switch__input" id="2" >
+    <div class="custom-switch__wrapper">
+        <span class="custom-switch__bullet"></span>
+    </div>
+</label>
                     <hr class="mx-minus-3">
-                    <div class="switch__wrapper d-flex justify-content-between  align-items-center">
-                        <div>Inzerovat na Slovensku <small class="text-muted">(Actijobs.sk)</small></div>
-                        <label class="switch">
-                            <input type="checkbox" class="switch__state">
-                            <span class="switch__toggle"></span>
-                        </label>
-                    </div>
-                </div>
+                    <label class="custom-switch">
+    <div class="custom-switch__text">
+        Inzerovat na Slovensku <small class="text-muted">(Actijobs.cz)</small>    </div>
+    <input type="checkbox" class="custom-switch__input" id="2" >
+    <div class="custom-switch__wrapper">
+        <span class="custom-switch__bullet"></span>
+    </div>
+</label>                </div>
             </div>
 
             <div class="mb-4">
@@ -840,8 +851,8 @@
                             </div>
                             <ul>
 
-                                                                    <li>Et ducimus a.</li>
-                                                                    <li>Excepturi quia quae beatae autem est.</li>
+                                                                    <li>Vel nemo voluptas possimus inventore sed accusamus velit distinctio.</li>
+                                                                    <li>Consequatur exercitationem quasi rerum omnis animi officiis vitae ullam.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -859,9 +870,9 @@
                             </div>
                             <ul>
 
-                                                                    <li>Quaerat earum amet enim tempora et fuga unde iure.</li>
-                                                                    <li>Esse minima qui.</li>
-                                                                    <li>Et ad sed itaque.</li>
+                                                                    <li>Minima sunt et unde odit doloremque et.</li>
+                                                                    <li>Delectus recusandae consectetur odio qui quibusdam et.</li>
+                                                                    <li>Quas voluptatem molestiae facilis id aut quisquam quasi saepe.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -879,10 +890,10 @@
                             </div>
                             <ul>
 
-                                                                    <li>Qui aliquam ut nostrum qui voluptate et itaque non quis.</li>
-                                                                    <li>Ullam aut est dignissimos dolores ut quis magni.</li>
-                                                                    <li>Quia et autem consequuntur voluptatem rerum fugit sequi ipsum mollitia.</li>
-                                                                    <li>Qui ut corrupti tenetur qui dolores dolor laudantium et.</li>
+                                                                    <li>Porro rerum in ut incidunt ad quam quisquam.</li>
+                                                                    <li>Corrupti et quia itaque fuga quas placeat illo.</li>
+                                                                    <li>Voluptatum sapiente tenetur esse ab.</li>
+                                                                    <li>Vero ut delectus architecto neque maxime dolorem non tempore.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -900,11 +911,11 @@
                             </div>
                             <ul>
 
-                                                                    <li>Qui soluta eos quo distinctio est est eum.</li>
-                                                                    <li>Et voluptatem eligendi qui.</li>
-                                                                    <li>Velit quod rerum consequuntur consequatur.</li>
-                                                                    <li>Enim adipisci praesentium id autem dicta porro id hic accusamus.</li>
-                                                                    <li>Ratione explicabo ipsum asperiores omnis laborum fugiat et.</li>
+                                                                    <li>Suscipit nostrum officia.</li>
+                                                                    <li>Qui illum cupiditate laudantium dolor perferendis beatae adipisci eligendi.</li>
+                                                                    <li>Harum omnis deserunt ut aut rerum nihil maiores.</li>
+                                                                    <li>Ipsum repellendus occaecati.</li>
+                                                                    <li>Iste sed iure corporis non ipsum fugiat iusto qui.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -989,10 +1000,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
+    <script src="public/js/plugins/choices.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/selectric.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
-    <script src="public/js/plugins/custom-autocomplete.js"></script>  
     <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
     <script src="public/js/plugins/custom.js"></script>
     <script src="public/js/plugins/mobile-detect.js"></script>
 <script src="public/js/template.js"></script>

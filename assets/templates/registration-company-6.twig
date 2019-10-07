@@ -132,7 +132,7 @@
 			</div>
 
 			{% set paymentMethods = ["Platební kartou", "Komerční banka (online převod)",  "ČSOB (online převod)",  "FIO (online převod)",  "Česká spořitelna (online převod)"] %}
-			<div class="mb-3 mb-sm-5">
+			<div class="mb-4">
 				{% include "components/sectionTitle.twig"  with { title: "Souhrn"} %}
 				{% for method in paymentMethods %}
 					<div class="custom-radio__wrapper bg-white p-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
@@ -145,7 +145,7 @@
 					</div>
 				{% endfor %}
 			</div>
-			<div class="mb-4 text-center">
+			<div class="text-center">
 						<a href="{{ linkRegistrationCompany }}" class="btn btn-success btn-bottom">Objednat a zaplatit</a>
 			</div>
 

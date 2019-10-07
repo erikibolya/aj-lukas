@@ -2294,14 +2294,15 @@ function () {
     key: "_renderItems",
     value: function _renderItems() {
       var activeItems = this._store.activeItems || [];
-      this.itemList.clear(); // Create a fragment to store our list items
+      //this.itemList.clear(); // Create a fragment to store our list items
       // (so we don't have to update the DOM for each item)
-
       var itemListFragment = this._createItemsFragment(activeItems); // If we have items to add, append them
-
-
+      var itemsToRemove = this.containerInner.element.querySelectorAll("."+this.config.classNames.item);
+      for(let i = 0, max = itemsToRemove.length; i < max; i++){
+        itemsToRemove[i].parentElement.removeChild(itemsToRemove[i]);
+      }
       if (itemListFragment.childNodes) {
-        this.itemList.append(itemListFragment);
+        this.containerInner.element.prepend(itemListFragment);
       }
     }
   }, {
@@ -3582,6 +3583,7 @@ function () {
       }
 
       if (!this._isSelectOneElement) {
+        console.log(this.input.elem);
         this.containerInner.element.appendChild(this.input.element);
       } else if (this.config.searchEnabled) {
         this.dropdown.element.insertBefore(this.input.element, this.dropdown.element.firstChild);

@@ -1,10 +1,14 @@
-var data = [...professions, ...categories, ...companies];
-var id = 204
-for (let i = 0, max = professions.length; i < max; i++) {
-    professions[i].value = id;
-    id++;
+//var data = [...professions, ...categories, ...companies];
+var data = [...comp];
+var id = 204;
+var comp = [];
+for (let i = 0, max = companies.length; i < max; i++) {
+    comp.push({
+        id: companies[i].value,
+        text: companies[i].label
+    });
 }
-console.log(professions);
+console.log(comp);
 
 function getSearchData(query, alreadyHave, limit) {
     query = query.trim();

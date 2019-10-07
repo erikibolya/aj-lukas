@@ -61,6 +61,7 @@
 }
 
 .switch {
+    outline: none;
     background: transparent;
     border-radius: 1rem;
     cursor: pointer;
@@ -81,7 +82,7 @@
         border-radius: 1rem;
         display: block;
         height: 100%;
-        transition: background .25s;
+        transition: background .5s;
         border: 1px solid $gray-light;
 
         &::after {
@@ -94,7 +95,7 @@
             margin: 3px;
             position: absolute;
             top: -.3rem;
-            transition: transform .25s, background .25s;
+            transition: transform .5s, background .5s;
             width: 1.25rem;
             border: 1px solid $gray-light;
 
@@ -107,14 +108,14 @@
         position: absolute;
 
         &:focus ~ .switch__toggle {
-            box-shadow: 0 0 2px 3px rgba(0, 160, 204, 0.8);
+            /*box-shadow: 0 0 2px 3px rgba(0, 160, 204, 0.8);*/
         }
 
         &:checked ~ .switch__toggle {
             background: $white;
 
             &::after {
-                border-color: transparent;
+                /*                border-color: transparent;*/
                 background: $brand-success;
                 transform: translate(calc(2rem - 1rem));
             }
@@ -232,7 +233,7 @@ select {
 }
 
 [type="radio"]:not(:checked) + label:hover:after {
-    opacity: .1;
+    opacity: .2;
 }
 
 [type="radio"]:not(:checked) + label:after {
@@ -275,6 +276,7 @@ select {
     opacity: 0; // hide it
 
     & + label {
+            display: block;
         position: relative;
         cursor: pointer;
         padding: 0;

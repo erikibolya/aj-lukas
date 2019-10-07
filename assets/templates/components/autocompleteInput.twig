@@ -1,4 +1,4 @@
-{% if plain is not defined %}
+ {% if plain is not defined %}
     <div class="form-group">
         <label for="{{id}}" class="form-label">{{name}}</label>
     {% endif %}
@@ -20,7 +20,7 @@
                    data-placeholder="{{placeholder}}"
                    data-dataset="{{dataset}}">
         {% elseif type == "tag"  %}
-            <select id="{{id}}" class="autocomplete__input" multiple>
+            <select id="{{id}}" class="autocomplete__input" multiple="multiple">
 
             </select>
         {% endif %}

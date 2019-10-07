@@ -1,10 +1,12 @@
 {% if hotOfferTop %}
-	{% include "../components/offerItem.twig" with {'className': 'mb-3', hotOffer: true} %}
+    {% include "../components/offerItem.twig" with {'className': 'border-b', hotOffer: true} %}
 {% endif %}
 {% for i in 0..9 %}
-	{% if loop.first %}
-		{% include "../components/offerItem.twig" with {'className': 'mb-3', offerSaved: offerSaved, noSallary: true} %}
-	{% else %}
-		{% include "../components/offerItem.twig" with {'className': 'mb-3', offerSaved: offerSaved} %}
-	{% endif %}
+    {% if loop.first %}
+        {% include "../components/offerItem.twig" with {'className': 'border-b', offerSaved: offerSaved, noSallary: true} %}
+    {% elseif loop.last%}
+        {% include "../components/offerItem.twig" with {'className': '', offerSaved: offerSaved} %}
+    {% else %}
+        {% include "../components/offerItem.twig" with {'className': 'border-b', offerSaved: offerSaved} %}
+    {% endif %}
 {% endfor %}

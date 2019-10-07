@@ -203,6 +203,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
 
 }
 
+
 for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
     let options = {
         silent: false,
@@ -328,8 +329,8 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
             instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
         }
     }, false);
-}
 
+}
 
 
 

@@ -47,22 +47,9 @@
 						<p class="text-center">Opravdu si přejete uložit ActiAgenta</p>
 						<p class="text-muted text-center">Agenta najdete na stránce "Home" nebo v "Můj účet</p>
 						<hr>
-						<div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
-							<div>Zasílat upozorněni na e-mail</div>
-							<label class="switch">
-								<input type="checkbox" class="switch__state">
-								<span class="switch__toggle"></span>
-							</label>
-						</div>
+                                                 {% include "components/custom-switch.twig" with {text: "Zasílat upozorněni na e-mail", checked: true,id: "1"} %}
 						<hr>
-						<div class="switch__wrapper d-flex justify-content-between align-items-center">
-							<div>Zobrazovat oznámení v tomto zařízení</div>
-							<label class="switch">
-								<input type="checkbox" class="switch__state">
-								<span class="switch__toggle"></span>
-							</label>
-						</div>
-
+                                                {% include "components/custom-switch.twig" with {text: "Zobrazovat oznámení v tomto zařízení", checked: false,id: "2"} %} 
 						<hr class="mb-0">
 					{% endblock %}
 					{% block modalFooter %}
@@ -78,21 +65,10 @@
 				{% embed "components/modal.twig" with {modalName: "ActiAgent", modalId: "no4"}%}
 					{% block modalBody %}
 						<hr class="mt-0">
-						<div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
-							<div>Zasílat upozorněni na e-mail</div>
-							<label class="switch">
-								<input type="checkbox" class="switch__state">
-								<span class="switch__toggle"></span>
-							</label>
-						</div>
+                                                  {% include "components/custom-switch.twig" with {text: "Zasílat upozorněni na e-mail", checked: true,id: "3"} %}
+				 
 						<hr>
-						<div class="switch__wrapper d-flex justify-content-between align-items-center">
-							<div>Zobrazovat oznámení v tomto zařízení</div>
-							<label class="switch">
-								<input type="checkbox" class="switch__state">
-								<span class="switch__toggle"></span>
-							</label>
-						</div>
+						 {% include "components/custom-switch.twig" with {text: "Zobrazovat oznámení v tomto zařízení", checked: false,id: "4"} %} 
 						<hr class="mb-0">
 					{% endblock %}
 					{% block modalFooter %}

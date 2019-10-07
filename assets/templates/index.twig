@@ -3,16 +3,16 @@
 {% block body %}
     {% include "components/searchBox.twig" %}
 
-    <div class="container">
-        <div class="bg-white p-3 mb-3">
+    <div class="container mt-4">
+        <div class="bg-white p-3 mb-4">
             {% include "components/historyBlock.twig" %}
         </div>
     </div>
 
 
-    <div class="container">
-        <div class="section py-3">
-            {% include "components/sectionTitle.twig" with {title: "Vybrané nabídky", className: "mb-3"} %}
+    <div class="container pb-3">
+        <div class="section pb-4">
+            {% include "components/sectionTitle.twig" with {title: "Vybrané nabídky", className: ""} %}
             {% include "lists/offersList.twig" with {hotOfferTop: true} %}
         </div>
         <div class="text-center mb-5">

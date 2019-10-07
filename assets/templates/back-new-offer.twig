@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-3"> 
                         <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios2" value="home">
                         <label class="form-check-label" for="exampleRadios2">Práce nevyžaduje návštěvu pracoviště (např. Práce doma)</label>
                     </div>
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Práce je vhodná i pro"}  %}
                 {% set qualification = ["Osoby bez praxe", "Absolventy SŠ", "Absolventy VŠ", "Studenty", "Důchodce", "Osoby na mateřské dovolené"] %}
                 <div class="bg-white p-3">
@@ -121,7 +121,7 @@
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Nástup možnný od"}  %}
                 <div class="bg-white p-3">
                     <div class="form-group">
@@ -156,7 +156,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" data-selectric required>
+                                <select class="form-control" data-selectric data-disable-on-select="2" data-disable-target="languageLevel" required>
                                     <option value="1">Ano</option>
                                     <option value="2">Ne</option>
                                 </select>
@@ -165,8 +165,11 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <select class="form-control" data-selectric required>
-                                    <option value="1">Rodilý mluvčí</option>
+                                <select id="languageLevel" class="form-control" data-selectric data- required>
+                                    <option value="1">Začátečník</option>
+                                    <option value="2">Mírně pokročilý</option>
+                                    <option value="3">Pokročilý</option>
+                                    <option value="4" selected>Rodilý mluvčí</option> 
                                 </select>
                             </div>
                         </div>
@@ -174,25 +177,7 @@
 
 
                     <hr class="mx-minus-3">
-
-                    <label for="exampleInputName" class="form-label">Vyberte cizí jazyk</label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <select class="form-control" required>
-                                    <option value="1">Vyberte úroveň</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <select class="form-control disabled" disabled required>
-                                    <option value="1">Vyberte úroveň</option>
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocompleteJazyk", name: "Vyberte cizí jazyk", placeholder: "", dataset: "names.json"} %}
                 </div>
             </div>
 
@@ -231,6 +216,7 @@
                             </div>
                         {% endfor %}
                     </div>
+                    <hr class="mx-minus-3">
                     {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete5",name: "Další počitačové znalosti*", placeholder: "+ PHP, C#, Java, HTML", dataset: "lorem.json"} %}
                 </div>
             </div>
@@ -238,7 +224,7 @@
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Další znalosti uchazeče"}  %}
                 <div class="bg-white p-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti*", placeholder: "+ Strojopis, Mzdové účetníctví", dataset: "lorem.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti", placeholder: "+ Strojopis, Mzdové účetníctví", dataset: "lorem.json"} %}
                 </div>
             </div>
 
@@ -261,7 +247,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
                                 <label class="form-label">Měna</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required data-selectric>
                                     <option value="1">CZK</option>
                                     <option value="2">EUR</option>
                                 </select>
@@ -270,7 +256,7 @@
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
                                 <label class="form-label">Za období</label>
-                                <select class="form-control" required>
+                                <select class="form-control" required data-selectric>
                                     <option value="1">Měšíčně</option>
                                     <option value="2">Denně</option>
                                 </select>
@@ -299,15 +285,17 @@
                 <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
                     <div class="form-group">
-                        <select class="form-control" required>
-                            <option value="1"><faker-name-firstName/> <faker-name-lastName/></option>
+                        <select class="form-control" data-selectric data-contact data-email-target="contactEmail" data-phone-target="contactPhone" required>
+                            <option value="1" data-email="tombombadyl@email.cz" data-phone="777 100 332" selected>Tom Bombadyl</option>
+                            <option value="2" data-email="jamesbond@email.cz" data-phone="777 100 333">James Bond</option>
+                            <option value="3" data-email="hulk@email.cz" data-phone="777 100 334">Hulk</option>
                         </select>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="form-label">Kontaktní email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<faker-internet-email/>" disabled>
+                                <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" value="tombombadyl@email.cz" disabled>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -337,21 +325,10 @@
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Inzerovat v" }%}
                 <div class="bg-white p-3">
-                    <div class="switch__wrapper d-flex justify-content-between align-items-center mb-2">
-                        <div>Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small></div>
-                        <label class="switch">
-                            <input type="checkbox" class="switch__state">
-                            <span class="switch__toggle"></span>
-                        </label>
-                    </div>
+                    {% include "components/custom-switch.twig" with {text: "Inzerovat v České republice",muted:"(Actijobs.cz)", checked: false,id: "2"} %}
+
                     <hr class="mx-minus-3">
-                    <div class="switch__wrapper d-flex justify-content-between  align-items-center">
-                        <div>Inzerovat na Slovensku <small class="text-muted">(Actijobs.sk)</small></div>
-                        <label class="switch">
-                            <input type="checkbox" class="switch__state">
-                            <span class="switch__toggle"></span>
-                        </label>
-                    </div>
+                    {% include "components/custom-switch.twig" with {text: "Inzerovat na Slovensku",muted:"(Actijobs.cz)", checked: false,id: "2"} %}
                 </div>
             </div>
 
