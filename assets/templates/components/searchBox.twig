@@ -4,33 +4,16 @@
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <label class="form-label">Hledaná práce</label>
-                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "Doprava, obchod, kuchař...", dataset: "names.json"} %}
+                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "+ Doprava, obchod, kuchař...", dataset: "names.json"} %}
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label">Kde hledám práci</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="flag-icon flag-icon-cz"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cz mr-2"></span>Česká Republika</a>
-                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-sk mr-2"></span>Slovensko</a>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control input-group-center" placeholder="Obec, město, kraj">
-                        <div class="btn-group">
-                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                +10 km
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                {% for i in 0..6 %}
-                                    <a class="dropdown-item" href="#">+{{ loop.index }}0 km</a>
-                                {% endfor %}
-                            </div>
-                        </div>
+                    <div class="input-group job-search mb-3">
+                        <select class="form-control" data-selectric-flags>
+                            <option data-ico="cz">Česká republika</option>
+                            <option data-ico="sk">Slovensko</option>
+                        </select>
+                         {% include "autocompleteInput.twig" with {type:"tag",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
                     </div>
                 </div>
             </div>
@@ -114,7 +97,7 @@
                 <div class="col-12 p-0  mb-3">
                     <label class="form-label">Kde hledám práci</label>
                     <div class="col-12 p-0"> 
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
                                 Česká republika
                             </option>
@@ -128,7 +111,7 @@
                     {% include "autocompleteInput.twig" with {type:"search",id:"autocomplete1", plain: true, inWindow: true, name: "Kde hledám práci", placeholder: "Obec, Město, Kraj", dataset: "names.json"} %}
                 </div>
                 <div class="col-12 p-0 mb-3">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
                         <option>
                             +10 km
                         </option>
@@ -142,7 +125,7 @@
                 {% for i in extendedFilter %}
                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">{{ i }}</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
                             <faker-lorem-words/>
                             </option>

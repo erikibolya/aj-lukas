@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
 <div class="site">
 	<header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -63,13 +114,13 @@
 			</nav>
 
 			<div class="mb-4">
-								<h2 class="section__title h6 bg-light w-100 p-3">Ceník inzerce pro člesntví Classic</h2>									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
+								<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Ceník inzerce pro člesntví Classic</h2>									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
 						<div>
 							<strong class="mb-3 d-inline-block">Bronze</strong>
 							<ul>
 
-																	<li>Rerum culpa ad omnis nihil perspiciatis itaque aperiam omnis labore.</li>
-																	<li>Iste accusantium quibusdam.</li>
+																	<li>Molestiae architecto ad.</li>
+																	<li>Facilis qui aliquam aliquid nostrum ex voluptates.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -82,9 +133,9 @@
 							<strong class="mb-3 d-inline-block">Silver</strong>
 							<ul>
 
-																	<li>Officia omnis adipisci ratione iste quaerat quos.</li>
-																	<li>Labore aut amet ullam officiis ab porro.</li>
-																	<li>Nesciunt porro qui doloremque ea.</li>
+																	<li>Repellat qui non impedit et et quaerat voluptas.</li>
+																	<li>Beatae sunt iste ut.</li>
+																	<li>Molestiae velit voluptatem.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -97,10 +148,10 @@
 							<strong class="mb-3 d-inline-block">Gold</strong>
 							<ul>
 
-																	<li>Deserunt unde voluptatem.</li>
-																	<li>Hic voluptatem laudantium omnis placeat aut.</li>
-																	<li>Iste optio et placeat.</li>
-																	<li>Saepe omnis sit quia aut earum.</li>
+																	<li>Molestias pariatur rerum esse omnis et.</li>
+																	<li>Officia voluptate voluptas similique.</li>
+																	<li>Et hic velit.</li>
+																	<li>Iste est occaecati id qui perspiciatis sint qui assumenda in.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -113,11 +164,11 @@
 							<strong class="mb-3 d-inline-block">Platinum</strong>
 							<ul>
 
-																	<li>Animi et ducimus quis.</li>
-																	<li>Molestiae eos nobis est omnis.</li>
-																	<li>Eos sapiente et hic est est rerum excepturi vel.</li>
-																	<li>Voluptatibus magnam enim.</li>
-																	<li>Ea consequuntur optio sed nostrum.</li>
+																	<li>Voluptate temporibus qui nemo occaecati ullam.</li>
+																	<li>Nostrum dolorem molestiae temporibus laudantium accusamus voluptatem.</li>
+																	<li>Sed veniam nihil distinctio saepe similique.</li>
+																	<li>Est excepturi consequuntur quaerat omnis sunt eaque nam.</li>
+																	<li>Iure veniam eaque voluptas quia numquam fugit perspiciatis explicabo.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -130,15 +181,15 @@
 
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Ceník inzerce pro člesntví VIP</h2>
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Ceník inzerce pro člesntví VIP</h2>
 									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
 						<div>
 							<strong class="mb-3 d-inline-block">
 								Bronze
 															</strong>
 							<ul>
-																	<li>Reiciendis dolor odio cumque nobis dolorem.</li>
-																	<li>Error ab rerum et consectetur doloribus vel explicabo pariatur.</li>
+																	<li>Voluptatem reiciendis tempore sit est.</li>
+																	<li>Qui culpa non ea suscipit.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -152,9 +203,9 @@
 								Silver
 															</strong>
 							<ul>
-																	<li>Non et ea assumenda debitis vero.</li>
-																	<li>Molestiae odio quia cum expedita maxime.</li>
-																	<li>Delectus dolor distinctio minus voluptatem.</li>
+																	<li>Nihil unde facilis.</li>
+																	<li>Adipisci aperiam est qui libero quasi necessitatibus qui.</li>
+																	<li>Molestiae quia magni quibusdam quo ut.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -168,10 +219,10 @@
 								Gold
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Natus porro et voluptatibus deleniti vel nobis.</li>
-																	<li>Nihil aliquid corporis reprehenderit.</li>
-																	<li>Exercitationem pariatur ipsum ducimus quo dignissimos cum dolorem.</li>
-																	<li>Quis eos eum quis iusto sapiente ut et error.</li>
+																	<li>Sit quibusdam animi laudantium eius sint.</li>
+																	<li>Enim illo odio ducimus exercitationem est commodi hic atque ea.</li>
+																	<li>Odit quam dolores eos esse.</li>
+																	<li>Tempore ipsum ratione cumque eos in.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -185,11 +236,11 @@
 								Platinum
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Sapiente laudantium aut.</li>
-																	<li>Sed saepe ea animi error quia.</li>
-																	<li>Voluptatibus veniam inventore a eligendi odio facilis ut ut tempore.</li>
-																	<li>Aut rerum nostrum ex.</li>
-																	<li>Quia atque fugit molestiae dolores eum.</li>
+																	<li>Dolorem vitae aperiam ipsum ut sunt maxime id cupiditate doloribus.</li>
+																	<li>Sed nisi aut assumenda aut nulla.</li>
+																	<li>Pariatur expedita laboriosam.</li>
+																	<li>Laudantium harum culpa.</li>
+																	<li>Voluptas alias vel cumque.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">

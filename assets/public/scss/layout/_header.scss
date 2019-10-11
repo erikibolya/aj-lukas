@@ -4,14 +4,15 @@
 
 .header {
 
-	&__logo {
-		width: 7rem;
-	}
+}
 
-	@include media-breakpoint-up(sm) {
-		&__logo {
-			width: 10rem;
-		}
+.header__top{
+    height: 4rem;
+}
 
-	}
+.header__logo{
+    width: 8rem;
+    @media (min-width: 23.4375em) {
+        width: 10rem;
+    }
 }

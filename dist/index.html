@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
 <div class="site">
 	<header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -60,7 +111,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(8)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(16)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -108,7 +159,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="taginput1" class="autocomplete__input" multiple="multiple">
+                    <select id="taginput1" class="autocomplete__input" data-placeholder="+ Doprava, obchod, kuchař..." data-placeholder-filled="+ Přidat..." multiple="multiple">
 
             </select>
         
@@ -119,33 +170,31 @@
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label">Kde hledám práci</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="flag-icon flag-icon-cz"></span>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-cz mr-2"></span>Česká Republika</a>
-                                <a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-sk mr-2"></span>Slovensko</a>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control input-group-center" placeholder="Obec, město, kraj">
-                        <div class="btn-group">
-                            <button class="btn btn-secondary dropdown-toggle dropdown-toggle--arrow" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                +10 km
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="#">+10 km</a>
-                                                                    <a class="dropdown-item" href="#">+20 km</a>
-                                                                    <a class="dropdown-item" href="#">+30 km</a>
-                                                                    <a class="dropdown-item" href="#">+40 km</a>
-                                                                    <a class="dropdown-item" href="#">+50 km</a>
-                                                                    <a class="dropdown-item" href="#">+60 km</a>
-                                                                    <a class="dropdown-item" href="#">+70 km</a>
-                                                            </div>
-                        </div>
+                    <div class="input-group job-search mb-3">
+                        <select class="form-control" data-selectric-flags>
+                            <option data-ico="cz">Česká republika</option>
+                            <option data-ico="sk">Slovensko</option>
+                        </select>
+                              <div class="autocomplete autocomplete--tag autocomplete--inwindow">
+        <div class="autocomplete__header">
+            <h5 class="autocomplete__title" id="exampleModalLabel"></h5>
+            <button type="button" class="autocomplete__button" data-autocomplete-close>
+                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+                </svg>
+            </button>
+        </div>
+                    <select id="taginput11" class="autocomplete__input" data-placeholder="Obec, město, kraj..." data-placeholder-filled="+ Přidat..." multiple="multiple">
+
+            </select>
+        
+    </div>
+    
+
+
                     </div>
                 </div>
             </div>
@@ -157,19 +206,19 @@
                             <label class="form-label">Pracovní poměr</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                laudantium molestiae sint
+                                molestiae non quia
                                 </option>
                                 <option>
-                                quod sapiente reiciendis
+                                alias distinctio sequi
                                 </option>
                                 <option>
-                                dolorum veniam maiores
+                                quo at error
                                 </option>
                                 <option>
-                                quidem soluta officiis
+                                repudiandae aut nemo
                                 </option>
                                 <option>
-                                rem nihil sed
+                                accusamus et nobis
                                 </option>
                             </select>
                         </div>
@@ -177,19 +226,19 @@
                             <label class="form-label">Plat</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                nihil rerum debitis
+                                quis alias alias
                                 </option>
                                 <option>
-                                et non et
+                                in et blanditiis
                                 </option>
                                 <option>
-                                cupiditate fuga et
+                                reprehenderit ut et
                                 </option>
                                 <option>
-                                id enim et
+                                ducimus nihil tenetur
                                 </option>
                                 <option>
-                                repellat mollitia debitis
+                                et quo enim
                                 </option>
                             </select>
                         </div>
@@ -197,19 +246,19 @@
                             <label class="form-label">Vzdělání</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                laboriosam ducimus repudiandae
+                                officia ea esse
                                 </option>
                                 <option>
-                                inventore adipisci perspiciatis
+                                deleniti soluta vel
                                 </option>
                                 <option>
-                                vero saepe autem
+                                ut ea et
                                 </option>
                                 <option>
-                                cum soluta et
+                                placeat quam quia
                                 </option>
                                 <option>
-                                nostrum facilis ut
+                                libero et ea
                                 </option>
                             </select>
                         </div>
@@ -217,19 +266,19 @@
                             <label class="form-label">Vhodné pro</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                dolore dolorum reprehenderit
+                                corrupti reprehenderit ad
                                 </option>
                                 <option>
-                                quo eos corporis
+                                suscipit est nobis
                                 </option>
                                 <option>
-                                quia voluptatibus tempore
+                                enim nisi id
                                 </option>
                                 <option>
-                                doloribus temporibus aut
+                                iure velit dolores
                                 </option>
                                 <option>
-                                et consectetur illo
+                                soluta voluptatem eos
                                 </option>
                             </select>
                         </div>
@@ -237,19 +286,19 @@
                             <label class="form-label">Stáří inzerátu</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                dolorem et et
+                                dolorem necessitatibus qui
                                 </option>
                                 <option>
-                                dolorem nostrum dolores
+                                temporibus quisquam ullam
                                 </option>
                                 <option>
-                                tempore commodi temporibus
+                                repudiandae voluptatum delectus
                                 </option>
                                 <option>
-                                tempora non unde
+                                in dolorum consequatur
                                 </option>
                                 <option>
-                                et autem temporibus
+                                alias dolorem quia
                                 </option>
                             </select>
                         </div>
@@ -257,19 +306,19 @@
                             <label class="form-label">Zadavetel nabídky</label>
                             <select class="form-control" data-selectric id="exampleFormControlSelect1">
                                 <option>
-                                repellendus similique aliquid
+                                dolore distinctio voluptate
                                 </option>
                                 <option>
-                                impedit est expedita
+                                eos soluta ab
                                 </option>
                                 <option>
-                                id molestias facere
+                                id beatae suscipit
                                 </option>
                                 <option>
-                                possimus magnam odio
+                                consectetur illum nam
                                 </option>
                                 <option>
-                                quidem eveniet velit
+                                quo dolorem quia
                                 </option>
                             </select>
                         </div>
@@ -319,7 +368,7 @@
                 <div class="col-12 p-0  mb-3">
                     <label class="form-label">Kde hledám práci</label>
                     <div class="col-12 p-0"> 
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
                                 Česká republika
                             </option>
@@ -353,7 +402,7 @@
 
                 </div>
                 <div class="col-12 p-0 mb-3">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
                         <option>
                             +10 km
                         </option>
@@ -382,121 +431,121 @@
                 </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Pracovní poměr</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            iusto labore dolor
+                            nemo nostrum porro
                             </option>
                             <option>
-                            similique et necessitatibus
+                            dolores ea voluptates
                             </option>
                             <option>
-                            quia fugiat ut
+                            optio vero esse
                             </option>
                             <option>
-                            qui placeat sit
+                            quia quod tenetur
                             </option>
                             <option>
-                            et voluptas molestias
+                            voluptatem ea aut
                             </option>
                         </select>
                     </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Plat</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            libero in ipsa
+                            labore nesciunt ratione
                             </option>
                             <option>
-                            perferendis tempore placeat
+                            ipsa dicta reprehenderit
                             </option>
                             <option>
-                            voluptas et itaque
+                            illum quia eum
                             </option>
                             <option>
-                            ea qui ut
+                            a perferendis nobis
                             </option>
                             <option>
-                            sint quisquam molestiae
+                            aut nesciunt quo
                             </option>
                         </select>
                     </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Vzdělání</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            sunt explicabo sed
+                            occaecati dolores sapiente
                             </option>
                             <option>
-                            omnis consequatur saepe
+                            pariatur voluptatibus dolor
                             </option>
                             <option>
-                            debitis qui dolores
+                            veniam officiis vel
                             </option>
                             <option>
-                            suscipit et voluptatem
+                            atque ex adipisci
                             </option>
                             <option>
-                            voluptatem commodi in
+                            aut possimus impedit
                             </option>
                         </select>
                     </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Vhodné pro</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            dicta suscipit voluptate
+                            mollitia nemo repellat
                             </option>
                             <option>
-                            deleniti magni ut
+                            sed ad sunt
                             </option>
                             <option>
-                            eos asperiores fuga
+                            et voluptates aliquid
                             </option>
                             <option>
-                            eos velit corrupti
+                            exercitationem et fugit
                             </option>
                             <option>
-                            dolores autem officiis
+                            reprehenderit sed iusto
                             </option>
                         </select>
                     </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Stáří inzerátu</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            sit et doloremque
+                            sunt alias accusantium
                             </option>
                             <option>
-                            nemo magni quibusdam
+                            quia ut doloribus
                             </option>
                             <option>
-                            praesentium deleniti voluptatem
+                            omnis tempore dolores
                             </option>
                             <option>
-                            quos expedita rem
+                            aut possimus et
                             </option>
                             <option>
-                            non nam voluptas
+                            itaque assumenda atque
                             </option>
                         </select>
                     </div>
                                     <div class="col-12 mb-3 p-0">
                         <label class="form-label">Zadavetel nabídky</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
                             <option>
-                            et natus harum
+                            molestias tempore molestias
                             </option>
                             <option>
-                            et harum in
+                            molestiae corporis molestiae
                             </option>
                             <option>
-                            quos vero id
+                            dignissimos a non
                             </option>
                             <option>
-                            consequatur voluptatem consequatur
+                            id illum fuga
                             </option>
                             <option>
-                            eaque placeat sapiente
+                            id voluptas sit
                             </option>
                         </select>
                     </div>
@@ -611,20 +660,20 @@
 
     <div class="container pb-3">
         <div class="section pb-4">
-            <h2 class="section__title h6 bg-light w-100 p-3 ">Vybrané nabídky</h2>                <div class="link-box__wrapper link-box__wrapper--offer-item border-b">
+            <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 ">Vybrané nabídky</h2>                <div class="link-box__wrapper link-box__wrapper--offer-item border-b">
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Legacy Brand Planner
+                Lead Paradigm Specialist
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    7748 Evans Ferry
+                    07119 Walter Branch
                     ,
-                    Port Emmy
+                    South Nelle
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Kovacek Group
+                    Boehm, Champlin and Hilll
                 </span>
             </span>
             <span class="">
@@ -652,16 +701,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Forward Identity Agent
+                Dynamic Operations Coordinator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    0466 Wayne Brook
+                    26967 Hackett Ways
                     ,
-                    South Murphy
+                    Beahanfurt
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Orn - Homenick
+                    Marvin, Hirthe and Becker
                 </span>
             </span>
             <span class="">
@@ -689,16 +738,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Markets Planner
+                Investor Implementation Engineer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    997 Murazik Forks
+                    1815 Parker Forge
                     ,
-                    Sawaynbury
+                    South Myrtis
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Kovacek - Lubowitz
+                    Denesik - Huels
                 </span>
             </span>
             <span class="">
@@ -726,16 +775,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Human Paradigm Technician
+                Corporate Program Technician
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    27680 Edgardo Shore
+                    263 Claudia Lodge
                     ,
-                    Port Macport
+                    D'Amorehaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Kerluke - Jenkins
+                    Abshire - Carroll
                 </span>
             </span>
             <span class="">
@@ -763,16 +812,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Functionality Designer
+                National Brand Designer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    208 Aliyah Heights
+                    7601 Gaetano Plains
                     ,
-                    East Freda
+                    Jakubowskiport
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Emmerich Group
+                    Walter - Robel
                 </span>
             </span>
             <span class="">
@@ -800,16 +849,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Customer Functionality Liason
+                Dynamic Mobility Architect
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    461 Kavon Brook
+                    52874 Hobart Pines
                     ,
-                    Leonardohaven
+                    East Keshaun
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Bahringer, Hirthe and Ebert
+                    Stiedemann, Monahan and Denesik
                 </span>
             </span>
             <span class="">
@@ -837,16 +886,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Principal Program Agent
+                Corporate Paradigm Coordinator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    84169 Yessenia Freeway
+                    4661 Witting Mill
                     ,
-                    West Bulah
+                    Maggiohaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Carter, Terry and Kulas
+                    Crist - Howe
                 </span>
             </span>
             <span class="">
@@ -874,16 +923,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Corporate Group Technician
+                Product Interactions Associate
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    771 Rippin Inlet
+                    1782 Bernier Locks
                     ,
-                    Port Helmerton
+                    West Hilton
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Shields - Davis
+                    Nicolas Inc
                 </span>
             </span>
             <span class="">
@@ -911,16 +960,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Assurance Agent
+                Chief Mobility Agent
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    59614 Ida Fork
+                    758 Heidenreich Ways
                     ,
-                    Port Rosina
+                    Lake Kaya
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Russel Inc
+                    Emmerich, Wolf and Howell
                 </span>
             </span>
             <span class="">
@@ -948,16 +997,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Paradigm Specialist
+                Customer Metrics Executive
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    62074 Daniel Land
+                    7198 Adelle Shoal
                     ,
-                    Lunaport
+                    Port Brendan
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Halvorson, White and Schiller
+                    Fahey Group
                 </span>
             </span>
             <span class="">
@@ -985,16 +1034,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Customer Accounts Planner
+                Customer Infrastructure Orchestrator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    582 Effertz Mountain
+                    447 Viola Camp
                     ,
-                    South Yazminport
+                    New Friedrichstad
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Corkery, Emard and Luettgen
+                    Ferry - Eichmann
                 </span>
             </span>
             <span class="">
@@ -1075,8 +1124,6 @@
 <script src="public/js/plugins/selectric.js"></script>
 
 <script src="public/js/plugins/mobile-detect.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="public/js/plugins/tagsinput.js"></script>
 <script src="public/js/template.js"></script>
 </body>
 </html>

@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(35)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(12)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -104,33 +155,33 @@
 			</nav>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Roční členství v klubu ActiJobsu</h2>				<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between mb-2">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Roční členství v klubu ActiJobsu</h2>				<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between mb-2">
 					<div>
 						<p class="font-weight-bold text-success">Aktivní členství VIP</p>
 						<ul>
 															<li>
-									Aut et consequatur pariatur.
+									Et ut voluptas eos nisi sequi rerum et.
 								</li>
 															<li>
-									Voluptates tenetur qui repellat recusandae eius qui non.
+									Quaerat laudantium vel vel velit autem enim porro ut.
 								</li>
 															<li>
-									Similique consequatur nihil et.
+									Similique eius non numquam aut sunt.
 								</li>
 															<li>
-									Doloribus quos suscipit.
+									Doloremque et ut eaque aut qui voluptatum debitis.
 								</li>
 															<li>
-									Ex vero aliquid est aut iure voluptatem dolores voluptatem.
+									Tempore corporis quis facilis eaque est ullam.
 								</li>
 															<li>
-									Dolorem et similique dolorum.
+									Maiores repudiandae sit omnis.
 								</li>
 															<li>
-									Rem tempore enim incidunt et eum enim.
+									Nam sed rerum recusandae mollitia et.
 								</li>
 															<li>
-									Aspernatur quos sequi et.
+									Rerum magnam rem harum architecto et explicabo.
 								</li>
 													</ul>
 					</div>
@@ -140,15 +191,15 @@
 				</div>
 				<div class="d-sm-flex justify-content-between">
 					<small class="text-muted d-block ">
-						Voluptates eum architecto sunt.
+						Corrupti doloremque dolorem.
 					</small>
 					<a href="/registration-company-7.html">Ceník inzerce</a>
 				</div>
 			</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
-					Inventore non ut quia sapiente.
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
+					Illum dolores omnis accusamus excepturi dolor eos sed officia quas.
 				</div>
 									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
@@ -177,7 +228,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															79.00 Kč
+															49.00 Kč
 													</div>
 
 					</div>
@@ -193,7 +244,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															582.00 Kč
+															724.00 Kč
 													</div>
 
 					</div>
@@ -209,7 +260,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															845.00 Kč
+															455.00 Kč
 													</div>
 
 					</div>
@@ -225,7 +276,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															481.00 Kč
+															381.00 Kč
 													</div>
 
 					</div>
@@ -242,52 +293,52 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															790.00 Kč
+															812.00 Kč
 													</div>
 
 					</div>
 							</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>Členství Classics</strong>
 					<div class="text-right">
-						995.00
+						557.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>50 000 ActiBonů</strong>
 					<div class="text-right">
-						629.00
+						523.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Cena bez DPH</div>
 					<div class="text-right">
-						520.00
+						92.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>DPH 21%</div>
 					<div class="text-right">
-						730.00
+						260.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 d-md-flex justify-content-between font-weight-bold text-success">
 					<strong>Cena celkem</strong>
 					<div class="text-right">
-						67.00
+						793.00
 						Kč
 					</div>
 				</div>
 			</div>
 
 						<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Platební metody</h2>									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Platební metody</h2>									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
 							<input class="form-check-input" type="radio" name="optradioPay" id="optradioPay1"
 							       value="option1">

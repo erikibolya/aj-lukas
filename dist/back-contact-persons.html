@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(56)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(71)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -110,7 +161,7 @@
 			</div>
 
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Lead Brand Consultant</span>
+					<span class="link-box__title">Lead Configuration Representative</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -118,14 +169,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Dessie61@gmail.com
+								Emery.Lynch11@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								1-350-856-2230 x39343
+								1-496-126-2972
 							</div>
 						</div>
 					</div>
@@ -143,7 +194,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Human Assurance Coordinator</span>
+					<span class="link-box__title">Dynamic Optimization Engineer</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -151,14 +202,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Miller_Zulauf19@yahoo.com
+								Marta.Dooley@hotmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								857.582.1428
+								672.959.4738 x170
 							</div>
 						</div>
 					</div>
@@ -176,7 +227,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Global Data Agent</span>
+					<span class="link-box__title">Product Tactics Liason</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -184,14 +235,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Courtney_Donnelly@gmail.com
+								Marisol61@yahoo.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								184-826-9904 x4624
+								1-224-518-2337 x960
 							</div>
 						</div>
 					</div>
@@ -209,7 +260,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Legacy Accounts Developer</span>
+					<span class="link-box__title">National Accountability Representative</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -217,14 +268,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Cruz_Howell6@gmail.com
+								Mariah_Balistreri@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								044.409.9816
+								785-454-4105 x2802
 							</div>
 						</div>
 					</div>
@@ -242,7 +293,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Future Interactions Producer</span>
+					<span class="link-box__title">Internal Research Associate</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -250,14 +301,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Keyon.Jacobi57@hotmail.com
+								Donna.Kunze@hotmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								1-523-333-7162
+								(683) 226-8441
 							</div>
 						</div>
 					</div>
@@ -275,7 +326,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">District Brand Strategist</span>
+					<span class="link-box__title">Global Solutions Coordinator</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -283,14 +334,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Taryn.Kihn@hotmail.com
+								Thomas.Klein92@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								(467) 250-5973
+								919.716.3400
 							</div>
 						</div>
 					</div>
@@ -308,7 +359,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Dynamic Accounts Director</span>
+					<span class="link-box__title">Internal Configuration Producer</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -316,14 +367,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Maeve86@gmail.com
+								Kaitlyn39@yahoo.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								194.437.0265 x77793
+								1-340-680-6097 x120
 							</div>
 						</div>
 					</div>

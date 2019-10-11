@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
                         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -59,7 +110,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(42)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(8)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -100,19 +151,19 @@
 		</nav>
 				<div>
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Corporate Creative Facilitator</span>
+				<span class="link-box__title">District Intranet Executive</span>
 			</a>
 			<div class="bg-white p-3 mb-4">
 				<div class="icon-list">
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">South Carolyn</div>
+						<div class="icon-list__text-col">North Verner</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">813 Dedrick Dam,Brandynton</div>
+						<div class="icon-list__text-col">062 Heaney Manors,West Julioside</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
@@ -139,19 +190,19 @@
 		</div>
 				<div>
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Human Quality Associate</span>
+				<span class="link-box__title">International Identity Associate</span>
 			</a>
 			<div class="bg-white p-3 mb-4">
 				<div class="icon-list">
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Justineland</div>
+						<div class="icon-list__text-col">North Marielle</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">1391 Jessica Forks,Estellaport</div>
+						<div class="icon-list__text-col">378 Layne Field,Considinefurt</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
@@ -178,19 +229,19 @@
 		</div>
 				<div>
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Regional Usability Officer</span>
+				<span class="link-box__title">Corporate Solutions Director</span>
 			</a>
 			<div class="bg-white p-3 mb-4">
 				<div class="icon-list">
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Port Pattiebury</div>
+						<div class="icon-list__text-col">Lake Elainaland</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">727 Tina Vista,Trantowmouth</div>
+						<div class="icon-list__text-col">0721 Baumbach Mountains,East Orville</div>
 					</div>
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>

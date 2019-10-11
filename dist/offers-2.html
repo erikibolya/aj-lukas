@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
                         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -59,7 +110,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(75)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(91)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -121,61 +172,61 @@
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Pracovní poměr</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>culpa maxime et</option>
-							<option>sed molestiae debitis</option>
-							<option>vero odit ut</option>
-							<option>doloribus nesciunt qui</option>
-							<option>consequatur veritatis in</option>
+							<option>ut tenetur laudantium</option>
+							<option>ut vel quis</option>
+							<option>quis velit et</option>
+							<option>fuga minus laudantium</option>
+							<option>sed voluptatem a</option>
 						</select>
 					</div>
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Plat</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>eveniet praesentium quo</option>
-							<option>non est voluptates</option>
-							<option>sint aspernatur qui</option>
-							<option>in hic repudiandae</option>
-							<option>eius aut dolor</option>
+							<option>at et non</option>
+							<option>itaque voluptates quaerat</option>
+							<option>ea qui quam</option>
+							<option>fugit minima omnis</option>
+							<option>et illo officiis</option>
 						</select>
 					</div>
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Vzdělání</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>fugiat earum deleniti</option>
-							<option>aut atque quis</option>
-							<option>aut repellendus quod</option>
-							<option>voluptas adipisci sit</option>
-							<option>atque eum dicta</option>
+							<option>est quia ex</option>
+							<option>quia dolore explicabo</option>
+							<option>eum sunt velit</option>
+							<option>sit nostrum odio</option>
+							<option>suscipit quibusdam consectetur</option>
 						</select>
 					</div>
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Vhodné pro</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>ratione a deserunt</option>
-							<option>asperiores esse quaerat</option>
-							<option>illo dolorem quam</option>
-							<option>nam doloremque aliquam</option>
-							<option>et iste neque</option>
+							<option>ut ex aut</option>
+							<option>distinctio et dignissimos</option>
+							<option>id non eveniet</option>
+							<option>pariatur assumenda rerum</option>
+							<option>architecto aperiam vel</option>
 						</select>
 					</div>
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Stáří inzerátu</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>molestias ut deserunt</option>
-							<option>et non consectetur</option>
-							<option>maxime sit accusantium</option>
-							<option>assumenda ipsa sit</option>
-							<option>minima asperiores qui</option>
+							<option>corrupti vitae nulla</option>
+							<option>ut sint in</option>
+							<option>fuga qui delectus</option>
+							<option>suscipit sint pariatur</option>
+							<option>laudantium nisi natus</option>
 						</select>
 					</div>
 									<div class="col-md-6 col-lg-4  mb-3">
 						<label class="form-label">Zadavetel nabídky</label>
 						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option>enim nemo et</option>
-							<option>assumenda quidem sed</option>
-							<option>voluptatum illo similique</option>
-							<option>corrupti vitae inventore</option>
-							<option>ut excepturi beatae</option>
+							<option>culpa qui officiis</option>
+							<option>odio blanditiis consequatur</option>
+							<option>molestiae modi facilis</option>
+							<option>voluptatem recusandae et</option>
+							<option>voluptas est consequatur</option>
 						</select>
 					</div>
 							</div>
@@ -224,16 +275,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Paradigm Supervisor
+                International Optimization Designer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    28199 Rice Rapids
+                    894 Harber Mountains
                     ,
-                    Creminmouth
+                    Lelahchester
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Bartoletti LLC
+                    Kihn Inc
                 </span>
             </span>
             <span class="">
@@ -261,16 +312,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Human Creative Producer
+                Human Quality Designer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    3846 Schulist Drives
+                    796 Kerluke Rapids
                     ,
-                    Lowestad
+                    Roobton
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Anderson LLC
+                    Medhurst Inc
                 </span>
             </span>
             <span class="">
@@ -298,16 +349,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                National Functionality Liason
+                Product Implementation Executive
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    785 Doyle Corner
+                    934 Rhett Vista
                     ,
-                    Port Melvinaside
+                    Rosalindmouth
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Runolfsson Inc
+                    Toy Group
                 </span>
             </span>
             <span class="">
@@ -335,16 +386,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                International Factors Designer
+                National Operations Manager
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    13538 Ulises Rapid
+                    7841 Gislason Glen
                     ,
-                    Jonesbury
+                    New Graceborough
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Flatley Inc
+                    Macejkovic, McLaughlin and Bashirian
                 </span>
             </span>
             <span class="">
@@ -372,16 +423,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Lead Security Technician
+                Forward Communications Specialist
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    3887 Kara Mission
+                    7023 Spinka Lane
                     ,
-                    Jewellberg
+                    Creolastad
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Reynolds - Halvorson
+                    Simonis - Denesik
                 </span>
             </span>
             <span class="">
@@ -409,16 +460,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Future Branding Architect
+                Future Integration Representative
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    977 Heloise View
+                    45137 Ivy Brook
                     ,
-                    North Lynnchester
+                    Kuvaliston
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Gerhold, Bashirian and Murazik
+                    O'Connell - Hickle
                 </span>
             </span>
             <span class="">
@@ -446,16 +497,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                International Program Representative
+                Legacy Web Specialist
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    4601 Bryana View
+                    182 Hyatt Grove
                     ,
-                    Dickensmouth
+                    Douglasville
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Leuschke, Reilly and Hoeger
+                    Koss - Kihn
                 </span>
             </span>
             <span class="">
@@ -483,16 +534,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Regional Group Manager
+                Product Accountability Designer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    97000 Myrtis Row
+                    860 Kulas Flat
                     ,
-                    Sawaynville
+                    Lake Christberg
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Keeling - O'Keefe
+                    Moen and Sons
                 </span>
             </span>
             <span class="">
@@ -520,16 +571,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                District Brand Architect
+                National Paradigm Associate
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    59430 Watsica Station
+                    408 Robyn Highway
                     ,
-                    New Mallie
+                    Luettgenbury
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Gleichner - Purdy
+                    Kuhn, Watsica and Klocko
                 </span>
             </span>
             <span class="">
@@ -557,16 +608,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Central Functionality Officer
+                Customer Accountability Planner
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    5138 Hirthe Ranch
+                    972 Muller Locks
                     ,
-                    South Augustusshire
+                    East Drake
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Leffler Inc
+                    Fisher - Olson
                 </span>
             </span>
             <span class="">
@@ -594,16 +645,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Global Implementation Manager
+                Chief Response Supervisor
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    089 Spencer River
+                    44209 Smith Stravenue
                     ,
-                    Lake Carliefort
+                    East Shyannhaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Hyatt - Gleichner
+                    Gulgowski - Pagac
                 </span>
             </span>
             <span class="">

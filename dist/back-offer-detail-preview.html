@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(31)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(76)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -105,19 +156,19 @@
 				</ol>
 			</nav>
 
-			<h1 class="bg-white h5 p-3 border-b mb-0">Customer Configuration Supervisor</h1>
+			<h1 class="bg-white h5 p-3 border-b mb-0">Product Infrastructure Specialist</h1>
 			<div class="bg-white p-3 mb-3 mb-sm-4">
 				<div class="icon-list">
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Strosin LLC</div>
+						<div class="icon-list__text-col">Spencer and Sons</div>
 					</div>
 
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">5146 Giovani Bypass, West Mariliemouth</div>
+						<div class="icon-list__text-col">597 Reichert Well, New Wadeshire</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -159,7 +210,7 @@
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
 						<div class="icon-list__info-col">Benefity</div>
-						<div class="icon-list__text-col">Temporibus error expedita saepe iste. Ullam sint quasi architecto earum optio ea. Labore laborum soluta. Est nihil deserunt nulla est.</div>
+						<div class="icon-list__text-col">Repudiandae et aut dolores odio omnis aut dignissimos. Ad sint eligendi omnis ullam. Vel odit hic. Necessitatibus non et nulla magni fuga vitae in.</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -170,36 +221,36 @@
 				</div>
 			</div>
 
-			<h2 class="section__title h6 bg-light w-100 p-3">Popis pozice</h2>			<div class="bg-white p-3 mb-3 mb-sm-4">
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>			<div class="bg-white p-3 mb-3 mb-sm-4">
 				<h3 class="h6 mb-3">Kvalifikační požadavky</h3>
-									<p>Doloremque labore consequatur et quibusdam.</p>
-									<p>Voluptatem quo accusantium in ut nesciunt.</p>
-									<p>Aliquid dignissimos eos commodi fugiat eos.</p>
-									<p>Vel similique voluptates voluptatibus ipsum doloribus natus nesciunt perferendis.</p>
-									<p>Distinctio rem quia dolorum voluptates illum cupiditate labore ab.</p>
-									<p>Non praesentium et quisquam est quae tempora dolore.</p>
-									<p>Quasi maxime molestias quisquam itaque veritatis.</p>
-									<p>Nesciunt commodi temporibus.</p>
-									<p>Quia eos modi.</p>
-									<p>Corporis corrupti quasi amet delectus aut neque.</p>
+									<p>Assumenda quis aut aut sit.</p>
+									<p>Id est totam porro odio quas esse vel perferendis.</p>
+									<p>Eius soluta omnis hic non officiis pariatur.</p>
+									<p>Id voluptatem doloribus dolore est ea ut doloribus omnis ut.</p>
+									<p>Alias nostrum qui expedita neque reprehenderit delectus enim.</p>
+									<p>In possimus rem.</p>
+									<p>Sed nisi at nesciunt natus eveniet voluptatem rerum consequatur.</p>
+									<p>Expedita omnis ducimus animi asperiores amet.</p>
+									<p>Necessitatibus assumenda ut sint est id nostrum dolor illo.</p>
+									<p>Nihil necessitatibus veniam dolor aut porro.</p>
 							</div>
 
-			<h2 class="section__title h6 bg-light w-100 p-3">Kontakt</h2><div class="bg-white p-3 border-b">
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2><div class="bg-white p-3 border-b">
 	<div class="row">
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Firma</div>
-			Sporer Group<br>
-			33198 Ubaldo Shoals <br>
-			48626, North Kobe </br>
-			Japan
+			Connelly - Nikolaus<br>
+			52781 Fausto Harbor <br>
+			13552-8775, Rolfsonport </br>
+			Turks and Caicos Islands
 		</div>
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Kontaktní osoba</div>
-			Lee Pollich
+			Ewell Gislason
 		</div>
 		<div class="col-md-4">
 			<div class="font-weight-bold">Telefon</div>
-			046.129.7122 x516
+			(080) 412-8850 x1926
 		</div>
 	</div>
 </div>

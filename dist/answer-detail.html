@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
                         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -59,7 +110,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(62)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(80)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -101,7 +152,7 @@
 			</nav>
 
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Chief Mobility Coordinator</span>
+				<span class="link-box__title">Dynamic Brand Specialist</span>
 			</a>
 
 			<div class="bg-white p-3 mb-4">
@@ -109,13 +160,13 @@
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Brown, Wiegand and Crist</div>
+						<div class="icon-list__text-col">Murphy, Mills and Bernier</div>
 					</div>
 
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">22024 Lavada Crescent, New Eudora</div>
+						<div class="icon-list__text-col">246 Warren Isle, Turcotteville</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -132,14 +183,14 @@
 				</div>
 			</div>
 
-			<h2 class="section__title h6 bg-light w-100 p-3">Zpráva</h2>
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Zpráva</h2>
 			<div class="bg-white p-3 mb-4">
-					<p>A vero rerum voluptatem autem odio. Eum qui tenetur quae.</p>
-					<p>Beatae possimus ut eligendi similique est dolorem aliquam praesentium. Quis et neque officia eum blanditiis deserunt est. Voluptatibus suscipit voluptatem eligendi quaerat non. Ea quae exercitationem consequatur voluptatem recusandae sit. Odio est deserunt id dolores itaque nesciunt deserunt eum. Cupiditate praesentium nam doloremque suscipit qui occaecati omnis nam.</p>
+					<p>Corporis et iusto quia eaque vero perspiciatis ullam vel. Doloribus quia sit vitae explicabo dignissimos debitis consequatur ipsum. Natus impedit ut alias aut dolorem et et. Eum voluptas et est ipsam rem molestiae. Reiciendis dolorem eos est eum error.</p>
+					<p>Vel illo et aut itaque magni asperiores cumque. Dolor iusto distinctio rerum optio quaerat nisi. Doloremque asperiores in. Inventore ut est minus alias eveniet.</p>
 			</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Přílohy a odkazy</h2>				<a href="#" class="link-box p-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Přílohy a odkazy</h2>				<a href="#" class="link-box p-3 d-md-flex justify-content-between border-b">
 					<span class="d-block mr-3 link-box__title">Životopis</span>
 					<span class="d-block  icon icon-document text-right"></span>
 				</a>

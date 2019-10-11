@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
                         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -59,7 +110,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(2)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(76)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -101,19 +152,19 @@
 						<div class="bg-white p-3  border-b">
 				<div class="form-group form-check px-3">
 					<input type="checkbox" class="form-check-input" id="exampleCheck0">
-					<label class="form-check-label" for="exampleCheck0">Ut rerum corporis exercitationem. Non quam autem sint voluptatem. Ipsa molestiae inventore. Dolor fugit animi placeat quia voluptatibus et mollitia. Voluptatem similique consequatur repudiandae quia id eum soluta ut.<a href="#" class="pl-2">Zobrazit více</a></label>
+					<label class="form-check-label" for="exampleCheck0">Eos aut laboriosam eius. Perferendis laborum adipisci architecto. Deleniti ratione velit qui amet. Voluptas aut quo ipsum dolore omnis aut officiis perferendis eius.<a href="#" class="pl-2">Zobrazit více</a></label>
 				</div>
 			</div>
 						<div class="bg-white p-3  border-b">
 				<div class="form-group form-check px-3">
 					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Qui voluptatibus autem officia non ipsam est qui. Est non qui qui ullam accusantium alias repellendus pariatur vel. Est tenetur accusamus dolorem alias sunt. Eum sed minima neque aut nihil cupiditate sapiente et.<a href="#" class="pl-2">Zobrazit více</a></label>
+					<label class="form-check-label" for="exampleCheck1">Ut officia tenetur id vero ut ullam. Labore porro aut ex officiis qui et aut quasi sint. Sit sint nam cupiditate distinctio voluptas.<a href="#" class="pl-2">Zobrazit více</a></label>
 				</div>
 			</div>
 						<div class="bg-white p-3 ">
 				<div class="form-group form-check px-3">
 					<input type="checkbox" class="form-check-input" id="exampleCheck2">
-					<label class="form-check-label" for="exampleCheck2">Quibusdam qui ut. Iste sed quos. Omnis enim animi molestiae et aut est repellat doloribus. Qui odio voluptatem vero tempore quia et eaque omnis.<a href="#" class="pl-2">Zobrazit více</a></label>
+					<label class="form-check-label" for="exampleCheck2">Quidem voluptates tempora voluptatum temporibus voluptatem delectus consequatur quidem ea. Deserunt necessitatibus et vel modi aut magni perferendis suscipit. Consequatur consectetur doloribus nihil laboriosam. Nam earum nihil. Rerum est saepe consequatur et quaerat. Explicabo recusandae eius suscipit aut.<a href="#" class="pl-2">Zobrazit více</a></label>
 				</div>
 			</div>
 					</div>

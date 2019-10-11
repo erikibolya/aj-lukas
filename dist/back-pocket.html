@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(2)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(78)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -110,12 +161,12 @@
 			</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Stav Actibonů</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Stav Actibonů</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
 							Zakoupených
 						</div>
 						<div class="text-right">
-							14070 AB
+							80546 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -123,7 +174,7 @@
 							Získaných
 						</div>
 						<div class="text-right">
-							90083 AB
+							48104 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -131,7 +182,7 @@
 							Využitých
 						</div>
 						<div class="text-right">
-							10589 AB
+							95889 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between text-success font-weight-bold">
@@ -139,125 +190,125 @@
 							Zůstatek
 						</div>
 						<div class="text-right">
-							15335 AB
+							68703 AB
 						</div>
 					</div>
 							</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Doloribus quaerat dicta dolorem quod dolores deserunt explicabo aut.
+							Ut soluta unde velit ea est placeat.
 						</div>
 						<div class="text-right">
-							88758 AB
+							16598 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Magnam corrupti est nihil maiores nulla sunt et.
+							Quis mollitia nobis doloremque nihil omnis assumenda vel natus facilis.
 						</div>
 						<div class="text-right">
-							7763 AB
+							82323 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Earum perferendis expedita quis veniam nesciunt nam accusantium cumque eius.
+							Pariatur voluptatem et.
 						</div>
 						<div class="text-right">
-							68942 AB
+							98020 AB
 						</div>
 					</div>
 							</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Cum vel sed rem ad corporis qui eos dignissimos quo.
+							Vitae vel voluptatibus voluptates est veritatis repudiandae.
 						</div>
 						<div class="text-right">
-							2937 AB
+							84802 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Officia beatae aut voluptatem tempora.
+							Voluptatem aliquam tempore officia nihil eius corrupti aliquid.
 						</div>
 						<div class="text-right">
-							57674 AB
+							36635 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Eaque velit sequi nam facilis et sint laudantium et ipsa.
+							Fugiat non ducimus occaecati error quia sit quasi fuga.
 						</div>
 						<div class="text-right">
-							26641 AB
+							55949 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Voluptatem voluptate et ipsam laborum nulla consequuntur.
+							Beatae quis animi est.
 						</div>
 						<div class="text-right">
-							89497 AB
+							52393 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Voluptas nulla maxime rerum facilis dolores nostrum ut.
+							Rerum molestiae dolor non consequatur tempora quam accusamus.
 						</div>
 						<div class="text-right">
-							46774 AB
+							11862 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Non repudiandae dolore quidem maiores perferendis dolores repudiandae qui ut.
+							Quaerat expedita repellat voluptatum unde sit deleniti animi nesciunt.
 						</div>
 						<div class="text-right">
-							43465 AB
+							12874 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Enim non ducimus ullam.
+							Sint placeat quasi et voluptatum quidem corporis est non sunt.
 						</div>
 						<div class="text-right">
-							65672 AB
+							10580 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Tempora et aut ipsum delectus autem ullam odit.
+							Illum consequatur cum est.
 						</div>
 						<div class="text-right">
-							97929 AB
+							85114 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Quod nisi qui possimus veniam placeat.
+							Ullam officia aspernatur quaerat quidem suscipit nesciunt sit.
 						</div>
 						<div class="text-right">
-							6686 AB
+							8698 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Architecto provident suscipit ut nam dolores ut nesciunt occaecati.
+							Qui eum dolores.
 						</div>
 						<div class="text-right">
-							90288 AB
+							63538 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Sunt quos commodi.
+							Quam rerum sit corrupti possimus.
 						</div>
 						<div class="text-right">
-							6777 AB
+							66640 AB
 						</div>
 					</div>
 							</div>

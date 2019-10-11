@@ -98,21 +98,21 @@ $(".switch__wrapper").click(function () {
 $('[data-selectric]').selectric({
     maxHeight: 210,
     onChange: function (element) {
-
-        if ("disableOnSelect" in element.dataset) {
-
-
-        }
         $(element).change();
     }
 });
 
 
+$('[data-selectric-flags]').selectric({
+    optionsItemBuilder: function(data){
+        let flag = "public/svg/flags/"+data.element[0].getAttribute("data-ico")+".svg";
+        return "<img class='selectric__img' src='"+flag+"'>{text}";
+    }
+});
 
 $("[data-disable-on-select]").on("change", function (event, element, instance) {
     let targetValue = $(this).attr("data-disable-on-select");
     let targetID = $(this).attr("data-disable-target");
-    console.log($(this).val());
     if ($(this).val() === targetValue) {
         $("#" + targetID).attr("disabled", "disabled").selectric('refresh');
         return;
@@ -123,7 +123,6 @@ $("[data-disable-on-select]").on("change", function (event, element, instance) {
 });
 
 $("[data-contact]").on("change", function (event) {
-    console.log(event);
     let targetPhone = $(this).attr("data-phone-target");
     let targetEmail = $(this).attr("data-email-target");
     let currentVal = $(this).val();

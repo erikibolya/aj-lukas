@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(70)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(49)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -105,7 +156,7 @@
             </nav>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Základní údaje</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Základní údaje</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <label for="exampleInputName" class="form-label">Název pozice*</label>
                         <input type="text" class="form-control" id="exampleInputName"  placeholder="" required>
@@ -124,7 +175,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete1" class="autocomplete__input" multiple="multiple">
+                    <select id="autocomplete1" class="autocomplete__input" data-placeholder="+ Obor" data-placeholder-filled="+ Přidat..." multiple="multiple">
 
             </select>
         
@@ -147,7 +198,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete2" class="autocomplete__input" multiple="multiple">
+                    <select id="autocomplete2" class="autocomplete__input" data-placeholder="+ Profese" data-placeholder-filled="+ Přidat..." multiple="multiple">
 
             </select>
         
@@ -160,7 +211,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Místo výkonu práce</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Místo výkonu práce</h2>                <div class="bg-white p-3">
                     <div class="show-content__wrapper">
                         <div class="mb-3">
                             <input class="form-check-input show-content__controll" type="radio" name="jobLocation" id="exampleRadios1" value="work" checked>
@@ -227,7 +278,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete4" class="autocomplete__input" multiple="multiple">
+                    <select id="autocomplete4" class="autocomplete__input" data-placeholder="+ Okres, Kraj, Země" data-placeholder-filled="+ Přidat..." multiple="multiple">
 
             </select>
         
@@ -243,15 +294,15 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Popis pozice</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>                <div class="bg-white p-3">
                     <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        <textarea class="form-control" id="tinymce" cols="30"></textarea>
                     </div>
                 </div>
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Pracovní poměr</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Pracovní poměr</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -298,7 +349,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Práce je vhodná i pro</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Práce je vhodná i pro</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -353,7 +404,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Práci mohou vykonávat i OZP</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Práci mohou vykonávat i OZP</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <select class="form-control" data-selectric required>
                             <option value="1">Ne</option>
@@ -364,7 +415,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Nástup možnný od</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nástup možnný od</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <input type="date" class="form-control" required />
                     </div>
@@ -372,7 +423,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -451,7 +502,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Jazykové znalosti uchazeče</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Jazykové znalosti uchazeče</h2>                <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Čeština nutností*</label>
                     <div class="row">
                         <div class="col-md-6">
@@ -491,7 +542,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocompleteJazyk" class="autocomplete__input" multiple="multiple">
+                    <select id="autocompleteJazyk" class="autocomplete__input" data-placeholder="" data-placeholder-filled="+ Přidat..." multiple="multiple">
 
             </select>
         
@@ -504,7 +555,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -575,7 +626,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Počítačové znalosti uchazeče</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Počítačové znalosti uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -679,7 +730,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Další znalosti uchazeče</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Další znalosti uchazeče</h2>                <div class="bg-white p-3">
                          <div class="form-group">
         <label for="autocomplete6" class="form-label">Další znalosti</label>
         <div class="autocomplete autocomplete--search ">
@@ -708,7 +759,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Nabízená mzda</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nabízená mzda</h2>                <div class="bg-white p-3">
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
@@ -751,7 +802,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Nabízené benefity</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nabízené benefity</h2>                <div class="bg-white p-3">
                          <div class="form-group">
         <label for="autocomplete7" class="form-label">Benefity</label>
         <div class="autocomplete autocomplete--search ">
@@ -781,7 +832,7 @@
 
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Kontakt</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2>                <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
                     <div class="form-group">
                         <select class="form-control" data-selectric data-contact data-email-target="contactEmail" data-phone-target="contactPhone" required>
@@ -822,7 +873,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 bg-light w-100 p-3">Inzerovat v</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Inzerovat v</h2>                <div class="bg-white p-3">
                     <label class="custom-switch">
     <div class="custom-switch__text">
         Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small>    </div>
@@ -843,7 +894,7 @@
             </div>
 
             <div class="mb-4">
-                                <h2 class="section__title h6 bg-light w-100 p-3">Možnost zvýhodnění*</h2>                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b custom-radio__wrapper--checked">
+                                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Možnost zvýhodnění*</h2>                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b custom-radio__wrapper--checked">
                         <div>
                             <div class="custom-radio">
                                 <input class="form-check-input" type="radio" name="classes" id="class1" value="option1" checked>
@@ -851,8 +902,8 @@
                             </div>
                             <ul>
 
-                                                                    <li>Vel nemo voluptas possimus inventore sed accusamus velit distinctio.</li>
-                                                                    <li>Consequatur exercitationem quasi rerum omnis animi officiis vitae ullam.</li>
+                                                                    <li>Rem et fugit consectetur.</li>
+                                                                    <li>Cupiditate est culpa adipisci et eum et aut.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -870,9 +921,9 @@
                             </div>
                             <ul>
 
-                                                                    <li>Minima sunt et unde odit doloremque et.</li>
-                                                                    <li>Delectus recusandae consectetur odio qui quibusdam et.</li>
-                                                                    <li>Quas voluptatem molestiae facilis id aut quisquam quasi saepe.</li>
+                                                                    <li>Alias quo ipsum quod voluptas eligendi omnis.</li>
+                                                                    <li>Ipsa eaque vel.</li>
+                                                                    <li>Vel velit consequatur quidem aut tenetur.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -890,10 +941,10 @@
                             </div>
                             <ul>
 
-                                                                    <li>Porro rerum in ut incidunt ad quam quisquam.</li>
-                                                                    <li>Corrupti et quia itaque fuga quas placeat illo.</li>
-                                                                    <li>Voluptatum sapiente tenetur esse ab.</li>
-                                                                    <li>Vero ut delectus architecto neque maxime dolorem non tempore.</li>
+                                                                    <li>Totam quasi quia.</li>
+                                                                    <li>Qui ut ipsum distinctio dolor.</li>
+                                                                    <li>Autem voluptatibus aut et non officiis.</li>
+                                                                    <li>Est et aut.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -911,11 +962,11 @@
                             </div>
                             <ul>
 
-                                                                    <li>Suscipit nostrum officia.</li>
-                                                                    <li>Qui illum cupiditate laudantium dolor perferendis beatae adipisci eligendi.</li>
-                                                                    <li>Harum omnis deserunt ut aut rerum nihil maiores.</li>
-                                                                    <li>Ipsum repellendus occaecati.</li>
-                                                                    <li>Iste sed iure corporis non ipsum fugiat iusto qui.</li>
+                                                                    <li>Aut autem iste ad et laudantium autem.</li>
+                                                                    <li>Vel in aut ut.</li>
+                                                                    <li>Praesentium autem officiis ut harum.</li>
+                                                                    <li>Et quasi laborum et eius.</li>
+                                                                    <li>Repudiandae accusantium culpa culpa velit qui aliquid et quisquam.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">

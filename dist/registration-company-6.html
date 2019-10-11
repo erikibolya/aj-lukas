@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
 <div class="site">
 	<header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -56,7 +107,7 @@
 			<div class="container">
 		<div class="section py-3  mb-5">
 			<div class="bg-white p-2 mb-3 text-center text-success">Objednávka služeb</div>
-			<h2 class="section__title h6 bg-light w-100 p-3">Roční členství v klubu ActiJobsu</h2>
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Roční členství v klubu ActiJobsu</h2>
 			<div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
 				<div>
 					<div class="mr-3 custom-radio">
@@ -65,28 +116,28 @@
 					</div>
 					<ul>
 													<li>
-								Culpa corporis et atque corporis sed.
+								Ducimus accusantium ipsa qui.
 							</li>
 													<li>
-								Dicta assumenda doloremque voluptatem.
+								Eos necessitatibus quis assumenda facere nobis nihil numquam.
 							</li>
 													<li>
-								Nulla voluptatum ipsam qui ad voluptatem tenetur.
+								Nobis et quis qui quae et ipsum qui voluptatem.
 							</li>
 													<li>
-								Dolor et voluptate provident sunt architecto suscipit veritatis.
+								Quia hic dolorem et sit saepe et.
 							</li>
 													<li>
-								Occaecati atque sunt ea aperiam iusto tenetur maiores repellendus harum.
+								Dolorum a omnis culpa ipsa.
 							</li>
 													<li>
-								Voluptatem laudantium et rerum velit aut porro.
+								Quo vel sequi nesciunt quia repellendus deleniti nesciunt odit.
 							</li>
 													<li>
-								Nisi odit hic.
+								Ducimus aspernatur ipsa quia dignissimos aut animi perferendis dolores.
 							</li>
 													<li>
-								Ut veritatis cumque voluptas minima animi repellendus explicabo quia.
+								Amet et et nesciunt provident placeat.
 							</li>
 											</ul>
 				</div>
@@ -103,28 +154,28 @@
 					</div>
 					<ul>
 													<li>
-								Reiciendis ipsam explicabo autem.
+								Sint dicta necessitatibus.
 							</li>
 													<li>
-								Dignissimos at atque ut est quia soluta adipisci dignissimos.
+								Dolorem atque animi ullam debitis.
 							</li>
 													<li>
-								Sed vitae omnis.
+								Rerum eveniet non molestiae molestiae.
 							</li>
 													<li>
-								Accusamus reprehenderit eum voluptates.
+								Et consequatur cupiditate blanditiis.
 							</li>
 													<li>
-								Illum ut facere repellendus qui.
+								Hic quos eum ex quisquam minima fugit perspiciatis accusamus totam.
 							</li>
 													<li>
-								Vero dignissimos voluptate deleniti recusandae sequi.
+								Qui modi pariatur accusamus eum.
 							</li>
 													<li>
-								Similique quo voluptates tenetur est quisquam fuga.
+								Doloremque rerum pariatur in.
 							</li>
 													<li>
-								Accusamus odio et cumque accusamus ipsum et doloribus necessitatibus.
+								Id illo nulla saepe corporis voluptatem est ut.
 							</li>
 											</ul>
 				</div>
@@ -134,14 +185,14 @@
 			</div>
 			<div class="d-sm-flex justify-content-between mb-4 mt-2">
 				<small class="text-muted d-block ">
-					Veritatis id quidem pariatur unde et.
+					Et reprehenderit placeat ullam magni quasi quo delectus tenetur quia.
 				</small>
 				<a href="/registration-company-7.html">Ceník inzerce</a>
 			</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
-					Est id rerum.
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
+					Ipsam sed et maiores id.
 				</div>
 									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
@@ -170,7 +221,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															215.00 Kč
+															695.00 Kč
 													</div>
 
 					</div>
@@ -186,7 +237,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															726.00 Kč
+															736.00 Kč
 													</div>
 
 					</div>
@@ -202,7 +253,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															902.00 Kč
+															554.00 Kč
 													</div>
 
 					</div>
@@ -218,7 +269,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															977.00 Kč
+															289.00 Kč
 													</div>
 
 					</div>
@@ -235,52 +286,52 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															991.00 Kč
+															825.00 Kč
 													</div>
 
 					</div>
 							</div>
 
 			<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>Členství Classics</strong>
 					<div class="text-right">
-						302.00
+						384.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>50 000 ActiBonů</strong>
 					<div class="text-right">
-						430.00
+						312.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Cena bez DPH</div>
 					<div class="text-right">
-						524.00
+						948.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>DPH 21%</div>
 					<div class="text-right">
-						68.00
+						848.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 d-md-flex justify-content-between font-weight-bold text-success">
 					<strong>Cena celkem</strong>
 					<div class="text-right">
-						349.00
+						948.00
 						Kč
 					</div>
 				</div>
 			</div>
 
 						<div class="mb-4">
-				<h2 class="section__title h6 bg-light w-100 p-3">Souhrn</h2>									<div class="custom-radio__wrapper bg-white p-3 d-md-flex justify-content-between border-b">
+				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Souhrn</h2>									<div class="custom-radio__wrapper bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
 							<input class="form-check-input" type="radio" name="optradioPay" id="optradioPay1"
 							       value="option1">

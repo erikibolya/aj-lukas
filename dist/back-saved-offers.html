@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -19,7 +70,7 @@
         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -64,7 +115,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(49)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(29)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -142,7 +193,7 @@
 
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Global Paradigm Producer</span>
+		<span class="link-box__title">Principal Accounts Officer</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -150,24 +201,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Regional Integration Developer
+					Global Response Coordinator
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					906 Alvina Fork
+					09826 Maybell Fall
 					,
-					Binsstad
+					Lake Gussie
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	21.4.2017&nbsp;&nbsp;
-	6:02</time></div>
+	5.1.2014&nbsp;&nbsp;
+	23:09</time></div>
 			</div>
 		</div>
 	</div>
@@ -190,7 +241,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">District Assurance Producer</span>
+		<span class="link-box__title">Investor Quality Technician</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -198,24 +249,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Internal Assurance Designer
+					Principal Implementation Designer
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					39087 Watsica Radial
+					352 Joesph Glens
 					,
-					Port Brandt
+					West Norbert
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	5.7.2013&nbsp;&nbsp;
-	16:09</time></div>
+	21.5.2017&nbsp;&nbsp;
+	2:03</time></div>
 			</div>
 		</div>
 	</div>
@@ -238,7 +289,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Forward Quality Producer</span>
+		<span class="link-box__title">Legacy Applications Representative</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -246,24 +297,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Senior Infrastructure Officer
+					Direct Identity Facilitator
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					78833 Rath Route
+					42894 Kilback Points
 					,
-					Aurelieport
+					Brayanmouth
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	6.11.2018&nbsp;&nbsp;
-	17:01</time></div>
+	3.7.2018&nbsp;&nbsp;
+	3:01</time></div>
 			</div>
 		</div>
 	</div>
@@ -286,7 +337,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Chief Program Planner</span>
+		<span class="link-box__title">National Creative Facilitator</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -294,24 +345,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Dynamic Communications Designer
+					Regional Implementation Representative
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					89320 Abshire Village
+					355 Darrell Lane
 					,
-					Connorberg
+					Kovacekmouth
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	7.0.2014&nbsp;&nbsp;
-	20:08</time></div>
+	18.5.2014&nbsp;&nbsp;
+	5:01</time></div>
 			</div>
 		</div>
 	</div>
@@ -334,7 +385,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Corporate Applications Assistant</span>
+		<span class="link-box__title">National Optimization Manager</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -342,24 +393,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Human Research Coordinator
+					Product Usability Producer
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					410 Lucinda Mount
+					479 Reba Ports
 					,
-					Katarinamouth
+					Philipfurt
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	8.2.2016&nbsp;&nbsp;
-	16:02</time></div>
+	26.11.2019&nbsp;&nbsp;
+	23:05</time></div>
 			</div>
 		</div>
 	</div>
@@ -382,7 +433,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Corporate Web Producer</span>
+		<span class="link-box__title">Direct Quality Coordinator</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -390,24 +441,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Global Directives Strategist
+					Internal Factors Representative
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					54210 Hannah Light
+					7637 Dickens Points
 					,
-					East Kennediborough
+					Corrinestad
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	25.7.2011&nbsp;&nbsp;
-	15:01</time></div>
+	8.6.2013&nbsp;&nbsp;
+	9:09</time></div>
 			</div>
 		</div>
 	</div>
@@ -430,7 +481,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Chief Markets Developer</span>
+		<span class="link-box__title">Lead Intranet Designer</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -438,24 +489,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Direct Data Manager
+					Direct Configuration Technician
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					85741 Langworth Ports
+					8958 Giles Motorway
 					,
-					South Augustborough
+					North Dana
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	5.8.2019&nbsp;&nbsp;
-	20:08</time></div>
+	20.9.2016&nbsp;&nbsp;
+	20:01</time></div>
 			</div>
 		</div>
 	</div>
@@ -478,7 +529,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Central Metrics Specialist</span>
+		<span class="link-box__title">Internal Group Coordinator</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -486,24 +537,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Internal Infrastructure Technician
+					International Applications Agent
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					1705 Heller Cape
+					04254 Evelyn Mountains
 					,
-					West Gaetano
+					Milanmouth
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	19.12.2019&nbsp;&nbsp;
-	11:02</time></div>
+	3.11.2019&nbsp;&nbsp;
+	9:04</time></div>
 			</div>
 		</div>
 	</div>
@@ -526,7 +577,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Future Paradigm Agent</span>
+		<span class="link-box__title">Legacy Functionality Orchestrator</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -534,24 +585,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Forward Mobility Architect
+					International Accountability Developer
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					062 Green Terrace
+					160 Stroman Lock
 					,
-					Danniestad
+					South Hazlefort
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	26.0.2013&nbsp;&nbsp;
-	22:06</time></div>
+	14.0.2015&nbsp;&nbsp;
+	8:02</time></div>
 			</div>
 		</div>
 	</div>
@@ -574,7 +625,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Principal Metrics Manager</span>
+		<span class="link-box__title">Lead Interactions Technician</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -582,24 +633,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Investor Identity Assistant
+					International Mobility Specialist
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					876 Joshuah Forge
+					011 Stewart Street
 					,
-					Tremblaymouth
+					Lake Kevon
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	26.7.2012&nbsp;&nbsp;
-	12:09</time></div>
+	15.4.2012&nbsp;&nbsp;
+	8:00</time></div>
 			</div>
 		</div>
 	</div>

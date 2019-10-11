@@ -9,10 +9,15 @@ $selectric-border-width:    1px !default;                                       
 $selectric-border-radius:   0px !default;                                               // Border radius
 $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !default; // Inner height
 $selectric-font-size:       16px !default;                                              // Font size
+$selectric-background-disabled: #fbfbfc;
 
 .selectric-wrapper {
     position: relative;
     cursor: pointer;
+    &:focus-within .selectric{
+        border-color: $input-border-focus;
+    }
+
 }
 
 .selectric-responsive {
@@ -25,6 +30,21 @@ $selectric-font-size:       16px !default;                                      
     background: $selectric-bg-color;
     position: relative;
     overflow: hidden;
+
+
+    @at-root .selectric-focus{
+        border-color: darken($selectric-main-color, 20%);
+    }
+
+    @at-root .selectric-hover{
+        border-color: darken($selectric-main-color, 10%);
+        .button {
+            color: darken($selectric-secondary-color, 10%);
+            &:after {
+                border-top-color: darken($selectric-secondary-color, 10%);
+            }
+        }
+    }
 
     .label {
         display: block;
@@ -80,22 +100,6 @@ $selectric-font-size:       16px !default;                                      
     }
 }
 
-.selectric-focus .selectric {
-    border-color: darken($selectric-main-color, 20%);
-}
-
-.selectric-hover .selectric {
-    border-color: darken($selectric-main-color, 10%);
-
-    .button {
-        color: darken($selectric-secondary-color, 10%);
-        ￿
-        &:after {
-            border-top-color: darken($selectric-secondary-color, 10%);
-        }
-    }
-}
-
 .selectric-open {
     z-index: 9999;
 
@@ -109,14 +113,12 @@ $selectric-font-size:       16px !default;                                      
 }
 
 .selectric-disabled {
-    filter: alpha(opacity=50);
-    opacity: 0.5;
     cursor: default;
     user-select: none;
 
     .selectric,
     .button {
-        background: #f7f7f9;
+        background: $selectric-background-disabled;
     }
 }
 

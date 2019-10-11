@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
 <div class="site">
 	<header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -56,13 +107,13 @@
 		
 	<div class="container">
 		<div class="section py-3 mb-5">
-			<h2 class="section__title h6 bg-light w-100 p-3 text-center">Objednávka služeb</h2>			<div class="bg-white p-3">
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Objednávka služeb</h2>			<div class="bg-white p-3">
 				<div class="row justify-content-center text-center">
 					<div class="col-sm-10 col-md-8 col-lg-6">
 						<p class="text-success font-weight-bold">Děkujeme za zaplacení objednávky</p>
-						<p class="text-info font-weight-bold">Enim ratione voluptatum id reprehenderit.</p>
-						<p>Numquam amet et aut dolore.</p>
-						<p><small>Et animi dignissimos omnis.</small></p>
+						<p class="text-info font-weight-bold">Iste assumenda animi dolores.</p>
+						<p>Neque sunt delectus et.</p>
+						<p><small>Iure ut magnam quo.</small></p>
 						<a href="/registration-company.html" class="btn btn-success w-100">Pokračovat</a>
 					</div>
 				</div>

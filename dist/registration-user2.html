@@ -8,6 +8,57 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    let shortcutsToRemove = [
+        "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
+    ];
+    let allowedTags = [
+        "U", "B", "UL", "OL", "LI", "BODY", "STRONG", "SPAN"
+    ];
+    tinymce.init({
+        selector: '#tinymce',
+        block_formats: 'Paragraph=p; Header 1=h1',
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        toolbar: 'undo redo | bold bullist numlist',
+        inline_styles: false,
+        plugins: "paste,autoresize,lists",
+        paste_as_text: true,
+        min_height: 400,
+        autoresize_on_init: true,
+        setup: function (editor) {
+            editor.on("NodeChange", function (change) {
+                if (allowedTags.indexOf(change.element.tagName) === -1) {
+                    //let element = change.element;
+                    //let parent = element.parentNode;
+                    // let swap = null;
+                    //if (parent.tagName === "BODY") {
+                    //   swap = document.createElement('p');
+                    // } else {
+                    //    swap = document.createElement('span');
+                    //}
+                    //swap.innerHTML = element.innerHTML;
+                    //parent.replaceChild(swap, element);
+
+                }
+                //console.log(change);
+               // console.log(change.element.tagName);
+               // console.log(allowedTags.indexOf(change.element));
+
+            });
+            editor.on("init", function (r) {
+                let editor = r.target;
+               // console.log(editor);
+                for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
+                    delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
+                }
+            });
+        }
+    });
+
+</script>
 
 
 
@@ -18,7 +69,7 @@
                         <div class="site">
             <header class="header">
 	<div class="bg-white">
-		<div class="container d-flex  justify-content-between align-items-center">
+		<div class="header__top container d-flex  justify-content-between align-items-center">
 			<a href="/" class="header__logo d-block">
 				<img src="./public/svg/images/logo.svg" 
 				     alt="Logo">
@@ -59,7 +110,7 @@
 			</button>
 			<a href="/saved-offers.html" class="menu__extra-button">
 				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(58)
+								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(66)
 			</a>
 			<ul class="menu__list">
 				<li class="menu__item">
@@ -94,7 +145,7 @@
 		<div class="section py-3 mb-5">
 
 
-			<h2 class="section__title h6 bg-light w-100 p-3 text-center">Registrace uživatele</h2>
+			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Registrace uživatele</h2>
 			<div class="bg-white p-3 py-sm-5">
 
 				<div class="row justify-content-center">
@@ -103,7 +154,7 @@
 							<fieldset disabled>
 								<div class="form-group">
 									<label for="exampleInputEmail1" class="form-label">Váš e-mail*</label>
-									<input type="email" value="Alexandra68@hotmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+									<input type="email" value="Claire81@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 								</div>
 							</fieldset>
 
@@ -123,13 +174,13 @@
 								</div>
 							</div>
 							<small id="passwordHelpBlock" class="form-text text-muted">
-								Quasi natus id. Quo animi qui magni nesciunt alias perferendis consequatur hic. Molestiae aliquam sint. Recusandae ratione perferendis aut provident. Velit autem dolorem quos ut. Quia alias vel harum voluptas autem.
+								Nemo aut incidunt eum ut nostrum. Harum blanditiis ratione quisquam quidem sequi nobis adipisci aliquid. Dolor laudantium dolor consequatur ipsum nemo corporis in temporibus. Laboriosam sed veniam quia quia tempora iusto. Cumque quam animi repellat aspernatur voluptatem voluptas.
 							</small>
 
 							<div class="form-check mt-3">
 								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
 								<label class="form-check-label" for="defaultCheck1">
-									Esse dolorum ut aut asperiores vero voluptatum.
+									Dignissimos qui itaque vel accusamus et labore soluta.
 									<a href="/business-conditions.html">Více zde</a>
 								</label>
 							</div>
@@ -138,7 +189,7 @@
 							<div class="form-check mt-3 is-invalid">
 								<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
 								<label class="form-check-label" for="defaultCheck2">
-									Maiores autem beatae fugiat qui.
+									Recusandae voluptates cumque amet mollitia sunt occaecati voluptatem ut.
 									<a href="/business-conditions.html">Více zde</a>
 								</label>
 								<div class="invalid-feedback">

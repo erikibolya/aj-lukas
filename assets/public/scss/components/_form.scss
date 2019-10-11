@@ -2,6 +2,10 @@
     font-weight: $font-weight-bold;
 }
 
+.form-control::placeholder{
+    color: #bfbfbf;
+}
+
 .form-check-input {
     margin-left: 0;
 }
