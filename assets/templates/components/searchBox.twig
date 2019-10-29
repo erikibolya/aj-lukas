@@ -10,10 +10,10 @@
                     <label class="form-label">Kde hledám práci</label>
                     <div class="input-group job-search mb-3">
                         <select class="form-control" data-selectric-flags>
-                            <option data-ico="cz">Česká republika</option>
-                            <option data-ico="sk">Slovensko</option>
+                            <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
+                            <option data-ico="sk" data-placeholder="SK">Slovensko</option>
                         </select>
-                         {% include "autocompleteInput.twig" with {type:"tag",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                         {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
                     </div>
                 </div>
             </div>

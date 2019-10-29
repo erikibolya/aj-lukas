@@ -34,7 +34,7 @@
     @at-root .link-box__star:hover &{
         fill: $brand-success;
         &--transparent{
-            fill: $brand-success;
+            fill: transparent;
         }
     }
 

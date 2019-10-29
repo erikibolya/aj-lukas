@@ -104,9 +104,17 @@ $('[data-selectric]').selectric({
 
 
 $('[data-selectric-flags]').selectric({
-    optionsItemBuilder: function(data){
-        let flag = "public/svg/flags/"+data.element[0].getAttribute("data-ico")+".svg";
-        return "<img class='selectric__img' src='"+flag+"'>{text}";
+    customClass: {
+        prefix: 'selectric-flag'
+    },
+    optionsItemBuilder: function (data) {
+        let flag = "public/svg/flags/" + data.element[0].getAttribute("data-ico") + ".svg";
+        return "<span class='selectric-flag-itemwrapper'><img class='selectric-flag-img' src='" + flag + "'><span class='selectric-flag-text'>{text}</span></span>";
+    },
+    labelBuilder: function (data) {
+        let placeholder = data.element[0].getAttribute("data-placeholder");
+        let flag = "public/svg/flags/" + data.element[0].getAttribute("data-ico") + ".svg";
+        return "<span class='selectric-flag-labelwrapper'><img class='selectric-flag-img' src='" + flag + "'></span>";
     }
 });
 

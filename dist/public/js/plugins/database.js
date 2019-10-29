@@ -1,14 +1,14 @@
-//var data = [...professions, ...categories, ...companies];
-var data = [...comp];
-var id = 204;
-var comp = [];
-for (let i = 0, max = companies.length; i < max; i++) {
-    comp.push({
-        id: companies[i].value,
-        text: companies[i].label
-    });
-}
-console.log(comp);
+var data = [...professions, ...categories, ...companies];
+//var data = [...comp];
+//var id = 204;
+//var comp = [];
+//for (let i = 0, max = companies.length; i < max; i++) {
+//    comp.push({
+//        id: companies[i].value,
+//        text: companies[i].label
+//    });
+//}
+//console.log(comp);
 
 function getSearchData(query, alreadyHave, limit) {
     query = query.trim();
