@@ -19,12 +19,24 @@
                     <div class="col-sm-10 col-md-8 col-lg-6">
                         <form>
                             <div class="mb-3">
-                                <label class="form-label">Hledání práce</label>
-                                <input class="form-control" id="jobsAutocomplete" type="text" placeholder="Doprava, obchod, kuchař..">
+                                <label class="form-label">Hledaná práce</label>
+                                {% include "components/autocompleteInput.twig" with {type:"tag",id:"taginput1",name:"Hledaná práce", plain: true, inWindow: false, placeholder: "Doprava, obchod, kuchař..", dataset: "names.json"} %}
                             </div>
                             <div class="mb-3">
-                                {% include "components/autocompleteInput.twig" with {type: "search",autocompleteLabel: "Kde hledám práci"} %}
+                                <label class="form-label">Kde hledám práci</label>
+                                <div class="col-12 p-0 pb-3"> 
+                                    <select class="form-control" data-selectric>
+                                        <option>
+                                            Česká republika
+                                        </option>
+                                        <option>
+                                            Slovenská republika
+                                        </option>
+                                    </select>
+                                </div>
+                                {% include "components/autocompleteInput.twig" with {type:"search",id:"taginput11",name:"Kde hledám práci",  plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
                             </div>
+
                             {% set extendedFilter = {
 							"Pracovní poměr": ["Nezáleží","Plný úvazek","Zkrácený úvazek","IČO/Živnostenský list","Dohoda (brigáda)","Intership/Stáž"],
 							"Plat": ["Nezáleží","od 10 000 Kč","od 15 000 Kč","od 20 000 Kč","od 25 000 Kč","od 30 000 Kč","od 50 000 Kč"],
@@ -47,9 +59,9 @@
                             {% endfor %}
                             <label class="form-label">Upozornění a oznámení</label>
                             <hr class="mt-0">
-                             {% include "components/custom-switch.twig" with {text: "Zasílat upozorněni na e-mail", checked: false,id: "1"} %}
+                            {% include "components/custom-switch.twig" with {text: "Zasílat upozorněni na e-mail", checked: false,id: "1"} %}
                             <hr>
-                             {% include "components/custom-switch.twig" with {text: "Zobrazovat oznámení v tomto zařízení", checked: false,id: "2"} %}
+                            {% include "components/custom-switch.twig" with {text: "Zobrazovat oznámení v tomto zařízení", checked: false,id: "2"} %}
                             <hr>
                             <button type="submit" class="btn btn-success w-100">Uložit</button>
                         </form>

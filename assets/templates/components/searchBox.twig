@@ -13,7 +13,7 @@
                             <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
                             <option data-ico="sk" data-placeholder="SK">Slovensko</option>
                         </select>
-                         {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                        {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="modal-body">
                 <div class="col-12 p-0 mb-3">
                     <label class="form-label">Hledaná práce</label>
-
+                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput111", plain: true, inWindow: true, placeholder: "Doprava, obchod, kuchař..", dataset: "names.json"} %}
                 </div>
                 <div class="col-12 p-0  mb-3">
                     <label class="form-label">Kde hledám práci</label>
@@ -109,18 +109,6 @@
                 </div>
                 <div class="col-12 p-0 mb-3"> 
                     {% include "autocompleteInput.twig" with {type:"search",id:"autocomplete1", plain: true, inWindow: true, name: "Kde hledám práci", placeholder: "Obec, Město, Kraj", dataset: "names.json"} %}
-                </div>
-                <div class="col-12 p-0 mb-3">
-                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                        <option>
-                            +10 km
-                        </option>
-                        {% for i in 0..6 %}
-                            <option>
-                                +{{ loop.index }}0 km
-                            </option>
-                        {% endfor %}
-                    </select>
                 </div>
                 {% for i in extendedFilter %}
                     <div class="col-12 mb-3 p-0">

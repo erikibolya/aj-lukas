@@ -68,76 +68,80 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(10)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="/">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="/offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(25)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="/">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="/offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             	<div class="container">
@@ -152,7 +156,7 @@
 			</nav>
 
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Corporate Security Strategist</span>
+				<span class="link-box__title">Human Accountability Associate</span>
 			</a>
 
 			<div class="bg-white p-3 mb-4">
@@ -160,13 +164,13 @@
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Brakus and Sons</div>
+						<div class="icon-list__text-col">Kessler, Kutch and Johnston</div>
 					</div>
 
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">57544 Rigoberto Loop, Lake Phyllisport</div>
+						<div class="icon-list__text-col">285 Garth Lane, Erlingmouth</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -185,8 +189,8 @@
 
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Zpráva</h2>
 			<div class="bg-white p-3 mb-4">
-					<p>Quia necessitatibus ea rerum minus rerum maxime voluptates. Omnis voluptas aspernatur quibusdam ut dolorum eius iure. Omnis perferendis cum consequatur sed nobis neque dolor dolores et. Repellat eos ipsam numquam est reprehenderit distinctio eos illo qui.</p>
-					<p>Quia non iste quam molestiae dolor inventore. Iure accusamus voluptas delectus rem perspiciatis voluptatem.</p>
+					<p>Magni vel suscipit repellendus sunt qui rerum cumque eum quia. Voluptate qui iure nihil consequatur qui reiciendis accusantium velit. Asperiores ad et aperiam sed enim et. Cupiditate omnis ea. Molestiae est nobis doloremque cum quisquam eos laudantium.</p>
+					<p>Odit quaerat rerum optio. Repudiandae qui exercitationem voluptas reprehenderit voluptas voluptatem porro repudiandae iste. Nihil odio earum odit ipsa voluptatem iure soluta. Et velit aliquid delectus. Est vero reprehenderit et necessitatibus pariatur quia quae voluptatem ut. Exercitationem sequi esse officiis molestias.</p>
 			</div>
 
 			<div class="mb-4">

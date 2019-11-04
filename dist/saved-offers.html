@@ -69,76 +69,80 @@
 <body>
 <div class="site">
 	<header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler menu__toggler--inactive">
-				<span class="menu-icon"></span>
-				<span>Menu</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button menu__extra-button--active">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(54)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link "
-					   href="/">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="/offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler menu__toggler--inactive">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Menu</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button menu__extra-button--active">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(96)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link "
+                       href="/">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="/offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
 	<div class="site__content">
 		
@@ -154,16 +158,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Dynamic Research Supervisor
+                Lead Brand Developer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    7835 Daniel Roads
+                    80150 Francesco Neck
                     ,
-                    Hubertberg
+                    North Jordiview
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Walsh Group
+                    Brown - Cole
                 </span>
             </span>
             <span class="">
@@ -191,16 +195,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                District Mobility Associate
+                Product Data Orchestrator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    964 Alvina Cape
+                    596 Hudson Heights
                     ,
-                    Rutherfordshire
+                    Peggieborough
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Batz Inc
+                    Parisian and Sons
                 </span>
             </span>
             <span class="">
@@ -228,16 +232,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                District Intranet Architect
+                Principal Security Architect
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    419 Jennifer Roads
+                    464 Davis Rapids
                     ,
-                    Mertzhaven
+                    Valliemouth
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Kozey LLC
+                    Lakin, Torphy and Becker
                 </span>
             </span>
             <span class="">
@@ -265,16 +269,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Corporate Infrastructure Agent
+                International Creative Supervisor
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    87932 Annalise Mountain
+                    3084 Carissa Ports
                     ,
-                    Denesikshire
+                    Selmerhaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Hermann, Sanford and Schulist
+                    Kessler Inc
                 </span>
             </span>
             <span class="">
@@ -302,16 +306,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                District Metrics Associate
+                Principal Applications Orchestrator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    165 Deshawn Fords
+                    6969 Gutmann Lake
                     ,
-                    Patrickchester
+                    Joannehaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Will and Sons
+                    Heathcote, Ondricka and Luettgen
                 </span>
             </span>
             <span class="">
@@ -339,16 +343,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Legacy Division Orchestrator
+                International Branding Supervisor
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    66357 Cartwright Locks
+                    129 Kirlin Mission
                     ,
-                    New Rozellaport
+                    Calebhaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Lind - Little
+                    Jones LLC
                 </span>
             </span>
             <span class="">
@@ -376,16 +380,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Investor Markets Producer
+                Legacy Paradigm Technician
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    2379 Doyle Prairie
+                    087 Leonard Lane
                     ,
-                    East Sally
+                    New Ethan
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Littel, Roob and Nienow
+                    Herman, White and Bashirian
                 </span>
             </span>
             <span class="">
@@ -413,16 +417,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Central Intranet Assistant
+                Central Usability Director
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    491 Precious Views
+                    2639 Schiller Drive
                     ,
-                    West Fosterchester
+                    Evelinefurt
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Kertzmann - Zieme
+                    Corwin LLC
                 </span>
             </span>
             <span class="">
@@ -450,16 +454,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Regional Intranet Facilitator
+                Central Configuration Officer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    07752 Langworth Trafficway
+                    218 Layla Common
                     ,
-                    New Odell
+                    Hamillside
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Halvorson and Sons
+                    Boyer - Stracke
                 </span>
             </span>
             <span class="">
@@ -487,16 +491,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Central Brand Officer
+                Dynamic Optimization Specialist
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    284 Schultz Mount
+                    888 Carolyne Cliffs
                     ,
-                    West Stephanie
+                    Genemouth
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Corkery and Sons
+                    Sanford - Walter
                 </span>
             </span>
             <span class="">

@@ -2,9 +2,29 @@
     width: 1.25rem;
     height: 1.25rem;
     display: block;
+    pointer-events: none;
     @at-root .choices__item__ico &{
         width: 1rem;
         height: 1rem;
+    }
+
+    &--inline{
+        display: inline-block;
+        vertical-align: sub;
+        margin-right: 0.5em;
+    }
+
+    &--absolute{
+        position: absolute;
+        top: 0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    &--menu{
+        margin-right: 0.2em;
     }
 }
 

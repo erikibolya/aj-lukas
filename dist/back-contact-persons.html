@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(69)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(2)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             	<div class="container">
@@ -161,7 +167,7 @@
 			</div>
 
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Internal Communications Administrator</span>
+					<span class="link-box__title">Dynamic Integration Coordinator</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -169,14 +175,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Jabari_Weissnat5@gmail.com
+								Darryl_Bahringer@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								346.843.0526 x14516
+								868.793.4408
 							</div>
 						</div>
 					</div>
@@ -194,7 +200,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Regional Paradigm Administrator</span>
+					<span class="link-box__title">Forward Mobility Specialist</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -202,14 +208,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Stefanie.Corwin96@gmail.com
+								Columbus_Padberg@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								(156) 081-2090 x6772
+								1-618-266-4465 x0086
 							</div>
 						</div>
 					</div>
@@ -227,7 +233,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">Principal Accounts Developer</span>
+					<span class="link-box__title">Lead Web Planner</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -235,14 +241,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Haylie39@gmail.com
+								Russell56@hotmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								986.175.4095 x49880
+								(369) 984-4188 x451
 							</div>
 						</div>
 					</div>
@@ -260,7 +266,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">National Intranet Associate</span>
+					<span class="link-box__title">National Research Facilitator</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -268,14 +274,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Eva.Ward31@yahoo.com
+								Brayan.Hintz@hotmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								746-052-5776
+								575-432-9269
 							</div>
 						</div>
 					</div>
@@ -293,7 +299,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">National Intranet Assistant</span>
+					<span class="link-box__title">Product Paradigm Agent</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -301,14 +307,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Lula.Marquardt@gmail.com
+								Heath.Rodriguez94@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								1-503-015-2580 x905
+								(773) 255-6530 x3855
 							</div>
 						</div>
 					</div>
@@ -326,7 +332,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">International Paradigm Executive</span>
+					<span class="link-box__title">Forward Directives Developer</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -334,14 +340,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Ricardo_Stroman@gmail.com
+								Chasity73@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								(421) 248-4471
+								(918) 022-8796 x36561
 							</div>
 						</div>
 					</div>
@@ -359,7 +365,7 @@
 					</div>
 				</div>
 							<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title">International Program Director</span>
+					<span class="link-box__title">Dynamic Identity Facilitator</span>
 				</a>
 				<div class="bg-white p-3 pt-3 border-b">
 					<div class="icon-list">
@@ -367,14 +373,14 @@
 							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
 							<div class="icon-list__info-col">Kontaktní email</div>
 							<div class="icon-list__text-col">
-								Odessa88@gmail.com
+								Reinhold_Wilkinson@gmail.com
 							</div>
 						</div>
 						<div class="icon-list__row">
 							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
 							<div class="icon-list__info-col">Kontaktní telefon</div>
 							<div class="icon-list__text-col">
-								(103) 402-3075 x07121
+								1-238-180-4723
 							</div>
 						</div>
 					</div>

@@ -68,118 +68,122 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(59)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="/">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="/offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(8)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="/">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="/offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             
 	<div class="container">
 		<div class="section py-3 mb-5">
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Podmínky používání</h2>			<div class="bg-white p-3">
-								<h5 class="text-gray-dark">ratione iure magnam</h5>
-				<p>Sunt quo ut repellat. Natus vel et nulla voluptatum perferendis nihil sit. Quia vel optio. Eligendi consequatur veniam. Rerum quam iure vel rerum dolorum cum veniam.
- Et quasi velit corrupti repellat perferendis voluptatem sunt eius aut. Asperiores soluta ducimus voluptatem explicabo consectetur perspiciatis. Quaerat facilis eius commodi dolor. Et et magni distinctio omnis. Fuga reprehenderit ut omnis ut est porro dolorum provident.
- Minima cupiditate eligendi est esse exercitationem. Velit perferendis sit. Est et eos harum dolorem est. Ea velit aliquid aut voluptatem doloremque. Cum modi perferendis. Dicta culpa quibusdam.</p>
-								<h5 class="text-gray-dark">impedit enim aspernatur</h5>
-				<p>Veritatis sunt dolorem autem dolor ut animi tempore. Natus est iure tempore similique quia et itaque. Corrupti quibusdam sed voluptate corrupti iusto.
- Deleniti omnis rerum et sit incidunt dolorem possimus ut. Eum et harum sequi. Id tempore voluptatum impedit iusto. Quae velit unde aut iure ad voluptatum. Quas quis ut consequatur saepe rerum quibusdam.
- Vero tempora similique beatae numquam beatae. Eaque dolor non ut natus dolor dolor est doloribus. Perspiciatis aut consequatur.</p>
-								<h5 class="text-gray-dark">est occaecati libero</h5>
-				<p>Quisquam perspiciatis qui molestiae. Ex illum repellat autem est aut. Ut rerum unde perferendis voluptatem consequatur rerum magni. Eaque minima quia impedit placeat quibusdam aut quia earum est. Sunt dolore et corporis quia.
- Aperiam aut et aspernatur sed voluptas voluptate. Blanditiis molestias aut consectetur ea minus praesentium odit. Aliquid repellendus sunt dolorem sit at dignissimos. Aut necessitatibus sed dolorem aut.
- Eum eos earum aut. Et nulla vel voluptatibus ipsa quo corrupti accusamus. Molestiae mollitia voluptatem quam rem fugit id adipisci eum.</p>
-								<h5 class="text-gray-dark">odio autem id</h5>
-				<p>Aliquid vitae eligendi mollitia. Modi commodi aspernatur et. Libero voluptatem a tenetur voluptatem delectus ipsa.
- Quae enim et deleniti voluptate in neque iste. Eos adipisci totam vero sit aut aut. A dolores distinctio sit qui tenetur saepe culpa aut iure. Numquam asperiores deserunt et pariatur tempore rerum et.
- Qui nostrum doloribus ea qui fugiat. Accusamus qui occaecati quia. Voluptatibus aut quidem et doloremque et dolore omnis mollitia sit.</p>
-								<h5 class="text-gray-dark">voluptas a sapiente</h5>
-				<p>Assumenda omnis dolorem. Esse quam reiciendis eos similique. Omnis inventore porro est eos a velit debitis.
- Et alias blanditiis eaque tenetur saepe. Tempore saepe ex nulla possimus et perspiciatis. Quos voluptatem ipsam corrupti voluptates harum ullam voluptas. Dicta minus sed eligendi inventore consequatur dolore et. Eaque corporis libero.
- Labore nihil voluptatem eos vitae quos vitae magnam nesciunt. Et consequuntur nulla voluptatem quisquam eum odit velit. Autem dolorum sed id. Odio nemo sit illum omnis vitae.</p>
-								<h5 class="text-gray-dark">soluta tenetur dicta</h5>
-				<p>Cumque facere explicabo et quidem voluptatum est aliquid ab. Nesciunt quas dolor harum suscipit laborum. Ea corrupti beatae.
- Omnis corrupti enim eum ut aut vero quaerat commodi cumque. Doloremque quia eveniet tenetur. Et cum sunt facilis et reprehenderit rerum voluptatem.
- Est voluptatibus ipsum mollitia. Omnis fugiat qui accusamus doloribus dolorem eum quia. In repellendus architecto.</p>
-								<h5 class="text-gray-dark">fugit quis deleniti</h5>
-				<p>Labore provident molestiae. Necessitatibus sed molestiae cupiditate eos. Assumenda voluptatem ab perspiciatis repellendus velit. Ex nihil rerum quaerat magni.
- Harum inventore ut omnis est optio. Deserunt dicta omnis fugit molestiae quis maxime. Est cupiditate dolores amet. Eos rem nihil impedit incidunt ad incidunt.
- Ipsum esse velit voluptas aut doloremque non totam nesciunt voluptatem. Ullam nam et perspiciatis. Praesentium ipsam assumenda et.</p>
-								<h5 class="text-gray-dark">cum error porro</h5>
-				<p>Sed id sequi saepe est cupiditate. Sunt ipsa sint ab. Vitae totam et aliquam ex.
- Molestiae est sint voluptates nostrum voluptatem reprehenderit. Quia consequatur vel distinctio ea. Dignissimos quod maxime aut ut magnam ullam sunt sed facilis. Eligendi molestias et asperiores et voluptatem voluptas omnis quia. Aut qui laboriosam id et incidunt.
- Animi dolor et facilis quibusdam et qui qui in sint. Minus assumenda nihil et voluptatem hic illo exercitationem. Sed id ut ut. Quam illum qui corporis est temporibus occaecati. Vitae expedita consequuntur cumque cupiditate qui cumque debitis facere.</p>
-								<h5 class="text-gray-dark">quia ipsum doloribus</h5>
-				<p>Provident voluptatibus itaque cum magnam aut in aut rerum. Ut voluptas nihil earum totam. Quo ullam omnis reiciendis voluptatibus magnam fugit.
- Eos et aperiam at et quia debitis odit laudantium. Nobis a dolor qui velit perspiciatis autem repudiandae assumenda. Velit natus consequatur commodi.
- Ullam quo eos ut eos aut quis veniam. Unde voluptatem neque voluptate nihil eum aperiam dolorem voluptatem. Eveniet quidem corporis atque qui veniam. Illum omnis molestiae iste ipsum qui quidem molestiae.</p>
+								<h5 class="text-gray-dark">voluptas eum nam</h5>
+				<p>Cumque cumque fugit dolor deleniti. Reprehenderit hic recusandae. Maiores molestiae aliquid voluptas.
+ Soluta ea eaque. Voluptas qui amet. Eligendi nostrum iste quia. Ipsa sint qui vel magni vitae.
+ Blanditiis iusto ratione impedit voluptatem aliquid itaque. Velit officia eum. Aperiam ab nesciunt ea fugiat nam repellendus quaerat culpa qui. Sunt error rerum ipsam quisquam earum voluptatibus et ea assumenda.</p>
+								<h5 class="text-gray-dark">impedit vitae autem</h5>
+				<p>Nisi laboriosam repellat quisquam sapiente quo. Vel ipsa impedit voluptatibus minus sed unde accusamus. Ad illum et suscipit debitis ad omnis eos commodi. A provident natus et in molestiae. Corrupti facilis adipisci natus consequatur quidem qui.
+ Aperiam qui ut accusamus. Eius possimus omnis. Nulla et dolor aut. Molestiae tempora sed non magni.
+ Incidunt est optio consequatur non sed hic odio. Sed deserunt eum quasi ex dignissimos molestiae laborum. Ex cumque animi voluptatem qui nihil eligendi. Voluptatem consequatur quos fugiat dignissimos voluptatem similique voluptatem molestiae. Pariatur saepe magni pariatur sint laboriosam amet sint illo magnam.</p>
+								<h5 class="text-gray-dark">ut impedit consectetur</h5>
+				<p>Culpa inventore a assumenda eum. Sint sit hic iusto dolorem rem sint corrupti assumenda corporis. Consequatur a fuga nesciunt rerum rerum.
+ Iusto non ab adipisci natus. Nihil enim perferendis. Sed fugiat excepturi fuga et incidunt. Et sint deleniti rerum voluptatum aut quasi et amet. Recusandae incidunt architecto totam dolores. Sed recusandae molestiae suscipit aspernatur.
+ A neque nihil qui aut voluptatibus et doloremque excepturi aut. Et non tempora ut sint id sit voluptates aut quia. Quia quod voluptates autem provident iure sint. Occaecati dolor qui id amet dolor et qui ad reiciendis. Expedita facilis natus repellat et nam reprehenderit dolorem enim. Ducimus nihil eos et doloremque est.</p>
+								<h5 class="text-gray-dark">eum tenetur optio</h5>
+				<p>Vero voluptatem esse aspernatur ipsum impedit distinctio earum ad. Nostrum voluptas odit est assumenda. Accusamus laboriosam at hic delectus nihil omnis quam modi. Eum voluptatum voluptas architecto unde nihil nihil pariatur nemo. Accusamus nulla illum est doloremque aut est. Necessitatibus accusamus sed ratione et similique tempore ipsam et facilis.
+ Temporibus ex commodi unde minus eveniet iste sit tenetur. Sint quo culpa. Error iste et voluptatem blanditiis fugiat voluptatibus sunt placeat alias.
+ Eos quia eveniet delectus perferendis. Quis ducimus qui exercitationem porro rem omnis asperiores sed. Amet et accusantium assumenda quidem dolores aspernatur. Quam sit corrupti ut.</p>
+								<h5 class="text-gray-dark">inventore repellendus non</h5>
+				<p>Beatae id delectus. Provident consequatur iste perferendis. Quia atque suscipit consectetur dicta sapiente sed et fugit. Aliquam ex cum quaerat qui aut blanditiis ut. Qui itaque laborum ea. Quae quia velit dicta quo quia autem eius laborum.
+ Nam enim itaque in tempore officiis. Rerum enim fugit rerum dolores distinctio pariatur laborum. At animi quis et amet animi. Quos adipisci vel sit recusandae eum qui quo laudantium. Est cumque dolore voluptas vel possimus ipsum ea atque.
+ Voluptas nobis culpa corporis. Totam non officiis ex. Voluptatem blanditiis magni maxime velit. Molestias sed rerum non eos. Eius fugit ut incidunt sit sunt omnis.</p>
+								<h5 class="text-gray-dark">officiis non quia</h5>
+				<p>Repellat delectus et quia laboriosam reprehenderit occaecati. Natus nisi iure facilis. Quasi aut deleniti quo atque quia ut voluptatem sit neque. Quae sit earum aut quo qui ea nam. Odio dolor et magnam laborum qui et qui. Quis asperiores aspernatur sint iusto.
+ Voluptate ut nostrum totam officia. Aut molestias hic sunt. Consequatur laboriosam saepe libero in exercitationem dolor consequatur quo voluptas. Qui officiis eum ab nihil dolores aliquam quia exercitationem. Possimus debitis sint quasi officiis voluptatem aut porro sunt.
+ Odio placeat recusandae architecto illo labore minus. Animi officia pariatur maxime deleniti non necessitatibus ullam. Non sed quibusdam aut id.</p>
+								<h5 class="text-gray-dark">non ea velit</h5>
+				<p>Voluptates est est reiciendis qui dolore. Atque quisquam excepturi architecto vero quasi officia et quis voluptate. Dignissimos qui sint sequi aliquam a est. Vel omnis quisquam fuga voluptatum maiores tempora dolor et accusamus. Tenetur voluptates iusto rem quas. Dolor id aut atque.
+ Numquam libero nulla et facere. Neque explicabo aperiam eos quod. In provident incidunt. Delectus cumque harum numquam deleniti itaque. Cupiditate repellendus beatae incidunt.
+ Rem ut quo. Modi sint autem ipsam est quia modi. Dolorum id laboriosam quia delectus nam ea sequi.</p>
+								<h5 class="text-gray-dark">aspernatur consequuntur dolores</h5>
+				<p>Exercitationem sint blanditiis est reprehenderit sunt qui iusto excepturi officiis. Nesciunt occaecati aut saepe repudiandae eligendi perferendis. Dignissimos et tempora quia distinctio. Ratione et voluptatibus ut quis. Quaerat magni quasi.
+ Voluptas iusto molestiae recusandae quibusdam dolorem occaecati voluptatem. Odit quos ex incidunt consequatur asperiores illo deleniti mollitia cumque. Et optio quas mollitia sed numquam quo et. Sed aperiam voluptate voluptatem atque. Et deleniti dolorem suscipit ut autem.
+ Et ipsam aliquid sunt. Qui facere quis qui modi. Quia beatae aut rerum sapiente hic quidem officiis tempora. Sit omnis rerum aliquam voluptatem totam repudiandae at ipsum non. Ipsa eum sit nesciunt fugit.</p>
+								<h5 class="text-gray-dark">quibusdam qui recusandae</h5>
+				<p>Asperiores quos eum saepe voluptas eum optio delectus est. Vel et provident aliquam harum rerum animi. Saepe qui quia provident. Minus ducimus voluptate eum nam maiores.
+ Veritatis dignissimos iusto neque quo repellat odit ullam et omnis. Quis quam qui nisi consequatur in voluptas facilis odio. Neque corporis distinctio consequatur aut quae aut itaque similique dolorem. Fugit dolore dolore. Adipisci tempora nemo ipsam temporibus esse.
+ Fugit et occaecati laborum ea eligendi sed fugit possimus libero. Voluptate dolorem eum nam et minima provident possimus fuga. Aut voluptatem blanditiis. Facilis ut quia commodi id quas ut. Rerum in laboriosam quia aut rem ab tenetur error.</p>
 							</div>
 		</div>
 	</div>

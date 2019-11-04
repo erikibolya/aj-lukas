@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(23)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(59)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             
@@ -175,9 +181,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete1" class="autocomplete__input" data-placeholder="+ Obor" data-placeholder-filled="+ Přidat..." multiple="multiple">
-
-            </select>
+                    <select id="autocomplete1" class="autocomplete__input" data-placeholder="+ Obor"  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
         
     </div>
         </div>
@@ -198,9 +202,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete2" class="autocomplete__input" data-placeholder="+ Profese" data-placeholder-filled="+ Přidat..." multiple="multiple">
-
-            </select>
+                    <select id="autocomplete2" class="autocomplete__input" data-placeholder="+ Profese"   data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
         
     </div>
         </div>
@@ -278,9 +280,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocomplete4" class="autocomplete__input" data-placeholder="+ Okres, Kraj, Země" data-placeholder-filled="+ Přidat..." multiple="multiple">
-
-            </select>
+                    <select id="autocomplete4" class="autocomplete__input" data-placeholder="+ Okres, Kraj, Země"  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
         
     </div>
         </div>
@@ -542,9 +542,7 @@
                 </svg>
             </button>
         </div>
-                    <select id="autocompleteJazyk" class="autocomplete__input" data-placeholder="" data-placeholder-filled="+ Přidat..." multiple="multiple">
-
-            </select>
+                    <select id="autocompleteJazyk" class="autocomplete__input" data-placeholder=""  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
         
     </div>
         </div>
@@ -902,8 +900,8 @@
                             </div>
                             <ul>
 
-                                                                    <li>Dolores error ratione id quam tempore et.</li>
-                                                                    <li>Hic at voluptas et et debitis fugit corporis.</li>
+                                                                    <li>Error aut ipsum sit voluptatibus.</li>
+                                                                    <li>Placeat ut omnis ipsum debitis et mollitia.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -921,9 +919,9 @@
                             </div>
                             <ul>
 
-                                                                    <li>Vel voluptate quos totam aut et repellendus id at.</li>
-                                                                    <li>Sunt amet quod sit dolorum at consequuntur qui.</li>
-                                                                    <li>Fugiat omnis voluptatem.</li>
+                                                                    <li>Blanditiis perspiciatis doloribus nemo necessitatibus rem incidunt quod et.</li>
+                                                                    <li>Similique aliquam repellendus voluptate quia.</li>
+                                                                    <li>Qui et ducimus voluptate rerum nulla aut perferendis ipsa architecto.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -941,10 +939,10 @@
                             </div>
                             <ul>
 
-                                                                    <li>Natus veritatis nisi et sed officiis autem est suscipit reprehenderit.</li>
-                                                                    <li>Autem et est esse alias soluta deleniti numquam.</li>
-                                                                    <li>Autem possimus porro voluptas quidem qui labore natus omnis.</li>
-                                                                    <li>Omnis aut repellat eius expedita quis dolore voluptate excepturi.</li>
+                                                                    <li>Omnis quis nobis.</li>
+                                                                    <li>Totam error et esse.</li>
+                                                                    <li>Praesentium iusto et fugiat sed.</li>
+                                                                    <li>Blanditiis assumenda possimus mollitia consectetur quia.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
@@ -962,11 +960,11 @@
                             </div>
                             <ul>
 
-                                                                    <li>Modi incidunt vel maxime.</li>
-                                                                    <li>Rerum nam similique quasi et qui dolorum rerum repudiandae.</li>
-                                                                    <li>Adipisci omnis qui illo.</li>
-                                                                    <li>Sed et libero velit eos et ea sed voluptatem placeat.</li>
-                                                                    <li>Reiciendis natus et esse accusantium accusantium earum perferendis minima.</li>
+                                                                    <li>Vero voluptas eaque.</li>
+                                                                    <li>Suscipit quis vel accusantium nulla praesentium quidem assumenda magni.</li>
+                                                                    <li>Incidunt corrupti occaecati velit nihil ea aperiam nihil in earum.</li>
+                                                                    <li>Consequatur dolorem quia enim in nisi facere incidunt dolorem sapiente.</li>
+                                                                    <li>Accusantium eveniet architecto placeat.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">

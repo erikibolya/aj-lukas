@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(39)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(77)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             	<div class="container">
@@ -160,28 +166,28 @@
 						<p class="font-weight-bold text-success">Aktivní členství VIP</p>
 						<ul>
 															<li>
-									Debitis sint qui corrupti est reiciendis nihil non aut.
+									Aut molestias veniam sapiente voluptatum.
 								</li>
 															<li>
-									Sunt ad eaque eveniet.
+									Provident autem odio culpa qui et neque amet reprehenderit quis.
 								</li>
 															<li>
-									Quidem libero et quia ad consequatur consequuntur.
+									Velit labore sint reprehenderit dolor et repellendus iste.
 								</li>
 															<li>
-									Vel eius autem aut.
+									Sit sed quas rerum magnam.
 								</li>
 															<li>
-									Quo maxime quod quo.
+									Veritatis sed consequuntur quos corporis cum eius libero.
 								</li>
 															<li>
-									Eum rerum et libero nemo corporis quas dolores consequatur distinctio.
+									Unde ut vel provident doloribus culpa aut unde soluta animi.
 								</li>
 															<li>
-									Nobis nihil illum facere dignissimos.
+									Ad molestiae cumque qui ut qui voluptatem dolor facere quisquam.
 								</li>
 															<li>
-									Doloremque ut et facere possimus nobis.
+									Voluptate eum magnam rerum et eum dolorum fuga sequi eos.
 								</li>
 													</ul>
 					</div>
@@ -191,7 +197,7 @@
 				</div>
 				<div class="d-sm-flex justify-content-between">
 					<small class="text-muted d-block ">
-						Doloribus dignissimos ipsum tempore qui sint illo eum.
+						Sapiente velit placeat ut quisquam voluptas.
 					</small>
 					<a href="/registration-company-7.html">Ceník inzerce</a>
 				</div>
@@ -199,7 +205,7 @@
 
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
-					Odit blanditiis necessitatibus adipisci non magni accusamus praesentium exercitationem.
+					Saepe a consequatur quia non.
 				</div>
 									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
@@ -228,7 +234,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															1.00 Kč
+															809.00 Kč
 													</div>
 
 					</div>
@@ -244,7 +250,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															32.00 Kč
+															978.00 Kč
 													</div>
 
 					</div>
@@ -260,7 +266,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															887.00 Kč
+															941.00 Kč
 													</div>
 
 					</div>
@@ -276,7 +282,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															622.00 Kč
+															734.00 Kč
 													</div>
 
 					</div>
@@ -293,7 +299,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															944.00 Kč
+															602.00 Kč
 													</div>
 
 					</div>
@@ -303,35 +309,35 @@
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>Členství Classics</strong>
 					<div class="text-right">
-						988.00
+						857.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>50 000 ActiBonů</strong>
 					<div class="text-right">
-						510.00
+						629.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Cena bez DPH</div>
 					<div class="text-right">
-						154.00
+						917.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>DPH 21%</div>
 					<div class="text-right">
-						573.00
+						223.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 d-md-flex justify-content-between font-weight-bold text-success">
 					<strong>Cena celkem</strong>
 					<div class="text-right">
-						183.00
+						710.00
 						Kč
 					</div>
 				</div>

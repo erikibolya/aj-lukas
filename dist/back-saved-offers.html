@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(13)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(77)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             
@@ -193,7 +199,7 @@
 
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Human Communications Producer</span>
+		<span class="link-box__title">Global Assurance Strategist</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -201,24 +207,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Legacy Factors Analyst
+					Dynamic Program Facilitator
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					6409 Sipes Way
+					616 Kristin Club
 					,
-					Robertsside
+					Maximilianborough
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	0.3.2017&nbsp;&nbsp;
-	4:08</time></div>
+	4.8.2010&nbsp;&nbsp;
+	15:01</time></div>
 			</div>
 		</div>
 	</div>
@@ -241,7 +247,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">National Functionality Consultant</span>
+		<span class="link-box__title">District Intranet Developer</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -249,24 +255,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Central Integration Coordinator
+					Lead Integration Technician
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					7599 Dorcas Ranch
+					5689 Lenny Mountain
 					,
-					Emeraldton
+					South Meredithton
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	17.3.2019&nbsp;&nbsp;
-	14:03</time></div>
+	9.4.2019&nbsp;&nbsp;
+	19:03</time></div>
 			</div>
 		</div>
 	</div>
@@ -289,7 +295,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Future Optimization Specialist</span>
+		<span class="link-box__title">International Markets Planner</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -297,24 +303,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Dynamic Metrics Facilitator
+					Global Web Consultant
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					95824 Botsford Inlet
+					933 Kyle Crossing
 					,
-					Stehrmouth
+					North Catalina
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	2.12.2014&nbsp;&nbsp;
-	8:07</time></div>
+	31.6.2013&nbsp;&nbsp;
+	23:01</time></div>
 			</div>
 		</div>
 	</div>
@@ -337,7 +343,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Forward Mobility Assistant</span>
+		<span class="link-box__title">Dynamic Assurance Administrator</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -345,24 +351,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Dynamic Response Officer
+					Central Group Planner
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					461 Harvey Ranch
+					90417 Hauck Estate
 					,
-					Adalineville
+					East Rowan
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	4.11.2012&nbsp;&nbsp;
-	2:07</time></div>
+	8.1.2014&nbsp;&nbsp;
+	12:03</time></div>
 			</div>
 		</div>
 	</div>
@@ -385,7 +391,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Future Web Director</span>
+		<span class="link-box__title">Global Research Technician</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -393,24 +399,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Global Functionality Architect
+					Forward Program Specialist
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					40436 Bartoletti Streets
+					75304 Gorczany Glen
 					,
-					North Tom
+					Joanyfurt
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	6.11.2010&nbsp;&nbsp;
-	19:09</time></div>
+	16.6.2010&nbsp;&nbsp;
+	15:08</time></div>
 			</div>
 		</div>
 	</div>
@@ -433,7 +439,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Central Usability Executive</span>
+		<span class="link-box__title">Internal Data Executive</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -441,24 +447,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Product Applications Facilitator
+					Global Implementation Strategist
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					386 Orpha Orchard
+					67979 Murazik Mission
 					,
-					Satterfieldshire
+					Camilaton
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	21.6.2011&nbsp;&nbsp;
-	4:00</time></div>
+	9.11.2010&nbsp;&nbsp;
+	19:02</time></div>
 			</div>
 		</div>
 	</div>
@@ -481,7 +487,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Human Web Engineer</span>
+		<span class="link-box__title">Legacy Factors Officer</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -489,24 +495,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Global Creative Representative
+					Dynamic Accountability Specialist
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					216 O'Keefe Inlet
+					677 Gorczany Dale
 					,
-					Harrisonburgh
+					Lake Barrett
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	19.8.2012&nbsp;&nbsp;
-	4:00</time></div>
+	18.1.2012&nbsp;&nbsp;
+	14:07</time></div>
 			</div>
 		</div>
 	</div>
@@ -529,7 +535,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Regional Optimization Representative</span>
+		<span class="link-box__title">Internal Web Representative</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -537,24 +543,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Investor Solutions Producer
+					Principal Applications Planner
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					917 Gusikowski Mountain
+					059 Delbert Circles
 					,
-					Port Brandy
+					New Otho
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	25.4.2010&nbsp;&nbsp;
-	7:04</time></div>
+	10.6.2017&nbsp;&nbsp;
+	13:08</time></div>
 			</div>
 		</div>
 	</div>
@@ -577,7 +583,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Dynamic Brand Officer</span>
+		<span class="link-box__title">National Identity Architect</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -585,23 +591,23 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Dynamic Security Consultant
+					Dynamic Research Technician
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					37819 Mayert Estate
+					2292 Edison Ports
 					,
-					Port Lelandhaven
+					Marcelleburgh
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	22.3.2010&nbsp;&nbsp;
+	29.0.2018&nbsp;&nbsp;
 	12:05</time></div>
 			</div>
 		</div>
@@ -625,7 +631,7 @@
 </div>
 							<div class="mb-4">
 	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Regional Security Officer</span>
+		<span class="link-box__title">Human Web Supervisor</span>
 	</a>
 	<div class="bg-white p-3 border-b">
 		<div class="icon-list">
@@ -633,24 +639,24 @@
 				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
 				<div class="icon-list__info-col">Pozice</div>
 				<div class="icon-list__text-col">
-					Dynamic Response Technician
+					International Markets Specialist
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 				<div class="icon-list__info-col">Místo pracoviště</div>
 				<div class="icon-list__text-col">
-					368 Bella Shore
+					2763 Lura Throughway
 					,
-					South Myah
+					Kassulkefurt
 				</div>
 			</div>
 			<div class="icon-list__row">
 				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
 				<div class="icon-list__info-col">Datum odpovědi</div>
 				<div class="icon-list__text-col"><time>
-	22.8.2013&nbsp;&nbsp;
-	15:07</time></div>
+	29.4.2010&nbsp;&nbsp;
+	13:08</time></div>
 			</div>
 		</div>
 	</div>

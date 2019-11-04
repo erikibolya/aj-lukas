@@ -1,36 +1,36 @@
 <div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler{% if savedOffers %} menu__toggler--inactive{% endif %}">
-				<span class="menu-icon"></span>
-				<span>{% if savedOffers %}Menu{% else %}Nabídky{% endif %}</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button{% if savedOffers %} menu__extra-button--active{% endif %}">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;({{ random(100) }})
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link {% if not savedOffers %}menu__link--active{% endif %}"
-					   href="{% if back %}{{ linkBackHomepage }}{% else %}{{ linkHomepage }}{% endif %}">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="{% if back %}{{ linkBackOffers }}{% else %}{{ linkOffers }}{% endif %}">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{{ linkBackAnswers }}">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{% if back %}{{ linkBackMyAccount }}{% else %}{{ linkMyAccount }}{% endif %}">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{{ linkHomepage }}">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="{{ linkForCompanies }}">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler{% if savedOffers %} menu__toggler--inactive{% endif %}">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>{% if savedOffers %}Menu{% else %}Nabídky{% endif %}</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button{% if savedOffers %} menu__extra-button--active{% endif %}">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;({{ random(100) }})
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link {% if not savedOffers %}menu__link--active{% endif %}"
+                       href="{% if back %}{{ linkBackHomepage }}{% else %}{{ linkHomepage }}{% endif %}">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="{% if back %}{{ linkBackOffers }}{% else %}{{ linkOffers }}{% endif %}">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="{{ linkBackAnswers }}">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="{% if back %}{{ linkBackMyAccount }}{% else %}{{ linkMyAccount }}{% endif %}">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="{{ linkHomepage }}">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="{{ linkForCompanies }}">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>

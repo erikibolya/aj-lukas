@@ -128,7 +128,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
     let selector = "#" + input.id;
     let dataset = input.getAttribute("data-dataset");
     let noresult = input.getAttribute("data-noresult");
-    new autoComplete({
+    let autocompelte = new autoComplete({
         placeHolder: placeholder, // Place Holder text                 | (Optional)
         selector: selector, // Input field selector              | (Optional)
         threshold: 0, // Min. Chars length to start Engine | (Optional)
@@ -136,6 +136,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
         searchEngine: "strict", // Search Engine type/mode           | (Optional)
         highlight: true,
         maxResults: 60,
+        trigger: [],
         data: {
             src: async function () {
                 // Loading placeholder text
@@ -145,15 +146,9 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
                 const data = await source.json();
                 // Returns Fetched data
                 return data;
-            },
+            }
         },
         sort: function (a, b) {
-            if (a.match < b.match) {
-                return -1;
-            }
-            if (a.match > b.match) {
-                return 1;
-            }
             return 0;
         },
         resultsList: {
@@ -177,6 +172,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
             element: "div",
         },
         onSelection: function (feedback) {
+            alert("ha");
             const selection = feedback.selection.value;
             // Render selected choice to selection div
             $element = $(element);
@@ -199,6 +195,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
         },
 
     });
+    console.log(autocompelte);
 
 
 }
@@ -207,13 +204,21 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
     let element = tagAutocompletes[i];
     let input = element.querySelector(".autocomplete__input");
     let placeholder = input.getAttribute("data-placeholder");
+    let preview = input.hasAttribute("data-preview");
     let placeholderFilled = input.getAttribute("data-placeholder-filled");
     let selector = "#" + input.id;
     let dataset = input.getAttribute("data-dataset");
     let noresult = input.getAttribute("data-noresult");
+
+    let predata = [];
+    console.log(preview);
+    if (preview) {
+        predata = categories;
+    }
+
     let options = {
         silent: false,
-        choices: categories,
+        choices: predata,
         removeItemButton: true,
         duplicateItemsAllowed: true,
         paste: true,
@@ -225,6 +230,7 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         placeholderValue: placeholder,
         loadingText: 'Loading...',
         itemSelectText: '',
+        noResultsText: noresult,
         addItemText: (value) => {
             return `Press Enter to add <b>"${value}"</b>`;
         },
@@ -340,14 +346,8 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
 
     input.addEventListener('search', function (event) {
         currentSearch = event.detail.value;
-//        console.log(currentSearch);
-//        console.log("search instance:");
-//        console.log(instance);
         let alreadyHave = instance.getValue(true);
         console.log(event);
-//        console.log("searching: " + currentSearch);
-//        console.log("already have: " + alreadyHave);
-//        console.log(event.detail.value.length);
         instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
     }, false);
     input.addEventListener('addItem', function (event) {

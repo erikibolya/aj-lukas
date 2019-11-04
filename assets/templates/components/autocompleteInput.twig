@@ -20,9 +20,7 @@
                    data-placeholder="{{placeholder}}"
                    data-dataset="{{dataset}}">
         {% elseif type == "tag"  %}
-            <select id="{{id}}" class="autocomplete__input" data-placeholder="{{placeholder}}" data-placeholder-filled="+ Přidat..." multiple="multiple">
-
-            </select>
+            <select id="{{id}}" class="autocomplete__input" data-placeholder="{{placeholder}}"  {% if preview%}data-preview{%endif%} data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
         {% endif %}
 
     </div>

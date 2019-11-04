@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(3)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(18)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             
@@ -213,14 +219,14 @@
 			</div>
 
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Senior Tactics Planner</span>
+    <span class="link-box__title">Forward Usability Executive</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Lake Davonte</div>
+            <div class="icon-list__text-col">Port Michele</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -245,8 +251,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	27.6.2010&nbsp;&nbsp;
-	1:03</time></div>
+	22.1.2014&nbsp;&nbsp;
+	5:05</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -287,14 +293,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">District Markets Manager</span>
+    <span class="link-box__title">Chief Metrics Coordinator</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Port Nicolas</div>
+            <div class="icon-list__text-col">North Pedro</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -319,8 +325,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	25.3.2019&nbsp;&nbsp;
-	4:05</time></div>
+	3.10.2018&nbsp;&nbsp;
+	14:06</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -361,14 +367,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Legacy Configuration Administrator</span>
+    <span class="link-box__title">Senior Marketing Specialist</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">South Nakialand</div>
+            <div class="icon-list__text-col">Reichertchester</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -393,8 +399,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	30.10.2018&nbsp;&nbsp;
-	12:04</time></div>
+	2.12.2014&nbsp;&nbsp;
+	17:01</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -435,14 +441,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Principal Functionality Manager</span>
+    <span class="link-box__title">Dynamic Integration Supervisor</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">South Dustymouth</div>
+            <div class="icon-list__text-col">East Horacioberg</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -467,8 +473,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	3.2.2012&nbsp;&nbsp;
-	4:01</time></div>
+	1.6.2019&nbsp;&nbsp;
+	5:09</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -509,14 +515,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Internal Communications Officer</span>
+    <span class="link-box__title">District Brand Planner</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Port Ned</div>
+            <div class="icon-list__text-col">East Ramon</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -541,8 +547,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	11.5.2019&nbsp;&nbsp;
-	14:02</time></div>
+	14.1.2015&nbsp;&nbsp;
+	21:05</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -583,14 +589,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Regional Web Orchestrator</span>
+    <span class="link-box__title">Lead Implementation Liason</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Gustavemouth</div>
+            <div class="icon-list__text-col">Donnellybury</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -615,8 +621,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	5.10.2011&nbsp;&nbsp;
-	0:05</time></div>
+	3.7.2015&nbsp;&nbsp;
+	13:07</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -657,14 +663,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">International Infrastructure Coordinator</span>
+    <span class="link-box__title">Direct Research Designer</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">West Carmelo</div>
+            <div class="icon-list__text-col">Kemmerfurt</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -689,8 +695,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	23.3.2017&nbsp;&nbsp;
-	18:06</time></div>
+	29.4.2015&nbsp;&nbsp;
+	6:04</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -731,14 +737,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Global Accounts Orchestrator</span>
+    <span class="link-box__title">District Branding Analyst</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Schmelermouth</div>
+            <div class="icon-list__text-col">Maddisonshire</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -763,8 +769,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	14.5.2016&nbsp;&nbsp;
-	22:09</time></div>
+	12.3.2017&nbsp;&nbsp;
+	8:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -805,14 +811,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">National Data Representative</span>
+    <span class="link-box__title">Direct Implementation Planner</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">North Aisha</div>
+            <div class="icon-list__text-col">Deangeloberg</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -837,8 +843,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	1.9.2019&nbsp;&nbsp;
-	15:09</time></div>
+	14.5.2017&nbsp;&nbsp;
+	20:08</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -879,14 +885,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Central Research Strategist</span>
+    <span class="link-box__title">Lead Functionality Administrator</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Grimesfurt</div>
+            <div class="icon-list__text-col">Hegmannmouth</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -911,8 +917,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	8.9.2013&nbsp;&nbsp;
-	18:09</time></div>
+	16.4.2014&nbsp;&nbsp;
+	10:07</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>

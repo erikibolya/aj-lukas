@@ -5,6 +5,8 @@
 	.dropdown-item {
 		position: relative;
 		z-index: 1;
+                padding: 10px;
+                line-height: 20px;
 	}
 
 	.dropdown-item:not(:last-child) {

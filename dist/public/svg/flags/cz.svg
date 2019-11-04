@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-cz" viewBox="0 0 640 480">
-  <defs>
-    <clipPath id="a">
-      <path fill-opacity=".7" d="M-74 0h682.7v512H-74z"/>
-    </clipPath>
-  </defs>
-  <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#a)" transform="translate(69.4) scale(.94)">
-    <path fill="#e80000" d="M-74 0h768v512H-74z"/>
-    <path fill="#fff" d="M-74 0h768v256H-74z"/>
-    <path fill="#00006f" d="M-74 0l382.7 255.7L-74 511V0z"/>
-  </g>
-</svg>
+<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.03937 56.69291"><defs><style>.cls-1{fill:#d7171d;}.cls-2{fill:#fff;}.cls-3{fill:#12467f;}</style></defs><title>cz</title><rect class="cls-1" y="28.34646" width="85.03937" height="28.34646"/><rect class="cls-2" width="85.03937" height="28.34646"/><path class="cls-3" d="M42.51969,28.34646,0,0V56.69291Z"/></svg>

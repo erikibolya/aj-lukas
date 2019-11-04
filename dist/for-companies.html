@@ -68,76 +68,80 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(48)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="/">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="/offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(6)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="/">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="/offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             	<div class="container p-3 mb-5">
@@ -148,9 +152,9 @@
 		</div>
 
 		<div class="bg-white text-center p-3 py-sm-4 border-b">
-							<p>Ea corporis aliquam sit magni qui necessitatibus minus eos. Ea ab incidunt ut ab veritatis. Voluptatibus sunt tempora necessitatibus. Qui alias fugiat quia. Autem et illo soluta non.</p>
-							<p>Tenetur consequuntur quia optio molestias quia. Dolores unde quam suscipit. Totam qui et ex consequuntur consequatur. Est quia impedit quas sed. Et fuga sunt recusandae ut quis iste.</p>
-							<p>Iure optio eum dignissimos enim. Tempora iure voluptas. Eos vitae cupiditate accusamus.</p>
+							<p>Et facere quam rem quae ea totam rerum distinctio ab. Laboriosam quo pariatur quod.</p>
+							<p>Ea molestiae ut aliquam tempore. Sit aliquam porro sit veniam perferendis facere amet optio.</p>
+							<p>Et eum deleniti quia quia dolores sit earum odio libero. Aspernatur sequi earum qui non est modi. Eligendi perspiciatis recusandae aut in alias qui nostrum dolor. Mollitia corrupti id corporis aut numquam dolores voluptatibus dolore eligendi. Et aperiam beatae quam quo et ex ut.</p>
 			
 		</div>
 		<div class="bg-white text-center p-3 mb-4">
@@ -164,28 +168,28 @@
 					<strong class="mb-3 d-inline-block">Členství classic</strong>
 					<ul>
 													<li>
-								Dolorem sed dolorem vel error harum est perferendis omnis.
+								Ratione laboriosam quos ratione sint iste corporis laboriosam esse consequatur.
 							</li>
 													<li>
-								Sed alias eaque ut enim iure voluptas quo animi totam.
+								Eum et facere unde voluptatem placeat nulla unde.
 							</li>
 													<li>
-								Voluptas saepe occaecati magnam.
+								Iusto praesentium sit ut excepturi error.
 							</li>
 													<li>
-								Qui magni tenetur qui.
+								Asperiores provident et iusto eos esse veritatis quidem.
 							</li>
 													<li>
-								Voluptas magni voluptas omnis quas earum dolor amet.
+								Repudiandae ducimus soluta dolore excepturi est ea est.
 							</li>
 													<li>
-								Adipisci architecto quidem.
+								Architecto ipsum voluptate esse et repellat.
 							</li>
 													<li>
-								Doloremque rerum porro quam beatae.
+								Veniam sequi fuga dolores.
 							</li>
 													<li>
-								Sit et nemo eum sed necessitatibus impedit.
+								Rerum voluptatem incidunt accusamus nihil consequatur atque esse itaque aut.
 							</li>
 											</ul>
 				</div>
@@ -199,28 +203,28 @@
 					<strong class="mb-3 d-inline-block">Členství VIP</strong>
 					<ul>
 													<li>
-								Qui officia deserunt.
+								Beatae ut distinctio dolor.
 							</li>
 													<li>
-								Rerum in et omnis reprehenderit.
+								Aliquam aliquam dolorum optio aperiam quia in.
 							</li>
 													<li>
-								Reiciendis ea id sapiente nihil eligendi alias et.
+								Error odit aut et iure soluta optio.
 							</li>
 													<li>
-								Quia ipsum aut beatae ut aut sunt.
+								Nesciunt possimus et animi laborum similique illum aut minima.
 							</li>
 													<li>
-								Et ducimus quis.
+								Maiores quibusdam vitae rerum quis cum et velit modi et.
 							</li>
 													<li>
-								Saepe odio dolore id aliquam magnam quo cumque.
+								Doloremque voluptate iusto dolore.
 							</li>
 													<li>
-								Molestias sed quo eum assumenda omnis ut et.
+								Et sunt ad enim enim recusandae repellat.
 							</li>
 													<li>
-								Et voluptate est pariatur fugit qui cumque rerum est non.
+								Est sit est neque ducimus.
 							</li>
 											</ul>
 
@@ -241,10 +245,10 @@
 						<ul>
 
 															<li>
-									Hic maiores sit saepe nam quis voluptates odit aperiam autem.
+									Aut consectetur sit ut sunt voluptatem mollitia non laboriosam.
 								</li>
 															<li>
-									Quam corrupti debitis qui impedit eveniet doloremque voluptate fugiat id.
+									Asperiores autem cumque non.
 								</li>
 													</ul>
 					</div>
@@ -259,13 +263,13 @@
 						<ul>
 
 															<li>
-									Debitis officia et tenetur atque aut cum iure.
+									Reiciendis quia voluptatibus natus.
 								</li>
 															<li>
-									Et aut ut nam dolore officiis necessitatibus numquam.
+									Libero iure assumenda.
 								</li>
 															<li>
-									Consequatur rerum autem est quia rerum ut architecto optio laboriosam.
+									Facere est quibusdam in in dicta dignissimos.
 								</li>
 													</ul>
 					</div>
@@ -280,16 +284,16 @@
 						<ul>
 
 															<li>
-									Numquam et aperiam quod aut non voluptas.
+									Eius voluptatum quaerat molestias aliquid nostrum saepe occaecati.
 								</li>
 															<li>
-									Dolores unde similique aut quo est sunt tempore in delectus.
+									Sit in eius vel consequatur aut quidem est.
 								</li>
 															<li>
-									Enim soluta molestiae est.
+									Nisi deleniti harum cumque odit voluptatem qui ea sunt quod.
 								</li>
 															<li>
-									Facilis placeat doloremque et quia beatae labore reprehenderit qui velit.
+									Ducimus fuga quia quos nostrum id.
 								</li>
 													</ul>
 					</div>
@@ -304,19 +308,19 @@
 						<ul>
 
 															<li>
-									Dolorem nisi dicta.
+									Rerum sit quia delectus iure tempora occaecati sed inventore.
 								</li>
 															<li>
-									Doloribus aliquid eveniet facere quasi totam.
+									Temporibus quas aliquam at corrupti.
 								</li>
 															<li>
-									Temporibus quo ratione est sed.
+									Quidem debitis accusantium dolorem rem facere enim.
 								</li>
 															<li>
-									Ipsa dolore non minus.
+									Consequuntur dolore sequi rerum tempora qui explicabo aliquam quis ad.
 								</li>
 															<li>
-									Ratione voluptatum perspiciatis quisquam architecto occaecati.
+									Ea quo sunt sint velit.
 								</li>
 													</ul>
 					</div>
@@ -336,10 +340,10 @@
 													</strong>
 						<ul>
 															<li>
-									Commodi temporibus molestiae deserunt possimus ratione eveniet blanditiis.
+									Eius cum ratione cum ipsam.
 								</li>
 															<li>
-									Earum deserunt quam sit ullam distinctio voluptas deleniti.
+									Id quos aut dignissimos consequuntur ut.
 								</li>
 													</ul>
 					</div>
@@ -355,13 +359,13 @@
 													</strong>
 						<ul>
 															<li>
-									Deserunt iste voluptatibus quis expedita quam eos.
+									Voluptate culpa ea vero nesciunt nam.
 								</li>
 															<li>
-									Officia nobis est et.
+									Ducimus minima magnam.
 								</li>
 															<li>
-									Error odio deleniti magnam deleniti explicabo perferendis distinctio.
+									Quaerat enim dolor tenetur molestiae.
 								</li>
 													</ul>
 					</div>
@@ -377,16 +381,16 @@
 							<span class="text-info">(-50%)</span>						</strong>
 						<ul>
 															<li>
-									Deleniti vel placeat odit magni officia delectus.
+									Rem doloremque et.
 								</li>
 															<li>
-									Ut non molestiae error.
+									Et eveniet eum.
 								</li>
 															<li>
-									In placeat nemo.
+									Id praesentium harum error.
 								</li>
 															<li>
-									Quia ab facilis.
+									Saepe non similique et fuga.
 								</li>
 													</ul>
 					</div>
@@ -402,19 +406,19 @@
 							<span class="text-info">(-50%)</span>						</strong>
 						<ul>
 															<li>
-									Quasi non corrupti aut ea hic nulla.
+									Reiciendis impedit illo deserunt quos quas.
 								</li>
 															<li>
-									Veritatis repellendus quis inventore minima laboriosam.
+									Voluptas omnis et est qui quam optio vel voluptatum iusto.
 								</li>
 															<li>
-									Officia sed quia autem eos excepturi tempore a.
+									Sit odio a repudiandae error rerum.
 								</li>
 															<li>
-									Ipsa ratione ab.
+									Qui quisquam suscipit quaerat porro delectus quis.
 								</li>
 															<li>
-									Eius qui consequatur facere cupiditate quis minima autem.
+									Et neque aspernatur.
 								</li>
 													</ul>
 					</div>
@@ -428,40 +432,40 @@
 
 		<div class="mb-4">
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nejčastější dotazy</h2>							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Laborum atque quia quo officiis laudantium et.</div>
-					Iure voluptates repellat explicabo id.
+					<div class="font-weight-bold">Veniam cupiditate eaque deserunt tenetur soluta ea neque.</div>
+					Quas molestias vero cupiditate non sit quia.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Non veniam dolorem repellat temporibus voluptate fuga eos aut.</div>
-					Ut id culpa ut perspiciatis quia eligendi ipsam est.
+					<div class="font-weight-bold">Dicta quo voluptatum non cum laborum eveniet ducimus beatae.</div>
+					Excepturi necessitatibus perspiciatis.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Unde excepturi natus numquam.</div>
-					Corporis nesciunt accusantium.
+					<div class="font-weight-bold">Similique odio voluptatem a excepturi ut incidunt qui at.</div>
+					Voluptate rerum eum magnam.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Debitis laudantium molestias unde fuga non id quia.</div>
-					Quae qui necessitatibus magnam ut numquam enim error.
+					<div class="font-weight-bold">Ut veniam illo.</div>
+					Soluta quod et velit non qui incidunt neque.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Quasi voluptatem voluptatem.</div>
-					Eum autem ut veniam asperiores.
+					<div class="font-weight-bold">Tempora iste occaecati vel necessitatibus unde aut.</div>
+					Blanditiis et iste odit sint velit debitis.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Enim quasi laborum.</div>
-					Iusto esse porro dolore id ut.
+					<div class="font-weight-bold">Ratione voluptatem facere delectus ea commodi eligendi sequi.</div>
+					Repellendus et et ab.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Quisquam officia ex et omnis.</div>
-					Vitae recusandae doloremque tempore deserunt omnis sapiente natus.
+					<div class="font-weight-bold">Enim reprehenderit dolores mollitia quas corrupti facere.</div>
+					Sunt reprehenderit non.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Voluptatum in veritatis et molestiae veniam.</div>
-					Quia perspiciatis veritatis et.
+					<div class="font-weight-bold">Quod recusandae praesentium voluptas quos quisquam.</div>
+					Perspiciatis vel suscipit nulla harum cupiditate distinctio et labore.
 				</div>
 							<div class="bg-white p-3 ">
-					<div class="font-weight-bold">Ut aperiam facere quo consectetur qui porro ipsam voluptates.</div>
-					Omnis rerum cumque fuga velit explicabo deserunt ex.
+					<div class="font-weight-bold">Vitae provident distinctio incidunt et similique voluptatem.</div>
+					In eaque provident non nobis.
 				</div>
 					</div>
 
@@ -471,7 +475,7 @@
 						1000 AB
 					</div>
 					<div class="text-right">
-						836.00
+						768.00
 						Kč
 					</div>
 				</div>
@@ -480,7 +484,7 @@
 						2000 AB
 					</div>
 					<div class="text-right">
-						683.00
+						802.00
 						Kč
 					</div>
 				</div>
@@ -489,7 +493,7 @@
 						3000 AB
 					</div>
 					<div class="text-right">
-						242.00
+						811.00
 						Kč
 					</div>
 				</div>
@@ -498,7 +502,7 @@
 						4000 AB
 					</div>
 					<div class="text-right">
-						966.00
+						695.00
 						Kč
 					</div>
 				</div>
@@ -507,7 +511,7 @@
 						5000 AB
 					</div>
 					<div class="text-right">
-						981.00
+						91.00
 						Kč
 					</div>
 				</div>
@@ -516,7 +520,7 @@
 						6000 AB
 					</div>
 					<div class="text-right">
-						482.00
+						619.00
 						Kč
 					</div>
 				</div>

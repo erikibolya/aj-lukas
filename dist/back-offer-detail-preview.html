@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(72)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(61)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             
@@ -156,19 +162,19 @@
 				</ol>
 			</nav>
 
-			<h1 class="bg-white h5 p-3 border-b mb-0">Dynamic Integration Agent</h1>
+			<h1 class="bg-white h5 p-3 border-b mb-0 font-weight-bold">Global Marketing Administrator</h1>
 			<div class="bg-white p-3 mb-3 mb-sm-4">
 				<div class="icon-list">
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
 						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Casper and Sons</div>
+						<div class="icon-list__text-col">Kiehn - Breitenberg</div>
 					</div>
 
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
 						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">16125 Goodwin Field, Alysaview</div>
+						<div class="icon-list__text-col">426 Brad Key, South Franco</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -210,7 +216,7 @@
 					<div class="icon-list__row">
 						<div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
 						<div class="icon-list__info-col">Benefity</div>
-						<div class="icon-list__text-col">Aliquam sunt aut quis et id sit earum fugit. Ipsa illo quod et ut. Optio est est qui aut ut suscipit illum laboriosam repudiandae.</div>
+						<div class="icon-list__text-col">Deserunt et minus pariatur ea corporis sit. Aspernatur voluptates aliquid aut magnam laudantium ut neque. Eius aspernatur nihil error et recusandae nostrum doloremque officia voluptatem.</div>
 					</div>
 
 					<div class="icon-list__row">
@@ -223,34 +229,34 @@
 
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>			<div class="bg-white p-3 mb-3 mb-sm-4">
 				<h3 class="h6 mb-3">Kvalifikační požadavky</h3>
-									<p>Eos molestiae quis est vel illo.</p>
-									<p>Fuga rerum ad voluptas natus.</p>
-									<p>Voluptas sint eius numquam recusandae magni sit qui.</p>
-									<p>Cupiditate blanditiis illum expedita consequatur vitae quo.</p>
-									<p>Deleniti sit corporis ut porro voluptatum.</p>
-									<p>Commodi ea esse at.</p>
-									<p>A facere et autem vel eius quod.</p>
-									<p>Minima autem ut et inventore alias tempora sed.</p>
-									<p>Ut fugit voluptatum eum quia commodi.</p>
-									<p>Tenetur occaecati veritatis assumenda blanditiis.</p>
+									<p>Voluptatibus est et.</p>
+									<p>Blanditiis dolor illo enim consequatur nulla.</p>
+									<p>Quas id debitis illo quisquam ducimus sed omnis laudantium id.</p>
+									<p>Itaque rerum natus maiores dolore laudantium illum.</p>
+									<p>Sit corporis provident quaerat similique ea sed corporis iure aliquam.</p>
+									<p>Cumque vero adipisci et minus illum illo.</p>
+									<p>Neque voluptatum velit id.</p>
+									<p>Aut eligendi in.</p>
+									<p>Dolorum voluptatibus est sint rerum libero soluta sit quas quae.</p>
+									<p>Commodi porro expedita et velit nulla dolorem consequuntur ut.</p>
 							</div>
 
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2><div class="bg-white p-3 border-b">
 	<div class="row">
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Firma</div>
-			McDermott, Stokes and Connelly<br>
-			67529 Fay Corner <br>
-			57600, Davidberg </br>
-			Denmark
+			Dare Inc<br>
+			4901 Golden Place <br>
+			02997-5084, New Chaimtown </br>
+			Micronesia
 		</div>
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Kontaktní osoba</div>
-			Dereck Legros
+			Audra Bogan
 		</div>
 		<div class="col-md-4">
 			<div class="font-weight-bold">Telefon</div>
-			089.056.9233 x4551
+			826-771-5420
 		</div>
 	</div>
 </div>

@@ -1,24 +1,44 @@
 <div class="section section--bg-decorative section--border-bottom-always py-4 mt-3">
-	<div class="container">
-		{% set selectedButtons = [
+    <div class="container">
+        {% set selectedButtons = [
 			"Asistentka",
 			"Jihlava",
 			"Plný úvazek",
 			"Od 25 000,- Kč",
 			"Pro studenta"
 		] %}
-		<div class="search-box__btn-container text-center">
-			{% for btn in selectedButtons %}
-				<button class="btn-filter-icon btn btn-secondary btn-sm m-1">
-					{{ btn }}
-					<span class="icon icon-cross-circle ml-2"></span>
-				</button>
-			{% endfor %}
-		</div>
+        <div class="search-box__btn-container text-center">
+            {% for btn in selectedButtons %}
+                <span class="search-box__tag">
+                    {{ btn }}
+                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
+                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
+                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
+                        </svg>
+                    </button>
+                </span>
+            {% endfor %}
+        </div>
 
-		<div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
-			<div class="row">
-				{% set extendedFilter = [
+        <div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+            <div class="row pb-4">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <label class="form-label">Hledaná práce</label>
+                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "+ Doprava, obchod, kuchař...", dataset: "names.json"} %}
+                </div>
+                <div class="col-lg-6">
+                    <label class="form-label">Kde hledám práci</label>
+                    <div class="input-group job-search mb-3">
+                        <select class="form-control" data-selectric-flags>
+                            <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
+                            <option data-ico="sk" data-placeholder="SK">Slovensko</option>
+                        </select>
+                        {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% set extendedFilter = [
 					"Pracovní poměr",
 					"Plat",
 					"Vzdělání",
@@ -28,30 +48,30 @@
 				] %}
 
 
-				{% for i in extendedFilter %}
-					<div class="col-md-6 col-lg-4  mb-3">
-						<label class="form-label">{{ i }}</label>
-						<select class="form-control" data-selectric id="exampleFormControlSelect1">
-							<option><faker-lorem-words/></option>
-							<option><faker-lorem-words/></option>
-							<option><faker-lorem-words/></option>
-							<option><faker-lorem-words/></option>
-							<option><faker-lorem-words/></option>
-						</select>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
+                {% for i in extendedFilter %}
+                    <div class="col-md-6 col-lg-4  mb-3">
+                        <label class="form-label">{{ i }}</label>
+                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                            <option><faker-lorem-words/></option>
+                            <option><faker-lorem-words/></option>
+                            <option><faker-lorem-words/></option>
+                            <option><faker-lorem-words/></option>
+                            <option><faker-lorem-words/></option>
+                        </select>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
-	</div>
+    </div>
 </div>
 <div class="section bg-light text-center py-3">
-	<div class="container">
-		<div class="text-center">
-			<button class="btn btn-success btn-collapse-toggle btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
-				<span class="icon icon-search mr-2"></span>
-				Upravit hledání
-			</button>
-		</div>
-	</div>
+    <div class="container">
+        <div class="text-center">
+            <button class="btn btn-success btn-collapse-toggle btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                <span class="icon icon-search mr-2"></span>
+                Upravit hledání
+            </button>
+        </div>
+    </div>
 </div>

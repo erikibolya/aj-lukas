@@ -69,80 +69,86 @@
     <body>
         <div class="site">
             <header class="header">
-	<div class="bg-white">
-		<div class="header__top container d-flex  justify-content-between align-items-center">
-			<a href="/" class="header__logo d-block">
-				<img src="./public/svg/images/logo.svg" 
-				     alt="Logo">
-			</a>
-			<div class="d-flex  justify-content-between">
-				<div class="btn-group">
-											<a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
-						   id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="btn-circle"><span class="btn-circle__icon icon icon-user mr-2"></span></span>
-							<span class="btn-circle__label">someUsername</span>
-						</a>
-					
-					<div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="/my-account.html"><span class="icon icon-user mr-3"></span>Můj účet</a>
-						<a class="dropdown-item" href="/"><span class="icon icon-login mr-3"></span>Odhlásit</a>
-					</div>
-				</div>
-									<a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="http://example.com">
-						<span class="btn-circle"><span class="btn-circle__icon icon icon-diamond mr-2"></span></span>
-						<span class="btn-circle__label">10 234 233</span>
-					</a>
-								<div class="btn-group">
-					<a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
-					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="btn-circle"><span class="btn-circle__icon flag-icon flag-icon-cz mr-2"></span></span>
-						<span class="btn-circle__label">Čěština</span>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-						<a class="dropdown-item" href="#fr"><span class="flag-icon flag-icon-fr mr-2"></span>French</a>
-						<a class="dropdown-item" href="#it"><span class="flag-icon flag-icon-it mr-2"></span>Italian</a>
-						<a class="dropdown-item" href="#ru"><span class="flag-icon flag-icon-ru mr-2"></span>Russian</a>
-					</div>
-				</div>
-			</div>
-		</div>
-					<div class="bg-light">
-	<div class="container">
-		<nav class="menu">
-			<button type="buttom" class="menu__toggler">
-				<span class="menu-icon"></span>
-				<span>Nabídky</span>
-			</button>
-			<a href="/saved-offers.html" class="menu__extra-button">
-				<span class="icon icon-star-fill mr-2"></span><span
-								class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(58)
-			</a>
-			<ul class="menu__list">
-				<li class="menu__item">
-					<a class="menu__link menu__link--active"
-					   href="back-homepage.html">Home</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link"
-					   href="back-offers.html">Nabídky</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-answers.html">Odpovědi</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="back-my-account.html">Můj ůčet</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/">Pro Uchazeče</a>
-				</li>
-				<li class="menu__item">
-					<a class="menu__link" href="/for-companies.html">Pro Firmy</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
+    <div class="bg-white">
+        <div class="header__top container d-flex  justify-content-between align-items-center">
+            <a href="/" class="header__logo d-block">
+                <img src="./public/svg/images/logo.svg" 
+                     alt="Logo">
+            </a>
+            <div class="d-flex  justify-content-between">
+                <div class="btn-group">
+                                            <a class="btn-circle__wrapper btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com"
+                           id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="btn-circle p-0">
+                                <object class="svgicon svgicon--absolute" data="./public/svg/icons/logged-in.svg"></object>
+                            </span>
+                            <span class="btn-circle__label">someUsername</span>
+                        </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                    </div>
+                </div>
+                                    <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
+                        <span class="btn-circle p-0">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/icons/actibons-wallet.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">10 234 233</span>
+                    </a>
+                                <div class="btn-group">
+                    <a class="btn-circle__wrapper pr-0 btn btn-link btn-sm dropdown-toggle text-primary" href="http://example.com" id="dropdown09"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="btn-circle">
+                            <object class="svgicon svgicon--absolute" data="./public/svg/flags/cz.svg"></object>
+                        </span>
+                        <span class="btn-circle__label">Čěština</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="bg-light">
+    <div class="container">
+        <nav class="menu">
+            <button type="buttom" class="menu__toggler">
+                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+                <span>Nabídky</span>
+            </button>
+            <a href="/saved-offers.html" class="menu__extra-button">
+                <span class="icon icon-star-fill mr-2"></span><span
+                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(38)
+            </a>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a class="menu__link menu__link--active"
+                       href="back-homepage.html">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link"
+                       href="back-offers.html">Nabídky</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-answers.html">Odpovědi</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="back-my-account.html">Můj ůčet</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/">Pro Uchazeče</a>
+                </li>
+                <li class="menu__item">
+                    <a class="menu__link" href="/for-companies.html">Pro Firmy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
-			</div>
+            </div>
 </header>
             <div class="site__content">
             	<div class="container">
@@ -166,7 +172,7 @@
 							Zakoupených
 						</div>
 						<div class="text-right">
-							86773 AB
+							69972 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -174,7 +180,7 @@
 							Získaných
 						</div>
 						<div class="text-right">
-							98057 AB
+							4947 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -182,7 +188,7 @@
 							Využitých
 						</div>
 						<div class="text-right">
-							6825 AB
+							11882 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between text-success font-weight-bold">
@@ -190,7 +196,7 @@
 							Zůstatek
 						</div>
 						<div class="text-right">
-							42646 AB
+							40018 AB
 						</div>
 					</div>
 							</div>
@@ -198,26 +204,26 @@
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Laudantium voluptas quod tempore dolores voluptatum.
+							Sunt veniam sapiente iusto tempora.
 						</div>
 						<div class="text-right">
-							62037 AB
+							4615 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Est ipsa aut.
+							Cum consequatur alias.
 						</div>
 						<div class="text-right">
-							66559 AB
+							21194 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Magnam et doloribus tempore.
+							Odio perspiciatis inventore.
 						</div>
 						<div class="text-right">
-							73918 AB
+							70163 AB
 						</div>
 					</div>
 							</div>
@@ -225,90 +231,90 @@
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Culpa quod autem quis sequi et provident voluptas.
+							Nam ipsum exercitationem animi qui eos.
 						</div>
 						<div class="text-right">
-							63928 AB
+							29061 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Sapiente sunt maxime.
+							Ab quisquam rerum neque et.
 						</div>
 						<div class="text-right">
-							57171 AB
+							6515 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Neque saepe mollitia amet reiciendis iste aperiam.
+							Velit culpa aperiam eum.
 						</div>
 						<div class="text-right">
-							47976 AB
+							56761 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Quibusdam molestiae eligendi praesentium enim ut et.
+							Incidunt facere vero doloribus ipsam fugiat.
 						</div>
 						<div class="text-right">
-							17357 AB
+							66305 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Non sit et perferendis earum nemo saepe.
+							Aliquid sit sit sapiente sit.
 						</div>
 						<div class="text-right">
-							69219 AB
+							22914 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Assumenda hic vel amet tempore ipsum optio.
+							Ratione suscipit harum ab ex.
 						</div>
 						<div class="text-right">
-							90591 AB
+							57051 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Unde aliquam ex soluta ducimus qui.
+							Tenetur exercitationem natus voluptatem temporibus sunt voluptas sequi.
 						</div>
 						<div class="text-right">
-							12376 AB
+							90369 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Velit et eius eligendi facilis iure qui odit hic aperiam.
+							Sit sequi fuga nulla illum quia repellendus facere facilis velit.
 						</div>
 						<div class="text-right">
-							39545 AB
+							41342 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Eum vero praesentium.
+							Maxime aut quia dolor.
 						</div>
 						<div class="text-right">
-							27762 AB
+							79119 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Ut iusto et enim aspernatur quod culpa cum molestiae.
+							Aut magnam odit accusantium molestiae eum est quis.
 						</div>
 						<div class="text-right">
-							69809 AB
+							57173 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Et incidunt quas pariatur laborum quis.
+							Aspernatur expedita non dignissimos voluptatem ut ducimus aperiam.
 						</div>
 						<div class="text-right">
-							14491 AB
+							25007 AB
 						</div>
 					</div>
 							</div>
