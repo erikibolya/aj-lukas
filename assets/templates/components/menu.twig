@@ -1,8 +1,13 @@
 <div class="bg-light">
     <div class="container">
         <nav class="menu">
-            <button type="buttom" class="menu__toggler{% if savedOffers %} menu__toggler--inactive{% endif %}">
-                <object class="svgicon svgicon--inline svgicon--menu" data="./public/svg/icons/hamburger.svg"></object>
+            <button type="button" class="menu__toggler{% if savedOffers %} menu__toggler--inactive{% endif %}">
+                {% if savedOffers %}
+                    <object class="svgicon svgicon--inline" data="./public/svg/icons/hamburger.svg"></object>
+                {%else%}
+                    <object class="svgicon svgicon--inline" data="./public/svg/icons/white/hamburger.svg"></object>
+                {% endif %}
+
                 <span>{% if savedOffers %}Menu{% else %}Nabídky{% endif %}</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button{% if savedOffers %} menu__extra-button--active{% endif %}">

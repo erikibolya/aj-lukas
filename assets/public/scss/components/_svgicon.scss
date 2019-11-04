@@ -3,15 +3,24 @@
     height: 1.25rem;
     display: block;
     pointer-events: none;
-    @at-root .choices__item__ico &{
+
+    &--grey{
+
+    }
+
+    &--small{
         width: 1rem;
         height: 1rem;
+    }
+
+    &--large{
+        width: 2rem;
+        height: 2rem;
     }
 
     &--inline{
         display: inline-block;
         vertical-align: sub;
-        margin-right: 0.5em;
     }
 
     &--absolute{
@@ -22,21 +31,25 @@
         bottom: 0;
         margin: auto;
     }
-    
-    &--menu{
-        margin-right: 0.2em;
-    }
 }
 
 .svgicon__path{
     fill: $brand-success;
 
+
+    @at-root .link-box &{
+        fill: #22528E;
+    }
+    @at-root .link-box--disabled &{
+        fill: #9e9e9e;
+    }
+    @at-root .svgicon--textcolor &{
+        fill: currentColor;
+    }
+
     @at-root .choices__item__ico &{
         fill: $brand-text;
     }
-
-
-
 
     @at-root .link-box__svg &{
         &:not(.svgicon__path--transparent){
@@ -60,9 +73,17 @@
 
 }
 
-
 .svgicon__path--transparent{
     fill: transparent;
+}
+
+
+.svgicon--hamburger{
+    margin-right: 0.2em;
+
+    .svgicon__path{
+        fill:red;
+    }
 }
 
 

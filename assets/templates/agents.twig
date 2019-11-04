@@ -3,7 +3,7 @@
 {% block body %}
 
     <div class="container">
-        <div class="section py-3">
+        <div class="section pt-3">
             <div class="d-sm-flex justify-content-between align-items-center mb-3">
                 <nav aria-label="breadcrumb" class="d-sm-inline-block">
                     <ol class="breadcrumb mb-sm-0">
@@ -71,7 +71,7 @@
                             <div class="icon-list__text-col">
                                 {% if loop.first %}
                                     <a href="{{ linkOffersFiltered }}" class="link-box__btn link-box__btn--active mr-3">
-                                          1 nová <span class="icon icon-arrow-right"></span>
+                                        1 nová <span class="icon icon-arrow-right"></span>
                                     </a>
                                 {% elseif loop.last %}
                                     <span class="text-muted">0 nabídek</span>
@@ -92,8 +92,14 @@
 
                     <div class="row justify-content-center">
                         <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-                            <button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-                                    class="hidden-sm-down">Smazat</span></button>
+                            <button class="btn btn-secondary w-100">
+                                <svg class="svgicon svgicon--inline svgicon--textcolor mr-1" viewBox="0 0 20 20">
+                                <path class="svgicon__path" d="M11.1,10l4.5-4.5c0.3-0.3,0.3-0.8,0-1.1c-0.3-0.3-0.8-0.3-1.1,0L10,8.9L5.5,4.5c-0.3-0.3-0.8-0.3-1.1,0
+                                      C4.3,4.6,4.2,4.8,4.2,5s0.1,0.4,0.2,0.5L8.9,10l-4.5,4.5c-0.1,0.1-0.2,0.3-0.2,0.5c0,0.2,0.1,0.4,0.2,0.5c0.1,0.1,0.3,0.2,0.5,0.2
+                                      c0.2,0,0.4-0.1,0.5-0.2l4.5-4.5l4.5,4.5c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1.1L11.1,10z"/>
+                                </svg>
+                                <span class="hidden-sm-down">Smazat</span>
+                            </button>
                         </div>
                         <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
                             <a href="{{ linkAgentCreate }}" class="btn btn-secondary w-100"><span
