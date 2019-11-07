@@ -37,7 +37,10 @@
 
 .page-link {
   position: relative;
-  display: block;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  align-content: center;
   padding: $pagination-padding-y $pagination-padding-x;
   margin-left: -1px;
   line-height: $pagination-line-height;

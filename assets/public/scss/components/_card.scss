@@ -1,33 +1,40 @@
 a.card {
 
-	&:hover {
-		background-color: $gray-lightest;
-	}
+    &:not(.card--disabled):hover { 
+        background-color: $gray-lightest;
+    }
 }
 
 .card {
 
-	&--box {
+    &--disabled{
+        color: #9e9e9e;
+        cursor: default;
+        &:hover{
+            color: #9e9e9e;
+        }
+    } 
+    &--box {
 
-		&:hover {
-			text-decoration: none;
-		}
+        &:hover { 
+            text-decoration: none;
+        }
 
-		&__content {
-			padding: 1rem;
-			display: flex;
-			align-items: center;
-		}
+        &__content {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+        }
 
-		@include media-breakpoint-up(sm) {
-			height: 150px;
-			padding: 10%;
+        @include media-breakpoint-up(sm) {
+            height: 150px;
+            padding: 10%;
 
 
-			&__content {
-				display: block;
-				text-align: center;
-			}
-		}
-	}
+            &__content {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
 }

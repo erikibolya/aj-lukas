@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +120,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(32)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(25)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -149,74 +157,79 @@
             </div>
 </header>
             <div class="site__content">
-            	<div class="container">
-		<div class="section py-3 mb-5">
+                <div class="container">
+        <div class="section py-3 mb-5">
 
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/my-account.html">Můj účet</a></li>
-					<li class="breadcrumb-item"><a href="/answers.html">Odpovědi</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Detail odpovědi</li>
-				</ol>
-			</nav>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/my-account.html">Můj účet</a></li>
+                    <li class="breadcrumb-item"><a href="/answers.html">Odpovědi</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail odpovědi</li>
+                </ol>
+            </nav>
 
-			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title">Global Marketing Facilitator</span>
-			</a>
+            <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+                <span class="link-box__title">National Identity Designer</span>
+            </a>
 
-			<div class="bg-white p-3 mb-4">
-				<div class="icon-list">
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
-						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Hoppe Inc</div>
-					</div>
+            <div class="bg-white p-3 mb-4">
+                <div class="icon-list">
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+                        <div class="icon-list__info-col">Zaměstnavatel</div>
+                        <div class="icon-list__text-col">Rosenbaum LLC</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">42676 Maritza Keys, Brennamouth</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                        <div class="icon-list__info-col">Místo pracoviště</div>
+                        <div class="icon-list__text-col">05385 Carolanne Harbor, Lake Laruemouth</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
-						<div class="icon-list__info-col">Plat</div>
-						<div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
+                        <div class="icon-list__info-col">Plat</div>
+                        <div class="icon-list__text-col">30 000 - 50 000 Kč</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-						<div class="icon-list__info-col">Datum odpovědi</div>
-						<div class="icon-list__text-col">Před 21 minutami</div>
-					</div>
-				</div>
-			</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                        <div class="icon-list__info-col">Datum odpovědi</div>
+                        <div class="icon-list__text-col">Před 21 minutami</div>
+                    </div>
+                </div>
+            </div>
 
-			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Zpráva</h2>
-			<div class="bg-white p-3 mb-4">
-					<p>Sit ad hic. Et hic et modi error expedita quas officia possimus quo.</p>
-					<p>Sint aliquam iure et deleniti ratione in sit rem voluptatem. Eum dignissimos quidem. Cupiditate excepturi praesentium.</p>
-			</div>
+            <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Zpráva</h2>
+            <div class="bg-white p-3 mb-4">
+                <p>Culpa molestiae vitae. Aut illo ullam explicabo beatae. Laboriosam aliquid omnis magni. Aut tempora exercitationem sed et voluptatem minus quis. Fugiat aspernatur blanditiis libero quis cupiditate ea ut ut autem. Consequatur magnam autem dignissimos aut assumenda deleniti aut eligendi.</p>
+                <p>Sequi eaque perspiciatis sint cum ut. Ipsa placeat eius sequi quia vel exercitationem mollitia est aut. Laborum deserunt qui et magnam fugit quae ut accusantium nihil.</p>
+            </div>
 
-			<div class="mb-4">
-				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Přílohy a odkazy</h2>				<a href="#" class="link-box p-3 d-md-flex justify-content-between border-b">
-					<span class="d-block mr-3 link-box__title">Životopis</span>
-					<span class="d-block  icon icon-document text-right"></span>
-				</a>
-				<a href="#" class="link-box p-3 d-md-flex justify-content-between">
-					<span class="d-block mr-3 link-box__title">Odkaz</span>
-					<span class="d-block  icon icon-cursor-box text-right"></span>
-				</a>
-			</div>
+            <div class="mb-4">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Přílohy a odkazy</h2>                <a href="#" class="link-box p-3 d-md-flex justify-content-between border-b">
+                    <span class="d-block mr-3 link-box__title">Životopis</span>
+                    <span class="d-block  icon icon--large icon-document text-right"></span>
+                </a>
+                <a href="#" class="link-box p-3 d-md-flex justify-content-between">
+                    <span class="d-block mr-3 link-box__title">Odkaz</span>
+                    <span class="d-block  icon icon--large icon-cursor-box text-right"></span>
+                </a>
+            </div>
 
-			<div class="row justify-content-center">
-				<div class="col-sm-6 col-md-4 col-lg-3">
-					<button type="button" class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span>Smazat</button>
-				</div>
-			</div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <button type="button" class="btn btn-secondary w-100">
+                        <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor mr-1" viewBox="0 0 20 20">
+                        <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                        </svg>
+                        Smazat
+                    </button>
+                </div>
+            </div>
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 
 

@@ -1,37 +1,4 @@
 .offer-item {
-	position: relative;
-	background-color: $white;
-
-
-	&__star-btn {
-		position: absolute;
-		border:none;
-		right: 0;
-		bottom: 0;
-		color: $gray;
-		width: 40px;
-		height: 40px;
-		background-image: url(../images/star-bg-white.png);
-		background-size: cover;
-
-		&:focus {
-			box-shadow: none;
-		}
-
-		&:hover {
-			color: $brand-success;
-			background-image: url(../images/star-bg-gray.png);
-
-		}
-
-		.icon {
-			position: absolute;
-			top: 1rem;
-			left: 1.1em;
-		}
-
-		.icon-star-fill {
-			color: $brand-success;
-		}
-	}
+    position: relative;
+    background-color: $white;
 }

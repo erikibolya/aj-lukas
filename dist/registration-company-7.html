@@ -4,11 +4,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -127,8 +129,8 @@
 							<strong class="mb-3 d-inline-block">Bronze</strong>
 							<ul>
 
-																	<li>Ut aperiam quae aut aliquid.</li>
-																	<li>Quia velit facere.</li>
+																	<li>Molestiae consectetur et sint quae.</li>
+																	<li>Eos animi nam aut laboriosam qui ad.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -141,9 +143,9 @@
 							<strong class="mb-3 d-inline-block">Silver</strong>
 							<ul>
 
-																	<li>Quia et rerum nam ipsum aut sunt.</li>
-																	<li>Quae ratione tenetur odio ratione nesciunt.</li>
-																	<li>Nesciunt minus in ullam.</li>
+																	<li>Omnis vel amet laborum qui porro aliquid et ex at.</li>
+																	<li>Pariatur fugit similique.</li>
+																	<li>Sunt ea ab qui pariatur molestias ex et minima.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -156,10 +158,10 @@
 							<strong class="mb-3 d-inline-block">Gold</strong>
 							<ul>
 
-																	<li>Quas neque ut est asperiores.</li>
-																	<li>Pariatur qui omnis quidem.</li>
-																	<li>Voluptatem veritatis sequi assumenda temporibus atque.</li>
-																	<li>Id autem quo aut.</li>
+																	<li>Nostrum ut occaecati eveniet iste consequatur distinctio asperiores omnis.</li>
+																	<li>Et nisi necessitatibus esse sapiente tempore voluptatem quidem.</li>
+																	<li>Dolores cumque qui officiis magnam.</li>
+																	<li>Nemo dolores quasi delectus voluptate aspernatur dolorum.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -172,11 +174,11 @@
 							<strong class="mb-3 d-inline-block">Platinum</strong>
 							<ul>
 
-																	<li>Voluptatum quia et laboriosam.</li>
-																	<li>Iusto at et laborum ducimus placeat repudiandae.</li>
-																	<li>Voluptatem fugit optio.</li>
-																	<li>Rerum hic accusamus neque quia officia ullam rerum laborum.</li>
-																	<li>Praesentium eius repudiandae suscipit magni.</li>
+																	<li>Cupiditate eum totam qui inventore incidunt est consequatur consectetur similique.</li>
+																	<li>Eum beatae aliquid vitae.</li>
+																	<li>Et ut et provident sunt.</li>
+																	<li>Ut illum autem.</li>
+																	<li>Consequuntur dolorem consequuntur quia.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -196,8 +198,8 @@
 								Bronze
 															</strong>
 							<ul>
-																	<li>Provident et expedita.</li>
-																	<li>Et inventore voluptatem sint enim ea ut ratione non aliquam.</li>
+																	<li>Sit nostrum adipisci odio blanditiis rerum et fugiat sapiente.</li>
+																	<li>Eius temporibus suscipit eum aut harum.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -211,9 +213,9 @@
 								Silver
 															</strong>
 							<ul>
-																	<li>Quo velit et ut distinctio.</li>
-																	<li>Quibusdam unde natus.</li>
-																	<li>Corrupti consequatur quas atque et.</li>
+																	<li>Reiciendis unde quis sint odit ex et.</li>
+																	<li>Sit facilis occaecati aliquid aut veniam quae quos rem.</li>
+																	<li>Aut tempore libero non.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -227,10 +229,10 @@
 								Gold
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Quasi consequatur adipisci facere sapiente soluta doloremque non vel atque.</li>
-																	<li>Accusamus et qui eveniet dolorem fugit qui ut.</li>
-																	<li>Unde dolore architecto ea blanditiis ut.</li>
-																	<li>Molestiae incidunt debitis occaecati labore explicabo qui.</li>
+																	<li>Quidem porro deleniti dolore quia.</li>
+																	<li>Et consequuntur itaque corrupti repellat quisquam et.</li>
+																	<li>Voluptas ut magnam.</li>
+																	<li>Aliquid aut adipisci qui ut.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -244,11 +246,11 @@
 								Platinum
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Non sapiente ut rem qui architecto tempore ut distinctio reprehenderit.</li>
-																	<li>Voluptatem explicabo architecto commodi et sit et.</li>
-																	<li>Voluptas est possimus quo consequatur quo quae enim.</li>
-																	<li>Similique sunt cum quo sequi sint nesciunt sed eum culpa.</li>
-																	<li>Et nemo facere.</li>
+																	<li>Laboriosam autem tenetur veritatis enim laboriosam sunt exercitationem.</li>
+																	<li>Aut minima dolor asperiores officia facilis.</li>
+																	<li>Id omnis autem velit omnis quam ipsum.</li>
+																	<li>Deserunt eius voluptatibus.</li>
+																	<li>A minus fugiat vero recusandae et perspiciatis eos.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">

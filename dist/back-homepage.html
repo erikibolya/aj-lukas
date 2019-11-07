@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -90,8 +92,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                     <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
@@ -109,9 +111,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -125,8 +127,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(39)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(81)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -210,7 +218,7 @@
 
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Členství</h2>			<div class="bg-white p-3 mb-4 text-center">
 				<p class="text-success">Členství <strong>Classic</strong> je platné ještě <strong>225 dní</strong></p>
-				<p>Quam nihil quia ut provident odio cumque. Magnam rerum ad at deserunt inventore ea. Dicta totam aliquam deserunt sed quaerat.
+				<p>Omnis est eum laudantium dolor. Quasi dicta repellendus ut id consectetur recusandae facere facilis aliquid. Vel et deserunt incidunt sunt et.
 				<hr class="mx-minus-3">
 				<div class="text-center">
 					<a href="back-new-charge-actibons.html" class="btn btn-info btn-bottom mb-2 mr-sm-3">Aktivovat VIP členství</a>
@@ -221,26 +229,26 @@
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Pěněženka</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Zakoupených</div>
-					<div class="text-right">71425 AB</div>
+					<div class="text-right">6037 AB</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Získaných</div>
-					<div class="text-right">24696 AB</div>
+					<div class="text-right">10832 AB</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Využitých</div>
-					<div class="text-right">20580 AB</div>
+					<div class="text-right">44834 AB</div>
 				</div>
 				<div class="bg-white p-3 d-md-flex justify-content-between text-success font-weight-bold">
 					<div>Zůstatek</div>
-					<div class="text-right">5808 AB</div>
+					<div class="text-right">3892 AB</div>
 				</div>
 			</div>
 
 
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Affiliate</h2>			<div class="bg-white p-3  text-center">
 				<p class="text-success">Získejte <strong>7500 AB</strong> za každé doporučení klubu ActiJobs</p>
-				<p>Id aut laudantium molestias rem nihil architecto. Odit voluptas autem dolorum ratione et repellendus. Quia velit quia exercitationem minima error. Sequi sunt eum libero odio eveniet qui eos non quaerat. Id labore error enim.
+				<p>Molestias rerum excepturi alias omnis libero officia. Qui sit et ipsa.
 				<p><small>Affiliate link</small></p>
 				<div class="border mb-3">
 					<code class="p-3">ACTIJOBS-AV258DFB-4P62VBGH</code>

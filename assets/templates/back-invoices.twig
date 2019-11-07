@@ -14,7 +14,7 @@
 				{% for i in 0..6 %}
 					<a href="#" class="link-box p-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
 						<span class="d-block mr-3 link-box__title">{{ random(31) }}.{{ random(12) }}.201{{ random(10) }} - {{ random(['Faktura','Dobropis' ]) }} - <faker-random-number/></span>
-						<span class="d-block  icon icon-document text-right"></span>
+						<span class="d-block  icon icon--large icon-document text-right"></span>
 					</a>
 				{% endfor %}
 			</div>

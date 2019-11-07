@@ -4,11 +4,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,24 +120,24 @@
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Obchodní podmínky portálu ActiJobs.cz</h2>			<div class="bg-white p-3">
 
 				<p class="text-info mb-3 text-center">
-					Quae totam totam corrupti placeat. Possimus corporis tempore consectetur sapiente voluptatum sunt velit nihil. Exercitationem ad soluta consequatur. Est ea fuga ut velit aut. Porro cum qui commodi debitis necessitatibus natus voluptates rerum dicta.
+					Laudantium blanditiis temporibus exercitationem odit quibusdam impedit qui sed. Quo aut ut. Quas beatae ratione. Blanditiis maiores est ut ipsam modi adipisci ut omnis. Quia laborum tenetur voluptate. Sit eos harum nobis.
 				</p>
 										<hr class="mx-minus-3">
 						<div class="form-group form-check px-3">
 							<input type="checkbox" class="form-check-input" id="exampleCheck0">
-							<label class="form-check-label" for="exampleCheck0">Esse eum a laboriosam cum placeat impedit reprehenderit consectetur qui. Labore cupiditate omnis.<a href="#" class="pl-2">Zobrazit více</a></label>
+							<label class="form-check-label" for="exampleCheck0">Id praesentium dolor quia illum corrupti quam autem tempore dolor. Esse et voluptatum fuga exercitationem nobis aspernatur magnam.<a href="#" class="pl-2">Zobrazit více</a></label>
 
 						</div>
 										<hr class="mx-minus-3">
 						<div class="form-group form-check px-3">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">Mollitia rerum qui earum eum hic cum. Ut quia illum in quod cupiditate nesciunt et perferendis velit. Temporibus pariatur repellendus suscipit voluptate est molestias incidunt.<a href="#" class="pl-2">Zobrazit více</a></label>
+							<label class="form-check-label" for="exampleCheck1">Dolorem cumque enim et nulla consequatur inventore perferendis. Molestiae saepe est inventore quasi ut. Ratione esse velit ut. Ratione maiores eius placeat. Quae vitae numquam error. Praesentium neque aut cupiditate maiores enim voluptas fugiat sit.<a href="#" class="pl-2">Zobrazit více</a></label>
 
 						</div>
 										<hr class="mx-minus-3">
 						<div class="form-group form-check px-3">
 							<input type="checkbox" class="form-check-input" id="exampleCheck2">
-							<label class="form-check-label" for="exampleCheck2">Aliquam vel neque doloremque. Aperiam eius vel fugiat. Soluta cupiditate ipsum ipsum. Animi aut corporis est qui.<a href="#" class="pl-2">Zobrazit více</a></label>
+							<label class="form-check-label" for="exampleCheck2">Eaque nihil exercitationem dolorum. Sit minus voluptatem. Doloribus maxime dolor et commodi commodi. Eligendi ad omnis cumque odio ut fugit.<a href="#" class="pl-2">Zobrazit více</a></label>
 
 						</div>
 								<hr class="mx-minus-3">

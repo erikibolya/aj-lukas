@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -90,8 +92,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                     <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
@@ -109,9 +111,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -125,8 +127,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(64)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(20)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -224,14 +232,14 @@
 			</div>
 
 			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">National Configuration Architect</span>
+    <span class="link-box__title">Lead Optimization Technician</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Balistrerichester</div>
+            <div class="icon-list__text-col">East Jovany</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -248,7 +256,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -256,8 +268,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	19.7.2019&nbsp;&nbsp;
-	23:06</time></div>
+	21.1.2014&nbsp;&nbsp;
+	2:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -273,13 +285,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -298,14 +315,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Direct Functionality Orchestrator</span>
+    <span class="link-box__title">International Configuration Executive</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Manuelport</div>
+            <div class="icon-list__text-col">Kuhnburgh</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -322,7 +339,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -330,8 +351,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	0.10.2012&nbsp;&nbsp;
-	3:01</time></div>
+	12.1.2015&nbsp;&nbsp;
+	15:07</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -347,13 +368,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -372,14 +398,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Direct Markets Analyst</span>
+    <span class="link-box__title">Forward Paradigm Officer</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Carrollview</div>
+            <div class="icon-list__text-col">North Deannamouth</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -396,7 +422,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -404,8 +434,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	26.9.2012&nbsp;&nbsp;
-	2:01</time></div>
+	0.1.2012&nbsp;&nbsp;
+	9:01</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -421,13 +451,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -446,14 +481,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Corporate Paradigm Administrator</span>
+    <span class="link-box__title">National Identity Agent</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Nikolaustown</div>
+            <div class="icon-list__text-col">West Jillianview</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -470,7 +505,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -478,8 +517,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	5.9.2017&nbsp;&nbsp;
-	9:05</time></div>
+	12.7.2013&nbsp;&nbsp;
+	7:06</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -495,13 +534,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -520,14 +564,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Internal Interactions Specialist</span>
+    <span class="link-box__title">Investor Configuration Liason</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">East Ellietown</div>
+            <div class="icon-list__text-col">Gianniborough</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -544,7 +588,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -552,8 +600,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	20.12.2017&nbsp;&nbsp;
-	13:02</time></div>
+	16.3.2019&nbsp;&nbsp;
+	8:03</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -569,13 +617,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -594,14 +647,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Dynamic Program Architect</span>
+    <span class="link-box__title">Forward Web Analyst</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Franeckistad</div>
+            <div class="icon-list__text-col">Bruenfort</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -618,7 +671,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -626,8 +683,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	9.0.2012&nbsp;&nbsp;
-	9:03</time></div>
+	16.5.2016&nbsp;&nbsp;
+	15:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -643,13 +700,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -668,14 +730,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Principal Program Consultant</span>
+    <span class="link-box__title">Lead Markets Orchestrator</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Oletaborough</div>
+            <div class="icon-list__text-col">Jacobiport</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -692,7 +754,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -700,8 +766,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	23.8.2017&nbsp;&nbsp;
-	13:03</time></div>
+	7.11.2014&nbsp;&nbsp;
+	10:09</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -717,13 +783,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -742,14 +813,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Dynamic Directives Planner</span>
+    <span class="link-box__title">Lead Response Liason</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">North Adrianashire</div>
+            <div class="icon-list__text-col">East Michelle</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -766,7 +837,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -774,8 +849,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	27.12.2012&nbsp;&nbsp;
-	8:04</time></div>
+	23.2.2017&nbsp;&nbsp;
+	15:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -791,13 +866,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -816,14 +896,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Internal Web Engineer</span>
+    <span class="link-box__title">Investor Marketing Facilitator</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Cartwrightmouth</div>
+            <div class="icon-list__text-col">Fredmouth</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -840,7 +920,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -848,8 +932,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	22.0.2017&nbsp;&nbsp;
-	0:02</time></div>
+	2.5.2011&nbsp;&nbsp;
+	14:01</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -865,13 +949,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -890,14 +979,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Senior Communications Executive</span>
+    <span class="link-box__title">Investor Research Manager</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Elouisemouth</div>
+            <div class="icon-list__text-col">East Haylie</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -914,7 +1003,11 @@
             <div class="icon-list__info-col">Typ inzerce</div>
             <div class="icon-list__text-col"><span class="pr-3">Brozne (ČR)</span>
                 <a href="back-upgrade-offer.html" class="text-info link-icon">
-                    <span class="icon icon-arrow-up-point"></span>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<span class="icon icon-arrow-up-point"></span>
+                    <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>&nbsp;<span class="px-1 link-icon__text">Zvýhodnit</span>&nbsp;<svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -922,8 +1015,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	18.8.2014&nbsp;&nbsp;
-	1:06</time></div>
+	21.10.2019&nbsp;&nbsp;
+	18:01</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -939,13 +1032,18 @@
     <div class="row justify-content-center">
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-cross"></span>
+                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                </svg>
                 <span class="hidden-md-down ml-2">Smazat</span>
             </button>
         </div>
         <div class="col-4 col-sm-2 col-lg-3">
             <button class="btn btn-secondary w-100 mb-3 mb-sm-0">
-                <span class="icon icon-toggle-off"></span>
+                <svg class="svgicon svgicon--inline svgicon--textcolor" viewBox="0 0 20 20" >
+                <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                      c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                </svg>
                 <span class="hidden-md-down ml-2">Ukončit inzerci</span>
             </button>
         </div>
@@ -964,19 +1062,31 @@
     </div>
 </div>
 <div class="d-flex align-items-center flex-column mb-3">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-left"></span></a></li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-right"></span></a></li>
-		</ul>
-	</nav>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="6.6,10 15,18.4 14.2,19.2 5,10 14.2,0.7 15,1.6 "/>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div class="mb-5 pb-3 text-center">
-	<button class="btn btn-success btn-bottom">Načíst další</button>
+    <button class="btn btn-success btn-bottom">Načíst další</button>
 </div>
 		</div>
 	</div>

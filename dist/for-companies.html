@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +120,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(49)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(18)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -151,15 +159,15 @@
             <div class="site__content">
             	<div class="container p-3 mb-5">
 		<div class="bg-white text-center p-3 py-sm-5 border-b">
-			<p class="h2 text-info">Roční členství v ActiClubu</p>
+			<p class="h2 text-info font-weight-bold">Roční členství v ActiClubu</p>
 			<p class="mb-3">jednodušše jen</p>
-			<strong class="h2 text-success">999,- Kč</strong>
+			<strong class="h2 text-success font-weight-bold">999 Kč</strong>
 		</div>
 
 		<div class="bg-white text-center p-3 py-sm-4 border-b">
-							<p>Dignissimos autem consectetur vero quia. Consequuntur soluta molestias velit placeat quia ipsam. Facere qui non exercitationem sed quo voluptatem. Veniam natus natus officiis non dolore et.</p>
-							<p>Ab eveniet autem ut vel placeat eos natus repellat. Sapiente cupiditate et et dolores velit ut sint sequi.</p>
-							<p>Voluptatem qui et sed maiores culpa unde numquam. Qui voluptates recusandae voluptate.</p>
+							<p>Adipisci consequatur perspiciatis praesentium. Voluptatem dolorem fugiat. Quia dolores recusandae debitis. Perferendis ut iusto sint aut.</p>
+							<p>Iste suscipit cumque debitis similique nihil inventore mollitia harum. Qui voluptas et quaerat nobis. Commodi eos consequatur. Sit maxime rerum omnis reiciendis velit amet itaque corporis. Nisi voluptatem praesentium aperiam et provident omnis optio et. Cum explicabo est optio vel modi eaque.</p>
+							<p>Sunt velit deleniti et fugiat aut quidem modi rerum ex. Consequuntur nostrum tenetur vitae id accusamus sit quibusdam velit.</p>
 			
 		</div>
 		<div class="bg-white text-center p-3 mb-4">
@@ -173,33 +181,33 @@
 					<strong class="mb-3 d-inline-block">Členství classic</strong>
 					<ul>
 													<li>
-								Blanditiis voluptates ea quia.
+								Consectetur nostrum neque asperiores et et eum in.
 							</li>
 													<li>
-								Quae quibusdam omnis non.
+								Inventore voluptatem dicta aut dolor quae odio.
 							</li>
 													<li>
-								Aut aut nesciunt ex corrupti repellendus qui maiores molestiae dolor.
+								Assumenda aliquid consequatur.
 							</li>
 													<li>
-								Quia cum harum nostrum facilis sunt.
+								Nihil dolor autem impedit.
 							</li>
 													<li>
-								Sint quae consequuntur ipsum nulla ipsam officiis aperiam ea.
+								Quisquam totam accusantium sed et ut ut aperiam mollitia et.
 							</li>
 													<li>
-								Qui aut repudiandae voluptatem facere dolores corrupti cupiditate corporis.
+								Et tempore omnis atque aliquam nam rem nam.
 							</li>
 													<li>
-								Reprehenderit reiciendis consectetur itaque eum facilis error.
+								Deserunt et qui facere sunt.
 							</li>
 													<li>
-								Voluptatem alias ex non.
+								Eaque itaque ut tempora voluptatem et nulla quae voluptas.
 							</li>
 											</ul>
 				</div>
 				<div class="d-inline-flex flex-column justify-content-center align-items-sm-end text-right">
-					<strong class="display-6">999,- Kč</strong>
+					<strong class="display-6">999 Kč</strong>
 				</div>
 			</div>
 
@@ -208,34 +216,34 @@
 					<strong class="mb-3 d-inline-block">Členství VIP</strong>
 					<ul>
 													<li>
-								Dolorem quo repellendus quo suscipit asperiores eum saepe est soluta.
+								Unde et non ad laboriosam ut inventore voluptatibus rerum.
 							</li>
 													<li>
-								Corrupti voluptas vitae delectus nobis non eveniet.
+								Dolore deserunt id.
 							</li>
 													<li>
-								Dolores perspiciatis dignissimos similique nemo quam doloremque qui esse eligendi.
+								Nulla omnis expedita et qui debitis quia veniam ab.
 							</li>
 													<li>
-								Sint numquam nulla et suscipit eveniet vel.
+								Recusandae non tempora sunt.
 							</li>
 													<li>
-								Voluptatem quo dolor.
+								Voluptas temporibus minus.
 							</li>
 													<li>
-								Corrupti eos aliquam maiores qui.
+								Praesentium maxime ullam.
 							</li>
 													<li>
-								Natus aut cumque aut eum ea quisquam blanditiis.
+								Doloremque cumque nulla eum esse illo dolorum.
 							</li>
 													<li>
-								Animi ut nemo vel minus dolor nam magnam.
+								Sit et necessitatibus repellat porro in cumque ut recusandae.
 							</li>
 											</ul>
 
 				</div>
 				<div class="d-inline-flex flex-column justify-content-center align-items-sm-end text-right">
-					<strong class="display-6">7 999,- Kč</strong>
+					<strong class="display-6">7 999 Kč</strong>
 				</div>
 			</div>
 		</div>
@@ -250,10 +258,10 @@
 						<ul>
 
 															<li>
-									Ut qui quis vero.
+									Eaque velit qui corrupti perferendis.
 								</li>
 															<li>
-									Facilis cum et et.
+									Adipisci animi quibusdam quo.
 								</li>
 													</ul>
 					</div>
@@ -268,13 +276,13 @@
 						<ul>
 
 															<li>
-									Dolores voluptas non ipsam quasi aliquid consequatur.
+									Et quia est nihil iusto enim ea.
 								</li>
 															<li>
-									Omnis ipsa sit velit et odit sequi id aut ullam.
+									Quo porro quia enim a deleniti rem.
 								</li>
 															<li>
-									Rerum nesciunt incidunt necessitatibus.
+									Labore tenetur consequatur iusto id enim laboriosam sint ut qui.
 								</li>
 													</ul>
 					</div>
@@ -289,16 +297,16 @@
 						<ul>
 
 															<li>
-									Vel quisquam quasi odit.
+									Ut ut ut.
 								</li>
 															<li>
-									Et a et qui et nisi adipisci suscipit ea blanditiis.
+									Ipsam consequuntur fugit.
 								</li>
 															<li>
-									Asperiores accusamus quibusdam qui.
+									Labore nulla harum vel voluptate quisquam qui consequuntur cumque ratione.
 								</li>
 															<li>
-									Deleniti temporibus adipisci qui consequatur mollitia maxime laborum ut.
+									Consequatur voluptatibus voluptatem officia ad commodi aut unde maxime.
 								</li>
 													</ul>
 					</div>
@@ -313,19 +321,19 @@
 						<ul>
 
 															<li>
-									Voluptas molestiae ut ratione sint.
+									Voluptatibus cumque ducimus velit cumque dolor possimus.
 								</li>
 															<li>
-									Cumque nobis asperiores similique excepturi eligendi.
+									Qui libero quia sed tenetur dolores.
 								</li>
 															<li>
-									Dolore perferendis blanditiis repudiandae consectetur laboriosam.
+									Praesentium voluptatem ullam ut praesentium.
 								</li>
 															<li>
-									Expedita veritatis eligendi earum earum.
+									Recusandae consequatur illo atque a in.
 								</li>
 															<li>
-									Quo facilis neque dolor reiciendis et.
+									Nihil vero quia possimus non perspiciatis dolores eveniet.
 								</li>
 													</ul>
 					</div>
@@ -345,10 +353,10 @@
 													</strong>
 						<ul>
 															<li>
-									Omnis beatae quo earum rem qui sapiente.
+									Fugit odit porro expedita est voluptate perferendis fuga.
 								</li>
 															<li>
-									Inventore nesciunt eius nihil facere quos dolorum sunt.
+									Omnis adipisci alias consectetur est error quis molestiae.
 								</li>
 													</ul>
 					</div>
@@ -364,13 +372,13 @@
 													</strong>
 						<ul>
 															<li>
-									Voluptatem veritatis quo reprehenderit ipsam ipsum placeat.
+									Similique consequuntur ab.
 								</li>
 															<li>
-									Ut eaque assumenda perferendis officiis.
+									Veniam dolores architecto quaerat ut sapiente dolorem consequatur rerum.
 								</li>
 															<li>
-									Laborum delectus aperiam.
+									Praesentium atque ullam voluptas aut tempore enim consequatur.
 								</li>
 													</ul>
 					</div>
@@ -386,16 +394,16 @@
 							<span class="text-info">(-50%)</span>						</strong>
 						<ul>
 															<li>
-									Commodi quis qui molestias in id et reiciendis sed.
+									Est voluptatum earum dolorem.
 								</li>
 															<li>
-									At culpa vitae reprehenderit ipsa.
+									Molestiae officia id iste tempora.
 								</li>
 															<li>
-									Numquam sed aut porro.
+									Facere qui harum iste error consectetur consectetur nulla.
 								</li>
 															<li>
-									Eum corrupti in sed perspiciatis.
+									Id id molestias culpa cum qui modi et et.
 								</li>
 													</ul>
 					</div>
@@ -411,19 +419,19 @@
 							<span class="text-info">(-50%)</span>						</strong>
 						<ul>
 															<li>
-									Consequatur eum qui mollitia in.
+									Consequatur commodi nesciunt aliquid id pariatur itaque soluta.
 								</li>
 															<li>
-									Aut architecto sunt error rerum corporis illum explicabo.
+									Dolorum esse vitae nobis minus enim blanditiis excepturi qui porro.
 								</li>
 															<li>
-									Molestiae sunt ullam perspiciatis qui ut quo.
+									Nihil numquam dolor totam.
 								</li>
 															<li>
-									Dignissimos commodi quos autem sed ullam cupiditate aliquid dolorem qui.
+									Ea quaerat qui ut pariatur a.
 								</li>
 															<li>
-									Magnam sed occaecati labore laudantium ut.
+									Quam nemo sit perferendis.
 								</li>
 													</ul>
 					</div>
@@ -437,40 +445,40 @@
 
 		<div class="mb-4">
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nejčastější dotazy</h2>							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Tempore adipisci qui.</div>
-					Optio sunt rem harum iure est odio sed tenetur impedit.
+					<div class="font-weight-bold">Ut iste illo.</div>
+					Iusto ut qui dolor fuga et quia blanditiis vel.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Et consequuntur eius ex inventore molestiae aut.</div>
-					Dolore eum quia aliquid enim.
+					<div class="font-weight-bold">In magni dolorem atque.</div>
+					Ea in cum porro sit et atque.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Ipsum esse aut sint.</div>
-					Vitae est deserunt quasi sed voluptas provident.
+					<div class="font-weight-bold">Esse qui earum voluptatem sed.</div>
+					Optio et autem eos placeat.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Unde perspiciatis praesentium.</div>
-					Enim molestiae porro earum.
+					<div class="font-weight-bold">Voluptatem harum sunt ea aliquid sit recusandae.</div>
+					Repudiandae ea modi distinctio et.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Sapiente deserunt autem quisquam fuga nobis ex qui nostrum necessitatibus.</div>
-					Recusandae illo est et.
+					<div class="font-weight-bold">Exercitationem est quia delectus harum.</div>
+					Id adipisci nisi temporibus sapiente praesentium rerum.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Qui alias optio ut qui ea aut ex ut dolore.</div>
-					Magnam nesciunt consequuntur et velit ut nam velit quod.
+					<div class="font-weight-bold">Itaque ut similique perspiciatis magnam blanditiis.</div>
+					Modi pariatur maxime autem porro similique.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Voluptatem voluptate doloribus ut sapiente ab laboriosam.</div>
-					Optio nihil sequi consequatur minima aut libero.
+					<div class="font-weight-bold">In est voluptates praesentium et.</div>
+					Fugit dolorum voluptas ullam.
 				</div>
 							<div class="bg-white p-3  border-b">
-					<div class="font-weight-bold">Animi numquam et sequi aspernatur ea delectus.</div>
-					Ut minima eaque nobis deleniti minima quasi quisquam.
+					<div class="font-weight-bold">Nemo voluptates quia vitae id odio animi nemo blanditiis et.</div>
+					Nulla consequatur rerum esse est nulla omnis eius temporibus laborum.
 				</div>
 							<div class="bg-white p-3 ">
-					<div class="font-weight-bold">Non rerum id.</div>
-					Nesciunt enim et dolorum eaque hic maxime.
+					<div class="font-weight-bold">Totam maiores beatae nesciunt aliquid fugit.</div>
+					Facilis suscipit unde eveniet eveniet qui qui porro quia quo.
 				</div>
 					</div>
 
@@ -480,7 +488,7 @@
 						1000 AB
 					</div>
 					<div class="text-right">
-						853.00
+						290.00
 						Kč
 					</div>
 				</div>
@@ -489,7 +497,7 @@
 						2000 AB
 					</div>
 					<div class="text-right">
-						545.00
+						753.00
 						Kč
 					</div>
 				</div>
@@ -498,7 +506,7 @@
 						3000 AB
 					</div>
 					<div class="text-right">
-						583.00
+						607.00
 						Kč
 					</div>
 				</div>
@@ -507,7 +515,7 @@
 						4000 AB
 					</div>
 					<div class="text-right">
-						571.00
+						6.00
 						Kč
 					</div>
 				</div>
@@ -516,7 +524,7 @@
 						5000 AB
 					</div>
 					<div class="text-right">
-						729.00
+						171.00
 						Kč
 					</div>
 				</div>
@@ -525,16 +533,16 @@
 						6000 AB
 					</div>
 					<div class="text-right">
-						333.00
+						791.00
 						Kč
 					</div>
 				</div>
 					</div>
 
 		<div class="bg-white text-center p-3 py-sm-5">
-			<p class="h2 text-info">Roční členství v ActiClubu</p>
+			<p class="h2 text-info font-weight-bold">Roční členství v ActiClubu</p>
 			<p class="mb-3">jednodušše jen</p>
-			<strong class="h2 text-success">999,- Kč</strong>
+			<strong class="h2 text-success font-weight-bold">999 Kč</strong>
 			<div class="text-center pt-3">
 				<a href="/registration-company.html" class="btn btn-primary btn-bottom">Registrovat Firmu</a>
 			</div>

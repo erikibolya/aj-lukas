@@ -15,11 +15,11 @@
                 {% include "components/sectionTitle.twig"  with { title: "Základní údaje"}  %}
                 <div class="bg-white p-3">
                     <div class="form-group">
-                        <label for="exampleInputName" class="form-label">Název pozice*</label>
-                        <input type="text" class="form-control" id="exampleInputName"  placeholder="" required>
+                        <label for="exampleInputName" class="form-label" >Název pozice*</label>
+                        <input type="text" class="form-control" id="exampleInputName"  placeholder="např. Samostatný kuchař, Asistentka Praha..." required>
                     </div>
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocomplete1", name: "Obor*", placeholder: "+ Obor", dataset: "names.json"} %}
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":false, id:"autocomplete2", name: "Profese*", placeholder: "+ Profese", dataset: "lorem.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocomplete1", name: "Obor*", placeholder: "+ Gastronomie a pohostinství, Administrativa...", dataset: "names.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":false, id:"autocomplete2", name: "Profese*", placeholder: "+ Kuchař, Asistentka...", dataset: "lorem.json"} %}
                 </div>
             </div>
 
@@ -177,7 +177,7 @@
 
 
                     <hr class="mx-minus-3">
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocompleteJazyk", name: "Vyberte cizí jazyk", placeholder: "", dataset: "names.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocompleteJazyk", name: "Vyberte cizí jazyk", placeholder: "+ Angličtina, Němčina...", dataset: "names.json"} %}
                 </div>
             </div>
 
@@ -217,14 +217,14 @@
                         {% endfor %}
                     </div>
                     <hr class="mx-minus-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete5",name: "Další počitačové znalosti*", placeholder: "+ PHP, C#, Java, HTML", dataset: "lorem.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete5",name: "Další počitačové znalosti*", placeholder: "+ PHP, C#, Java, HTML...", dataset: "lorem.json"} %}
                 </div>
             </div>
 
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Další znalosti uchazeče"}  %}
                 <div class="bg-white p-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti", placeholder: "+ Strojopis, Mzdové účetníctví", dataset: "lorem.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti", placeholder: "+ Strojopis, Mzdové účetníctví...", dataset: "lorem.json"} %}
                 </div>
             </div>
 
@@ -275,7 +275,7 @@
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Nabízené benefity" }%}
                 <div class="bg-white p-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete7", name: "Benefity",placeholder: "+ např. Závodní stravování", dataset: "lorem.json"} %}
+                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete7", name: "Benefity",placeholder: "+ Závodní stravování...", dataset: "lorem.json"} %}
                 </div>
             </div>
 
@@ -375,13 +375,22 @@
                 </div>
                 <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
                     <button class="btn btn-secondary w-100">
-                        <span class="icon icon-arrow-down-point mr-2"></span>
+                        <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small mr-1" viewBox="0 0 20 20" >
+                        <polygon class="svgicon__path" points="14.7,10.6 10.5,16.1 10.5,1.6 9.5,1.6 9.5,16.1 5.3,10.6 4.5,11.2 10,18.4 15.5,11.2"/>
+                        </svg>
                         Uložit do konceptů
                     </button>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <button class="btn btn-success w-100">
-                        <span class="icon icon-toggle-on mr-2"></span>
+                        <svg class="svgicon svgicon--inline svgicon--textcolor mr-2" viewBox="0 0 20 20" >
+                        <g class="svgicon__path">
+                        <path d="M5.4,7.8c1.2,0,2.2,1,2.2,2.2s-1,2.2-2.2,2.2s-2.2-1-2.2-2.2S4.2,7.8,5.4,7.8 M5.4,6.9c-1.7,0-3.1,1.4-3.1,3.1
+                              s1.4,3.1,3.1,3.1s3.1-1.4,3.1-3.1S7.1,6.9,5.4,6.9L5.4,6.9z"/>
+                        <path d="M14.6,5.5c2.5,0,4.5,2,4.5,4.5s-2,4.5-4.5,4.5H5.4c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5H14.6 M14.6,4.6H5.4
+                              C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6L14.6,4.6z"/>
+                        </g>
+                        </svg>
                         Inzerovat
                     </button>
                 </div>

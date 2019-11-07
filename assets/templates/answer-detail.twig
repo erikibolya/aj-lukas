@@ -1,76 +1,81 @@
 {% extends "layout/layout.twig" %}
 {% block title %}Detail odpovědi{% endblock %}
 {% block body %}
-	<div class="container">
-		<div class="section py-3 mb-5">
+    <div class="container">
+        <div class="section py-3 mb-5">
 
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
-					<li class="breadcrumb-item"><a href="{{ linkAnswers }}">Odpovědi</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Detail odpovědi</li>
-				</ol>
-			</nav>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+                    <li class="breadcrumb-item"><a href="{{ linkAnswers }}">Odpovědi</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail odpovědi</li>
+                </ol>
+            </nav>
 
-			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-				<span class="link-box__title"><faker-name-jobTitle/></span>
-			</a>
+            <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+                <span class="link-box__title"><faker-name-jobTitle/></span>
+            </a>
 
-			<div class="bg-white p-3 mb-4">
-				<div class="icon-list">
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
-						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col"><faker-company-companyName/></div>
-					</div>
+            <div class="bg-white p-3 mb-4">
+                <div class="icon-list">
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+                        <div class="icon-list__info-col">Zaměstnavatel</div>
+                        <div class="icon-list__text-col"><faker-company-companyName/></div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col"><faker-address-streetAddress/>, <faker-address-city/></div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                        <div class="icon-list__info-col">Místo pracoviště</div>
+                        <div class="icon-list__text-col"><faker-address-streetAddress/>, <faker-address-city/></div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
-						<div class="icon-list__info-col">Plat</div>
-						<div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
+                        <div class="icon-list__info-col">Plat</div>
+                        <div class="icon-list__text-col">30 000 - 50 000 Kč</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-						<div class="icon-list__info-col">Datum odpovědi</div>
-						<div class="icon-list__text-col">Před 21 minutami</div>
-					</div>
-				</div>
-			</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                        <div class="icon-list__info-col">Datum odpovědi</div>
+                        <div class="icon-list__text-col">Před 21 minutami</div>
+                    </div>
+                </div>
+            </div>
 
-			{% include "components/sectionTitle.twig" with {title: "Zpráva"} %}
+            {% include "components/sectionTitle.twig" with {title: "Zpráva"} %}
 
-			<div class="bg-white p-3 mb-4">
-					<p><faker-lorem-sentences/></p>
-					<p><faker-lorem-sentences/></p>
-			</div>
+            <div class="bg-white p-3 mb-4">
+                <p><faker-lorem-sentences/></p>
+                <p><faker-lorem-sentences/></p>
+            </div>
 
-			<div class="mb-4">
-				{% include "components/sectionTitle.twig" with {title: "Přílohy a odkazy"} %}
-				<a href="#" class="link-box p-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
-					<span class="d-block mr-3 link-box__title">Životopis</span>
-					<span class="d-block  icon icon-document text-right"></span>
-				</a>
-				<a href="#" class="link-box p-3 d-md-flex justify-content-between">
-					<span class="d-block mr-3 link-box__title">Odkaz</span>
-					<span class="d-block  icon icon-cursor-box text-right"></span>
-				</a>
-			</div>
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig" with {title: "Přílohy a odkazy"} %}
+                <a href="#" class="link-box p-3 d-md-flex justify-content-between{% if not loop.last %} border-b{% endif %}">
+                    <span class="d-block mr-3 link-box__title">Životopis</span>
+                    <span class="d-block  icon icon--large icon-document text-right"></span>
+                </a>
+                <a href="#" class="link-box p-3 d-md-flex justify-content-between">
+                    <span class="d-block mr-3 link-box__title">Odkaz</span>
+                    <span class="d-block  icon icon--large icon-cursor-box text-right"></span>
+                </a>
+            </div>
 
-			<div class="row justify-content-center">
-				<div class="col-sm-6 col-md-4 col-lg-3">
-					<button type="button" class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span>Smazat</button>
-				</div>
-			</div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <button type="button" class="btn btn-secondary w-100">
+                        <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor mr-1" viewBox="0 0 20 20">
+                        <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                        </svg>
+                        Smazat
+                    </button>
+                </div>
+            </div>
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 
 

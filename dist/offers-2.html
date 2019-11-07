@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +120,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(17)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(57)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -150,51 +158,41 @@
 </header>
             <div class="site__content">
             	<div class="section section--bg-decorative section--border-bottom-always py-4 mt-3">
-    <div class="container">
-                <div class="search-box__btn-container text-center">
+    <div id="accordion" class="container">
+                <div id="searchBoxTop" class="search-box__btn-container collapse no-transition show text-center" data-parent="#accordion">
                             <span class="search-box__tag">
-                    Asistentka
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
-                </span>
+                    Asistentka,                 </span>
                             <span class="search-box__tag">
-                    Jihlava
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
-                </span>
+                    Jihlava,                 </span>
                             <span class="search-box__tag">
-                    Plný úvazek
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
-                </span>
+                    Plný úvazek,                 </span>
                             <span class="search-box__tag">
-                    Od 25 000,- Kč
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
-                </span>
+                    Od 25 000,- Kč,                 </span>
                             <span class="search-box__tag">
-                    Pro studenta
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
-                </span>
+                    Pro studenta,                 </span>
+                            <span class="search-box__tag">
+                    Asistentka,                 </span>
+                            <span class="search-box__tag">
+                    Jihlava,                 </span>
+                            <span class="search-box__tag">
+                    Plný úvazek,                 </span>
+                            <span class="search-box__tag">
+                    Od 25 000,- Kč,                 </span>
+                            <span class="search-box__tag">
+                    Pro studenta,                 </span>
+                            <span class="search-box__tag">
+                    Asistentka,                 </span>
+                            <span class="search-box__tag">
+                    Jihlava,                 </span>
+                            <span class="search-box__tag">
+                    Plný úvazek,                 </span>
+                            <span class="search-box__tag">
+                    Od 25 000,- Kč,                 </span>
+                            <span class="search-box__tag">
+                    Pro studenta                </span>
                     </div>
 
-        <div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+        <div id="searchBoxShowMore" class="collapse no-transition py-2 py-sm-4" data-parent="#accordion">
             <div class="row pb-4">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <label class="form-label">Hledaná práce</label>
@@ -254,61 +252,61 @@
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Pracovní poměr</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>consequatur temporibus eligendi</option>
-                            <option>et accusantium nulla</option>
-                            <option>quas modi ex</option>
-                            <option>explicabo iure voluptas</option>
-                            <option>qui eius illo</option>
+                            <option>est dolor iste</option>
+                            <option>aut recusandae aperiam</option>
+                            <option>doloremque hic necessitatibus</option>
+                            <option>omnis consequatur itaque</option>
+                            <option>esse ut quas</option>
                         </select>
                     </div>
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Plat</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>facilis atque assumenda</option>
-                            <option>est vitae maxime</option>
-                            <option>modi ea consequuntur</option>
-                            <option>harum harum vel</option>
-                            <option>reprehenderit ipsa in</option>
+                            <option>cum doloribus sint</option>
+                            <option>magnam libero vel</option>
+                            <option>quisquam tenetur doloremque</option>
+                            <option>eos ex asperiores</option>
+                            <option>aut quam quo</option>
                         </select>
                     </div>
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Vzdělání</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>explicabo repellat itaque</option>
-                            <option>est sunt iure</option>
-                            <option>numquam dolor nemo</option>
-                            <option>qui minus provident</option>
-                            <option>a aut ut</option>
+                            <option>ea rem dolore</option>
+                            <option>officia fuga qui</option>
+                            <option>consequatur enim magnam</option>
+                            <option>enim mollitia tempore</option>
+                            <option>sequi et et</option>
                         </select>
                     </div>
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Vhodné pro</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>recusandae sit dolor</option>
-                            <option>recusandae aut deserunt</option>
-                            <option>ea ex nisi</option>
-                            <option>consequuntur aut temporibus</option>
-                            <option>non est nulla</option>
+                            <option>nostrum illum rerum</option>
+                            <option>eum quaerat odit</option>
+                            <option>accusantium itaque debitis</option>
+                            <option>corporis voluptatem quae</option>
+                            <option>sed molestiae nisi</option>
                         </select>
                     </div>
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Stáří inzerátu</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>unde omnis ut</option>
-                            <option>molestiae commodi rerum</option>
-                            <option>sed doloremque voluptatem</option>
-                            <option>rerum nobis error</option>
-                            <option>dolores in eveniet</option>
+                            <option>ut dolores assumenda</option>
+                            <option>ipsum laborum quia</option>
+                            <option>id sapiente in</option>
+                            <option>consequuntur voluptas tempora</option>
+                            <option>pariatur laborum quia</option>
                         </select>
                     </div>
                                     <div class="col-md-6 col-lg-4  mb-3">
                         <label class="form-label">Zadavetel nabídky</label>
                         <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option>et cupiditate et</option>
-                            <option>similique quae qui</option>
-                            <option>enim nulla inventore</option>
-                            <option>atque doloribus excepturi</option>
-                            <option>est amet rerum</option>
+                            <option>consequatur cupiditate at</option>
+                            <option>excepturi incidunt iure</option>
+                            <option>quis commodi eum</option>
+                            <option>nostrum in distinctio</option>
+                            <option>dolor fugiat ut</option>
                         </select>
                     </div>
                             </div>
@@ -318,14 +316,23 @@
 </div>
 <div class="section bg-light text-center py-3">
     <div class="container">
-        <div class="text-center">
-            <button class="btn btn-success btn-collapse-toggle btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
-                <span class="icon icon-search mr-2"></span>
-                Upravit hledání
-            </button>
+        <div class="row justify-content-center">
+            <div class="col-3 col-lg-2">
+                <a href="#" class="btn btn-info w-100">
+                    <span class="icon icon-agent-fill"></span>
+                    <span class="hidden-sm-down ml-2">ActiAgent</span>
+                </a>
+            </div>
+            <div class="col-9 col-lg-4">
+                <button class="btn w-100 btn-success btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                    <span class="icon icon-search mr-2 icon-arrow-up-point"></span>
+                    Upravit hledání
+                </button>
+            </div>
         </div>
     </div>
 </div>
+
 
 	<div class="container">
 		<div class="section py-3">
@@ -357,16 +364,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Direct Program Director
+                Future Usability Officer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    035 Leannon Lakes
+                    8064 Marks Shoal
                     ,
-                    McClureborough
+                    Lake Arvelbury
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Bechtelar and Sons
+                    Bauch - Johns
                 </span>
             </span>
             <span class="">
@@ -382,9 +389,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -394,16 +403,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Product Accounts Associate
+                Central Brand Director
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    556 Alberta Islands
+                    0529 Jessie Turnpike
                     ,
-                    New Eunaburgh
+                    East Amayatown
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Heathcote - Kovacek
+                    Greenholt, Erdman and Jenkins
                 </span>
             </span>
             <span class="">
@@ -419,9 +428,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -431,16 +442,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Future Paradigm Architect
+                Senior Operations Director
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    5315 Horace Alley
+                    25483 Alva Parkway
                     ,
-                    Kaelynfurt
+                    Myleneland
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Mitchell - Hills
+                    Ratke, Hamill and McGlynn
                 </span>
             </span>
             <span class="">
@@ -456,9 +467,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -468,16 +481,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Legacy Security Representative
+                District Intranet Officer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    06371 Hodkiewicz Stravenue
+                    367 Katharina Track
                     ,
-                    Lake Ruth
+                    Kuphalview
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Rolfson, Ryan and Corwin
+                    McDermott Group
                 </span>
             </span>
             <span class="">
@@ -493,9 +506,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -505,16 +520,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                National Implementation Consultant
+                Lead Operations Representative
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    88310 Arnulfo Manor
+                    7698 Balistreri Port
                     ,
-                    Guillermostad
+                    West Antwan
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Keebler and Sons
+                    Fadel, McKenzie and Oberbrunner
                 </span>
             </span>
             <span class="">
@@ -530,9 +545,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -542,16 +559,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Direct Usability Analyst
+                Senior Security Coordinator
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    651 Deondre Corner
+                    24292 Emily Mountains
                     ,
-                    East Ari
+                    Joshuamouth
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Grimes - Vandervort
+                    Weimann, Hansen and Metz
                 </span>
             </span>
             <span class="">
@@ -567,9 +584,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -579,16 +598,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Principal Tactics Coordinator
+                Human Usability Engineer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    1233 Leopold Fields
+                    7509 Mollie Trace
                     ,
-                    Lake Letaport
+                    New Anahi
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Miller and Sons
+                    Haag Group
                 </span>
             </span>
             <span class="">
@@ -604,9 +623,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -616,16 +637,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Global Applications Specialist
+                Chief Division Director
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    597 Haley Branch
+                    468 Bridie Rue
                     ,
-                    Gleichnerfort
+                    East Demarioton
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Hegmann, Torphy and Keeling
+                    Kub Group
                 </span>
             </span>
             <span class="">
@@ -641,9 +662,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -653,16 +676,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Internal Optimization Designer
+                Principal Web Engineer
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    64705 Blanda Branch
+                    281 Thalia Mills
                     ,
-                    Hermanburgh
+                    West Stanleymouth
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Keeling - Cartwright
+                    Grant - D'Amore
                 </span>
             </span>
             <span class="">
@@ -678,9 +701,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -690,16 +715,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Central Quality Assistant
+                Regional Metrics Representative
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    634 Darrel Alley
+                    72412 Ottilie Spurs
                     ,
-                    Trevorton
+                    Reynoldhaven
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Altenwerth LLC
+                    Bins, Hilll and Mraz
                 </span>
             </span>
             <span class="">
@@ -715,9 +740,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -727,16 +754,16 @@
     <a href="/offer-detail.html" class="link-box  offer-item d-flex flex-column flex-lg-row justify-content-between p-3">
         <span class="d-block mb-2">
             <h5 class="link-box__title mb-2">
-                Future Metrics Orchestrator
+                Senior Quality Liason
             </h5>
             <span class="d-block mb-2">
                 <span class="d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-3"><span class="icon icon-location mr-1"></span>
-                    88687 Sipes Run
+                    06583 Eldora Causeway
                     ,
-                    Port Juniorside
+                    West Joannefort
                 </span>
                 <span class="d-block d-sm-inline-block"><span class="icon icon-building mr-1"></span>
-                    Monahan Inc
+                    Harvey - Conroy
                 </span>
             </span>
             <span class="">
@@ -752,9 +779,11 @@
     <div class="link-box__starholder">
         <input id="idnabidky" type="checkbox" class="link-box__startrigger">
         <label for="idnabidky" class="link-box__star">
-            <svg class="link-box__svg svgicon svgicon-star" width="20" height="20" viewBox="0 0 20 20"> 
-            <path class="svgicon__path" d="m 15.769659,18.820227 c -0.082,0 -0.164,-0.02 -0.239,-0.061 l -5.261,-2.869 -5.2609996,2.869 c -0.168,0.092 -0.373,0.079 -0.529,-0.032 -0.156,-0.111 -0.235,-0.301 -0.203,-0.49 l 0.958,-5.746 -3.818,-3.8179999 c -0.132,-0.132 -0.18,-0.328 -0.123,-0.506 0.057,-0.178 0.209,-0.31 0.394,-0.341 l 5.749,-0.958 2.3859995,-4.772 c 0.085,-0.169 0.2580001,-0.276 0.4470001,-0.276 0.189,0 0.363,0.107 0.447,0.276 l 2.386,4.772 5.749,0.958 c 0.185,0.031 0.337,0.162 0.394,0.341 0.057,0.179 0.01,0.374 -0.123,0.506 l -3.818,3.8179999 0.958,5.746 c 0.031,0.189 -0.048,0.379 -0.203,0.49 -0.086,0.061 -0.188,0.093 -0.29,0.093 z m -5.5,-4 c 0.082,0 0.165,0.02 0.239,0.061 l 4.599,2.508 -0.831,-4.987 c -0.027,-0.159 0.025,-0.322 0.14,-0.436 l 3.313,-3.3129999 -5.042,-0.84 c -0.158,-0.026 -0.293,-0.127 -0.365,-0.27 l -2.053,-4.106 -2.0529996,4.106 c -0.072,0.143 -0.207,0.243 -0.365,0.27 l -5.042,0.84 3.313,3.3129999 c 0.114,0.114 0.166,0.276 0.14,0.436 l -0.831,4.987 4.5989996,-2.508 c 0.075,-0.041 0.157,-0.061 0.239,-0.061 z"/>
-            <path class="svgicon__path svgicon__path--transparent" d="m 14.539859,17.169635 -4.270198,-2.328684 -4.270198,2.328682 c -0.1363606,0.07467 -0.5146175,0.434885 -0.641238,0.34479 -0.1266206,-0.0901 0.021122,-0.615076 0.047095,-0.768482 L 6.1829005,12.082083 3.0839428,8.983125 C 2.9768023,8.875985 2.6532018,8.6494822 2.699467,8.5050052 2.7457322,8.3605282 3.1537465,8.320802 3.3039055,8.29564 L 7.9701988,7.5180601 9.9068442,3.6447688 c 0.068992,-0.1371723 0.2094108,-0.2240211 0.3628168,-0.2240211 0.153406,0 0.294636,0.086849 0.362817,0.2240211 l 1.936645,3.8732913 4.666294,0.7775799 c 0.150159,0.02516 0.722965,0.1240005 0.76923,0.2692895 0.04626,0.145289 -0.441332,0.3110555 -0.549272,0.4181955 l -3.098957,3.098958 0.77758,4.663858 c 0.02516,0.153406 0.236464,0.720759 0.110655,0.810855 -0.334893,-0.07318 -0.505978,-0.265079 -0.704794,-0.387161 z"/>
+            <svg class="link-box__svg svgicon" viewBox="0 0 20 20">
+            <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                     6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+            <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                  l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
             </svg>
         </label>
     </div>
@@ -762,19 +791,31 @@
 
     		</div>
 		<div class="d-flex align-items-center flex-column mb-3">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-left"></span></a></li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-right"></span></a></li>
-		</ul>
-	</nav>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="6.6,10 15,18.4 14.2,19.2 5,10 14.2,0.7 15,1.6 "/>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div class="mb-5 pb-3 text-center">
-	<button class="btn btn-success btn-bottom">Načíst další</button>
+    <button class="btn btn-success btn-bottom">Načíst další</button>
 </div>
 	</div>
 

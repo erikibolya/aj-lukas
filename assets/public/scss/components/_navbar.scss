@@ -141,7 +141,7 @@
         }    
         &.active{
             .nav-link {
-              font-weight: 600;
+                font-weight: 600;
             }
         }
         &.active,&:hover{
@@ -289,7 +289,9 @@
         -ms-grid-column: 2;
         text-align: right;
 
-        &:hover {
+
+
+        &:not(.menu__extra-button--disabled) {
             background: $brand-success;
             color: $white;
             text-decoration: none;
@@ -298,6 +300,11 @@
         &--active {
             background: $brand-success;
             color: $white;
+        }
+        &--disabled{
+            text-decoration: none !important;
+            color: #9E9E9E !important;
+            cursor: default !important;
         }
     }
 

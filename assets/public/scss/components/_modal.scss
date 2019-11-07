@@ -30,7 +30,7 @@
 .modal-header {
     background-color: $gray-lighter;
     text-align: center;
-    padding: .5rem 2rem .5rem 1rem;
+    padding: .5rem 1rem .5rem 1rem;
     border-bottom: 0;
     position: relative;
     @at-root .modal--fixed-header &{
@@ -50,9 +50,9 @@
 
     .close {
         position: absolute;
-        right: 1rem;
-        transform: translateY(-50%);
-        top: 50%;
+        right: 0;
+        height: 100%;
+        padding: 0 1rem;
     }
 }
 

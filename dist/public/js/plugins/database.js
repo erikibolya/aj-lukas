@@ -1,4 +1,6 @@
-var data = [...professions, ...categories, ...companies];
+var data = professions.concat(categories).concat(companies);
+
+//var data = [...professions, ...categories, ...companies];
 //var data = [...comp];
 //var id = 204;
 //var comp = [];

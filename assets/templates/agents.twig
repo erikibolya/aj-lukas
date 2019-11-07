@@ -13,7 +13,7 @@
                 </nav>
                 <div>
                     <a href="{{ linkAgentCreate }}" class="btn btn-info w-100 w-sm-auto"><span
-                            class="icon icon-plus-circle mr-2"></span>Nový agent</a>
+                            class="icon icon-plus mr-2"></span>Nový agent</a>
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                         <div class="icon-list__row">
                             <div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
                             <div class="icon-list__info-col">Plat</div>
-                            <div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
+                            <div class="icon-list__text-col">30 000 - 50 000 Kč</div>
                         </div>
 
                         <div class="icon-list__row">
@@ -71,12 +71,13 @@
                             <div class="icon-list__text-col">
                                 {% if loop.first %}
                                     <a href="{{ linkOffersFiltered }}" class="link-box__btn link-box__btn--active mr-3">
-                                        1 nová <span class="icon icon-arrow-right"></span>
+                                        1 nová <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small ml-2" viewBox="0 0 20 20"><polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/></svg>
+
                                     </a>
                                 {% elseif loop.last %}
                                     <span class="text-muted">0 nabídek</span>
                                 {% else %}
-                                    <a href="{{ linkOffersFiltered }}">5 nabídek <span class="icon icon-arrow-right"></span></a>
+                                    <a href="{{ linkOffersFiltered }}">5 nabídek <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small ml-2" viewBox="0 0 20 20"><polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/></svg></a>
                                     {% endif %}
                             </div>
                         </div>
@@ -93,17 +94,15 @@
                     <div class="row justify-content-center">
                         <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
                             <button class="btn btn-secondary w-100">
-                                <svg class="svgicon svgicon--inline svgicon--textcolor mr-1" viewBox="0 0 20 20">
-                                <path class="svgicon__path" d="M11.1,10l4.5-4.5c0.3-0.3,0.3-0.8,0-1.1c-0.3-0.3-0.8-0.3-1.1,0L10,8.9L5.5,4.5c-0.3-0.3-0.8-0.3-1.1,0
-                                      C4.3,4.6,4.2,4.8,4.2,5s0.1,0.4,0.2,0.5L8.9,10l-4.5,4.5c-0.1,0.1-0.2,0.3-0.2,0.5c0,0.2,0.1,0.4,0.2,0.5c0.1,0.1,0.3,0.2,0.5,0.2
-                                      c0.2,0,0.4-0.1,0.5-0.2l4.5-4.5l4.5,4.5c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1.1L11.1,10z"/>
+                                <svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
                                 </svg>
-                                <span class="hidden-sm-down">Smazat</span>
+                                <span class="hidden-sm-down ml-1">Smazat</span>
                             </button>
                         </div>
                         <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
                             <a href="{{ linkAgentCreate }}" class="btn btn-secondary w-100"><span
-                                    class="icon icon-edit mr-2"></span><span class="hidden-sm-down">Upravit</span></a>
+                                    class="icon icon-edit"></span><span class="hidden-sm-down ml-2">Upravit</span></a>
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <a href="{{ linkSavedOffers }}" class="btn btn-success w-100{% if loop.last %} disabled{% endif %}"><span class="icon icon-search mr-2"></span>Zobrazit

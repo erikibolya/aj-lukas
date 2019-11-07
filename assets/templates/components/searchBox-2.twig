@@ -1,26 +1,31 @@
 <div class="section section--bg-decorative section--border-bottom-always py-4 mt-3">
-    <div class="container">
+    <div id="accordion" class="container">
         {% set selectedButtons = [
 			"Asistentka",
 			"Jihlava",
 			"Plný úvazek",
 			"Od 25 000,- Kč",
+			"Pro studenta",
+                        "Asistentka",
+			"Jihlava",
+			"Plný úvazek",
+			"Od 25 000,- Kč",
+			"Pro studenta",
+                        "Asistentka",
+			"Jihlava",
+			"Plný úvazek",
+			"Od 25 000,- Kč",
 			"Pro studenta"
 		] %}
-        <div class="search-box__btn-container text-center">
+        <div id="searchBoxTop" class="search-box__btn-container collapse no-transition show text-center" data-parent="#accordion">
             {% for btn in selectedButtons %}
                 <span class="search-box__tag">
-                    {{ btn }}
-                    <button type="button" class="choices__button" data-button="" aria-label="Remove item: '159'">
-                        <svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20">
-                        <path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z"></path>
-                        </svg>
-                    </button>
+                    {{ btn }}{%if not loop.last%}, {%endif%}
                 </span>
             {% endfor %}
         </div>
 
-        <div class="collapse no-transition  py-2 py-sm-4" id="searchBoxShowMore">
+        <div id="searchBoxShowMore" class="collapse no-transition py-2 py-sm-4" data-parent="#accordion">
             <div class="row pb-4">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <label class="form-label">Hledaná práce</label>
@@ -67,11 +72,20 @@
 </div>
 <div class="section bg-light text-center py-3">
     <div class="container">
-        <div class="text-center">
-            <button class="btn btn-success btn-collapse-toggle btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
-                <span class="icon icon-search mr-2"></span>
-                Upravit hledání
-            </button>
+        <div class="row justify-content-center">
+            <div class="col-3 col-lg-2">
+                <a href="#" class="btn btn-info w-100">
+                    <span class="icon icon-agent-fill"></span>
+                    <span class="hidden-sm-down ml-2">ActiAgent</span>
+                </a>
+            </div>
+            <div class="col-9 col-lg-4">
+                <button class="btn w-100 btn-success btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                    <span class="icon icon-search mr-2 icon-arrow-up-point"></span>
+                    Upravit hledání
+                </button>
+            </div>
         </div>
     </div>
 </div>
+

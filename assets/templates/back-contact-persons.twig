@@ -1,62 +1,65 @@
 {% extends "layout/layout-back.twig" %}
 {% block title %}Kontaktní osoby{% endblock %}
 {% block body %}
-	<div class="container">
-		<div class="section pt-3">
-			<div class="d-sm-flex justify-content-between align-items-center mb-3">
-				<nav aria-label="breadcrumb" class="d-sm-inline-block">
-					<ol class="breadcrumb mb-sm-0">
-						<li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Kontaktní osoby</li>
-					</ol>
-				</nav>
-				<div>
-					<a href="{{ linkAgentCreate }}" class="btn btn-info w-100 w-sm-auto">
-						<span class="icon icon-plus-circle mr-2"></span>Nová osoba</a>
-				</div>
-			</div>
+    <div class="container">
+        <div class="section pt-3">
+            <div class="d-sm-flex justify-content-between align-items-center mb-3">
+                <nav aria-label="breadcrumb" class="d-sm-inline-block">
+                    <ol class="breadcrumb mb-sm-0">
+                        <li class="breadcrumb-item"><a href="{{ linkMyAccount }}">Můj účet</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Kontaktní osoby</li>
+                    </ol>
+                </nav>
+                <div>
+                    <a href="{{ linkAgentCreate }}" class="btn btn-info w-100 w-sm-auto">
+                        <span class="icon icon-plus mr-2"></span>Nová osoba</a>
+                </div>
+            </div>
 
-			{% for i in 0..6 %}
-				<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-					<span class="link-box__title"><faker-name-jobTitle/></span>
-				</a>
-				<div class="bg-white p-3 pt-3 border-b">
-					<div class="icon-list">
-						<div class="icon-list__row">
-							<div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
-							<div class="icon-list__info-col">Kontaktní email</div>
-							<div class="icon-list__text-col">
-								<faker-internet-email/>
-							</div>
-						</div>
-						<div class="icon-list__row">
-							<div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
-							<div class="icon-list__info-col">Kontaktní telefon</div>
-							<div class="icon-list__text-col">
-								<faker-phone-phoneNumber/>
-							</div>
-						</div>
-					</div>
-				</div>
+            {% for i in 0..6 %}
+                <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+                    <span class="link-box__title"><faker-name-jobTitle/></span>
+                </a>
+                <div class="bg-white p-3 pt-3 border-b">
+                    <div class="icon-list">
+                        <div class="icon-list__row">
+                            <div class="icon-list__icon-col"><span class="icon icon-email"></span></div>
+                            <div class="icon-list__info-col">Kontaktní email</div>
+                            <div class="icon-list__text-col">
+                                <faker-internet-email/>
+                            </div>
+                        </div>
+                        <div class="icon-list__row">
+                            <div class="icon-list__icon-col"><span class="icon icon-phone"></span></div>
+                            <div class="icon-list__info-col">Kontaktní telefon</div>
+                            <div class="icon-list__text-col">
+                                <faker-phone-phoneNumber/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="bg-white p-3 pt-3 mb-4">
-					<div class="row justify-content-center">
-						<div class="col-4 col-sm-6 col-md-4 col-lg-3">
-							<button class="btn btn-secondary w-100"><span class="icon icon-cross"></span><span
-												class="hidden-xs-down ml-2">Smazat</span></button>
-						</div>
-						<div class="col-8 col-sm-6 col-md-4 col-lg-3">
-							<a href="{{ linkAnswerDetail }}" class="btn btn-success w-100"><span class="icon icon-edit mr-2"></span>Upravit</a>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
+                <div class="bg-white p-3 pt-3 mb-4">
+                    <div class="row justify-content-center">
+                        <div class="col-4 col-sm-6 col-md-4 col-lg-3">
+                            <button class="btn btn-secondary w-100">
+                                <svg class="svgicon svgicon--textcolor svgicon--inline svgicon--small" viewBox="0 0 20 20">
+                                <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                                </svg>
+                                <span class="hidden-xs-down ml-1">Smazat</span></button>
+                        </div>
+                        <div class="col-8 col-sm-6 col-md-4 col-lg-3">
+                            <a href="{{ linkAnswerDetail }}" class="btn btn-success w-100"><span class="icon icon-edit mr-2"></span>Upravit</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
 
-			{% include "components/pagination.twig" %}
+            {% include "components/pagination.twig" %}
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 
 {% endblock %}

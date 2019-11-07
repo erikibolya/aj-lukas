@@ -4,11 +4,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -124,33 +126,33 @@
 					</div>
 					<ul>
 													<li>
-								Nam at earum aut voluptatem et et.
+								Quidem facere numquam.
 							</li>
 													<li>
-								Accusantium nam fugiat voluptatem dolore.
+								Explicabo cum error et quia maxime et.
 							</li>
 													<li>
-								Id ea voluptatem tempore aperiam.
+								Dolorem quis maxime ut omnis.
 							</li>
 													<li>
-								Eum sit nam nesciunt eius et nam.
+								Est quo enim ipsum reprehenderit.
 							</li>
 													<li>
-								Assumenda sint debitis quia vitae praesentium odit.
+								Labore aut hic at ut vel et neque vitae.
 							</li>
 													<li>
-								Vitae veritatis autem rem.
+								Sequi soluta amet saepe rem deleniti harum doloribus commodi odit.
 							</li>
 													<li>
-								Aperiam facere inventore cum nesciunt.
+								Quia quam at.
 							</li>
 													<li>
-								Aut sed debitis iusto et cupiditate sunt ipsum optio aut.
+								Esse repellendus qui ipsum commodi modi enim nulla.
 							</li>
 											</ul>
 				</div>
 				<div class="custom-radio__indicator d-inline-flex align-items-center  justify-content-end">
-					<strong class="display-6">999,- Kč</strong>
+					<strong class="display-6">999 Kč</strong>
 				</div>
 			</div>
 
@@ -162,45 +164,45 @@
 					</div>
 					<ul>
 													<li>
-								Labore dignissimos id qui vitae nam.
+								Dolor qui possimus vel et vero aspernatur.
 							</li>
 													<li>
-								Neque provident sed.
+								Sit perferendis velit totam autem minus recusandae tenetur laudantium deleniti.
 							</li>
 													<li>
-								Ea itaque doloremque ut placeat.
+								Quo voluptates qui quae expedita quis.
 							</li>
 													<li>
-								Ut veritatis veniam voluptas itaque et omnis qui.
+								Eaque ut ea itaque.
 							</li>
 													<li>
-								Molestiae omnis officiis expedita non quia aut.
+								Veritatis autem omnis molestiae cupiditate minus nisi est.
 							</li>
 													<li>
-								Architecto dolores est impedit necessitatibus et dolore incidunt.
+								Ad mollitia vel error pariatur numquam quis dolorem ut.
 							</li>
 													<li>
-								Cupiditate praesentium magni.
+								Labore id temporibus.
 							</li>
 													<li>
-								Itaque nisi natus sint vero.
+								Omnis et qui quos id animi et.
 							</li>
 											</ul>
 				</div>
 				<div class="custom-radio__indicator d-inline-flex align-items-center justify-content-end">
-					<strong class="display-6">7 999,- Kč</strong>
+					<strong class="display-6">7 999 Kč</strong>
 				</div>
 			</div>
 			<div class="d-sm-flex justify-content-between mb-4 mt-2">
 				<small class="text-muted d-block ">
-					Fugiat vero a quidem.
+					Facere nesciunt praesentium accusamus blanditiis et voluptatum consequatur.
 				</small>
 				<a href="/registration-company-7.html">Ceník inzerce</a>
 			</div>
 
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">ActiBony</h2>				<div class="bg-white p-3 border-b text-center text-info">
-					Et fuga quia eius minus dicta veniam accusamus nesciunt.
+					Corporis soluta deleniti.
 				</div>
 									<div class="custom-radio__wrapper bg-white p-3 pt-3 d-md-flex justify-content-between border-b">
 						<div class="custom-radio mr-3">
@@ -229,7 +231,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															331.00 Kč
+															59.00 Kč
 													</div>
 
 					</div>
@@ -245,7 +247,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															997.00 Kč
+															943.00 Kč
 													</div>
 
 					</div>
@@ -261,7 +263,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															932.00 Kč
+															526.00 Kč
 													</div>
 
 					</div>
@@ -277,7 +279,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															142.00 Kč
+															148.00 Kč
 													</div>
 
 					</div>
@@ -294,7 +296,7 @@
 						</div>
 
 						<div class="custom-radio__indicator text-right">
-															151.00 Kč
+															225.00 Kč
 													</div>
 
 					</div>
@@ -304,35 +306,35 @@
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Souhrn</h2>				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>Členství Classics</strong>
 					<div class="text-right">
-						531.00
+						422.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<strong>50 000 ActiBonů</strong>
 					<div class="text-right">
-						20.00
+						886.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>Cena bez DPH</div>
 					<div class="text-right">
-						10.00
+						686.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 border-b d-md-flex justify-content-between">
 					<div>DPH 21%</div>
 					<div class="text-right">
-						874.00
+						494.00
 						Kč
 					</div>
 				</div>
 				<div class="bg-white p-3 d-md-flex justify-content-between font-weight-bold text-success">
 					<strong>Cena celkem</strong>
 					<div class="text-right">
-						926.00
+						15.00
 						Kč
 					</div>
 				</div>

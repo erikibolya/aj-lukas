@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -90,8 +92,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                     <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
@@ -109,9 +111,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -125,8 +127,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(53)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(21)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -203,500 +211,532 @@
 			</div>
 
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Investor Integration Developer</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Legacy Security Designer
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					6717 Eriberto Coves
-					,
-					Kenyattaview
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	15.3.2013&nbsp;&nbsp;
-	0:00</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Forward Web Technician</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Legacy Data Representative
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    5536 Cheyenne Ports
+                    ,
+                    Lake Elliottside
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	11.3.2012&nbsp;&nbsp;
+	16:00</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Forward Intranet Representative</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Corporate Marketing Officer
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					48412 Harber Rapids
-					,
-					Beckerport
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	31.8.2017&nbsp;&nbsp;
-	20:06</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Global Group Architect</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Dynamic Data Specialist
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    4665 Bednar Walks
+                    ,
+                    Kovacekfurt
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	11.4.2012&nbsp;&nbsp;
+	19:00</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Senior Communications Technician</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Global Accounts Liason
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					4871 Connelly Oval
-					,
-					Port Tressatown
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	2.12.2015&nbsp;&nbsp;
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">National Usability Consultant</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Investor Security Supervisor
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    761 Lind Mountains
+                    ,
+                    Seamusmouth
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	14.0.2014&nbsp;&nbsp;
+	13:05</time></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
+</div>
+							<div class="mb-4">
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Human Configuration Representative</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    District Directives Executive
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    491 Gutmann Village
+                    ,
+                    New Carlo
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	4.4.2015&nbsp;&nbsp;
 	18:06</time></div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Forward Quality Coordinator</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Central Metrics Technician
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					1501 Jackeline Cliffs
-					,
-					Alexandrostad
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	20.3.2015&nbsp;&nbsp;
-	12:00</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">District Factors Administrator</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Dynamic Integration Architect
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    8307 Kemmer Rapid
+                    ,
+                    New Coyville
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	26.7.2015&nbsp;&nbsp;
+	1:02</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Legacy Division Designer</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Legacy Branding Coordinator
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					35622 Keeley Meadows
-					,
-					Jakobshire
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	28.0.2011&nbsp;&nbsp;
-	16:06</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Senior Data Administrator</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Principal Group Manager
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    2370 Kilback Field
+                    ,
+                    Abbietown
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	15.10.2019&nbsp;&nbsp;
+	16:01</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Human Mobility Strategist</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Central Communications Strategist
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					92515 Collins Harbor
-					,
-					North Elroymouth
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	10.11.2019&nbsp;&nbsp;
-	6:03</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Senior Mobility Representative</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Human Integration Developer
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    9038 Jenifer Lodge
+                    ,
+                    Sabrynamouth
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	19.12.2019&nbsp;&nbsp;
+	8:00</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Product Tactics Assistant</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					District Infrastructure Associate
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					0568 Estell Vista
-					,
-					New Reba
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	17.0.2015&nbsp;&nbsp;
-	0:01</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">Human Integration Facilitator</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Investor Metrics Designer
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    47258 Jailyn Manor
+                    ,
+                    Osvaldoshire
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	25.3.2010&nbsp;&nbsp;
+	7:00</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Regional Applications Engineer</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Central Group Orchestrator
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					2048 VonRueden Spring
-					,
-					New Madie
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	3.7.2014&nbsp;&nbsp;
-	14:09</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">International Intranet Developer</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    National Markets Director
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    123 Charlotte Path
+                    ,
+                    Port Camyllemouth
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	2.6.2016&nbsp;&nbsp;
+	19:02</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Chief Group Orchestrator</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					National Applications Consultant
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					70675 Maud Common
-					,
-					Kinghaven
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	7.9.2016&nbsp;&nbsp;
-	18:08</time></div>
-			</div>
-		</div>
-	</div>
+    <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+        <span class="link-box__title">National Implementation Designer</span>
+    </a>
+    <div class="bg-white p-3 border-b">
+        <div class="icon-list">
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
+                <div class="icon-list__info-col">Pozice</div>
+                <div class="icon-list__text-col">
+                    Regional Marketing Engineer
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                <div class="icon-list__info-col">Místo pracoviště</div>
+                <div class="icon-list__text-col">
+                    382 Dietrich Mount
+                    ,
+                    Ashleyshire
+                </div>
+            </div>
+            <div class="icon-list__row">
+                <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
+                <div class="icon-list__info-col">Datum odpovědi</div>
+                <div class="icon-list__text-col"><time>
+	25.9.2017&nbsp;&nbsp;
+	13:07</time></div>
+            </div>
+        </div>
+    </div>
 
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
-</div>
-							<div class="mb-4">
-	<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-		<span class="link-box__title">Senior Paradigm Agent</span>
-	</a>
-	<div class="bg-white p-3 border-b">
-		<div class="icon-list">
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
-				<div class="icon-list__info-col">Pozice</div>
-				<div class="icon-list__text-col">
-					Dynamic Brand Orchestrator
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-				<div class="icon-list__info-col">Místo pracoviště</div>
-				<div class="icon-list__text-col">
-					788 Deja Squares
-					,
-					Naderfort
-				</div>
-			</div>
-			<div class="icon-list__row">
-				<div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
-				<div class="icon-list__info-col">Datum odpovědi</div>
-				<div class="icon-list__text-col"><time>
-	7.5.2015&nbsp;&nbsp;
-	17:08</time></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="bg-white p-3">
-		<div class="row justify-content-center">
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<button class="btn btn-secondary w-100"><span class="icon icon-cross mr-2"></span><span
-									class="hidden-sm-down">Smazat</span></button>
-			</div>
-			<div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
-				<a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
-									class="icon icon-star-fill mr-2"></span><span class="hidden-sm-down">Uložená</span></a>
-			</div>
-			<div class="col-sm-6 col-lg-3">
-				<a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
-			</div>
-		</div>
-	</div>
+    <div class="bg-white p-3">
+        <div class="row justify-content-center">
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <button class="btn btn-secondary w-100"><svg class="svgicon svgicon--inline svgicon--small svgicon--textcolor" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                    </svg><span
+                        class="hidden-sm-down  ml-2">Smazat</span></button>
+            </div>
+            <div class="col-6 col-sm-3 col-lg-3 mb-3 mb-sm-0">
+                <a href="/agent-create.html" class="btn btn-secondary text-success w-100"><span
+                        class="icon icon-star-fill"></span><span class="hidden-sm-down ml-2">Uložená</span></a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/saved-offers.html" class="btn btn-success w-100"><span class="icon icon-search mr-2"></span>Zobrazit</a>
+            </div>
+        </div>
+    </div>
 </div>
 			
 			<div class="d-flex align-items-center flex-column mb-3">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-left"></span></a></li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-right"></span></a></li>
-		</ul>
-	</nav>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="6.6,10 15,18.4 14.2,19.2 5,10 14.2,0.7 15,1.6 "/>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div class="mb-5 pb-3 text-center">
-	<button class="btn btn-success btn-bottom">Načíst další</button>
+    <button class="btn btn-success btn-bottom">Načíst další</button>
 </div>
 		</div>
 	</div>

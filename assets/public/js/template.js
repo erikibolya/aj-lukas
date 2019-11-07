@@ -34,32 +34,24 @@ $('input:radio[name=jobLocation]').change(function () {
     }
 });
 
-$(".offer-item__star-btn").click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var children = $(this).find(".icon")
-    if (children.hasClass("icon-star-fill")) {
-        children.removeClass("icon-star-fill").addClass("icon-star")
-    } else {
-        children.removeClass("icon-star").addClass("icon-star-fill")
-    }
-})
-
+//změnit na nativní pomocí css?
 $(".btn-collapse-toggle").click(function () {
-    var children = $(this).find(".icon");
+    var children = $(this).find(".svgicon");
 
-    if (children.hasClass("icon-arrow-down-point")) {
+    if (children.hasClass("svgicon--flip-v")) {
         children.each(function () {
-            children.removeClass("icon-arrow-down-point").addClass("icon-arrow-up-point")
+            children.removeClass("svgicon--flip-v");
         });
     } else {
         children.each(function () {
-            children.removeClass("icon-arrow-up-point").addClass("icon-arrow-down-point")
+            children.addClass("svgicon--flip-v");
         });
     }
 });
 
 
+
+//změnit?
 $(".custom-radio__wrapper").click(function () {
     var parent = $(this);
     radioWrapper = parent;
@@ -72,6 +64,7 @@ $(".custom-radio__wrapper").click(function () {
     }
 });
 
+//změnit?
 function checkedRadios() {
     var input = $("input.form-check-input");
     var parentClass = ".custom-radio__wrapper";
@@ -79,22 +72,27 @@ function checkedRadios() {
 
 }
 
-$(".switch__wrapper").click(function () {
-    var parent = $(this);
-    radioWrapper = parent;
-    var input = $(this).find("input.switch__state");
-    var checkedClass = "switch__wrapper--checked";
+//$(".switch__wrapper").click(function () {
+//    var parent = $(this);
+//    radioWrapper = parent;
+//    var input = $(this).find("input.switch__state");
+//    var checkedClass = "switch__wrapper--checked";
+//
+//    if (input.is(':checked')) {
+//        input.prop("checked", false);
+//        parent.removeClass(checkedClass);
+//    } else {
+//        input.prop("checked", true);
+//        parent.addClass(checkedClass);
+//    }
+//})
 
-    if (input.is(':checked')) {
-        input.prop("checked", false);
-        parent.removeClass(checkedClass);
-    } else {
-        input.prop("checked", true);
-        parent.addClass(checkedClass);
-    }
-})
 
 
+
+
+
+//selectboxy všechny
 $('[data-selectric]').selectric({
     maxHeight: 210,
     onChange: function (element) {
@@ -102,7 +100,7 @@ $('[data-selectric]').selectric({
     }
 });
 
-
+//selectbox s vlajkama
 $('[data-selectric-flags]').selectric({
     customClass: {
         prefix: 'selectric-flag'
@@ -118,6 +116,8 @@ $('[data-selectric-flags]').selectric({
     }
 });
 
+
+//selectbox disable stav, pokud se zvolí určitá možnost
 $("[data-disable-on-select]").on("change", function (event, element, instance) {
     let targetValue = $(this).attr("data-disable-on-select");
     let targetID = $(this).attr("data-disable-target");
@@ -130,6 +130,7 @@ $("[data-disable-on-select]").on("change", function (event, element, instance) {
 
 });
 
+//selectric změna přidružených polí podle selectu
 $("[data-contact]").on("change", function (event) {
     let targetPhone = $(this).attr("data-phone-target");
     let targetEmail = $(this).attr("data-email-target");

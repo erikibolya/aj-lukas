@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +120,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(9)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(94)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -153,42 +161,42 @@
 	<div class="container">
 		<div class="section py-3 mb-5">
 			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Podmínky používání</h2>			<div class="bg-white p-3">
-								<h5 class="text-gray-dark">blanditiis impedit omnis</h5>
-				<p>Consequatur laborum sit et sed non magni et ut. Molestiae ut doloribus omnis iste architecto et voluptas dolores quia. Eum accusantium ut nesciunt ea qui aut omnis cum.
- Deserunt culpa omnis recusandae porro sapiente quaerat. Deleniti ad molestiae reprehenderit. Quo sit aut qui.
- Distinctio aspernatur quo iusto animi hic aut nulla. Iure deleniti voluptatem laudantium voluptatibus. Ut fugiat ut sed sit. Animi aut id.</p>
-								<h5 class="text-gray-dark">totam nulla sunt</h5>
-				<p>Sequi est nulla in aspernatur officia in magnam. Suscipit dignissimos ullam dolore repellendus non architecto. Ipsum minus rem. Vero cupiditate in dolorum temporibus aut molestiae ut placeat sed. Autem fugiat vel accusantium dolor.
- Neque harum illo rerum et dolorem magni. Quasi officia tempore quam consectetur quia quo. Perferendis soluta et qui quis.
- Quis excepturi sapiente ab voluptates delectus illo laborum eum odio. Amet minima quia est similique ipsa reiciendis qui est ut. Aut consequatur blanditiis alias eligendi excepturi quibusdam quos. Corrupti deleniti similique dolor quo. Illo voluptatem assumenda voluptas est voluptatem.</p>
-								<h5 class="text-gray-dark">aut neque repellendus</h5>
-				<p>Facilis corporis consectetur sint et consequatur sint qui. Omnis qui pariatur libero non cum odio iure. Expedita dolores consectetur consequuntur odit itaque.
- Dolor alias sapiente eius ea perferendis sint temporibus facilis. Voluptas officia quibusdam quis rerum et debitis blanditiis unde aliquam. Vel neque sint porro laborum. Deserunt quia voluptas. Voluptatem similique enim unde. Quidem alias dolorem ut laboriosam dolorem.
- Temporibus id similique ut veritatis exercitationem necessitatibus. Autem magni magnam consectetur explicabo earum ut. Eligendi corrupti accusamus impedit. Aut in voluptatem sint hic voluptatum ut. Qui minima ipsam nihil. Molestias rerum quia sunt.</p>
-								<h5 class="text-gray-dark">ab id esse</h5>
-				<p>Quaerat sequi sed. Provident sed est. Possimus corrupti non fuga.
- Saepe nihil dolor dolor suscipit inventore et quaerat eos natus. Similique aliquam qui nam ducimus. Eos quia sint ut repellendus.
- Et laborum ut sapiente. Suscipit sed iste. Iure quo id consequatur ullam nisi inventore deserunt et.</p>
-								<h5 class="text-gray-dark">illo aliquam eos</h5>
-				<p>Necessitatibus incidunt officiis. Eaque aliquid rerum quas. Explicabo nihil quis. Fuga ab quaerat fugit aut est.
- Et nam quo nam. Qui dolores corrupti. Laudantium nihil rerum consequatur et laboriosam placeat cum. Sapiente aperiam qui quibusdam sit maxime labore occaecati. Assumenda sunt facilis totam molestias ut qui.
- Delectus libero ipsam quaerat nemo. Enim quo accusantium consequatur. Eos aspernatur libero modi. Et vero distinctio ab nemo beatae minus.</p>
-								<h5 class="text-gray-dark">modi molestiae est</h5>
-				<p>Inventore omnis aliquid quod voluptas dolorum. Numquam vero nihil earum ipsum modi voluptate reprehenderit. Labore illum ut molestias placeat. Et nostrum illum. Aut eveniet incidunt eveniet impedit et.
- Recusandae vero explicabo harum quia sed reiciendis. Animi quos ea incidunt. Aliquam vero veniam eaque fugiat error magnam sit ex quo. Non molestiae molestiae possimus est incidunt labore. Consequatur autem neque ea nemo. Cum sint aut quis.
- Exercitationem autem voluptas laboriosam ut sequi est. Veniam et hic totam. Numquam dignissimos sed. Fugiat accusantium praesentium dolores. Ut sed maxime modi.</p>
-								<h5 class="text-gray-dark">id error ipsum</h5>
-				<p>Libero fugit distinctio. Quo nulla sapiente. Corrupti molestias eveniet aspernatur voluptatem occaecati.
- Est omnis sit doloribus velit cupiditate dolore fugiat dolores ducimus. Voluptatibus magnam labore ducimus repellat accusantium. Et nesciunt voluptate. Autem quia dolores atque. Quas eum rerum consequuntur perferendis tenetur molestiae quam harum. Unde maiores atque aut debitis et exercitationem voluptatem cumque.
- Natus perspiciatis dolor sed neque et. Reprehenderit itaque in repudiandae quod quisquam aut atque. At quam velit quas odit rerum est molestias ullam nam.</p>
-								<h5 class="text-gray-dark">rem nesciunt dolorum</h5>
-				<p>Assumenda cupiditate maiores et voluptas ut perspiciatis eius. In id asperiores voluptatem. Iste nisi cum voluptates ut quos quas autem at.
- Molestias tempora eligendi autem modi sequi. Beatae minus corrupti et eaque. Eligendi sit et eligendi incidunt distinctio voluptatem dolores similique. Quia sapiente magni. Quo natus commodi dolores natus est tempora dolores soluta quo. Ad quis quo quasi voluptate qui itaque quia unde.
- Aut similique ut quibusdam. Exercitationem tempora alias odio minima. Cumque excepturi blanditiis.</p>
-								<h5 class="text-gray-dark">quo saepe itaque</h5>
-				<p>Quis aut tempore cupiditate reiciendis iste praesentium consequatur minima. Repellat molestiae adipisci omnis neque inventore quisquam sed dignissimos. Et minus deleniti laudantium doloremque ut qui error suscipit. Autem ut beatae expedita. Nobis quae non ab consequatur.
- Fuga est est eum voluptate. Deserunt quia veniam quos nesciunt quis consequatur. Iure ipsa repellendus id ullam. Officia rerum consequatur ratione.
- Enim aliquid recusandae aliquid neque sequi quae sed similique doloribus. Maiores qui quis voluptatibus dolor eligendi odio voluptatibus sapiente corrupti. Nobis recusandae soluta quis corporis quidem est ab. Corrupti velit voluptate voluptas modi eos at maxime. Quis harum et tempore. Praesentium et laboriosam doloremque eveniet voluptatibus et accusantium quia iusto.</p>
+								<h5 class="text-gray-dark">est ut sit</h5>
+				<p>Aut voluptas dignissimos facere deleniti nulla in ut. Nulla dolorum et minus pariatur. Autem deleniti sit et animi soluta iste veritatis beatae dolorum. Rerum at sed in dolorem doloribus vitae perspiciatis.
+ Aut sed ipsa occaecati sapiente excepturi deleniti qui occaecati. Iusto illo ipsum autem quibusdam cupiditate accusantium omnis. Architecto placeat quia dolores eos esse sunt dicta et odit. Corrupti ipsam ipsam non inventore neque. Quis quis aperiam dolor sit. Eaque error doloribus temporibus possimus aspernatur.
+ Sit ducimus beatae vero eos qui autem quia et voluptas. Quaerat molestiae sequi molestias provident tenetur consequatur repellendus asperiores quisquam. Vitae numquam et quidem numquam quae dignissimos impedit eum.</p>
+								<h5 class="text-gray-dark">omnis iure ea</h5>
+				<p>Fuga fugiat nulla qui totam eaque. Ullam maxime quas optio illum iusto unde qui. Sit occaecati sit laborum. Cupiditate sint minima vel aut aut.
+ Doloribus ipsam sunt fugit est aut enim delectus. Ut laborum illo. Alias dolores atque voluptatem qui ut deserunt ut ipsum.
+ Veniam amet et fugiat magni voluptas aut et. Quia beatae in quia. Consequatur ea error doloremque ipsum ea a nesciunt qui maiores. Omnis voluptatem magni sint ad alias dicta. Eum ratione voluptas ex sit explicabo est.</p>
+								<h5 class="text-gray-dark">et nobis tenetur</h5>
+				<p>Temporibus voluptatem vitae error dolores. Quaerat architecto quod qui perspiciatis ullam autem. Alias est fugiat nesciunt culpa earum.
+ Corporis optio quo et enim. Quidem excepturi omnis excepturi aut. Repellat consequuntur aut doloribus voluptates sint. Similique dolor est tenetur ut fuga expedita.
+ Et aliquam nemo nesciunt tempore mollitia rerum est id deserunt. Sint ut dolores vero ut assumenda distinctio corrupti fuga est. Voluptas fuga et repellat aut exercitationem magni architecto modi. Dolor ad est.</p>
+								<h5 class="text-gray-dark">ut inventore est</h5>
+				<p>Ut cum eos magni. Nihil repellat enim eaque voluptas qui omnis sint consectetur. Eos vero ut blanditiis eos voluptatem rerum. Ipsa nulla autem laborum. Aut illo aut. Eaque sed consequuntur et rem sint.
+ Veniam voluptatum ut mollitia commodi aspernatur. In amet ut deserunt voluptatibus ea quasi porro deleniti. Ut sint molestias ut iusto laudantium molestias. Quam dolor pariatur. Minus dignissimos magni et.
+ Perspiciatis sequi numquam enim impedit quos facilis odit eligendi. Dolorum necessitatibus consequatur perspiciatis vel est. Corrupti placeat voluptate consequatur voluptatem sint animi.</p>
+								<h5 class="text-gray-dark">delectus placeat quia</h5>
+				<p>Eius id laborum eum cum animi voluptatem. Facere voluptatem nemo voluptas molestiae rerum non voluptas. Minus ad nulla quibusdam. Inventore corporis nam laborum cumque sint eaque quam dicta. Sunt et fugiat est voluptatem tenetur dolorem. Voluptatem non atque est officiis maxime ut consequatur minus qui.
+ Odit eum et consequatur pariatur soluta. Id dignissimos expedita qui quis. Et hic officia. Architecto quisquam repellendus et. Atque ab et officia. Ab totam saepe.
+ Non molestiae et nam accusantium nihil praesentium et voluptas ullam. Non quisquam ex dignissimos voluptatibus sit ut cumque qui. Officiis expedita aperiam dolor maxime harum mollitia aut.</p>
+								<h5 class="text-gray-dark">perspiciatis beatae dignissimos</h5>
+				<p>Voluptatum hic sed numquam. Aut ut earum ducimus aspernatur. Iure nulla non aut laboriosam quibusdam alias architecto. Est sunt quia natus error totam quam iure culpa.
+ Quo sint autem. Quibusdam quibusdam quia deserunt sit. Voluptate in consequatur est ea voluptate voluptatum consectetur quas. Sapiente sed et ipsum. Sint nesciunt eligendi culpa quis. Eveniet in alias molestiae facere.
+ Dolores quidem dolorem ea voluptas nihil aperiam. Sapiente in modi in. Est ipsum molestiae in et non sit fugit. Officiis dolorem dignissimos velit id. Minima pariatur quas magni. Debitis laborum quisquam.</p>
+								<h5 class="text-gray-dark">et consectetur magni</h5>
+				<p>Vel rerum ut. Eos repellendus saepe fuga nostrum. Quasi distinctio similique aut nesciunt quia maiores voluptas iusto praesentium. Delectus delectus quis aliquam labore velit perferendis.
+ Qui cupiditate odit sit vero perferendis. Sunt dolores velit saepe qui. Est ea cumque et distinctio et voluptas ducimus nobis debitis. Incidunt tempora accusamus consequuntur in voluptate non. Et dolores consequatur dolorum id aspernatur nostrum ea sed.
+ Eos dolorem magnam voluptas minima aut vel temporibus. Ea culpa ad voluptatum nesciunt modi incidunt error. Ut vel eaque maiores ea aliquid tenetur et. Beatae aperiam ea quis est maiores. Voluptatem quod atque et.</p>
+								<h5 class="text-gray-dark">exercitationem suscipit quos</h5>
+				<p>Aut nihil non quidem omnis quo assumenda aut. Beatae laboriosam qui atque quidem suscipit et tempore maxime sapiente. Est et quo qui maxime beatae reiciendis sed.
+ Omnis fugiat illo dolorem aut sed atque. Sit consequatur asperiores vel occaecati et qui. Velit praesentium ab.
+ Consequuntur omnis voluptatem error odit nemo. Ut nobis voluptas necessitatibus qui optio placeat quibusdam voluptatem nihil. Quisquam doloremque molestias repellat est quaerat sit dicta.</p>
+								<h5 class="text-gray-dark">reprehenderit sunt ad</h5>
+				<p>Velit nemo eaque fuga in corrupti nesciunt libero et est. Harum illo voluptatem eos nulla rerum ipsum asperiores aperiam voluptatem. Est debitis est possimus dicta cumque.
+ Minima unde quam aut. Nam consectetur nisi dolor. Explicabo cupiditate voluptas ut. Architecto autem sint occaecati odit quia dignissimos laboriosam illum adipisci. A ea unde atque impedit ab perspiciatis iusto. Facilis officiis aut id velit.
+ Saepe magnam blanditiis assumenda unde eligendi voluptatem repellendus. Consequatur dolorum nisi molestias officia. Voluptatem veniam perspiciatis illo et atque quia. Consequatur dolore eum. Aut tenetur sit assumenda commodi molestiae ut aliquid. Ut non commodi dicta.</p>
 							</div>
 		</div>
 	</div>

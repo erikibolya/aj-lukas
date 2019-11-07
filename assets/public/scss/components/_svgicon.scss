@@ -8,6 +8,10 @@
 
     }
 
+    &--flip-v{
+        transform: rotateX(180deg);
+    }
+
     &--small{
         width: 1rem;
         height: 1rem;
@@ -37,18 +41,14 @@
     fill: $brand-success;
 
 
-    @at-root .link-box &{
+    @at-root .link-box &:not(.svgicon__path--transparent){
         fill: #22528E;
     }
-    @at-root .link-box--disabled &{
+    @at-root .link-box--disabled &:not(.svgicon__path--transparent){
         fill: #9e9e9e;
     }
-    @at-root .svgicon--textcolor &{
+    @at-root .svgicon--textcolor &:not(.svgicon__path--transparent){
         fill: currentColor;
-    }
-
-    @at-root .choices__item__ico &{
-        fill: $brand-text;
     }
 
     @at-root .link-box__svg &{
@@ -71,12 +71,11 @@
         }
     }
 
-}
+    &--transparent{
+        fill: transparent;
+    }
 
-.svgicon__path--transparent{
-    fill: transparent;
 }
-
 
 .svgicon--hamburger{
     margin-right: 0.2em;
@@ -84,6 +83,15 @@
     .svgicon__path{
         fill:red;
     }
+}
+
+.menu__extra-button:not(.menu__extra-button--disabled){
+    .svgicon__path--transparent{
+        fill: currentColor !important;
+    }
+
+
+
 }
 
 

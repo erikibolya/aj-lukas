@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -89,8 +91,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                 <div class="btn-group">
@@ -102,9 +104,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -118,8 +120,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(93)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(1)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -149,65 +157,65 @@
             </div>
 </header>
             <div class="site__content">
-            	<div class="container">
-		<div class="p-5 bg-white">
+                <div class="container">
+        <div class="p-5 bg-white">
 
-							<div><a href="agent-create.html">agent-create.html</a></div>
-							<div><a href="agents.html">agents.html</a></div>
-							<div><a href="answer-detail.html">answer-detail.html</a></div>
-							<div><a href="answers.html">answers.html</a></div>
-							<div><a href="back-contact-persons.html">back-contact-persons.html</a></div>
-							<div><a href="back-contact-persons-edit.html">back-contact-persons-edit.html</a></div>
-							<div><a href="back-homepage.html">back-homepage.html</a></div>
-							<div><a href="back-invoices.html">back-invoices.html</a></div>
-							<div><a href="back-my-account.html">back-my-account.html</a></div>
-							<div><a href="back-new-offer.html">back-new-offer.html</a></div>
-							<div><a href="back-offer-detail-preview.html">back-offer-detail-preview.html</a></div>
-							<div><a href="back-offer-detail-view.html">back-offer-detail-view.html</a></div>
-							<div><a href="back-offer-detail.html">back-offer-detail.html</a></div>
-							<div><a href="back-offers.html">back-offers.html</a></div>
-							<div><a href="back-order-1.html">back-order-1.html</a></div>
-							<div><a href="back-order-2.html">back-order-2.html</a></div>
-							<div><a href="back-pocket-payment.html">back-pocket-payment.html</a></div>
-							<div><a href="back-pocket.html">back-pocket.html</a></div>
-							<div><a href="back-saved-offers.html">back-saved-offers.html</a></div>
-							<div><a href="business-conditions.html">business-conditions.html</a></div>
-							<div><a href="conditions.html">conditions.html</a></div>
-							<div><a href="contact-thanks.html">contact-thanks.html</a></div>
-							<div><a href="contact.html">contact.html</a></div>
-							<div><a href="delete-account.html">delete-account.html</a></div>
-							<div><a href="email-change.html">email-change.html</a></div>
-							<div><a href="for-companies.html">for-companies.html</a></div>
-							<div><a href="icons.html">icons.html</a></div>
-							<div><a href="index.html">index.html</a></div>
-							<div><a href="links.html">links.html</a></div>
-							<div><a href="login.html">login.html</a></div>
-							<div><a href="modals.html">modals.html</a></div>
-							<div><a href="my-account.html">my-account.html</a></div>
-							<div><a href="offer-detail.html">offer-detail.html</a></div>
-							<div><a href="offers-fltered.html">offers-fltered.html</a></div>
-							<div><a href="offers.html">offers.html</a></div>
-							<div><a href="operator.html">operator.html</a></div>
-							<div><a href="password-change.html">password-change.html</a></div>
-							<div><a href="password-forgot-info.html">password-forgot-info.html</a></div>
-							<div><a href="password-forgot.html">password-forgot.html</a></div>
-							<div><a href="password-recover-info.html">password-recover-info.html</a></div>
-							<div><a href="password-recover.html">password-recover.html</a></div>
-							<div><a href="registration-company-2.html">registration-company-2.html</a></div>
-							<div><a href="registration-company-3.html">registration-company-3.html</a></div>
-							<div><a href="registration-company-4.html">registration-company-4.html</a></div>
-							<div><a href="registration-company-5.html">registration-company-5.html</a></div>
-							<div><a href="registration-company-6.html">registration-company-6.html</a></div>
-							<div><a href="registration-company-7.html">registration-company-7.html</a></div>
-							<div><a href="registration-company-8.html">registration-company-8.html</a></div>
-							<div><a href="registration-company.html">registration-company.html</a></div>
-							<div><a href="registration-user.html">registration-user.html</a></div>
-							<div><a href="registration-user2.html">registration-user2.html</a></div>
-							<div><a href="registration.html">registration.html</a></div>
-							<div><a href="saved-offers.html">saved-offers.html</a></div>
-			
-		</div>
-	</div>
+                            <div><a href="agent-create.html" target="_blank">agent-create.html</a></div>
+                                <div><a href="agents.html" target="_blank">agents.html</a></div>
+                                <div><a href="answer-detail.html" target="_blank">answer-detail.html</a></div>
+                                <div><a href="answers.html" target="_blank">answers.html</a></div>
+                                <div><a href="back-contact-persons.html" target="_blank">back-contact-persons.html</a></div>
+                                <div><a href="back-contact-persons-edit.html" target="_blank">back-contact-persons-edit.html</a></div>
+                                <div><a href="back-homepage.html" target="_blank">back-homepage.html</a></div>
+                                <div><a href="back-invoices.html" target="_blank">back-invoices.html</a></div>
+                                <div><a href="back-my-account.html" target="_blank">back-my-account.html</a></div>
+                                <div><a href="back-new-offer.html" target="_blank">back-new-offer.html</a></div>
+                                <div><a href="back-offer-detail-preview.html" target="_blank">back-offer-detail-preview.html</a></div>
+                                <div><a href="back-offer-detail-view.html" target="_blank">back-offer-detail-view.html</a></div>
+                                <div><a href="back-offer-detail.html" target="_blank">back-offer-detail.html</a></div>
+                                <div><a href="back-offers.html" target="_blank">back-offers.html</a></div>
+                                <div><a href="back-order-1.html" target="_blank">back-order-1.html</a></div>
+                                <div><a href="back-order-2.html" target="_blank">back-order-2.html</a></div>
+                                <div><a href="back-pocket-payment.html" target="_blank">back-pocket-payment.html</a></div>
+                                <div><a href="back-pocket.html" target="_blank">back-pocket.html</a></div>
+                                <div><a href="back-saved-offers.html" target="_blank">back-saved-offers.html</a></div>
+                                <div><a href="business-conditions.html" target="_blank">business-conditions.html</a></div>
+                                <div><a href="conditions.html" target="_blank">conditions.html</a></div>
+                                <div><a href="contact-thanks.html" target="_blank">contact-thanks.html</a></div>
+                                <div><a href="contact.html" target="_blank">contact.html</a></div>
+                                <div><a href="delete-account.html" target="_blank">delete-account.html</a></div>
+                                <div><a href="email-change.html" target="_blank">email-change.html</a></div>
+                                <div><a href="for-companies.html" target="_blank">for-companies.html</a></div>
+                                <div><a href="icons.html" target="_blank">icons.html</a></div>
+                                <div><a href="index.html" target="_blank">index.html</a></div>
+                                <div><a href="links.html" target="_blank">links.html</a></div>
+                                <div><a href="login.html" target="_blank">login.html</a></div>
+                                <div><a href="modals.html" target="_blank">modals.html</a></div>
+                                <div><a href="my-account.html" target="_blank">my-account.html</a></div>
+                                <div><a href="offer-detail.html" target="_blank">offer-detail.html</a></div>
+                                <div><a href="offers-fltered.html" target="_blank">offers-fltered.html</a></div>
+                                <div><a href="offers.html" target="_blank">offers.html</a></div>
+                                <div><a href="operator.html" target="_blank">operator.html</a></div>
+                                <div><a href="password-change.html" target="_blank">password-change.html</a></div>
+                                <div><a href="password-forgot-info.html" target="_blank">password-forgot-info.html</a></div>
+                                <div><a href="password-forgot.html" target="_blank">password-forgot.html</a></div>
+                                <div><a href="password-recover-info.html" target="_blank">password-recover-info.html</a></div>
+                                <div><a href="password-recover.html" target="_blank">password-recover.html</a></div>
+                                <div><a href="registration-company-2.html" target="_blank">registration-company-2.html</a></div>
+                                <div><a href="registration-company-3.html" target="_blank">registration-company-3.html</a></div>
+                                <div><a href="registration-company-4.html" target="_blank">registration-company-4.html</a></div>
+                                <div><a href="registration-company-5.html" target="_blank">registration-company-5.html</a></div>
+                                <div><a href="registration-company-6.html" target="_blank">registration-company-6.html</a></div>
+                                <div><a href="registration-company-7.html" target="_blank">registration-company-7.html</a></div>
+                                <div><a href="registration-company-8.html" target="_blank">registration-company-8.html</a></div>
+                                <div><a href="registration-company.html" target="_blank">registration-company.html</a></div>
+                                <div><a href="registration-user.html" target="_blank">registration-user.html</a></div>
+                                <div><a href="registration-user2.html" target="_blank">registration-user2.html</a></div>
+                                <div><a href="registration.html" target="_blank">registration.html</a></div>
+                                <div><a href="saved-offers.html" target="_blank">saved-offers.html</a></div>
+                
+        </div>
+    </div>
         </div>
             <div class="bg-white">
         <div class="container p-3 text-center">

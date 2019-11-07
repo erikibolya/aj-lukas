@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -90,8 +92,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                     <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
@@ -109,9 +111,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -125,8 +127,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(61)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(76)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -167,7 +175,7 @@
 				</nav>
 				<div>
 					<a href="/agent-create.html" class="btn btn-info w-100 w-sm-auto">
-						<span class="icon icon-plus-circle mr-2"></span>Dobít Actibony</a>
+						<span class="icon icon-plus mr-2"></span>Dobít Actibony</a>
 				</div>
 			</div>
 
@@ -177,7 +185,7 @@
 							Zakoupených
 						</div>
 						<div class="text-right">
-							84482 AB
+							3730 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -185,7 +193,7 @@
 							Získaných
 						</div>
 						<div class="text-right">
-							83483 AB
+							6477 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
@@ -193,7 +201,7 @@
 							Využitých
 						</div>
 						<div class="text-right">
-							333 AB
+							68569 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between text-success font-weight-bold">
@@ -201,7 +209,7 @@
 							Zůstatek
 						</div>
 						<div class="text-right">
-							19440 AB
+							24514 AB
 						</div>
 					</div>
 							</div>
@@ -209,26 +217,26 @@
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Rerum soluta sed.
+							Excepturi error nihil velit magnam exercitationem explicabo omnis molestiae.
 						</div>
 						<div class="text-right">
-							13251 AB
+							49740 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Accusamus tenetur vitae officiis unde quia sapiente eius.
+							Occaecati laudantium eum rerum excepturi accusantium.
 						</div>
 						<div class="text-right">
-							32700 AB
+							94331 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Et ea repellendus.
+							Nemo quia et voluptas ipsam architecto ullam.
 						</div>
 						<div class="text-right">
-							88545 AB
+							89352 AB
 						</div>
 					</div>
 							</div>
@@ -236,107 +244,119 @@
 			<div class="mb-4">
 				<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Využité Actibony</h2>													<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Quam maxime aliquam vel consequatur ut vel cumque tempore.
+							Ut illum non voluptates aut similique magni rem.
 						</div>
 						<div class="text-right">
-							18528 AB
+							46413 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Cumque facere quo recusandae sit voluptatem est id officia.
+							Nihil et perferendis omnis velit praesentium et atque.
 						</div>
 						<div class="text-right">
-							13819 AB
+							64001 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Voluptatem non optio beatae.
+							Perferendis inventore nam est dolorem dolorum aliquam nobis eum ea.
 						</div>
 						<div class="text-right">
-							91640 AB
+							84573 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Quasi et sed cum corrupti quasi sunt itaque tempora ducimus.
+							Ut ut alias est.
 						</div>
 						<div class="text-right">
-							82856 AB
+							83067 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Tenetur et maiores delectus odio autem omnis.
+							Quia repellat quas consequatur labore sunt reprehenderit.
 						</div>
 						<div class="text-right">
-							9301 AB
+							84961 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Quis illo laboriosam.
+							Incidunt repudiandae dignissimos.
 						</div>
 						<div class="text-right">
-							7572 AB
+							67870 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Illum omnis veniam.
+							Facere iste quos ut quod alias quod sed veniam.
 						</div>
 						<div class="text-right">
-							68517 AB
+							35026 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Facilis et nihil voluptas atque voluptatem non et laborum.
+							Non tempora magni inventore optio qui quas velit in.
 						</div>
 						<div class="text-right">
-							23086 AB
+							58034 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Cumque ut odit molestiae assumenda.
+							Accusantium in voluptate quaerat odit.
 						</div>
 						<div class="text-right">
-							4284 AB
+							59147 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between border-b">
 						<div class="mr-3">
-							Pariatur ullam reiciendis sequi sed dolorem error autem quisquam animi.
+							Aut earum quos porro rem iste qui pariatur nostrum dicta.
 						</div>
 						<div class="text-right">
-							47615 AB
+							97890 AB
 						</div>
 					</div>
 									<div class="bg-white p-3 d-md-flex justify-content-between">
 						<div class="mr-3">
-							Optio maxime sint similique alias qui culpa aut.
+							Sed ea officia quis officiis.
 						</div>
 						<div class="text-right">
-							30884 AB
+							24778 AB
 						</div>
 					</div>
 							</div>
 			<div class="d-flex align-items-center flex-column mb-3">
-	<nav aria-label="Page navigation example">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-left"></span></a></li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"><span class="icon icon-arrow-right"></span></a></li>
-		</ul>
-	</nav>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="6.6,10 15,18.4 14.2,19.2 5,10 14.2,0.7 15,1.6 "/>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">
+                    <svg class="svgicon svgicon--textcolor svgicon--small svgicon--inline" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="4.959,1.583 5.791,0.75 15.041,10 5.793,19.25 4.96,18.417 13.376,10"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div class="mb-5 pb-3 text-center">
-	<button class="btn btn-success btn-bottom">Načíst další</button>
+    <button class="btn btn-success btn-bottom">Načíst další</button>
 </div>
 
 		</div>

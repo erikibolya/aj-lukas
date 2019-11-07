@@ -4,11 +4,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&amp;subset=latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script src="https://unpkg.com/unfetch/polyfill"></script>
+
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -44,13 +46,13 @@
 
                 }
                 //console.log(change);
-               // console.log(change.element.tagName);
-               // console.log(allowedTags.indexOf(change.element));
+                // console.log(change.element.tagName);
+                // console.log(allowedTags.indexOf(change.element));
 
             });
             editor.on("init", function (r) {
                 let editor = r.target;
-               // console.log(editor);
+                // console.log(editor);
                 for (let i = 0, max = shortcutsToRemove.length; i < max; i++) {
                     delete editor.shortcuts.shortcuts[shortcutsToRemove[i]];
                 }
@@ -90,8 +92,8 @@
                         </a>
                     
                     <div class="dropdown-menu dropdown-menu-right  dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
-                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
+                        <a class="dropdown-item" href="/my-account.html"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/logged-in.svg"></object>Můj účet</a>
+                        <a class="dropdown-item" href="/"><object class="svgicon svgicon--inline mr-2" data="./public/svg/icons/grey/log-in.svg"></object>Odhlásit</a>
                     </div>
                 </div>
                                     <a class="btn-circle__wrapper btn btn-link btn-sm d-inline-flex" href="./back-pocket.html">
@@ -109,9 +111,9 @@
                         <span class="btn-circle__label">Čěština</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu--arrow" aria-labelledby="dropdown09">
-                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
-                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline" data="./public/svg/flags/gb.svg"></object>English</a>
-                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline" data="./public/svg/flags/de.svg"></object>Deutsch</a>
+                        <a class="dropdown-item" href="#fr"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/sk.svg"></object>Slovenčina</a>
+                        <a class="dropdown-item" href="#it"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/gb.svg"></object>English</a>
+                        <a class="dropdown-item" href="#ru"><object class="svgicon svgicon--inline mr-2" data="./public/svg/flags/de.svg"></object>Deutsch</a>
                     </div>
                 </div>
             </div>
@@ -125,8 +127,14 @@
                 <span>Nabídky</span>
             </button>
             <a href="/saved-offers.html" class="menu__extra-button">
-                <span class="icon icon-star-fill mr-2"></span><span
-                    class="hidden-sm-down">Uložené odpovědi</span>&nbsp;(32)
+
+                <svg class="svgicon svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                <polygon class="svgicon__path svgicon__path--transparent" points="18.8,7.4 13.1,7.4 12.2,7.4 11.9,6.6 10,1.1 8.1,6.6 7.8,7.4 6.9,7.4 1.2,7.4 5.6,10.9 6.3,11.4 
+                         6,12.2 4.4,17.7 9.3,14.4 10,14 10.7,14.4 15.6,17.7 14,12.2 13.7,11.4 14.4,10.9 	"/>
+                <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
+                      l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
+                </svg>
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(40)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -157,143 +165,191 @@
 </header>
             <div class="site__content">
             
-	<div class="container">
-		<div class="section py-3">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="/">Nabídky</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Detail aktivní nabídky</li>
-				</ol>
-			</nav>
-			<h1 class="bg-white h5 p-3 border-b mb-0 font-weight-bold">National Functionality Manager</h1>
-			<div class="bg-white p-3 mb-3 mb-sm-4">
-				<div class="icon-list">
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
-						<div class="icon-list__info-col">Zaměstnavatel</div>
-						<div class="icon-list__text-col">Stark and Sons</div>
-					</div>
+    <div class="container">
+        <div class="section py-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Nabídky</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail aktivní nabídky</li>
+                </ol>
+            </nav>
+            <h1 class="bg-white h5 p-3 border-b mb-0 font-weight-bold">Regional Identity Executive</h1>
+            <div class="bg-white p-3 mb-3 mb-sm-4">
+                <div class="icon-list">
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
+                        <div class="icon-list__info-col">Zaměstnavatel</div>
+                        <div class="icon-list__text-col">Maggio - Adams</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
-						<div class="icon-list__info-col">Místo pracoviště</div>
-						<div class="icon-list__text-col">087 Casper Junction, Shakirahaven</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
+                        <div class="icon-list__info-col">Místo pracoviště</div>
+                        <div class="icon-list__text-col">683 Oberbrunner Hollow, East Leann</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
-						<div class="icon-list__info-col">Plat</div>
-						<div class="icon-list__text-col">30 000 - 50 000,- Kč</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-money"></span></div>
+                        <div class="icon-list__info-col">Plat</div>
+                        <div class="icon-list__text-col">30 000 - 50 000 Kč</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-clock-check"></span></div>
-						<div class="icon-list__info-col">Pracovní poměr</div>
-						<div class="icon-list__text-col">Plný úvazek</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-clock-check"></span></div>
+                        <div class="icon-list__info-col">Pracovní poměr</div>
+                        <div class="icon-list__text-col">Plný úvazek</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-student"></span></div>
-						<div class="icon-list__info-col">Vzdělání</div>
-						<div class="icon-list__text-col">Středoškolské</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-student"></span></div>
+                        <div class="icon-list__info-col">Vzdělání</div>
+                        <div class="icon-list__text-col">Středoškolské</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-quote"></span></div>
-						<div class="icon-list__info-col">Jazykové znalosti</div>
-						<div class="icon-list__text-col">Čeština (výborná)</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-quote"></span></div>
+                        <div class="icon-list__info-col">Jazykové znalosti</div>
+                        <div class="icon-list__text-col">Čeština (výborná)</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-car"></span></div>
-						<div class="icon-list__info-col">Řidičské znalosti</div>
-						<div class="icon-list__text-col">Skupina B</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-car"></span></div>
+                        <div class="icon-list__info-col">Řidičské znalosti</div>
+                        <div class="icon-list__text-col">Skupina B</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-computer"></span></div>
-						<div class="icon-list__info-col">Počítačové znalosti</div>
-						<div class="icon-list__text-col">Windows, MS Office</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-computer"></span></div>
+                        <div class="icon-list__info-col">Počítačové znalosti</div>
+                        <div class="icon-list__text-col">Windows, MS Office</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
-						<div class="icon-list__info-col">Benefity</div>
-						<div class="icon-list__text-col">Voluptas quisquam quasi ex qui facilis in optio. Id voluptatem optio autem. Voluptate consequatur dolorem. Molestias ducimus non minima et provident nihil. Reiciendis ab doloribus et. Blanditiis ex quia maxime sed qui.</div>
-					</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
+                        <div class="icon-list__info-col">Benefity</div>
+                        <div class="icon-list__text-col">Maiores est quia ullam facilis quaerat. Dolore mollitia modi harum soluta eos quibusdam iure quia. Voluptas labore corporis doloribus recusandae aspernatur omnis dolor itaque. Cupiditate vel consequuntur ut et dolorem laudantium rerum iure. Cupiditate suscipit architecto vero quis qui. Enim ut esse est unde.</div>
+                    </div>
 
-					<div class="icon-list__row">
-						<div class="icon-list__icon-col"><span class="icon icon-cursor-box"></span></div>
-						<div class="icon-list__info-col">Zařazeno</div>
-						<div class="icon-list__text-col">Administrativa</div>
-					</div>
-				</div>
-			</div>
+                    <div class="icon-list__row">
+                        <div class="icon-list__icon-col"><span class="icon icon-cursor-box"></span></div>
+                        <div class="icon-list__info-col">Zařazeno</div>
+                        <div class="icon-list__text-col">Administrativa</div>
+                    </div>
+                </div>
+            </div>
 
-			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>			<div class="bg-white p-3 mb-3 mb-sm-4">
-				<h3 class="h6 mb-3">Kvalifikační požadavky</h3>
-									<p>Iure non assumenda qui sit dicta sunt quia et.</p>
-									<p>Recusandae ab rerum est error sunt.</p>
-									<p>Sunt error voluptatem ipsam harum nulla nesciunt natus expedita ea.</p>
-									<p>Molestiae itaque tempora in cumque et in reiciendis dolorum.</p>
-									<p>Et excepturi quisquam quis voluptatem molestias voluptatem.</p>
-									<p>Itaque sed rerum sit occaecati porro.</p>
-									<p>Ea autem veniam voluptas consequatur non qui sequi voluptatum.</p>
-									<p>Quia rem voluptas ad et repellendus.</p>
-									<p>Non necessitatibus voluptatem totam veritatis est quisquam quis.</p>
-									<p>Nostrum id non aut eveniet.</p>
-							</div>
+            <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>            <div class="bg-white p-3 mb-3 mb-sm-4 tinymce-content">
+                <p>
+                    <b>HLEDÁME ASISTENTA/ASISTENTKU VEDENÍ</b>  
+                </p>
+                <p>
+                    Jsme daňoví a účetní poradci, firma založená absolventy oboru zdanění a daňové politiky. Specializujeme se na zdanění právnických osob – DPPO, DPH, transakce – akvizice, fúze a daňové spory.
+                </p>
+                <p>
+                    <b>Koho hledáme?</b>
+                </p>
+                <p>
+                    Hledáme kolegyni, nebo kolegu na administrativní podporu na hlavní i částečný úvazek (6-8 hodin denně).
+                </p>
+                <ul>
+                    <li>Administrativní kancelářská činnost</li>                                                         
+                    <li>Vyřizování každodenní agendy a emailů</li>
+                    <li>Zpracovávání a příprava podkladů pro jednání, schůzky, projekty a fakturaci</li>
+                    <li>Komunikace s tuzemskými i zahraničními klienty</li>
+                    <li>Podpora daňových poradců - vedení úkolů, hlídání termínů, zpracování dat</li>
+                    <li>Výpomoc při vedení účetnictví</li>
+                </ul>
+                <p>
+                    <b>Co požadujeme:</b>
+                </p>
+                <ul>
+                    <li>Znalost českého jazyka - rodilý mluvčí, znalost anglického jazyka, případně i německého jazyka</li>
+                    <li>Pokročilou znalost MS Office</li>
+                    <li>Systematičnost a pečlivost</li>
+                    <li>Profesionální a příjemné vystupování, schopnost komunikace, asertivní jednání</li>
+                    <li>Pozitivní myšlení a přístup k práci</li>
+                    <li>Smysl pro práci v týmu</li>
+                </ul>
+                <p>
+                    <b>Můžeme Vám nabídnout:</b>
+                </p>
+                <ul>
+                    <li>Práci na hlavní či částečný úvazek</li>
+                    <li>Možnost být součástí rostoucí poradenské společnosti/li>
+                    <li>Velmi přátelské a příjemné pracovní prostředí na Senovážném náměstí v Praze</li>
+                    <li>Profesionální a příjemné vystupování, schopnost komunikace, asertivní jednání</li>
+                </ul>
+                <p>
+                    Zaujala Vás tato pozice?
+                </p>
+                <p>
+                    Zasílejte nám prosím své stručné životopisy s uvedením své praxe, zájmů, úspěchů.
+                </p>
+                <p>
+                    Tým EK Partners, s.r.o.
+                </p>
 
-			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2><div class="bg-white p-3 border-b">
+            </div>
+
+            <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2><div class="bg-white p-3 border-b">
 	<div class="row">
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Firma</div>
-			Stark - Wisozk<br>
-			7263 Murazik Ramp <br>
-			34323-1953, East Esther </br>
-			Cote d'Ivoire
+			Gorczany - Padberg<br>
+			706 Allen Route <br>
+			91640-8065, Demetrisfurt </br>
+			Russian Federation
 		</div>
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Kontaktní osoba</div>
-			Deborah Runolfsson
+			Shyann Kemmer
 		</div>
 		<div class="col-md-4">
 			<div class="font-weight-bold">Telefon</div>
-			(582) 291-4739
+			969.350.3162 x387
 		</div>
 	</div>
 </div>
 
 
-			<div class="bg-white p-3 mb-3 mb-sm-4 text-center">
-				<a href="#" class="btn btn-info btn-bottom mb-2 mr-sm-3"><span class="icon icon-arrow-up-point mr-2"></span> Zvýhodnit <span class="icon icon-arrow-up-point mL-2"></span></a>
-				<span class="share-btn__wrapper">
-					<a href="#" class="btn btn-facebook btn-bottom mb-2"><span class="icon icon-facebook mr-2"></span>Sdílet na Facebooku</a>
-				</span>
-			</div>
+            <div class="bg-white p-3 mb-3 mb-sm-4 text-center">
+                <a href="#" class="btn btn-info btn-bottom mb-2 mr-sm-3"><svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small mr-2" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg> Zvýhodnit <svg class="svgicon svgicon--inline svgicon--textcolor svgicon--small ml-2" viewBox="0 0 20 20">
+                    <polygon class="svgicon__path" points="5.3,9.4 9.5,3.9 9.5,18.4 10.5,18.4 10.5,3.9 14.7,9.4 15.5,8.8 10,1.6 4.5,8.8 "></polygon>
+                    </svg></a>
+                <span class="share-btn__wrapper">
+                    <a href="#" class="btn btn-facebook btn-bottom mb-2"><span class="icon icon-facebook mr-2"></span>Sdílet na Facebooku</a>
+                </span>
+            </div>
 
-			<div class="row justify-content-center mb-5">
-				<div class="col-md-4 col-lg-3 mb-3 mb-md-0">
-					<button class="btn btn-secondary w-100">
-						<span class="icon icon-cross mr-2"></span>
-						Smazat
-					</button>
-				</div>
-				<div class="col-md-4 col-lg-3 mb-3 mb-md-0">
-					<button class="btn btn-secondary w-100">
-						<span class="icon icon-toggle-off mr-2"></span>
-						Ukončit inzerci
-					</button>
-				</div>
-				<div class="col-md-4 col-lg-3">
-					<button class="btn btn-success w-100">
-						<span class="icon icon-edit mr-2"></span>
-						Upravit
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+                    <button class="btn btn-secondary w-100">
+                        <svg class="svgicon svgicon--small svgicon--inline svgicon--textcolor mr-2" viewBox="0 0 20 20">
+                        <polygon class="svgicon__path" points="17.8,3.2 16.8,2.2 9.9,9 3.2,2.2 2.2,3.2 8.9,10 2.2,16.7 3.2,17.6 9.9,11 16.7,17.8 17.6,16.8 10.9,10 "/>
+                        </svg>
+                        Smazat
+                    </button>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-3 mb-md-0">
+                    <button class="btn btn-secondary w-100">
+                        <svg class="svgicon svgicon--inline svgicon--textcolor mr-2" viewBox="0 0 20 20" >
+                        <path class="svgicon__path" d="M14.6,4.6H5.4C2.4,4.6,0,7,0,10s2.4,5.4,5.4,5.4h9.1c3,0,5.4-2.4,5.4-5.4S17.6,4.6,14.6,4.6z M14.6,13.1
+                              c-1.7,0-3.1-1.4-3.1-3.1s1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1S16.3,13.1,14.6,13.1z"/>
+                        </svg>
+                        Ukončit inzerci
+                    </button>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <button class="btn btn-success w-100">
+                        <span class="icon icon-edit mr-2"></span>
+                        Upravit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
