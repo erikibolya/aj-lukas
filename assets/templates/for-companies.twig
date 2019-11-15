@@ -85,7 +85,7 @@
 					</div>
 				</div>
 			{% endfor %}
-			<small class="text-muted d-block mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+			<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
 		</div>
 
 		<div class="mb-4">
@@ -116,18 +116,9 @@
 					</div>
 				</div>
 			{% endfor %}
-			<small class="text-muted d-block mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+			<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
 		</div>
 
-		<div class="mb-4">
-			{% include "components/sectionTitle.twig"  with { title: "Nejčastější dotazy"} %}
-			{% for i in 0..8 %}
-				<div class="bg-white p-3 {% if not loop.last %} border-b{% endif %}">
-					<div class="font-weight-bold"><faker-lorem-sentence/></div>
-					<faker-lorem-sentence/>
-				</div>
-			{% endfor %}
-		</div>
 
 		<div class="mb-4">
 			{% include "components/sectionTitle.twig"  with { title: "ActiBony"} %}
@@ -140,6 +131,16 @@
 						<faker-commerce-price/>
 						Kč
 					</div>
+				</div>
+			{% endfor %}
+		</div>
+                
+		<div class="mb-4">
+			{% include "components/sectionTitle.twig"  with { title: "Nejčastější dotazy"} %}
+			{% for i in 0..8 %}
+				<div class="bg-white p-3 {% if not loop.last %} border-b{% endif %}">
+					<div class="font-weight-bold"><faker-lorem-sentence/></div>
+					<faker-lorem-sentence/>
 				</div>
 			{% endfor %}
 		</div>

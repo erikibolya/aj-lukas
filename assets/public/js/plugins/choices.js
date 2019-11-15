@@ -497,7 +497,8 @@ var EVENTS = {
   removeItem: 'removeItem',
   highlightItem: 'highlightItem',
   highlightChoice: 'highlightChoice',
-  blur: "blur"
+  blur: "blur",
+  focus: "focus"
 };
 exports.EVENTS = EVENTS;
 var ACTION_TYPES = {
@@ -2089,12 +2090,12 @@ function () {
   }, {
     key: "setChoiceByValue",
     value: function setChoiceByValue(value) {
+        
       var _this9 = this;
 
       if (!this.initialised || this._isTextElement) {
         return this;
       } // If only one value has been passed, convert to array
-
 
       var choiceValue = (0, _utils.isType)('Array', value) ? value : [value]; // Loop through each value and
 
@@ -2116,8 +2117,7 @@ function () {
       if (!this._isSelectElement || !value) {
         return this;
       } // Clear choices if needed
-
-
+      
       if (replaceChoices) {
         this.clearChoices();
       }
@@ -2284,10 +2284,10 @@ function () {
           dropdownItem = this._getTemplate('notice', notice, 'no-results');
         } else {
           notice = (0, _utils.isType)('Function', this.config.noChoicesText) ? this.config.noChoicesText() : this.config.noChoicesText;
-          dropdownItem = this._getTemplate('notice', notice, 'no-choices');
+                                                                    dropdownItem = this._getTemplate('notice', notice, 'no-choices');
         }
-
-        this.choiceList.append(dropdownItem);
+          this.choiceList.append(dropdownItem);
+        
       }
     }
   }, {
@@ -2651,6 +2651,9 @@ function () {
       }); // Check that we have a value to search and the input was an alphanumeric character
 
       if (value.length >= searchFloor) {
+        if (value.length === 0) {
+//          this._isSearching = false;
+        }                                                      
         var resultCount = searchChoices ? this._searchChoices(value) : 0; // Trigger search event
 
         this.passedElement.triggerEvent(_constants.EVENTS.search, {
@@ -2658,7 +2661,6 @@ function () {
           resultCount: resultCount
         });
       } else if (hasUnactiveChoices) {
-          console.log("hasUnactiveChoices");
         // Otherwise reset choices to active
         this._isSearching = false;
 
@@ -3345,7 +3347,7 @@ function () {
       if (this.config.appendValue) {
         passedValue += this.config.appendValue.toString();
       }
-
+      
       this._store.dispatch((0, _items.addItem)({
         value: passedValue,
         label: passedLabel,
@@ -3445,7 +3447,7 @@ function () {
         placeholder: placeholder,
         keyCode: keyCode
       }));
-
+      
       if (isSelected) {
         this._addItem({
           value: value,
@@ -3582,12 +3584,13 @@ function () {
         this.dropdown.element.appendChild(this.choiceList.element);
       }
 
-      if (!this._isSelectOneElement) {
-        console.log(this.input.elem);
-        this.containerInner.element.appendChild(this.input.element);
-      } else if (this.config.searchEnabled) {
-        this.dropdown.element.insertBefore(this.input.element, this.dropdown.element.firstChild);
-      }
+      this.containerInner.element.appendChild(this.input.element);
+//      if (!this._isSelectOneElement) {
+//        console.log(this.input.elem);
+//        this.containerInner.element.appendChild(this.input.element);
+//      } else if (this.config.searchEnabled) {
+//        this.dropdown.element.insertBefore(this.input.element, this.dropdown.element.firstChild);
+//      }
 
       if (this._isSelectElement) {
         this._addPredefinedChoices();
@@ -5914,6 +5917,11 @@ function () {
     key: "addFocusState",
     value: function addFocusState() {
       this.element.classList.add(this.classNames.focusState);
+      this.element.children[0].children[0].dispatchEvent(new CustomEvent("focus",{
+                detail: {
+                         input: this.element.children[0].children[2]
+                }
+        } )); 
     }
   }, {
     key: "removeFocusState",
@@ -6104,7 +6112,7 @@ function () {
   }, {
     key: "focus",
     value: function focus() {
-      if (!this.isFocussed) {
+      if (!this.isFocussed){
         this.element.focus();
       }
     }
@@ -6125,8 +6133,7 @@ function () {
     key: "clear",
     value: function clear() {
       var setWidth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-      if (this.element.value) {
+      if (this.element.value && !this.element.classList.contains("choices__input--singleselect")) {
         this.element.value = '';
       }
 

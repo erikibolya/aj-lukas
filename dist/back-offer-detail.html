@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find%2CArray.prototype.filter%2CString.prototype.includes%2CArray.prototype.forEach%2CNodeList.prototype.forEach"></script>
 <script src="https://unpkg.com/unfetch/polyfill"></script>
-
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -134,7 +133,7 @@
                 <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
                       l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
                 </svg>
-                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(40)
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(84)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -173,19 +172,19 @@
                     <li class="breadcrumb-item active" aria-current="page">Detail aktivní nabídky</li>
                 </ol>
             </nav>
-            <h1 class="bg-white h5 p-3 border-b mb-0 font-weight-bold">Regional Identity Executive</h1>
+            <h1 class="bg-white h5 p-3 border-b mb-0 font-weight-bold">Senior Web Liason</h1>
             <div class="bg-white p-3 mb-3 mb-sm-4">
                 <div class="icon-list">
                     <div class="icon-list__row">
                         <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
                         <div class="icon-list__info-col">Zaměstnavatel</div>
-                        <div class="icon-list__text-col">Maggio - Adams</div>
+                        <div class="icon-list__text-col">Heathcote - Bradtke</div>
                     </div>
 
                     <div class="icon-list__row">
                         <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                         <div class="icon-list__info-col">Místo pracoviště</div>
-                        <div class="icon-list__text-col">683 Oberbrunner Hollow, East Leann</div>
+                        <div class="icon-list__text-col">077 Kirk Causeway, Lake Arnoldfurt</div>
                     </div>
 
                     <div class="icon-list__row">
@@ -227,7 +226,7 @@
                     <div class="icon-list__row">
                         <div class="icon-list__icon-col"><span class="icon icon-thumb-up"></span></div>
                         <div class="icon-list__info-col">Benefity</div>
-                        <div class="icon-list__text-col">Maiores est quia ullam facilis quaerat. Dolore mollitia modi harum soluta eos quibusdam iure quia. Voluptas labore corporis doloribus recusandae aspernatur omnis dolor itaque. Cupiditate vel consequuntur ut et dolorem laudantium rerum iure. Cupiditate suscipit architecto vero quis qui. Enim ut esse est unde.</div>
+                        <div class="icon-list__text-col">Dolor inventore maiores voluptatem porro eveniet blanditiis. Quia aut ipsa reprehenderit voluptatem ipsam. Tempore est ut delectus et sint eligendi. Non deserunt ea doloribus magnam consectetur quasi deserunt cumque tenetur.</div>
                     </div>
 
                     <div class="icon-list__row">
@@ -295,18 +294,18 @@
 	<div class="row">
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Firma</div>
-			Gorczany - Padberg<br>
-			706 Allen Route <br>
-			91640-8065, Demetrisfurt </br>
-			Russian Federation
+			Miller LLC<br>
+			0106 Jerde Roads <br>
+			70165-0101, Zelmaview </br>
+			Palestinian Territory
 		</div>
 		<div class="col-md-4 mb-3 mb-md-0">
 			<div class="font-weight-bold">Kontaktní osoba</div>
-			Shyann Kemmer
+			Laron O'Keefe
 		</div>
 		<div class="col-md-4">
 			<div class="font-weight-bold">Telefon</div>
-			969.350.3162 x387
+			388.812.7717
 		</div>
 	</div>
 </div>
@@ -408,16 +407,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <script src="public/js/plugins/autoComplete.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/selectric.js"></script>
     <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obce.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/kraje.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/pcznalosti.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/benefity.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/dalsiznalosti.js"></script> <!-- remove in production -->
+    <script src="public/js/plugins/data/jazyky.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/odpovedi.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
     <script src="public/js/plugins/custom.js"></script>
     <script src="public/js/plugins/mobile-detect.js"></script>

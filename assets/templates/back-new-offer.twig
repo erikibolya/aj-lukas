@@ -12,19 +12,61 @@
             </nav>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Základní údaje"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Základní údaje *"}  %}
                 <div class="bg-white p-3">
                     <div class="form-group">
-                        <label for="exampleInputName" class="form-label" >Název pozice*</label>
+                        <label for="exampleInputName" class="form-label" >Název pozice *</label>
                         <input type="text" class="form-control" id="exampleInputName"  placeholder="např. Samostatný kuchař, Asistentka Praha..." required>
                     </div>
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocomplete1", name: "Obor*", placeholder: "+ Gastronomie a pohostinství, Administrativa...", dataset: "names.json"} %}
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":false, id:"autocomplete2", name: "Profese*", placeholder: "+ Kuchař, Asistentka...", dataset: "lorem.json"} %}
+                    <div class="form-group">
+                        <label class="form-label" >Obor *</label>
+                        {% include "components/autocompleteInput.twig" with 
+                     {type:"tag",
+                     id:"autocomplete1",
+                     name: "Obor*",
+                     inWindow: false, 
+
+                     placeholder: "+ Gastronomie a pohostinství, Administrativa...", 
+                     placeholderAdd: "+ Přidat...",  
+
+                     dataPreview: "categories",
+
+                     maxItem: "3",
+                     maxItemText: "Můžete přidat maximálně 3 obory",
+                     maxItemRender: 50,
+
+                     dataNoResult: "Nenalezen žádný obor",
+                     dataUrl: "categories"} %}
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="form-label" >Profese *</label>
+                        {% include "components/autocompleteInput.twig" with 
+                     {type:"tag",
+                     id:"autocomplete2",
+                     name: "Profese*",
+                     plain: true, 
+                     inWindow: false, 
+
+                     initialHint: "Zadejte požadovanou profesi",
+
+                     placeholder: "+ Kuchař, Asistentka...", 
+                     placeholderAdd: "+ Přidat...",  
+
+                     maxItem: "5",
+                     maxItemText: "Můžete přidat maximálně 5 profesí",
+                     maxItemRender: 50,
+
+                     dataNoResult: "Nenalezena žádná profese",
+                     dataUrl: "professions"} %}
+
+                    </div>
+
                 </div>
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Místo výkonu práce"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Místo výkonu práce *"}  %}
                 <div class="bg-white p-3">
                     <div class="show-content__wrapper">
                         <div class="mb-3">
@@ -40,7 +82,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                {% include "components/autocompleteInput.twig" with {type:"search", "preview":false, id:"autocomplete3", name: "Adresa/Lokalita*", placeholder: "Adresa, Ulice, Obec, Město, Okres, Kraj", dataset: "lorem.json"} %}
+                                <label for="autocomplete3" class="form-label">Adresa/Lokalita *</label>
+                                {% include "components/autocompleteInput.twig" with {type:"search","preview":false, id:"autocomplete3", name: "Adresa/Lokalita*", placeholder: "Adresa, Ulice, Obec, Město, Okres, Kraj", dataset: "lorem.json"} %}
                             </div>
                         </div>
                     </div>
@@ -55,7 +98,11 @@
                             <label class="form-check-label" for="exampleRadios3">Práce vyžaduje cestování (např. Řidič, Obchodní zástupce)</label>
                         </div>
                         <div class="travel-input__content hidden">
-                            {% include "components/autocompleteInput.twig" with {type:"tag","preview":true, id:"autocomplete4",name: "Lokalita/y*", placeholder: "+ Okres, Kraj, Země", dataset: "lorem.json"} %}
+                            <div class="form-group">
+                                <label for="autocomplete3" class="form-label">Lokalita/y *</label>
+                                {% include "components/autocompleteInput.twig" with {type:"tag","preview":true, id:"autocomplete4",name: "Lokalita/y*", placeholder: "+ Okres, Kraj, Země", dataset: "lorem.json"} %}
+                            </div>
+
                         </div>
                     </section>
                 </div>
@@ -63,7 +110,7 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Popis pozice"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Popis pozice *"}  %}
                 <div class="bg-white p-3">
                     <div class="form-group">
                         <textarea class="form-control" id="tinymce" cols="30"></textarea>
@@ -72,7 +119,7 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Pracovní poměr"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Pracovní poměr *"}  %}
                 {% set work = ["Plný úvazek", "Zkrácený úvazek", "Živnostenský list", "Brigáda", "Stáž"] %}
                 <div class="bg-white p-3">
                     <div class="row">
@@ -122,7 +169,7 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Nástup možnný od"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Nástup možnný od *"}  %}
                 <div class="bg-white p-3">
                     <div class="form-group">
                         <input type="date" class="form-control" required />
@@ -131,7 +178,7 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Požadované vzdělání uchazeče"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Vzdělání uchazeče *"}  %}
                 {% set school = ["Nazáleží", "Základní", "Odborné s výučním listem", "Odborné s maturitou", "Středoškolské s maturitou", "Vyšší odborné studium", "Bakalářské", "Vysokoškolské", "Doktorandské"] %}
                 <div class="bg-white p-3">
                     <div class="row">
@@ -150,7 +197,8 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Jazykové znalosti uchazeče"}  %}
+
+                {% include "components/sectionTitle.twig"  with { title: "Jazykové znalosti uchazeče *"}  %}
                 <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Čeština nutností*</label>
                     <div class="row">
@@ -177,12 +225,29 @@
 
 
                     <hr class="mx-minus-3">
-                    {% include "components/autocompleteInput.twig" with {type:"tag", "preview":true, id:"autocompleteJazyk", name: "Vyberte cizí jazyk", placeholder: "+ Angličtina, Němčina...", dataset: "names.json"} %}
+                    <div class="form-group">
+                        <label  class="form-label" >Vyberte cizí jazyk</label>
+                        {% include "components/autocompleteInput.twig" with 
+                                    {type:"tag",
+                                    id:"autocomplete5",
+                                    name: "Vyberte cizí jazyky",
+                                    inWindow: false, 
+
+                                    placeholder: "+ Angličtina, Němčina...", 
+                                    placeholderAdd: "+ Přidat...",  
+
+                                    dataPreview: "languages",
+
+                                    maxItemRender: 50,
+
+                                    dataNoResult: "Nenalezen žádný jazyk",
+                                    dataUrl: "languages"} %}
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Požadované vzdělání uchazeče"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Řidičské oprávnění uchazeče"}  %}
                 {% set licence = ["A", "B", "BE", "C", "CE", "D", "E", "T"] %}
                 <div class="bg-white p-3">
                     <div class="row">
@@ -217,19 +282,51 @@
                         {% endfor %}
                     </div>
                     <hr class="mx-minus-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete5",name: "Další počitačové znalosti*", placeholder: "+ PHP, C#, Java, HTML...", dataset: "lorem.json"} %}
+                    <div class="form-group">
+                        <label  class="form-label" >Další počitačové znalosti</label>
+                        {% include "components/autocompleteInput.twig" with 
+                                    {type:"tag",
+                                    id:"autocomplete6",
+                                    name: "Další počitačové znalosti",
+                                    inWindow: false, 
+
+                                    placeholder: "+ PHP, C#, Java, HTML...", 
+                                    placeholderAdd: "+ Přidat...",
+                                    addTag: "přidat",
+
+                                    dataPreview: "pcskills",
+
+                                    maxItemRender: 50,
+                                    dataUrl: "pcskills"} %}
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Další znalosti uchazeče"}  %}
                 <div class="bg-white p-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete6",name: "Další znalosti", placeholder: "+ Strojopis, Mzdové účetníctví...", dataset: "lorem.json"} %}
+                    <div class="form-group">
+                        <label  class="form-label" >Další znalosti</label>
+                        {% include "components/autocompleteInput.twig" with 
+                                    {type:"tag",
+                                    id:"autocomplete6",
+                                    name: "Další počitačové znalosti",
+                                    inWindow: false, 
+
+                                    placeholder: "+ Strojopis, Mzdové účetnictví...", 
+                                    placeholderAdd: "+ Přidat...",
+                                    addTag: "přidat",
+
+                                    dataPreview: "otherskills",
+
+                                    maxItemRender: 50,
+                                    dataUrl: "otherskills"} %}
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Nabízená mzda"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Nabízená mzda *"}  %}
                 <div class="bg-white p-3">
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
@@ -246,7 +343,7 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
-                                <label class="form-label">Měna</label>
+                                <label class="form-label">Měna *</label>
                                 <select class="form-control" required data-selectric>
                                     <option value="1">CZK</option>
                                     <option value="2">EUR</option>
@@ -255,10 +352,12 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
-                                <label class="form-label">Za období</label>
+                                <label class="form-label">Za období *</label>
                                 <select class="form-control" required data-selectric>
-                                    <option value="1">Měšíčně</option>
-                                    <option value="2">Denně</option>
+                                    <option value="1">Měšíc</option>
+                                    <option value="2">Týden</option>
+                                    <option value="3">Den</option>
+                                    <option value="3">Hodina</option>
                                 </select>
                             </div>
                         </div>
@@ -275,13 +374,29 @@
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Nabízené benefity" }%}
                 <div class="bg-white p-3">
-                    {% include "components/autocompleteInput.twig" with {type:"search", id:"autocomplete7", name: "Benefity",placeholder: "+ Závodní stravování...", dataset: "lorem.json"} %}
+                    <div class="form-group">
+                        <label  class="form-label" >Benefity</label>
+                        {% include "components/autocompleteInput.twig" with 
+                                    {type:"tag",
+                                    id:"autocomplete7",
+                                    name: "Benefity",
+                                    inWindow: false, 
+
+                                    placeholder: "+ Závodní stravování...", 
+                                    placeholderAdd: "+ Přidat...",
+                                    addTag: "přidat",
+
+                                    dataPreview: "benefits",
+
+                                    maxItemRender: 50,
+                                    dataUrl: "benefits"} %}
+                    </div>
                 </div>
             </div>
 
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Kontakt"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Kontakt *"}  %}
                 <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
                     <div class="form-group">
@@ -294,13 +409,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="form-label">Kontaktní email</label>
+                                <label for="exampleInputEmail1" class="form-label">Kontaktní email  *</label>
                                 <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" value="tombombadyl@email.cz" disabled>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="contactPhone" class="form-label">Kontaktní telefon</label>
+                                <label for="contactPhone" class="form-label">Kontaktní telefon  *</label>
                                 <input type="texst" class="form-control" id="contactPhone" value="777 100 332" disabled>
                             </div>
                         </div>
@@ -323,9 +438,9 @@
             </div>
 
             <div class="mb-4">
-                {% include "components/sectionTitle.twig"  with { title: "Inzerovat v" }%}
+                {% include "components/sectionTitle.twig"  with { title: "Inzerovat v *" }%}
                 <div class="bg-white p-3">
-                    {% include "components/custom-switch.twig" with {text: "Inzerovat v České republice",muted:"(Actijobs.cz)", checked: false,id: "2"} %}
+                    {% include "components/custom-switch.twig" with {text: "Inzerovat v České republice",muted:"(Actijobs.cz)", checked: true,id: "2"} %}
 
                     <hr class="mx-minus-3">
                     {% include "components/custom-switch.twig" with {text: "Inzerovat na Slovensku",muted:"(Actijobs.cz)", checked: false,id: "2"} %}
@@ -334,7 +449,7 @@
 
             <div class="mb-4">
                 {% set memberClass = ["Bronze", "Silver", "Gold", "Platinum"] %}
-                {% include "components/sectionTitle.twig"  with { title: "Možnost zvýhodnění*"}  %}
+                {% include "components/sectionTitle.twig"  with { title: "Možnost zvýhodnění *"}  %}
                 {% for class in memberClass %}
                     <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between{% if not loop.last %} border-b{% endif %} {% if loop.first%}custom-radio__wrapper--checked{% endif%}">
                         <div>
@@ -353,16 +468,16 @@
                             <label for="class{{ loop.index }}" class="text-right">
                                 {% if loop.index > 1 %}
                                     <strong class="display-6">{{ loop.index }} 999 AB</strong>
-                                    <p>*1000 Kč</p>
+                                    <p>* 1000 Kč</p>
                                 {% else %}
                                     <strong class="display-6">Zdarma</strong>
-                                    <p>(v rámci ročního členství</p>
+                                    <p>v rámci ročního členství</p>
                                 {% endif %}
                             </label>
                         </div>
                     </div>
                 {% endfor %}
-                <small class="text-muted d-block  mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+                <small class="text-muted d-block  mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
             </div>
 
 

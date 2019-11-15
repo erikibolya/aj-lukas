@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find%2CArray.prototype.filter%2CString.prototype.includes%2CArray.prototype.forEach%2CNodeList.prototype.forEach"></script>
 <script src="https://unpkg.com/unfetch/polyfill"></script>
-
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -129,13 +128,13 @@
 							<strong class="mb-3 d-inline-block">Bronze</strong>
 							<ul>
 
-																	<li>Molestiae consectetur et sint quae.</li>
-																	<li>Eos animi nam aut laboriosam qui ad.</li>
+																	<li>Tempore itaque sequi.</li>
+																	<li>Voluptatem tempora in et neque.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
 															<strong class="display-6 text-success ">Zdarma</strong>
-								<p class="text-success">(v rámci ročního členství</p>
+								<p class="text-success">v rámci ročního členství</p>
 													</div>
 					</div>
 									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
@@ -143,9 +142,9 @@
 							<strong class="mb-3 d-inline-block">Silver</strong>
 							<ul>
 
-																	<li>Omnis vel amet laborum qui porro aliquid et ex at.</li>
-																	<li>Pariatur fugit similique.</li>
-																	<li>Sunt ea ab qui pariatur molestias ex et minima.</li>
+																	<li>Doloremque ut est ut minus non impedit nihil ducimus.</li>
+																	<li>Ipsum ut possimus occaecati aut pariatur rem facilis qui ut.</li>
+																	<li>Quasi ea eos omnis.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -158,10 +157,10 @@
 							<strong class="mb-3 d-inline-block">Gold</strong>
 							<ul>
 
-																	<li>Nostrum ut occaecati eveniet iste consequatur distinctio asperiores omnis.</li>
-																	<li>Et nisi necessitatibus esse sapiente tempore voluptatem quidem.</li>
-																	<li>Dolores cumque qui officiis magnam.</li>
-																	<li>Nemo dolores quasi delectus voluptate aspernatur dolorum.</li>
+																	<li>Id corrupti aperiam provident id.</li>
+																	<li>Nihil laudantium iste eos nisi.</li>
+																	<li>Non aliquam tempora ut velit quia quo.</li>
+																	<li>Amet at hic quod praesentium qui itaque.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -174,11 +173,11 @@
 							<strong class="mb-3 d-inline-block">Platinum</strong>
 							<ul>
 
-																	<li>Cupiditate eum totam qui inventore incidunt est consequatur consectetur similique.</li>
-																	<li>Eum beatae aliquid vitae.</li>
-																	<li>Et ut et provident sunt.</li>
-																	<li>Ut illum autem.</li>
-																	<li>Consequuntur dolorem consequuntur quia.</li>
+																	<li>Perspiciatis mollitia mollitia voluptates iure dolores delectus eos tempore.</li>
+																	<li>Non qui occaecati labore id nobis.</li>
+																	<li>Qui doloribus ut ratione eveniet dolore amet.</li>
+																	<li>Eos ut perspiciatis molestias sunt inventore consequuntur ab atque.</li>
+																	<li>Ut sed dolorem odio.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -186,7 +185,7 @@
 								* 1000 Kč
 													</div>
 					</div>
-								<small class="text-muted d-block mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+								<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
 			</div>
 
 
@@ -198,13 +197,13 @@
 								Bronze
 															</strong>
 							<ul>
-																	<li>Sit nostrum adipisci odio blanditiis rerum et fugiat sapiente.</li>
-																	<li>Eius temporibus suscipit eum aut harum.</li>
+																	<li>Officiis iure dignissimos et quasi mollitia sunt accusantium esse esse.</li>
+																	<li>Enim et consequatur est rerum fugit quia iure dolorum libero.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
 															<strong class="display-6 text-success ">Zdarma</strong>
-								<p class="text-success">(v rámci ročního členství</p>
+								<p class="text-success">v rámci ročního členství</p>
 													</div>
 					</div>
 									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
@@ -213,14 +212,14 @@
 								Silver
 															</strong>
 							<ul>
-																	<li>Reiciendis unde quis sint odit ex et.</li>
-																	<li>Sit facilis occaecati aliquid aut veniam quae quos rem.</li>
-																	<li>Aut tempore libero non.</li>
+																	<li>Ab quibusdam voluptatum.</li>
+																	<li>Voluptatem repudiandae laborum reiciendis.</li>
+																	<li>Sed qui occaecati qui cumque delectus porro magnam delectus.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
 															<strong class="display-6 text-success ">Zdarma</strong>
-								<p class="text-success">(v rámci ročního členství</p>
+								<p class="text-success">v rámci ročního členství</p>
 													</div>
 					</div>
 									<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b">
@@ -229,10 +228,10 @@
 								Gold
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Quidem porro deleniti dolore quia.</li>
-																	<li>Et consequuntur itaque corrupti repellat quisquam et.</li>
-																	<li>Voluptas ut magnam.</li>
-																	<li>Aliquid aut adipisci qui ut.</li>
+																	<li>Enim sed sunt.</li>
+																	<li>Atque omnis nesciunt laborum architecto minus maiores cupiditate reprehenderit.</li>
+																	<li>Quas et vel quasi optio et commodi est.</li>
+																	<li>Saepe reprehenderit quaerat voluptas est temporibus ipsa est.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -246,11 +245,11 @@
 								Platinum
 								<span class="text-info">(-50%)</span>							</strong>
 							<ul>
-																	<li>Laboriosam autem tenetur veritatis enim laboriosam sunt exercitationem.</li>
-																	<li>Aut minima dolor asperiores officia facilis.</li>
-																	<li>Id omnis autem velit omnis quam ipsum.</li>
-																	<li>Deserunt eius voluptatibus.</li>
-																	<li>A minus fugiat vero recusandae et perspiciatis eos.</li>
+																	<li>Quo laboriosam culpa quis reiciendis neque quis.</li>
+																	<li>Aliquid ut eum repellat rem commodi perferendis est ex nesciunt.</li>
+																	<li>Et magnam est quidem dolorem et itaque enim dolores.</li>
+																	<li>Repellendus quia maxime explicabo consequatur.</li>
+																	<li>Eos officiis consequatur quia ut perspiciatis dicta et.</li>
 															</ul>
 						</div>
 						<div class="d-inline-flex flex-column justify-content-center align-items-end">
@@ -258,7 +257,7 @@
 								* 1000 Kč
 													</div>
 					</div>
-								<small class="text-muted d-block mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+								<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
 			</div>
 
 			<div class="text-center">

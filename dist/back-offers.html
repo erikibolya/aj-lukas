@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find%2CArray.prototype.filter%2CString.prototype.includes%2CArray.prototype.forEach%2CNodeList.prototype.forEach"></script>
 <script src="https://unpkg.com/unfetch/polyfill"></script>
-
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -165,81 +164,83 @@
 </header>
             <div class="site__content">
             
-	<div class="container">
-		<div class="section pt-3">
-			<div class="bg-white mb-3">
-				<div class="d-flex justify-content-between">
-					<ul class="hidden-md-down navbar--offers-top navbar-nav w-100 flex-sm-row mr-sm-1">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Aktivní</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Koncepty</a>
-						</li>
-						<li class="nav-item disabled">
-							<span class="nav-link" href="#">Ukončené</span>
-						</li>
-					</ul>
-					<nav class="hidden-lg-up w-100 mr-2 navbar--offers-top">
-						<select class="form-control  w-100" data-selectric data-role="responsive-select">
-							<option value="#">Aktivní</option>
-							<option value="#">Koncepty</option>
-							<option value="#">Ukončené</option>
-						</select>
-					</nav>
+    <div class="container">
+        <div class="section pt-3">
+            <div class="bg-white mb-3">
+                <div class="d-flex justify-content-between">
+                    <ul class="hidden-md-down navbar--offers-top navbar-nav w-100 flex-sm-row mr-sm-1">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Aktivní</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Koncepty</a>
+                        </li>
+                        <li class="nav-item disabled">
+                            <span class="nav-link" href="#">Ukončené</span>
+                        </li>
+                    </ul>
+                    <nav class="hidden-lg-up w-100 mr-2 navbar--offers-top">
+                        <select class="form-control  w-100" data-selectric data-role="responsive-select">
+                            <option value="#">Aktivní</option>
+                            <option value="#">Koncepty</option>
+                            <option value="#">Ukončené</option>
+                        </select>
+                    </nav>
 
-					<a href="" class="btn btn-info d-inline-flex align-items-center"><span class="icon icon-plus"></span><span class="hidden-xs-down ml-2">Přidat nabídku</span></a>
-				</div>
-			</div>
+                    <a href="" class="btn btn-info d-inline-flex align-items-center"><span class="icon icon-plus"></span><span class="hidden-xs-down ml-2">Přidat nabídku</span></a>
+                </div>
+            </div>
 
-			<div class="bg-light p-3 mb-3">
-				<div class="row">
-					<div class="col-lg-7">
-						     <div class="form-group">
-        <label for="" class="form-label"></label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel"></h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id=""
-                   data-placeholder=""
-                   data-dataset="">
-        
+            <div class="bg-light p-3 mb-3">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="form-group">
+                            <label class="form-label" >Pozice/Místo *</label>
+                            <div class="autocomplete autocomplete--search ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Pozice/Místo *</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete1" class="autocomplete__input"
+                data-placeholder="Doplnit placeholder"
+                data-url="answers"
+                data-preview="answers"                  data-max-item-render="50"                                data-noresult="Nenalezen žádný obor"                >
+        </select>
+    </div> 
 
 
 
-					</div>
-					<div class="col-lg-5">
-						<div class="form-group">
-							<label for="exampleInputName" class="form-label">Kontaktní osoba</label>
-							<select class="form-control" data-selectric required>
-								<option value="1">Vše</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Lead Optimization Technician</span>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label for="exampleInputName" class="form-label">Kontaktní osoba</label>
+                            <select class="form-control" data-selectric required>
+                                <option value="1">Vše</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
+    <span class="link-box__title">Lead Markets Executive</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">East Jovany</div>
+            <div class="icon-list__text-col">Kundemouth</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -268,8 +269,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	21.1.2014&nbsp;&nbsp;
-	2:00</time></div>
+	27.2.2010&nbsp;&nbsp;
+	4:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -315,14 +316,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">International Configuration Executive</span>
+    <span class="link-box__title">Global Division Engineer</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Kuhnburgh</div>
+            <div class="icon-list__text-col">East Amyview</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -351,8 +352,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	12.1.2015&nbsp;&nbsp;
-	15:07</time></div>
+	17.3.2017&nbsp;&nbsp;
+	7:04</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -398,14 +399,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Forward Paradigm Officer</span>
+    <span class="link-box__title">Dynamic Research Assistant</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">North Deannamouth</div>
+            <div class="icon-list__text-col">Madgehaven</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -434,8 +435,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	0.1.2012&nbsp;&nbsp;
-	9:01</time></div>
+	23.0.2011&nbsp;&nbsp;
+	18:08</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -481,14 +482,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">National Identity Agent</span>
+    <span class="link-box__title">National Markets Strategist</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">West Jillianview</div>
+            <div class="icon-list__text-col">West Hesterton</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -517,8 +518,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	12.7.2013&nbsp;&nbsp;
-	7:06</time></div>
+	13.4.2011&nbsp;&nbsp;
+	6:09</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -564,14 +565,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Investor Configuration Liason</span>
+    <span class="link-box__title">Senior Interactions Manager</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Gianniborough</div>
+            <div class="icon-list__text-col">Lake Jaden</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -600,8 +601,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	16.3.2019&nbsp;&nbsp;
-	8:03</time></div>
+	14.1.2012&nbsp;&nbsp;
+	23:04</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -647,14 +648,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Forward Web Analyst</span>
+    <span class="link-box__title">Investor Markets Architect</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Bruenfort</div>
+            <div class="icon-list__text-col">Franeckiport</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -683,8 +684,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	16.5.2016&nbsp;&nbsp;
-	15:00</time></div>
+	0.1.2013&nbsp;&nbsp;
+	7:01</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -730,14 +731,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Lead Markets Orchestrator</span>
+    <span class="link-box__title">Direct Operations Director</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Jacobiport</div>
+            <div class="icon-list__text-col">East Albert</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -766,8 +767,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	7.11.2014&nbsp;&nbsp;
-	10:09</time></div>
+	21.5.2017&nbsp;&nbsp;
+	4:04</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -813,14 +814,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Lead Response Liason</span>
+    <span class="link-box__title">Investor Operations Consultant</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">East Michelle</div>
+            <div class="icon-list__text-col">Johnniemouth</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -849,8 +850,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	23.2.2017&nbsp;&nbsp;
-	15:00</time></div>
+	26.4.2017&nbsp;&nbsp;
+	5:00</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -896,14 +897,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Investor Marketing Facilitator</span>
+    <span class="link-box__title">Future Usability Orchestrator</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">Fredmouth</div>
+            <div class="icon-list__text-col">West Adonis</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -932,8 +933,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	2.5.2011&nbsp;&nbsp;
-	14:01</time></div>
+	3.4.2016&nbsp;&nbsp;
+	11:09</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -979,14 +980,14 @@
     </div>
 </div>
 <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-    <span class="link-box__title">Investor Research Manager</span>
+    <span class="link-box__title">Principal Configuration Executive</span>
 </a>
 <div class="bg-white p-3 border-b">
     <div class="icon-list">
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-building"></span></div>
             <div class="icon-list__info-col">Místo pracoviště</div>
-            <div class="icon-list__text-col">East Haylie</div>
+            <div class="icon-list__text-col">South Narcisofurt</div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-eye"></span></div>
@@ -1015,8 +1016,8 @@
             <div class="icon-list__icon-col"><span class="icon icon-warning-circle-fill"></span></div>
             <div class="icon-list__info-col">Aktivní do</div>
             <div class="icon-list__text-col"><time>
-	21.10.2019&nbsp;&nbsp;
-	18:01</time></div>
+	9.11.2016&nbsp;&nbsp;
+	6:06</time></div>
         </div>
         <div class="icon-list__row">
             <div class="icon-list__icon-col"><span class="icon icon-atom"></span></div>
@@ -1088,8 +1089,8 @@
 <div class="mb-5 pb-3 text-center">
     <button class="btn btn-success btn-bottom">Načíst další</button>
 </div>
-		</div>
-	</div>
+        </div>
+    </div>
 
         </div>
             <div class="bg-white">
@@ -1143,16 +1144,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <script src="public/js/plugins/autoComplete.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/selectric.js"></script>
     <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obce.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/kraje.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/pcznalosti.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/benefity.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/dalsiznalosti.js"></script> <!-- remove in production -->
+    <script src="public/js/plugins/data/jazyky.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/odpovedi.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
     <script src="public/js/plugins/custom.js"></script>
     <script src="public/js/plugins/mobile-detect.js"></script>

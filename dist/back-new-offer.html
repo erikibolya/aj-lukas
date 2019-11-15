@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find%2CArray.prototype.filter%2CString.prototype.includes%2CArray.prototype.forEach%2CNodeList.prototype.forEach"></script>
 <script src="https://unpkg.com/unfetch/polyfill"></script>
-
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -134,7 +133,7 @@
                 <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
                       l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
                 </svg>
-                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(68)
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(80)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -175,58 +174,71 @@
             </nav>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Základní údaje</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Základní údaje *</h2>                <div class="bg-white p-3">
                     <div class="form-group">
-                        <label for="exampleInputName" class="form-label" >Název pozice*</label>
+                        <label for="exampleInputName" class="form-label" >Název pozice *</label>
                         <input type="text" class="form-control" id="exampleInputName"  placeholder="např. Samostatný kuchař, Asistentka Praha..." required>
                     </div>
-                         <div class="form-group">
-        <label for="autocomplete1" class="form-label">Obor*</label>
-        <div class="autocomplete autocomplete--tag ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Obor*</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <select id="autocomplete1" class="autocomplete__input" data-placeholder="+ Gastronomie a pohostinství, Administrativa..."  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
-        
+                    <div class="form-group">
+                        <label class="form-label" >Obor *</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Obor*</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete1" class="autocomplete__input"
+                data-placeholder="+ Gastronomie a pohostinství, Administrativa..."
+                data-placeholder-add="+ Přidat..."
+                data-url="categories"
+                                data-preview="categories"                data-max-item="3"                data-max-item-text="Můžete přidat maximálně 3 obory"                  data-max-item-render="50"                                data-noresult="Nenalezen žádný obor"                multiple="multiple"></select>
+    </div> 
 
 
 
-                         <div class="form-group">
-        <label for="autocomplete2" class="form-label">Profese*</label>
-        <div class="autocomplete autocomplete--tag ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Profese*</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <select id="autocomplete2" class="autocomplete__input" data-placeholder="+ Kuchař, Asistentka..."   data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
-        
+
+
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="form-label" >Profese *</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Profese*</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete2" class="autocomplete__input"
+                data-placeholder="+ Kuchař, Asistentka..."
+                data-placeholder-add="+ Přidat..."
+                data-url="professions"
+                                                data-max-item="5"                data-max-item-text="Můžete přidat maximálně 5 profesí"                  data-max-item-render="50"                data-initial-hint="Zadejte požadovanou profesi"                data-noresult="Nenalezena žádná profese"                multiple="multiple"></select>
+    </div> 
 
 
+
+
+
+
+                    </div>
 
                 </div>
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Místo výkonu práce</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Místo výkonu práce *</h2>                <div class="bg-white p-3">
                     <div class="show-content__wrapper">
                         <div class="mb-3">
                             <input class="form-check-input show-content__controll" type="radio" name="jobLocation" id="exampleRadios1" value="work" checked>
@@ -241,27 +253,27 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                     <div class="form-group">
-        <label for="autocomplete3" class="form-label">Adresa/Lokalita*</label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Adresa/Lokalita*</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id="autocomplete3"
-                   data-placeholder="Adresa, Ulice, Obec, Město, Okres, Kraj"
-                   data-dataset="lorem.json">
-        
+                                <label for="autocomplete3" class="form-label">Adresa/Lokalita *</label>
+                                <div class="autocomplete autocomplete--search ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Adresa/Lokalita*</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete3" class="autocomplete__input"
+                data-placeholder="Adresa, Ulice, Obec, Město, Okres, Kraj"
+                data-url=""
+                                                                                >
+        </select>
+    </div> 
+
+
 
 
 
@@ -279,26 +291,32 @@
                             <label class="form-check-label" for="exampleRadios3">Práce vyžaduje cestování (např. Řidič, Obchodní zástupce)</label>
                         </div>
                         <div class="travel-input__content hidden">
-                                 <div class="form-group">
-        <label for="autocomplete4" class="form-label">Lokalita/y*</label>
-        <div class="autocomplete autocomplete--tag ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Lokalita/y*</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <select id="autocomplete4" class="autocomplete__input" data-placeholder="+ Okres, Kraj, Země"  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
-        
+                            <div class="form-group">
+                                <label for="autocomplete3" class="form-label">Lokalita/y *</label>
+                                <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Lokalita/y*</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete4" class="autocomplete__input"
+                data-placeholder="+ Okres, Kraj, Země"
+                data-placeholder-add=""
+                data-url=""
+                                                                                                                                multiple="multiple"></select>
+    </div> 
 
 
+
+
+
+                            </div>
 
                         </div>
                     </section>
@@ -307,7 +325,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Popis pozice *</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <textarea class="form-control" id="tinymce" cols="30"></textarea>
                     </div>
@@ -315,7 +333,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Pracovní poměr</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Pracovní poměr *</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -428,7 +446,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nástup možnný od</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nástup možnný od *</h2>                <div class="bg-white p-3">
                     <div class="form-group">
                         <input type="date" class="form-control" required />
                     </div>
@@ -436,7 +454,7 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Vzdělání uchazeče *</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -515,7 +533,8 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Jazykové znalosti uchazeče</h2>                <div class="bg-white p-3">
+
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Jazykové znalosti uchazeče *</h2>                <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Čeština nutností*</label>
                     <div class="row">
                         <div class="col-md-6">
@@ -541,32 +560,37 @@
 
 
                     <hr class="mx-minus-3">
-                         <div class="form-group">
-        <label for="autocompleteJazyk" class="form-label">Vyberte cizí jazyk</label>
-        <div class="autocomplete autocomplete--tag ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Vyberte cizí jazyk</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <select id="autocompleteJazyk" class="autocomplete__input" data-placeholder="+ Angličtina, Němčina..."  data-preview data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
-        
+                    <div class="form-group">
+                        <label  class="form-label" >Vyberte cizí jazyk</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Vyberte cizí jazyky</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete5" class="autocomplete__input"
+                data-placeholder="+ Angličtina, Němčina..."
+                data-placeholder-add="+ Přidat..."
+                data-url="languages"
+                                data-preview="languages"                                                  data-max-item-render="50"                                data-noresult="Nenalezen žádný jazyk"                multiple="multiple"></select>
+    </div> 
 
 
 
+
+
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Požadované vzdělání uchazeče</h2>                                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Řidičské oprávnění uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
                                 <div class="form-check">
@@ -713,64 +737,68 @@
                             </div>
                                             </div>
                     <hr class="mx-minus-3">
-                         <div class="form-group">
-        <label for="autocomplete5" class="form-label">Další počitačové znalosti*</label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Další počitačové znalosti*</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id="autocomplete5"
-                   data-placeholder="+ PHP, C#, Java, HTML..."
-                   data-dataset="lorem.json">
-        
+                    <div class="form-group">
+                        <label  class="form-label" >Další počitačové znalosti</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Další počitačové znalosti</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete6" class="autocomplete__input"
+                data-placeholder="+ PHP, C#, Java, HTML..."
+                data-placeholder-add="+ Přidat..."
+                data-url="pcskills"
+                data-add-tag="přidat"                data-preview="pcskills"                                                  data-max-item-render="50"                                                multiple="multiple"></select>
+    </div> 
 
 
 
+
+
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Další znalosti uchazeče</h2>                <div class="bg-white p-3">
-                         <div class="form-group">
-        <label for="autocomplete6" class="form-label">Další znalosti</label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Další znalosti</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id="autocomplete6"
-                   data-placeholder="+ Strojopis, Mzdové účetníctví..."
-                   data-dataset="lorem.json">
-        
+                    <div class="form-group">
+                        <label  class="form-label" >Další znalosti</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Další počitačové znalosti</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete6" class="autocomplete__input"
+                data-placeholder="+ Strojopis, Mzdové účetnictví..."
+                data-placeholder-add="+ Přidat..."
+                data-url="otherskills"
+                data-add-tag="přidat"                data-preview="otherskills"                                                  data-max-item-render="50"                                                multiple="multiple"></select>
+    </div> 
 
 
 
+
+
+                    </div>
                 </div>
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nabízená mzda</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nabízená mzda *</h2>                <div class="bg-white p-3">
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
@@ -786,7 +814,7 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
-                                <label class="form-label">Měna</label>
+                                <label class="form-label">Měna *</label>
                                 <select class="form-control" required data-selectric>
                                     <option value="1">CZK</option>
                                     <option value="2">EUR</option>
@@ -795,10 +823,12 @@
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group">
-                                <label class="form-label">Za období</label>
+                                <label class="form-label">Za období *</label>
                                 <select class="form-control" required data-selectric>
-                                    <option value="1">Měšíčně</option>
-                                    <option value="2">Denně</option>
+                                    <option value="1">Měšíc</option>
+                                    <option value="2">Týden</option>
+                                    <option value="3">Den</option>
+                                    <option value="3">Hodina</option>
                                 </select>
                             </div>
                         </div>
@@ -814,36 +844,38 @@
 
             <div class="mb-4">
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Nabízené benefity</h2>                <div class="bg-white p-3">
-                         <div class="form-group">
-        <label for="autocomplete7" class="form-label">Benefity</label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">Benefity</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id="autocomplete7"
-                   data-placeholder="+ Závodní stravování..."
-                   data-dataset="lorem.json">
-        
+                    <div class="form-group">
+                        <label  class="form-label" >Benefity</label>
+                        <div class="autocomplete autocomplete--tag ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">Benefity</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="autocomplete7" class="autocomplete__input"
+                data-placeholder="+ Závodní stravování..."
+                data-placeholder-add="+ Přidat..."
+                data-url="benefits"
+                data-add-tag="přidat"                data-preview="benefits"                                                  data-max-item-render="50"                                                multiple="multiple"></select>
+    </div> 
 
 
 
+
+
+                    </div>
                 </div>
             </div>
 
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Kontakt *</h2>                <div class="bg-white p-3">
                     <label for="exampleInputName" class="form-label">Kontaktní osoba*</label>
                     <div class="form-group">
                         <select class="form-control" data-selectric data-contact data-email-target="contactEmail" data-phone-target="contactPhone" required>
@@ -855,13 +887,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="form-label">Kontaktní email</label>
+                                <label for="exampleInputEmail1" class="form-label">Kontaktní email  *</label>
                                 <input type="email" class="form-control" id="contactEmail" aria-describedby="emailHelp" value="tombombadyl@email.cz" disabled>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="contactPhone" class="form-label">Kontaktní telefon</label>
+                                <label for="contactPhone" class="form-label">Kontaktní telefon  *</label>
                                 <input type="texst" class="form-control" id="contactPhone" value="777 100 332" disabled>
                             </div>
                         </div>
@@ -884,11 +916,11 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Inzerovat v</h2>                <div class="bg-white p-3">
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Inzerovat v *</h2>                <div class="bg-white p-3">
                     <label class="custom-switch">
     <div class="custom-switch__text">
         Inzerovat v České republice <small class="text-muted">(Actijobs.cz)</small>    </div>
-    <input type="checkbox" class="custom-switch__input" id="2" >
+    <input type="checkbox" class="custom-switch__input" id="2" checked>
     <div class="custom-switch__wrapper">
         <span class="custom-switch__bullet"></span>
     </div>
@@ -905,7 +937,7 @@
             </div>
 
             <div class="mb-4">
-                                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Možnost zvýhodnění*</h2>                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b custom-radio__wrapper--checked">
+                                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Možnost zvýhodnění *</h2>                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b custom-radio__wrapper--checked">
                         <div>
                             <div class="custom-radio">
                                 <input class="form-check-input" type="radio" name="classes" id="class1" value="option1" checked>
@@ -913,14 +945,14 @@
                             </div>
                             <ul>
 
-                                                                    <li>Aliquam non repellat quis laudantium.</li>
-                                                                    <li>Expedita ut harum at consectetur excepturi officia dolore.</li>
+                                                                    <li>Consequatur voluptate velit.</li>
+                                                                    <li>Voluptas velit natus nemo qui dolorum dolores consectetur.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
                             <label for="class1" class="text-right">
                                                                     <strong class="display-6">Zdarma</strong>
-                                    <p>(v rámci ročního členství</p>
+                                    <p>v rámci ročního členství</p>
                                                             </label>
                         </div>
                     </div>
@@ -932,15 +964,15 @@
                             </div>
                             <ul>
 
-                                                                    <li>Facere aut sit nostrum exercitationem nemo quia.</li>
-                                                                    <li>Quis nulla enim quia corrupti.</li>
-                                                                    <li>Temporibus placeat molestiae dolores quia earum dolor enim saepe modi.</li>
+                                                                    <li>Nesciunt ex ut amet officia iure non sed earum.</li>
+                                                                    <li>Voluptas nihil rerum qui.</li>
+                                                                    <li>Atque delectus dolorem voluptas.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
                             <label for="class2" class="text-right">
                                                                     <strong class="display-6">2 999 AB</strong>
-                                    <p>*1000 Kč</p>
+                                    <p>* 1000 Kč</p>
                                                             </label>
                         </div>
                     </div>
@@ -952,16 +984,16 @@
                             </div>
                             <ul>
 
-                                                                    <li>Accusamus dolorem necessitatibus incidunt repellendus qui corporis doloribus.</li>
-                                                                    <li>Nobis ut ut consectetur ad cupiditate.</li>
-                                                                    <li>Impedit eligendi tenetur vel numquam sed facilis iusto perspiciatis ad.</li>
-                                                                    <li>Neque delectus voluptas velit ex.</li>
+                                                                    <li>Id in autem.</li>
+                                                                    <li>Dolore maiores et.</li>
+                                                                    <li>Rem sed et provident itaque facilis ut vero dolor.</li>
+                                                                    <li>Voluptatem est neque earum alias qui et quasi.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
                             <label for="class3" class="text-right">
                                                                     <strong class="display-6">3 999 AB</strong>
-                                    <p>*1000 Kč</p>
+                                    <p>* 1000 Kč</p>
                                                             </label>
                         </div>
                     </div>
@@ -973,21 +1005,21 @@
                             </div>
                             <ul>
 
-                                                                    <li>Mollitia et et eius.</li>
-                                                                    <li>Vitae dolores velit distinctio reprehenderit cumque.</li>
-                                                                    <li>Alias veniam ad.</li>
-                                                                    <li>Eum unde corporis aut voluptas unde ut eum nisi.</li>
-                                                                    <li>Magnam ratione quaerat placeat.</li>
+                                                                    <li>Mollitia nisi aspernatur consequuntur non ad.</li>
+                                                                    <li>Error amet eos voluptatem dolorem animi.</li>
+                                                                    <li>Eos sint aut rem saepe eveniet.</li>
+                                                                    <li>Nostrum et aliquam autem totam et eius velit asperiores.</li>
+                                                                    <li>Non provident quis excepturi qui qui alias illo sit.</li>
                                                             </ul>
                         </div>
                         <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
                             <label for="class4" class="text-right">
                                                                     <strong class="display-6">4 999 AB</strong>
-                                    <p>*1000 Kč</p>
+                                    <p>* 1000 Kč</p>
                                                             </label>
                         </div>
                     </div>
-                                <small class="text-muted d-block  mt-2">Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+                                <small class="text-muted d-block  mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
             </div>
 
 
@@ -1076,16 +1108,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <script src="public/js/plugins/autoComplete.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/selectric.js"></script>
     <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obce.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/kraje.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/pcznalosti.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/benefity.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/dalsiznalosti.js"></script> <!-- remove in production -->
+    <script src="public/js/plugins/data/jazyky.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/odpovedi.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
     <script src="public/js/plugins/custom.js"></script>
     <script src="public/js/plugins/mobile-detect.js"></script>

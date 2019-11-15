@@ -40,20 +40,24 @@ function blurAutocompleteInput($element) {
     $element.removeClass("autocomplete__input--focus");
 }
 
-function isAutoCompleteInFullScreenMode($autocomplete) {
-    return $autocomplete.hasClass("autocomplete--fullscreen");
+function isAutoCompleteInFullScreenMode(autocomplete) {
+    return autocomplete.classList.contains("autocomplete--fullscreen");
 }
 
-function isAutoCompleteInWindow($autocomplete) {
-    return $autocomplete.hasClass("autocomplete--inwindow");
+function isAutoCompleteInWindow(autocomplete) {
+    return autocomplete.classList.contains("autocomplete--inwindow");
 }
 
-function showAutocomplete($autocomplete) {
-    $autocomplete.addClass("autocomplete--fullscreen");
+function showAutocompleteInFullscreen(autocomplete) {
+    autocomplete.classList.add("autocomplete--fullscreen");
 }
 
-function hideAutocomplete($autocomplete) {
-    $autocomplete.removeClass("autocomplete--fullscreen");
+function hideAutocompleteFromFullscreen(autocomplete) {
+    autocomplete.classList.remove("autocomplete--fullscreen");
+}
+
+function resetBodyScrollPosition() {
+    $("body, html").scrollTop(0);
 }
 
 function saveBodyScrollPosition() {
@@ -89,7 +93,7 @@ $(".autocomplete__input").on("click", function () {
                 saveBodyScrollPosition();
             }
             input.blur();
-            showAutocomplete(atc);
+            showAutocompleteInFullscreen(atc);
             input.focus();
             enableNoBounce();
         }
@@ -106,118 +110,28 @@ $(".autocomplete__input").on("blur", function () {
     }
 });
 
-$("[data-autocomplete-close]").on("click", function () {
-    var atc = $(this).closest(".autocomplete");
-    var input = atc.children(".autocomplete__input");
 
-    hideAutocomplete(atc);
-    blurAutocompleteInput($(input));
-
-    if (!isAutoCompleteInWindow(atc)) {
-        restoreBodyScrollPosition();
-        disableNoBounce();
-    } else {
-
-        atc.closest(".modal").removeClass("modal--innerwindow");
-    }
-});
 
 for (var i = 0, max = autocompletes.length; i < max; i++) {
     let element = autocompletes[i];
     let input = element.querySelector(".autocomplete__input");
-    let placeholder = input.getAttribute("data-placeholder");
     let selector = "#" + input.id;
-    let dataset = input.getAttribute("data-dataset");
-    let noresult = input.getAttribute("data-noresult");
-    let autocompelte = new autoComplete({
-        placeHolder: placeholder, // Place Holder text                 | (Optional)
-        selector: selector, // Input field selector              | (Optional)
-        threshold: 0, // Min. Chars length to start Engine | (Optional)
-        debounce: 300, // Post duration for engine to start | (Optional)
-        searchEngine: "strict", // Search Engine type/mode           | (Optional)
-        highlight: true,
-        maxResults: 60,
-        trigger: [],
-        data: {
-            src: function () {
-//                const source = fetch("/public/js/plugins/" + dataset);
-//                const data = source.json();
-//                return data;
-            }
-        },
-        sort: function (a, b) {
-            return 0;
-        },
-        resultsList: {
-            render: true,
-            container: function (source) {
-                source.id = selector + "-results";
-                source.setAttribute("class", "autocomplete__results");
-                $(source).on("click touchmove", function () {
-                    $(input).blur();
-                });
-            },
-            destination: document.querySelector(selector),
-            position: "afterend",
-            element: "div"
-        },
-        resultItem: {
-            content: function (data, source) {
-                source.innerHTML = data.match;
-                source.classList.add("autocomplete__result");
-            },
-            element: "div",
-        },
-        onSelection: function (feedback) {
-            alert("ha");
-            const selection = feedback.selection.value;
-            // Render selected choice to selection div
-            $element = $(element);
-            $input = $(input);
-            blurAutocompleteInput($input);
 
-            hideAutocomplete($element);
-
-            if (!isAutoCompleteInWindow($element)) {
-                disableNoBounce();
-                restoreBodyScrollPosition();
-            } else {
-                $element.closest(".modal").removeClass("modal--innerwindow");
-            }
-
-            document.querySelector(selector).value = selection;
-//            console.log(document.querySelector(selector + "-results"));
-//            document.querySelector(selector + "-results").innerHTML = "";
-
-        },
-
-    });
-    console.log(autocompelte);
-
-
-}
-
-for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
-    let element = tagAutocompletes[i];
-    let input = element.querySelector(".autocomplete__input");
     let placeholder = input.getAttribute("data-placeholder");
-    let preview = input.hasAttribute("data-preview");
-    let placeholderFilled = input.getAttribute("data-placeholder-filled");
-    let selector = "#" + input.id;
-    let dataset = input.getAttribute("data-dataset");
-    let noresult = input.getAttribute("data-noresult");
 
-    let predata = [];
-    console.log(preview);
-    if (preview) {
-        predata = categories;
-    }
+    let maxItemRender = input.hasAttribute("data-max-item-render") ? parseInt(input.getAttribute("data-max-item-render")) : 20;
+
+    let dataPreview = input.hasAttribute("data-preview") ? input.getAttribute("data-preview") : false;
+    let addLocation = input.hasAttribute("data-add-location") && ("geolocation" in navigator) ? input.getAttribute("data-add-location") : false;
+
+    let initialHint = input.hasAttribute("data-initial-hint") ? input.getAttribute("data-initial-hint") : "Initial Hint";
+    let dataNoResult = input.hasAttribute("data-noresult") ? input.getAttribute("data-noresult") : "";
+    let dataUrl = input.getAttribute("data-url");
 
     let options = {
         silent: false,
-        choices: predata,
-        removeItemButton: true,
-        duplicateItemsAllowed: true,
+//        choices: predata,
+        maxItemCount: 1,
         paste: true,
         searchFloor: -1,
         searchChoices: false,
@@ -227,7 +141,155 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         placeholderValue: placeholder,
         loadingText: 'Loading...',
         itemSelectText: '',
-        noResultsText: noresult,
+        noResultsText: dataNoResult,
+        noChoicesText: dataNoResult,
+        callbackOnCreateTemplates: function (template) {
+            return {
+                choice: function (classes, data, itemSelectText) {
+                    const role = data.groupId > 0 ? 'role="treeitem"' : 'role="option"';
+                    const icons = {
+                        "location": '<svg class="svgicon svgicon--textcolor svgicon--small" viewBox="0 0 18.00098 18.00098"><path class="svg__path" d="M12.81531,9A3.04113,3.04113,0,0,0,10,7.00055l-.00049-.00006a2.9997,2.9997,0,0,0,0,5.999L10,12.99945A2.97073,2.97073,0,0,0,12.81531,9ZM11,11.721a1.97627,1.97627,0,0,1-1,.2785l-.00049.00006A1.97646,1.97646,0,0,1,9,11.7215,1.99958,1.99958,0,0,1,8.27832,11a1.93583,1.93583,0,0,1-.00006-2A1.99991,1.99991,0,0,1,9,8.27844a1.97642,1.97642,0,0,1,.99951-.278L10,8.00055A1.97622,1.97622,0,0,1,11,8.279,2.00074,2.00074,0,0,1,11.72083,9a1.93622,1.93622,0,0,1-.00007,2A2.00038,2.00038,0,0,1,11,11.721Z" transform="translate(-0.99951 -0.99951)"/><path class="svg__path" d="M16.78174,9A6.85594,6.85594,0,0,0,11,3.21826V.99951H9V3.21814A6.85607,6.85607,0,0,0,3.21722,9H.99951v2H3.2171A6.8562,6.8562,0,0,0,9,16.7829v2.21759h2V16.78278A6.85607,6.85607,0,0,0,16.78186,11h2.21863V9ZM11,15.772a5.84532,5.84532,0,0,1-1,.09186H9.99951a5.86341,5.86341,0,0,1,0-11.72662H10A5.86063,5.86063,0,0,1,11,15.772Z" transform="translate(-0.99951 -0.99951)"/></svg>'
+                    };
+                    const hasCustomProperties = data.hasOwnProperty("customProperties") && data.customProperties !== null;
+                    const hasIcon = hasCustomProperties && data.customProperties.hasOwnProperty("type");
+                    const hasDescription = hasCustomProperties && data.customProperties.hasOwnProperty("description");
+                    const icon = hasIcon ? "<span class='" + classes.item + "__ico " + "'>" + icons[data.customProperties.type] + "</span>" : "";
+                    const description = hasDescription ? "<span class='" + classes.item + "__description " + "'>" + data.customProperties.description + "</span>" : "";
+                    const label = "<span class='" + classes.item + "__label " + "'>" + data.label + "</span>";
+                    const itemDisabled = data.disabled ? classes.itemDisabled : "";
+                    const itemSelectable = !data.disabled ? classes.itemSelectable : "";
+                    const placeholder = data.placeholder ? classes.placeholder : "";
+                    return template('<div class="' + classes.item + ' ' + classes.itemChoice + ' ' + itemDisabled + ' ' + itemSelectable + ' ' + placeholder + '" data-select-text="' + itemSelectText + '" data-choice data-id="' + data.id + '" data-value="' + data.value + '" ' + (data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable') + ' id="' + data.elementId + '\" ' + role + '> ' + icon + ' <span class="' + classes.item + '__content">' + label + ' ' + description + "</span></div>");
+                },
+                item: function (globalClasses, data, removeItemButton) {
+                    const ariaSelected = data.active ? 'aria-selected="true"' : '';
+                    const ariaDisabled = data.disabled ? 'aria-disabled="true"' : '';
+                    const dataHighlighted = data.highlighted ? globalClasses.highlightedState : "";
+                    const placeholder = data.placeholder ? globalClasses.placeholder : "";
+                    if (removeItemButton) {
+                        const itemSelectable = !data.disabled ? globalClasses.itemSelectable : "";
+                        const svg = '<svg class="choices__svg svgicon svgicon--cross" viewBox="0 0 20 20"><path class="svg__path" d="m 14.243,12.8285 c 0.391,0.391 0.391,1.023 0,1.414 -0.391,0.391 -1.023,0.391 -1.414,0 l -2.8290002,-2.828 -2.829,2.828 c -0.391,0.391 -1.023,0.391 -1.414,0 -0.391,-0.391 -0.391,-1.023 0,-1.414 l 2.829,-2.828 -2.829,-2.829 c -0.391,-0.391 -0.391,-1.023 0,-1.414 0.391,-0.391 1.023,-0.391 1.414,0 l 2.829,2.8290001 L 12.829,5.7575 c 0.391,-0.391 1.023,-0.391 1.414,0 0.391,0.391 0.391,1.023 0,1.414 l -2.829,2.829 z" /></svg>'
+                        return template("<div class=\"".concat(globalClasses.item, " ").concat(dataHighlighted, " ").concat(itemSelectable, " ").concat(placeholder, "\" data-item data-id=\"").concat(data.id, "\" data-value=\"").concat(data.value, "\" data-custom-properties='").concat(data.customProperties, "' data-deletable ").concat(ariaSelected, " ").concat(ariaDisabled, "> <span class=\"choices__text\"> ").concat(data.label, " </span> <button type=\"button\" class=\"").concat(globalClasses.button, "\" data-button aria-label=\"Remove item: '").concat(data.value, "'\"> ").concat(svg, " </button> </div>"));
+                    } else {
+                        const itemSelectable = !data.highlighted ? globalClasses.itemSelectable : "";
+                        return template("<div class=\"".concat(globalClasses.item, " ").concat(dataHighlighted, " ").concat(itemSelectable, " ").concat(placeholder, "\"data-itemdata-id=\"").concat(data.id, "\"data-value=\"").concat(data.value, "\"").concat(ariaSelected).concat(ariaDisabled, "><span class=\"choices__text\">").concat(data.label, "</span></div>"));
+                    }
+                }
+            };
+        },
+        callbackOnInit: function () {
+            this.input.element.placeholder = placeholder;
+            this.input.element.classList.add("choices__input--singleselect");
+
+        }
+    };
+
+    let instance = new Choices(input, options);
+    let inputCloned = instance.input.element;
+    let currentSearch = "";
+    let alreadyHave = [];
+
+    input.addEventListener('search', function (event) {
+        currentSearch = event.detail.value.trim();
+        if (currentSearch === "") {
+            if (dataPreview !== false) {
+                let data = getDefaultData(dataPreview, alreadyHave);
+                if (addLocation !== false) {
+                    data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+                }
+                instance.setChoices(data, 'value', 'label', true);
+            } else {
+                instance.clearChoices();
+            }
+
+        } else {
+            let data = getSearchData(currentSearch, alreadyHave, maxItemRender, dataUrl); //nahradit voláním na api
+            instance.setChoices(data, 'value', 'label', true);
+        }
+    }, false);
+    input.addEventListener('addItem', function (event) {
+        if (event.detail.value === -1) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log(position.coords);
+            }, function (error) {
+                console.log(error);
+            });
+
+        } else {
+            inputCloned.value = event.detail.label;
+            alreadyHave = [event.detail.value];
+
+            instance.hideDropdown();
+        }
+
+
+//        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
+    }, false);
+
+//    input.addEventListener('change', function (event) {
+//        alert("change");
+//        let cloned = event.target.parentNode.querySelector(".choices__input--cloned");
+//        cloned.value = event.detail.label;
+//    }, false);
+//    input.addEventListener('blur', function (event) {
+//
+//        if (event.detail.input.value.trim() !== alreadyHave) {
+//
+//            event.detail.input.value = "";
+//            currentSearch = "";
+//            alreadyHave = "";
+//            instance.clearChoices();
+//            instance.setChoices(getSearchData(currentSearch, 20, true), 'value', 'label', true);
+//        }
+//    }, false);
+
+    inputCloned.addEventListener('focus', function (event) {
+        if (dataPreview !== false) {
+            alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
+            let data = getDefaultData(dataPreview, alreadyHave);
+            if (addLocation !== false) {
+                data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+            }
+            instance.setChoices(data, 'value', 'label', true);
+        } else {
+            instance.clearChoices();
+        }
+
+    }, false);
+
+
+
+
+}
+
+for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
+    let element = tagAutocompletes[i];
+    let input = element.querySelector(".autocomplete__input");
+    let closeButton = element.querySelector("[data-autocomplete-close]");
+    let selector = "#" + input.id;
+    let placeholder = input.getAttribute("data-placeholder");
+    let placeholderAdd = input.getAttribute("data-placeholder-add");
+    let maxItem = input.hasAttribute("data-max-item") ? parseInt(input.getAttribute("data-max-item")) : -1;
+    let maxItemText = input.getAttribute("data-max-item-text");
+    let maxItemRender = input.hasAttribute("data-max-item-render") ? parseInt(input.getAttribute("data-max-item-render")) : 20;
+    let addTag = input.hasAttribute("data-add-tag") ? input.getAttribute("data-add-tag") : false;
+    let dataPreview = input.hasAttribute("data-preview") ? input.getAttribute("data-preview") : false;
+    let initialHint = input.hasAttribute("data-initial-hint") ? input.getAttribute("data-initial-hint") : "Initial Hint";
+    let dataNoResult = input.hasAttribute("data-noresult") ? input.getAttribute("data-noresult") : "";
+    let dataUrl = input.getAttribute("data-url");
+    let options = {
+        removeItemButton: true,
+        searchFloor: -1,
+        searchChoices: false,
+        maxItemCount: maxItem,
+        shouldSort: false,
+        placeholder: true,
+        placeholderValue: placeholder,
+        duplicateItemsAllowed: false,
+        itemSelectText: '',
+        noResultsText: dataNoResult,
+        noChoicesText: dataNoResult,
+        maxItemText: maxItemText,
         addItemText: function (value) {
             return "Press Enter to add <b>" + value + "</b>";
         },
@@ -240,22 +302,13 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                         "category": '<svg class="svgicon svgicon--textcolor svgicon--small" viewBox="0 0 20 20"><path class="svgicon__path" d="M19,4.979H8.252L7.431,3.263C7.347,3.089,7.172,2.979,6.979,2.979H1.916c-0.195,0-0.373,0.114-0.455,0.292 l-0.916,2C0.516,5.336,0.5,5.407,0.5,5.479v11.042c0,0.276,0.224,0.5,0.5,0.5h18c0.276,0,0.5-0.224,0.5-0.5V5.479 C19.5,5.203,19.276,4.979,19,4.979z M18.5,16.021h-17V5.588l0.737-1.609h4.428l0.822,1.716C7.57,5.869,7.745,5.979,7.938,5.979H18.5 V16.021z"/></svg>',
                         "profession": '<svg class="svgicon svgicon--textcolor svgicon--small" viewBox="0 0 20 20"><path class="svgicon__path" d="M9.983,5.545c1.459,0,2.646-1.188,2.646-2.647S11.442,0.25,9.983,0.25c-1.46,0-2.648,1.188-2.648,2.647 S8.523,5.545,9.983,5.545z M9.983,1.25c0.907,0,1.646,0.739,1.646,1.647s-0.738,1.647-1.646,1.647 c-0.909,0-1.648-0.739-1.648-1.647S9.075,1.25,9.983,1.25z"/><path class="svgicon__path" d="M14.074,6.844l-0.82-0.937c-0.095-0.108-0.231-0.17-0.376-0.17h-2.861H9.983H7.122 c-0.144,0-0.281,0.062-0.376,0.17L5.925,6.844c-0.08,0.091-0.124,0.208-0.124,0.33l0,5.993c0,0.206,0.126,0.391,0.317,0.466 l1.338,0.524v5.093c0,0.134,0.053,0.262,0.148,0.355c0.094,0.093,0.22,0.145,0.352,0.145c0.002,0,0.004,0,0.006,0L10,19.727 l2.038,0.023c0.002,0,0.004,0,0.006,0c0.132,0,0.258-0.052,0.352-0.145c0.095-0.094,0.148-0.222,0.148-0.355v-5.093l1.337-0.524 c0.191-0.075,0.317-0.26,0.317-0.466V7.174C14.198,7.053,14.154,6.936,14.074,6.844z M13.198,12.826l-0.654,0.257v-3.046 c0-0.276-0.224-0.5-0.5-0.5s-0.5,0.224-0.5,0.5v8.707l-1.027-0.012v-4.535c0-0.276-0.224-0.5-0.5-0.5 c-0.006,0-0.011,0.003-0.017,0.004c-0.006-0.001-0.011-0.004-0.017-0.004c-0.276,0-0.5,0.224-0.5,0.5v4.535l-1.027,0.012v-8.707 c0-0.276-0.224-0.5-0.5-0.5s-0.5,0.224-0.5,0.5v3.046l-0.655-0.257l0-5.464l0.547-0.625h2.634h0.034h2.634l0.547,0.625V12.826z"/></svg>'
                     };
-                    const isKeyword = data.customProperties.type === "keyword";
-                    const icon = (!isKeyword) ? "<span class='" + classes.item + "__ico " + classes.item + "__ico--" + data.customProperties.type + "'>" + icons[data.customProperties.type] + "</span>" : "";
+                    const hasCustomProperties = ("customProperties" in data) && data.customProperties !== null;
+                    const isKeyword = hasCustomProperties && ("type" in data.customProperties) && data.customProperties.type === "keyword";
+                    const icon = hasCustomProperties && (!isKeyword) ? "<span class='" + classes.item + "__ico " + "'>" + icons[data.customProperties.type] + "</span>" : "";
                     const itemDisabled = data.disabled ? classes.itemDisabled : "";
                     const itemSelectable = !data.disabled ? classes.itemSelectable : "";
                     const placeholder = data.placeholder ? classes.placeholder : "";
-                    return template("<div class=\"".concat(classes.item, " ").concat(classes.itemChoice, " ").concat(itemDisabled, " ").concat(itemSelectable, " ").concat(placeholder, "\" data-select-text=\"").concat(itemSelectText, "\" data-choice data-id=\"").concat(data.id, "\" data-value=\"").concat(data.value, "\" ").concat(data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable', " id=\"").concat(data.elementId, "\" ").concat(role, "> ").concat(icon, " ").concat(isKeyword ? 'hledat "' + data.label + '"' : data.label, " </div>"));
-                },
-                containerOuter: function (classes, direction, isSelectElement, isSelectOneElement, searchEnabled, passedElementType) {
-                    const tabIndex = isSelectOneElement ? 'tabindex="0"' : '';
-                    let role = isSelectElement ? 'role="listbox"' : '';
-                    let ariaAutoComplete = '';
-                    if (isSelectElement && searchEnabled) {
-                        role = 'role="combobox"';
-                        ariaAutoComplete = 'aria-autocomplete="list"';
-                    }
-                    return template("<div class=\"".concat(classes.containerOuter, "\" onblur=\"alert(\"blurred\");\" data-type=\"").concat(passedElementType, "\" ").concat(role, " ").concat(tabIndex, " ").concat(ariaAutoComplete, " aria-haspopup=\"true\" aria-expanded=\"false\" dir=\"").concat(direction, "\"></div>"));
+                    return template('<div class="' + classes.item + ' ' + classes.itemChoice + ' ' + itemDisabled + ' ' + itemSelectable + ' ' + placeholder + '" data-select-text="' + itemSelectText + '" data-choice data-id="' + data.id + '" data-value="' + data.value + '" ' + (data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable') + ' id="' + data.elementId + '\" ' + role + '> ' + icon + ' ' + ((isKeyword && (addTag !== false)) ? addTag + ' "' + data.label + '"' : data.label) + " </div>");
                 },
                 item: function (globalClasses, data, removeItemButton) {
                     const ariaSelected = data.active ? 'aria-selected="true"' : '';
@@ -273,61 +326,173 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 }
             };
         }
+        ,
+        callbackOnInit: function () {
+//            if (dataPreview !== false) {
+//                this.setChoices(getDefaultData(dataPreview, []), 'value', 'label', true);
+//            }
+        }
     };
-
     let instance = new Choices(input, options);
+    let inputCloned = instance.input.element;
     let currentSearch = "";
-
+    let alreadyHave = instance.getValue(true);
+    console.log(alreadyHave);
     input.addEventListener('search', function (event) {
-        currentSearch = event.detail.value;
-        let alreadyHave = instance.getValue(true);
-        console.log(event);
-        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
+        currentSearch = event.detail.value.trim();
+//        console.log("searching");
+//        console.log("currentSearch: " + currentSearch);
+        if (currentSearch === "") {
+//            console.log("currentSearch is empty");
+            if (dataPreview !== false) {
+                instance.config.noChoicesText = dataNoResult;
+                alreadyHave = instance.getValue(true);
+                instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true); //nahradit voláním na api
+            } else {
+                instance.config.noChoicesText = initialHint;
+                instance.clearChoices();
+            }
+
+        } else {
+            instance.config.noChoicesText = dataNoResult;
+            let data = getSearchData(currentSearch, alreadyHave, maxItemRender, dataUrl); //nahradit voláním na api
+//        console.log("can add tags: " + addTags);
+            if (addTag) {
+                if (alreadyHave.includes(currentSearch)) {
+                    data.unshift({value: "", label: currentSearch, customProperties: {type: "keyword"}});
+                } else {
+                    data.unshift({value: currentSearch, label: currentSearch, customProperties: {type: "keyword"}});
+                }
+            }
+//            console.log(instance.config.noChoicesText);
+            instance.setChoices(data, 'value', 'label', true);
+        }
     }, false);
     input.addEventListener('addItem', function (event) {
         currentSearch = "";
-        console.log(event.detail);
-        let alreadyHave = instance.getValue(true);
+        alreadyHave = instance.getValue(true);
         if (event.detail.value === "") {
             instance.removeActiveItemsByValue("");
         }
-        if (alreadyHave.length > 0) {
-            let plac = event.target.parentNode.querySelector(".choices__input--cloned");
-            plac.setAttribute("placeholder", placeholderFilled);
+
+        if (alreadyHave.length === maxItem) {
+            inputCloned.setAttribute("placeholder", "");
         } else {
-            let plac = event.target.parentNode.querySelector(".choices__input--cloned");
-            plac.setAttribute("placeholder", placeholder);
+            inputCloned.setAttribute("placeholder", placeholderAdd);
         }
-//        console.log(event.detail);
+
+        if (dataPreview !== false) {
+            instance.config.noChoicesText = dataNoResult;
+            alreadyHave = instance.getValue(true);
+            instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true); //nahradit voláním na api
+        } else {
+            instance.config.noChoicesText = initialHint;
+            instance.clearChoices();
+        }
         instance.hideDropdown();
-        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
+        if (isAutoCompleteInFullScreenMode(element)) {
+            instance.config.removeItems = true;
+            hideAutocompleteFromFullscreen(element);
+        }
     }, false);
     input.addEventListener('removeItem', function (event) {
-        let alreadyHave = instance.getValue(true);
-        if (alreadyHave.length > 0) {
-            let plac = event.target.parentNode.querySelector(".choices__input--cloned");
-            plac.setAttribute("placeholder", placeholderFilled);
+        currentSearch = instance.input.element.value;
+        alreadyHave = instance.getValue(true);
+        if (alreadyHave.length === 0) {
+            inputCloned.setAttribute("placeholder", placeholder);
         } else {
-            let plac = event.target.parentNode.querySelector(".choices__input--cloned");
-            plac.setAttribute("placeholder", placeholder);
+            inputCloned.setAttribute("placeholder", placeholderAdd);
         }
-        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
+
+        if (currentSearch === "") {
+            if (dataPreview !== false) {
+                instance.config.noChoicesText = dataNoResult;
+                alreadyHave = instance.getValue(true);
+                instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true); //nahradit voláním na api
+            } else {
+                instance.config.noChoicesText = initialHint;
+                instance.clearChoices();
+            }
+        } else {
+            instance.config.noChoicesText = dataNoResult;
+            let data = getSearchData(currentSearch, alreadyHave, maxItemRender, dataUrl); //nahradit voláním na api
+            if (addTag) {
+                if (alreadyHave.includes(currentSearch)) {
+                    data.unshift({value: "", label: currentSearch, customProperties: {type: "keyword"}});
+                } else {
+                    data.unshift({value: currentSearch, label: currentSearch, customProperties: {type: "keyword"}});
+                }
+            }
+            instance.setChoices(data, 'value', 'label', true);
+        }
+
     }, false);
-    input.addEventListener('blur', function (event) {
-        console.log("hail");
-        let alreadyHave = instance.getValue(true);
-//        console.log("focusout instance");
+    inputCloned.addEventListener('blur', function (event) {
+//        console.log("bluring");
+        event.target.value = "";
+        currentSearch = "";
+        if (dataPreview !== false) {
+            instance.config.noChoicesText = dataNoResult;
+            alreadyHave = instance.getValue(true);
+            instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true);
+        } else {
+            instance.config.noChoicesText = initialHint;
+            instance.clearChoices();
+        }
+
+    }, false);
+    inputCloned.addEventListener('focus', function () {
+        if (!isAutoCompleteInFullScreenMode(element)) {
+            if (isBelowBreakpoint(breakpoint)) {
+                if (isAutoCompleteInWindow(element)) {
+                    element.closest(".modal").addClass("modal--innerwindow");
+                } else {
+                    saveBodyScrollPosition();
+                    resetBodyScrollPosition();
+//                    inputCloned.blur();
+                }
+                instance.config.removeItems = false;
+                inputCloned.blur();
+                showAutocompleteInFullscreen(element);
+                inputCloned.focus();
+                enableNoBounce();
+                return;
+            }
+        }
+
+
+//        console.log("focusing");
+//        console.log("currentSearch: " + currentSearch);
+
+
 //        console.log(instance);
-//        console.log("focusout value:" + event.detail.input.value);
-//        console.log("focusout already have: " + alreadyHave);
-        if (event.detail.input.value !== "") {
-            let alreadyHave = instance.getValue(true);
-            event.detail.input.value = "";
-            currentSearch = "";
-            instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
+        if (dataPreview !== false) {
+            instance.config.noChoicesText = dataNoResult;
+            alreadyHave = instance.getValue(true);
+            let data = getDefaultData(dataPreview, alreadyHave);
+            instance.setChoices(data, 'value', 'label', true);
+        } else {
+            if (alreadyHave.length === maxItem) {
+                instance.config.noChoicesText = maxItemText;
+            } else {
+                instance.config.noChoicesText = initialHint;
+            }
+
+            instance.clearChoices();
         }
     }, false);
 
+    $(closeButton).on("click", function () {
+        hideAutocompleteFromFullscreen(element);
+//        blurAutocompleteInput($(input));
+
+        if (!isAutoCompleteInWindow(element)) {
+            restoreBodyScrollPosition();
+            disableNoBounce();
+        } else {
+            element.closest(".modal").removeClass("modal--innerwindow");
+        }
+    });
 }
 
 

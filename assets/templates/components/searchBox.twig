@@ -4,7 +4,25 @@
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <label class="form-label">Hledaná práce</label>
-                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "+ Doprava, obchod, kuchař...", dataset: "names.json"} %}
+                    {% include "autocompleteInput.twig" with 
+                     {type:"tag",
+                     id:"taginput1",
+                     name: "Hledaná práce",
+                     inWindow: false, 
+
+                     placeholder: "+ Doprava, obchod, kuchař...", 
+                     placeholderAdd: "+ Přidat...",  
+
+                     addTag: "hledej",
+                     dataPreview: "categories",
+
+                     maxItem: "20",
+                     maxItemText: "Můžete přidat maximálně 20 položek",
+                     maxItemRender: 50,
+
+                     dataNoResult: "Nenalezen žádný výsledek",
+                     dataUrl: "all"} %}
+
                 </div>
                 <div class="col-lg-6">
                     <label class="form-label">Kde hledám práci</label>
@@ -13,7 +31,23 @@
                             <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
                             <option data-ico="sk" data-placeholder="SK">Slovensko</option>
                         </select>
-                        {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                        {% include "autocompleteInput.twig" with 
+                            {type:"search",
+                            id:"autocomplete1",
+                            name: "Hledaná práce",
+                            inWindow: false, 
+
+                            addLocation: "Najít podle polohy",
+
+                            placeholder: "+ Obec, město, kraj...",
+
+                            dataPreview: "regions",
+
+                            maxItemRender: 50,
+
+                            dataNoResult: "Nenalezen žádný výsledek",
+                            dataUrl: "location"} %}
+
                     </div>
                 </div>
             </div>
@@ -101,7 +135,7 @@
             <div class="modal-body">
                 <div class="col-12 p-0 mb-3">
                     <label class="form-label">Hledaná práce</label>
-                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput111", plain: true, inWindow: true, placeholder: "Doprava, obchod, kuchař..", dataset: "names.json"} %}
+
                 </div>
                 <div class="col-12 p-0  mb-3">
                     <label class="form-label">Kde hledám práci</label>
@@ -117,7 +151,7 @@
                     </div>
                 </div>
                 <div class="col-12 p-0 mb-3"> 
-                    {% include "autocompleteInput.twig" with {type:"search",id:"autocomplete1", plain: true, inWindow: true, name: "Kde hledám práci", placeholder: "Obec, Město, Kraj", dataset: "names.json"} %}
+
                 </div>
                 {% for i in extendedFilter %}
                     <div class="col-12 mb-3 p-0">

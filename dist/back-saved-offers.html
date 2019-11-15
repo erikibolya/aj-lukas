@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="public/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=latin-ext" rel="stylesheet">
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find"></script>
+<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CArray.prototype.includes%2CObject.assign%2CArray.from%2CElement.prototype.prepend%2CCustomEvent%2CArray.prototype.find%2CArray.prototype.filter%2CString.prototype.includes%2CArray.prototype.forEach%2CNodeList.prototype.forEach"></script>
 <script src="https://unpkg.com/unfetch/polyfill"></script>
-
 <script type="text/javascript">
     let shortcutsToRemove = [
         "49,access", "50,access", "51,access", "52,access", "53,access", "54,access", "55,access", "56,access", "57,access", "73,meta", "85,meta"
@@ -134,7 +133,7 @@
                 <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
                       l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
                 </svg>
-                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(21)
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(17)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -170,27 +169,26 @@
 			<div class="bg-light p-3 mb-3">
 				<div class="row">
 					<div class="col-lg-7">
-						     <div class="form-group">
-        <label for="" class="form-label"></label>
-        <div class="autocomplete autocomplete--search ">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel"></h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-                    <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id=""
-                   data-placeholder=""
-                   data-dataset="">
-        
+						<div class="autocomplete autocomplete--search ">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel"></h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
     </div>
-        </div>
+            <select id="" class="autocomplete__input"
+                data-placeholder=""
+                data-url=""
+                                                                                >
+        </select>
+    </div> 
+
+
 
 
 
@@ -212,7 +210,7 @@
 
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Forward Web Technician</span>
+        <span class="link-box__title">Global Configuration Specialist</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -220,24 +218,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Legacy Data Representative
+                    Product Communications Developer
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    5536 Cheyenne Ports
+                    1381 Fadel Pine
                     ,
-                    Lake Elliottside
+                    East Ransom
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	11.3.2012&nbsp;&nbsp;
-	16:00</time></div>
+	8.4.2010&nbsp;&nbsp;
+	9:01</time></div>
             </div>
         </div>
     </div>
@@ -262,7 +260,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Global Group Architect</span>
+        <span class="link-box__title">Principal Configuration Director</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -270,24 +268,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Dynamic Data Specialist
+                    National Infrastructure Developer
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    4665 Bednar Walks
+                    948 Dane Tunnel
                     ,
-                    Kovacekfurt
+                    West Halie
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	11.4.2012&nbsp;&nbsp;
-	19:00</time></div>
+	0.7.2011&nbsp;&nbsp;
+	2:08</time></div>
             </div>
         </div>
     </div>
@@ -312,7 +310,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">National Usability Consultant</span>
+        <span class="link-box__title">Internal Creative Orchestrator</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -320,24 +318,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Investor Security Supervisor
+                    Customer Operations Assistant
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    761 Lind Mountains
+                    7521 Johnpaul Causeway
                     ,
-                    Seamusmouth
+                    Lyrictown
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	14.0.2014&nbsp;&nbsp;
-	13:05</time></div>
+	24.12.2018&nbsp;&nbsp;
+	2:08</time></div>
             </div>
         </div>
     </div>
@@ -362,7 +360,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Human Configuration Representative</span>
+        <span class="link-box__title">Direct Markets Designer</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -370,24 +368,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    District Directives Executive
+                    International Paradigm Administrator
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    491 Gutmann Village
+                    608 Carter Harbors
                     ,
-                    New Carlo
+                    Ryanview
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	4.4.2015&nbsp;&nbsp;
-	18:06</time></div>
+	22.1.2016&nbsp;&nbsp;
+	19:03</time></div>
             </div>
         </div>
     </div>
@@ -412,7 +410,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">District Factors Administrator</span>
+        <span class="link-box__title">Investor Mobility Developer</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -420,24 +418,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Dynamic Integration Architect
+                    District Factors Assistant
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    8307 Kemmer Rapid
+                    2196 Stephon Corners
                     ,
-                    New Coyville
+                    Loyceside
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	26.7.2015&nbsp;&nbsp;
-	1:02</time></div>
+	5.7.2010&nbsp;&nbsp;
+	6:07</time></div>
             </div>
         </div>
     </div>
@@ -462,7 +460,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Senior Data Administrator</span>
+        <span class="link-box__title">Forward Security Engineer</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -470,24 +468,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Principal Group Manager
+                    Corporate Data Strategist
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    2370 Kilback Field
+                    76901 Era Mountains
                     ,
-                    Abbietown
+                    Lake Dereckburgh
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	15.10.2019&nbsp;&nbsp;
-	16:01</time></div>
+	17.5.2016&nbsp;&nbsp;
+	6:07</time></div>
             </div>
         </div>
     </div>
@@ -512,7 +510,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Senior Mobility Representative</span>
+        <span class="link-box__title">Human Division Developer</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -520,24 +518,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Human Integration Developer
+                    Corporate Group Assistant
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    9038 Jenifer Lodge
+                    00901 Liam Overpass
                     ,
-                    Sabrynamouth
+                    Lake Ottilie
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	19.12.2019&nbsp;&nbsp;
-	8:00</time></div>
+	28.6.2011&nbsp;&nbsp;
+	20:06</time></div>
             </div>
         </div>
     </div>
@@ -562,7 +560,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">Human Integration Facilitator</span>
+        <span class="link-box__title">Investor Assurance Orchestrator</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -570,24 +568,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Investor Metrics Designer
+                    Regional Web Architect
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    47258 Jailyn Manor
+                    8361 Sipes Flat
                     ,
-                    Osvaldoshire
+                    East Jasmin
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	25.3.2010&nbsp;&nbsp;
-	7:00</time></div>
+	10.6.2011&nbsp;&nbsp;
+	22:07</time></div>
             </div>
         </div>
     </div>
@@ -612,7 +610,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">International Intranet Developer</span>
+        <span class="link-box__title">Lead Applications Executive</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -620,24 +618,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    National Markets Director
+                    Regional Accountability Consultant
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    123 Charlotte Path
+                    5158 McDermott Knoll
                     ,
-                    Port Camyllemouth
+                    Port Keegan
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	2.6.2016&nbsp;&nbsp;
-	19:02</time></div>
+	1.1.2011&nbsp;&nbsp;
+	19:08</time></div>
             </div>
         </div>
     </div>
@@ -662,7 +660,7 @@
 </div>
 							<div class="mb-4">
     <a href="#" class="link-box p-3 border-b font-weight-bold text-primary">
-        <span class="link-box__title">National Implementation Designer</span>
+        <span class="link-box__title">Investor Configuration Assistant</span>
     </a>
     <div class="bg-white p-3 border-b">
         <div class="icon-list">
@@ -670,24 +668,24 @@
                 <div class="icon-list__icon-col"><span class="icon icon-user"></span></div>
                 <div class="icon-list__info-col">Pozice</div>
                 <div class="icon-list__text-col">
-                    Regional Marketing Engineer
+                    Lead Creative Specialist
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-location"></span></div>
                 <div class="icon-list__info-col">Místo pracoviště</div>
                 <div class="icon-list__text-col">
-                    382 Dietrich Mount
+                    275 Jaskolski Curve
                     ,
-                    Ashleyshire
+                    Lake Sydney
                 </div>
             </div>
             <div class="icon-list__row">
                 <div class="icon-list__icon-col"><span class="icon icon-calendar"></span></div>
                 <div class="icon-list__info-col">Datum odpovědi</div>
                 <div class="icon-list__text-col"><time>
-	25.9.2017&nbsp;&nbsp;
-	13:07</time></div>
+	24.4.2015&nbsp;&nbsp;
+	21:08</time></div>
             </div>
         </div>
     </div>
@@ -793,16 +791,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>
+    <script src="public/js/plugins/autoComplete.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/selectric.js"></script>
     <script src="public/js/plugins/inbnc.js"></script>
+    <script src="public/js/plugins/data/obce.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/kraje.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/obory.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/firmy.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/data/profese.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/pcznalosti.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/benefity.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/dalsiznalosti.js"></script> <!-- remove in production -->
+    <script src="public/js/plugins/data/jazyky.js"></script>  <!-- remove in production -->
+    <script src="public/js/plugins/data/odpovedi.js"></script>  <!-- remove in production -->
     <script src="public/js/plugins/database.js"></script>    <!-- remove in production -->
     <script src="public/js/plugins/custom.js"></script>
     <script src="public/js/plugins/mobile-detect.js"></script>

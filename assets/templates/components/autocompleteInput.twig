@@ -1,32 +1,42 @@
- {% if plain is not defined %}
-    <div class="form-group">
-        <label for="{{id}}" class="form-label">{{name}}</label>
+<div class="autocomplete autocomplete--{{type}} {% if inWindow%}autocomplete--inwindow{% endif %}">
+    <div class="autocomplete__header">
+        <h5 class="autocomplete__title" id="exampleModalLabel">{{name}}</h5>
+        <button type="button" class="autocomplete__button" data-autocomplete-close>
+            <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
+            <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
+                  c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
+                  s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
+                  c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
+            </svg>
+        </button>
+    </div>
+    {% if type == "search" %}
+        <select id="{{id}}" class="autocomplete__input"
+                data-placeholder="{{placeholder}}"
+                data-url="{{dataUrl}}"
+                {% if dataPreview is defined %}data-preview="{{dataPreview}}"{% endif %}
+                {% if maxItemRender is defined %}  data-max-item-render="{{maxItemRender}}"{% endif %}
+                {% if initialHint is defined %}data-initial-hint="{{initialHint}}"{% endif %}
+                {% if dataNoResult is defined %}data-noresult="{{dataNoResult}}"{% endif %}
+                {% if addLocation is defined %}data-add-location="{{addLocation}}"{% endif %}>
+        </select>
+    {% elseif type == "tag"  %}
+        <select id="{{id}}" class="autocomplete__input"
+                data-placeholder="{{placeholder}}"
+                data-placeholder-add="{{placeholderAdd}}"
+                data-url="{{dataUrl}}"
+                {% if addTag is defined %}data-add-tag="{{addTag}}"{% endif %}
+                {% if dataPreview is defined %}data-preview="{{dataPreview}}"{% endif %}
+                {% if maxItem is defined %}data-max-item="{{maxItem}}"{% endif %}
+                {% if maxItemText is defined %}data-max-item-text="{{maxItemText}}"{% endif %}
+                {% if maxItemRender is defined %}  data-max-item-render="{{maxItemRender}}"{% endif %}
+                {% if initialHint is defined %}data-initial-hint="{{initialHint}}"{% endif %}
+                {% if dataNoResult is defined %}data-noresult="{{dataNoResult}}"{% endif %}
+                multiple="multiple"></select>
     {% endif %}
-    <div class="autocomplete autocomplete--{{type}} {% if inWindow is defined %}autocomplete--inwindow{% endif %}">
-        <div class="autocomplete__header">
-            <h5 class="autocomplete__title" id="exampleModalLabel">{{name}}</h5>
-            <button type="button" class="autocomplete__button" data-autocomplete-close>
-                <svg class="svgicon svgicon--circle-close" viewBox="0 0 20 20">
-                <path class="svgicon__path" d="M10,0.3c-5.4,0-9.8,4.4-9.8,9.8s4.4,9.8,9.8,9.8c5.4,0,9.8-4.4,9.8-9.8S15.4,0.3,10,0.3z M14.243,12.828
-                      c0.391,0.391,0.391,1.023,0,1.414s-1.023,0.391-1.414,0L10,11.414l-2.829,2.828c-0.391,0.391-1.023,0.391-1.414,0
-                      s-0.391-1.023,0-1.414L8.586,10L5.757,7.171c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L10,8.586l2.829-2.829
-                      c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L11.414,10L14.243,12.828z"/>
-                </svg>
-            </button>
-        </div>
-        {% if type == "search" %}
-            <input autocomplete="none" type="text"  class="autocomplete__input" 
-                   id="{{id}}"
-                   data-placeholder="{{placeholder}}"
-                   data-dataset="{{dataset}}">
-        {% elseif type == "tag"  %}
-            <select id="{{id}}" class="autocomplete__input" data-placeholder="{{placeholder}}"  {% if preview%}data-preview{%endif%} data-noresult="Žádné výsledky" data-placeholder-filled="+ Přidat..." multiple="multiple"></select>
-        {% endif %}
+</div> 
 
-    </div>
-    {% if plain is not defined %}
-    </div>
-{% endif %}
+
 
 
 
