@@ -57,16 +57,16 @@ function hideAutocompleteFromFullscreen(autocomplete) {
 }
 
 function resetBodyScrollPosition() {
-    $("body, html").scrollTop(0);
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
 }
 
 function saveBodyScrollPosition() {
-    scrollPosition = $("body").scrollTop();
+    scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 }
 
 function restoreBodyScrollPosition() {
     if (scrollPosition !== 0) {
-        $("body").scrollTop(scrollPosition);
+        document.documentElement.scrollTop = document.body.scrollTop = scrollPosition;
         scrollPosition = 0;
     }
 }
@@ -81,36 +81,6 @@ $(window).on('shown.bs.modal', function (e) {
 $(window).on('hidden.bs.modal', function (e) {
     disableNoBounce();
 });
-
-$(".autocomplete__input").on("click", function () {
-    var input = $(this);
-    var atc = input.closest(".autocomplete");
-    if (!isAutoCompleteInFullScreenMode(atc)) {
-        if (isBelowBreakpoint()) {
-            if (isAutoCompleteInWindow(atc)) {
-                atc.closest(".modal").addClass("modal--innerwindow");
-            } else {
-                saveBodyScrollPosition();
-            }
-            input.blur();
-            showAutocompleteInFullscreen(atc);
-            input.focus();
-            enableNoBounce();
-        }
-    }
-});
-
-$(".autocomplete__input").on("focus", function () {
-    focusAutocompleteInput($(this));
-});
-
-$(".autocomplete__input").on("blur", function () {
-    if (!$(this).closest(".autocomplete").hasClass("autocomplete--fullscreen")) {
-        blurAutocompleteInput($(this));
-    }
-});
-
-
 
 for (var i = 0, max = autocompletes.length; i < max; i++) {
     let element = autocompletes[i];
@@ -393,6 +363,13 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         if (isAutoCompleteInFullScreenMode(element)) {
             instance.config.removeItems = true;
             hideAutocompleteFromFullscreen(element);
+            if (!isAutoCompleteInWindow(element)) {
+                disableNoBounce();
+                hideAutocompleteFromFullscreen(element);
+                restoreBodyScrollPosition();
+            } else {
+                element.closest(".modal").removeClass("modal--innerwindow");
+            }
         }
     }, false);
     input.addEventListener('removeItem', function (event) {
@@ -449,7 +426,6 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 } else {
                     saveBodyScrollPosition();
                     resetBodyScrollPosition();
-//                    inputCloned.blur();
                 }
                 instance.config.removeItems = false;
                 inputCloned.blur();
@@ -459,13 +435,6 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 return;
             }
         }
-
-
-//        console.log("focusing");
-//        console.log("currentSearch: " + currentSearch);
-
-
-//        console.log(instance);
         if (dataPreview !== false) {
             instance.config.noChoicesText = dataNoResult;
             alreadyHave = instance.getValue(true);
@@ -483,12 +452,11 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
     }, false);
 
     $(closeButton).on("click", function () {
-        hideAutocompleteFromFullscreen(element);
-//        blurAutocompleteInput($(input));
-
+        instance.config.removeItems = true;
         if (!isAutoCompleteInWindow(element)) {
-            restoreBodyScrollPosition();
             disableNoBounce();
+            hideAutocompleteFromFullscreen(element);
+            restoreBodyScrollPosition();
         } else {
             element.closest(".modal").removeClass("modal--innerwindow");
         }
