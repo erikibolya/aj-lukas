@@ -1,0 +1,107 @@
+$radio-size: 1.25rem;
+$radio-spacing: 1rem;
+$radio-padding: 1rem;
+$radio-border-width: 0.0625rem;
+$radio-border-color: #ccc;
+$radio-background-color: white;
+
+$radio-focus-border-color: #009999;
+$radio-focus-background-color: white;
+
+$radio-hover-font-color: #009999;
+
+$radio-checked-background-color: white;
+$radio-checked-border-color: #ccc;
+$radio-checked-font-color: #009999;
+
+.radio-button{
+    cursor: pointer;
+    display: block;
+    min-height: $radio-size;
+    position: relative;
+    padding-left: $radio-padding + $checkbox-size + $checkbox-spacing;
+    padding-top: $radio-padding;
+    padding-bottom: $radio-padding;
+    padding-right: $radio-padding;
+    margin-bottom: 0;
+    &:hover{
+        .radio-button__substitute{
+            .radio-button__svg{
+                display: block;
+                opacity: 0.3;
+            }
+        }
+        .radio-button__content{
+            .radio-button__color{
+                color: $radio-hover-font-color;
+            }
+        }
+    }
+}
+
+
+.radio-button__trigger{
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    &:checked{
+        ~ .radio-button__substitute{
+            border-color: $checkbox-checked-border-color;
+            background-color: $checkbox-checked-background-color;
+            .radio-button__svg{
+                display: block !important;
+                opacity: 1 !important;
+            }
+        }
+        ~ .radio-button__content{
+            .radio-button__color{
+                color: $radio-checked-font-color;
+            }
+        }
+        ~ .radio-button__content--show-if-checked{
+            display: block;
+        }
+    }
+    &[data-focus-visible-added]{
+        ~ .radio-button__substitute{
+            outline: auto 5px -webkit-focus-ring-color;
+        }
+    }
+}
+
+.radio-button__substitute{
+    position: absolute;
+    top: $radio-padding;
+    left: $radio-padding;
+    user-select: none;
+    border-radius: 50%;  
+    width: $checkbox-size;
+    height: $checkbox-size;
+    border: $checkbox-border-width solid $checkbox-border-color;
+    background-color: $checkbox-background-color;
+    margin-bottom: 0;
+    cursor: pointer;
+
+}
+
+.radio-button__svg{
+    display: none; 
+}
+
+.radio-button__content{
+    position: relative;
+    top: -0.1em;
+    margin-bottom: 0;
+    cursor: pointer;
+
+    &--ignore-padding{
+        margin-left: ($checkbox-size + $checkbox-spacing) * -1;
+    }
+
+    &--show-if-checked{
+        margin-top: 1rem;
+        display: none;
+    }
+}
+
+

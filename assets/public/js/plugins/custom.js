@@ -71,16 +71,100 @@ function restoreBodyScrollPosition() {
     }
 }
 
+function disableMobileTraversableElements(except) {
+    for (let i = 0; i < mobileTraversableElements.length; i++) {
+        if (except !== mobileTraversableElements[i]) {
+            console.log(mobileTraversableElements[i]);
+            mobileTraversableElements[i].setAttribute("tabindex", "-1");
+            mobileTraversableElements[i].setAttribute("data-remove-tabindex", "");
+        }
+    }
+}
+
+function allowMobileTraversableElements() {
+    for (let i = 0; i < mobileTraversableElements.length; i++) {
+        mobileTraversableElements[i].removeAttribute("tabindex");
+        mobileTraversableElements[i].removeAttribute("data-remove-tabindex");
+
+    }
+}
+
+function evaluateSearchbox() {
+    alert("changed");
+}
+
 disableNoBounce();
 
-$(window).on('shown.bs.modal', function (e) {
-    $(e.target).children(".modal-custom-dialog").scrollTop(0);
-    enableNoBounce();
+//$(window).on('shown.bs.modal', function (e) {
+//    $(e.target).children(".modal-custom-dialog").scrollTop(0);
+//    enableNoBounce();
+//});
+//
+//$(window).on('hidden.bs.modal', function (e) {
+//    disableNoBounce();
+//});
+
+//selectboxy všechny
+$('[data-selectric]').selectric({
+    maxHeight: 210
 });
 
-$(window).on('hidden.bs.modal', function (e) {
-    disableNoBounce();
+//selectbox s vlajkama
+$('[data-selectric-flags]').selectric({
+    customClass: {
+        prefix: 'selectric-flag'
+    },
+    optionsItemBuilder: function (data) {
+        let flag = "public/svg/flags/" + data.element[0].getAttribute("data-ico") + ".svg";
+        return "<span class='selectric-flag-itemwrapper'><img class='selectric-flag-img' src='" + flag + "'><span class='selectric-flag-text'>{text}</span></span>";
+    },
+    labelBuilder: function (data) {
+        let placeholder = data.element[0].getAttribute("data-placeholder");
+        let flag = "public/svg/flags/" + data.element[0].getAttribute("data-ico") + ".svg";
+        return "<span class='selectric-flag-labelwrapper'><img class='selectric-flag-img' src='" + flag + "'></span>";
+    }
 });
+
+
+//selectbox disable stav, pokud se zvolí určitá možnost
+$("[data-disable-on-select]").on("change", function (event, element, instance) {
+    let targetValue = $(this).attr("data-disable-on-select");
+    let targetID = $(this).attr("data-disable-target");
+    if ($(this).val() === targetValue) {
+        $("#" + targetID).attr("disabled", "disabled").selectric('refresh');
+        return;
+    } else {
+        $("#" + targetID).removeAttr("disabled").selectric('refresh');
+    }
+
+});
+
+//selectric změna přidružených polí podle selectu
+$("[data-contact]").on("change", function (event) {
+    let targetPhone = $(this).attr("data-phone-target");
+    let targetEmail = $(this).attr("data-email-target");
+    let currentVal = $(this).val();
+    let items = event.target;
+    for (let i = 0, max = items.length; i < max; i++) {
+        if (items[i].value === currentVal) {
+            $("#" + targetPhone).val(items[i].getAttribute("data-phone"));
+            $("#" + targetEmail).val(items[i].getAttribute("data-email"));
+            return;
+        }
+    }
+});
+
+//selectric searchbox změna hodnot
+$("[data-selectric-searchbox]").on("change", function (event) {
+    alert("changed");
+});
+
+
+$(".menu__toggler").click(function () {
+    $(".menu__list").slideToggle("fast");
+});
+
+
 
 for (var i = 0, max = autocompletes.length; i < max; i++) {
     let element = autocompletes[i];
@@ -100,7 +184,6 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
 
     let options = {
         silent: false,
-//        choices: predata,
         maxItemCount: 1,
         paste: true,
         searchFloor: -1,
@@ -118,7 +201,8 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
                 choice: function (classes, data, itemSelectText) {
                     const role = data.groupId > 0 ? 'role="treeitem"' : 'role="option"';
                     const icons = {
-                        "location": '<svg class="svgicon svgicon--textcolor svgicon--small" viewBox="0 0 18.00098 18.00098"><path class="svg__path" d="M12.81531,9A3.04113,3.04113,0,0,0,10,7.00055l-.00049-.00006a2.9997,2.9997,0,0,0,0,5.999L10,12.99945A2.97073,2.97073,0,0,0,12.81531,9ZM11,11.721a1.97627,1.97627,0,0,1-1,.2785l-.00049.00006A1.97646,1.97646,0,0,1,9,11.7215,1.99958,1.99958,0,0,1,8.27832,11a1.93583,1.93583,0,0,1-.00006-2A1.99991,1.99991,0,0,1,9,8.27844a1.97642,1.97642,0,0,1,.99951-.278L10,8.00055A1.97622,1.97622,0,0,1,11,8.279,2.00074,2.00074,0,0,1,11.72083,9a1.93622,1.93622,0,0,1-.00007,2A2.00038,2.00038,0,0,1,11,11.721Z" transform="translate(-0.99951 -0.99951)"/><path class="svg__path" d="M16.78174,9A6.85594,6.85594,0,0,0,11,3.21826V.99951H9V3.21814A6.85607,6.85607,0,0,0,3.21722,9H.99951v2H3.2171A6.8562,6.8562,0,0,0,9,16.7829v2.21759h2V16.78278A6.85607,6.85607,0,0,0,16.78186,11h2.21863V9ZM11,15.772a5.84532,5.84532,0,0,1-1,.09186H9.99951a5.86341,5.86341,0,0,1,0-11.72662H10A5.86063,5.86063,0,0,1,11,15.772Z" transform="translate(-0.99951 -0.99951)"/></svg>'
+                        "a": '<svg class="svgicon svgicon--textcolor svgicon--small" viewBox="0 0 18.00098 18.00098"><path class="svg__path" d="M12.81531,9A3.04113,3.04113,0,0,0,10,7.00055l-.00049-.00006a2.9997,2.9997,0,0,0,0,5.999L10,12.99945A2.97073,2.97073,0,0,0,12.81531,9ZM11,11.721a1.97627,1.97627,0,0,1-1,.2785l-.00049.00006A1.97646,1.97646,0,0,1,9,11.7215,1.99958,1.99958,0,0,1,8.27832,11a1.93583,1.93583,0,0,1-.00006-2A1.99991,1.99991,0,0,1,9,8.27844a1.97642,1.97642,0,0,1,.99951-.278L10,8.00055A1.97622,1.97622,0,0,1,11,8.279,2.00074,2.00074,0,0,1,11.72083,9a1.93622,1.93622,0,0,1-.00007,2A2.00038,2.00038,0,0,1,11,11.721Z" transform="translate(-0.99951 -0.99951)"/><path class="svg__path" d="M16.78174,9A6.85594,6.85594,0,0,0,11,3.21826V.99951H9V3.21814A6.85607,6.85607,0,0,0,3.21722,9H.99951v2H3.2171A6.8562,6.8562,0,0,0,9,16.7829v2.21759h2V16.78278A6.85607,6.85607,0,0,0,16.78186,11h2.21863V9ZM11,15.772a5.84532,5.84532,0,0,1-1,.09186H9.99951a5.86341,5.86341,0,0,1,0-11.72662H10A5.86063,5.86063,0,0,1,11,15.772Z" transform="translate(-0.99951 -0.99951)"/></svg>',
+                        "location": '<svg class="svgicon" viewBox="0 0 18.00098 18.00098"><path class="svg__path" d="M10.9,8.3C10.6,7.5,9.9,7,9,7l0,0C7.9,7,7,7.9,7,9c0,1.1,0.9,2,2,2l0,0c1.1,0,2-0.9,2-2C11,8.8,11,8.6,10.9,8.3z"/><path class="svg__path" d="M15.8,8C15.3,5,13,2.7,10,2.2V0H8v2.2C5,2.7,2.7,5,2.2,8H0v2h2.2C2.7,13,5,15.3,8,15.8V18h2v-2.2 c3-0.4,5.3-2.8,5.8-5.8H18V8H15.8z M10,14.8c-0.3,0.1-0.7,0.1-1,0.1h0c-3.2,0-5.8-2.7-5.8-5.9c0-3.2,2.6-5.8,5.8-5.8h0 c3.2,0,5.9,2.6,5.9,5.9C14.9,11.9,12.8,14.3,10,14.8z"/></svg>'
                     };
                     const hasCustomProperties = data.hasOwnProperty("customProperties") && data.customProperties !== null;
                     const hasIcon = hasCustomProperties && data.customProperties.hasOwnProperty("type");
@@ -157,10 +241,15 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
     let instance = new Choices(input, options);
     let inputCloned = instance.input.element;
     let currentSearch = "";
+    let currentSelectedLabel = "";
     let alreadyHave = [];
 
     input.addEventListener('search', function (event) {
         currentSearch = event.detail.value.trim();
+        if (alreadyHave.length !== 0 && currentSearch !== currentSelectedLabel) {
+            instance.removeActiveItems();
+            alreadyHave = [];
+        }
         if (currentSearch === "") {
             if (dataPreview !== false) {
                 let data = getDefaultData(dataPreview, alreadyHave);
@@ -173,7 +262,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
             }
 
         } else {
-            let data = getSearchData(currentSearch, alreadyHave, maxItemRender, dataUrl); //nahradit voláním na api
+            let data = getSearchData(currentSearch, [], maxItemRender, dataUrl); //nahradit voláním na api
             instance.setChoices(data, 'value', 'label', true);
         }
     }, false);
@@ -188,7 +277,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
         } else {
             inputCloned.value = event.detail.label;
             alreadyHave = [event.detail.value];
-
+            currentSelectedLabel = event.detail.label;
             instance.hideDropdown();
         }
 
@@ -196,35 +285,43 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
 //        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
     }, false);
 
-//    input.addEventListener('change', function (event) {
-//        alert("change");
-//        let cloned = event.target.parentNode.querySelector(".choices__input--cloned");
-//        cloned.value = event.detail.label;
-//    }, false);
-//    input.addEventListener('blur', function (event) {
-//
-//        if (event.detail.input.value.trim() !== alreadyHave) {
-//
-//            event.detail.input.value = "";
-//            currentSearch = "";
-//            alreadyHave = "";
-//            instance.clearChoices();
-//            instance.setChoices(getSearchData(currentSearch, 20, true), 'value', 'label', true);
-//        }
-//    }, false);
-
     inputCloned.addEventListener('focus', function (event) {
-        if (dataPreview !== false) {
-            alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
-            let data = getDefaultData(dataPreview, alreadyHave);
-            if (addLocation !== false) {
-                data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+        console.log("focusing");
+        if (!isAutoCompleteInFullScreenMode(element)) {
+            if (isBelowBreakpoint(breakpoint)) {
+                if (isAutoCompleteInWindow(element)) {
+                    element.closest(".modal").addClass("modal--innerwindow");
+                } else {
+                    saveBodyScrollPosition();
+                    resetBodyScrollPosition();
+                }
+//                inputCloned.blur();
+                showAutocompleteInFullscreen(element);
+//                inputCloned.focus();
+                enableNoBounce();
             }
-            instance.setChoices(data, 'value', 'label', true);
-        } else {
-            instance.clearChoices();
         }
-
+        if (alreadyHave.length !== 0) {
+//            let data = getSearchData(currentSelectedLabel, [], maxItemRender, dataUrl); //nahradit voláním na api
+//            instance.setChoices(data, 'value', 'label', true);
+        } else {
+//            if (dataPreview !== false) {
+//                alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
+//                let data = getDefaultData(dataPreview, alreadyHave);
+//                if (addLocation !== false) {
+//                    data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+//                }
+//                instance.setChoices(data, 'value', 'label', true);
+//            } else {
+//                instance.clearChoices();
+//            }
+        }
+    }, false);
+    inputCloned.addEventListener('blur', function (event) {
+        console.log(event);
+        if (alreadyHave.length === 0) {
+            inputCloned.value = "";
+        }
     }, false);
 
 
@@ -406,17 +503,18 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
     }, false);
     inputCloned.addEventListener('blur', function (event) {
 //        console.log("bluring");
-        event.target.value = "";
-        currentSearch = "";
-        if (dataPreview !== false) {
-            instance.config.noChoicesText = dataNoResult;
-            alreadyHave = instance.getValue(true);
-            instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true);
-        } else {
-            instance.config.noChoicesText = initialHint;
-            instance.clearChoices();
+        if (!isAutoCompleteInFullScreenMode(element)) {
+            event.target.value = "";
+            currentSearch = "";
+            if (dataPreview !== false) {
+                instance.config.noChoicesText = dataNoResult;
+                alreadyHave = instance.getValue(true);
+                instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true);
+            } else {
+                instance.config.noChoicesText = initialHint;
+                instance.clearChoices();
+            }
         }
-
     }, false);
     inputCloned.addEventListener('focus', function () {
         if (!isAutoCompleteInFullScreenMode(element)) {
@@ -432,22 +530,22 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 showAutocompleteInFullscreen(element);
                 inputCloned.focus();
                 enableNoBounce();
-                return;
-            }
-        }
-        if (dataPreview !== false) {
-            instance.config.noChoicesText = dataNoResult;
-            alreadyHave = instance.getValue(true);
-            let data = getDefaultData(dataPreview, alreadyHave);
-            instance.setChoices(data, 'value', 'label', true);
-        } else {
-            if (alreadyHave.length === maxItem) {
-                instance.config.noChoicesText = maxItemText;
-            } else {
-                instance.config.noChoicesText = initialHint;
-            }
 
-            instance.clearChoices();
+            } else {
+                if (dataPreview !== false) {
+                    instance.config.noChoicesText = dataNoResult;
+                    alreadyHave = instance.getValue(true);
+                    let data = getDefaultData(dataPreview, alreadyHave);
+                    instance.setChoices(data, 'value', 'label', true);
+                } else {
+                    if (alreadyHave.length === maxItem) {
+                        instance.config.noChoicesText = maxItemText;
+                    } else {
+                        instance.config.noChoicesText = initialHint;
+                    }
+                    instance.clearChoices();
+                }
+            }
         }
     }, false);
 
@@ -462,7 +560,6 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         }
     });
 }
-
 
 
 

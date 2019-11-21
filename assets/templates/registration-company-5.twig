@@ -2,29 +2,44 @@
 {% block title %}Registrace firmy 5{% endblock %}
 {% block body %}
 
-	<div class="container">
-		<div class="section py-3 mb-5">
-			{% include "components/sectionTitle.twig"  with { title: "Obchodní podmínky portálu ActiJobs.cz", center: true}  %}
-			<div class="bg-white p-3">
+    <div class="container">
+        <div class="section py-3 mb-5">
+            {% include "components/sectionTitle.twig"  with { title: "Obchodní podmínky portálu ActiJobs.cz", center: true}  %}
+            <div class="bg-white p-3">
 
-				<p class="text-info mb-3 text-center">
-					<faker-lorem-paragraph/>
-				</p>
-				{% for i in 0..2 %}
-						<hr class="mx-minus-3">
-						<div class="form-group form-check px-3">
-							<input type="checkbox" class="form-check-input" id="exampleCheck{{ i }}">
-							<label class="form-check-label" for="exampleCheck{{ i }}"><faker-lorem-sentences/><a href="#" class="pl-2">Zobrazit více</a></label>
-
-						</div>
-				{% endfor %}
-				<hr class="mx-minus-3">
-				<div class="text-center">
-					<a href="{{ linkRegistrationCompany }}" class="btn btn-success btn-bottom">Pokračovat</a>
-				</div>
-			</div>
-		</div>
-	</div>
+                <p class="text-info mb-3 text-center">
+                <faker-lorem-paragraph/>
+                </p>
+                {% for i in 0..2 %}
+                    <hr class="mx-minus-3">
+                    <div class="form-group mt-3">
+                        <div class="checkbox">
+                            <label class="checkbox__shadow-label "for="exampleCheck{{ i }}"></label>
+                            <input class="checkbox__trigger" id="exampleCheck{{ i }}" type="checkbox">
+                            <label class="checkbox__label" for="exampleCheck{{ i }}">
+                                <faker-lorem-sentence/>
+                                <faker-lorem-sentence/>
+                                <faker-lorem-sentence/>
+                                <faker-lorem-sentence/>
+                            </label>
+                            <a class="checkbox__link" href="#">
+                                Zobrazit více
+                            </a>
+                            <label class="checkbox__substitute" for="defaultCheck2">
+                                <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr class="mx-minus-3">
+                <div class="text-center">
+                    <a href="{{ linkRegistrationCompany }}" class="btn btn-success btn-bottom">Pokračovat</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

@@ -1,9 +1,9 @@
-<div class="section section--bg-decorative section--border-bottom py-3 py-sm-5 mt-3 mb-4 mb-sm-0">
+<div class="section section--bg-decorative section--border-bottom py-3 py-sm-5 mt-3">
     <div class="container">
         <div class="hidden-xs-down">
             <div class="row">
                 <div class="col-lg-6 mb-3 mb-lg-0">
-                    <label class="form-label">Hledaná práce</label>
+                    <label class="form-label">Hledanách práce</label>
                     {% include "autocompleteInput.twig" with 
                      {type:"tag",
                      id:"taginput1",
@@ -66,7 +66,7 @@
                     {% for i in extendedFilter %}
                         <div class="col-md-6 col-lg-4  mb-3">
                             <label class="form-label">{{ i }}</label>
-                            <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                            <select class="form-control" data-selectric data-selectric-searchbox id="exampleFormControlSelect1">
                                 <option>
                                 <faker-lorem-words/>
                                 </option>

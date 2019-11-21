@@ -2,34 +2,44 @@
 {% block title %}Uložené odpovědi{% endblock %}
 {% block body %}
 
-	<div class="container">
-		<div class="section pt-3">
-			<div class="bg-light p-3 mb-3">
-				<div class="row">
-					<div class="col-lg-7">
-						{% include "components/autocompleteInput.twig" with {type:"search", autocompleteLabel: "Pozice / Místo"} %}
-					</div>
-					<div class="col-lg-5">
-						<div class="form-group">
-							<label for="exampleInputName" class="form-label">Kontaktní osoba</label>
-							<select class="form-control" data-selectric required>
-								<option value="1">Vše</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="form-group form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Pouze odpovědi k aktivním pozicím</label>
-				</div>
-			</div>
+    <div class="container">
+        <div class="section pt-3">
+            <div class="bg-light p-3 mb-3">
+                <div class="row">
+                    <div class="col-lg-7">
+                        {% include "components/autocompleteInput.twig" with {type:"search", autocompleteLabel: "Pozice / Místo"} %}
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label for="exampleInputName" class="form-label">Kontaktní osoba</label>
+                            <select class="form-control" data-selectric required>
+                                <option value="1">Vše</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label class="checkbox__shadow-label "for="exampleCheck1"></label>
+                        <input class="checkbox__trigger" id="exampleCheck1" type="checkbox">
+                        <label class="checkbox__label" for="exampleCheck1">
+                            Pouze odpovědi k aktivním pozicím
+                        </label>
+                        <label class="checkbox__substitute" for="defaultCheck2">
+                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-			{% for i in 0..9 %}
-				{% include "components/backSavedAnswerItem.twig" %}
-			{% endfor %}
+            {% for i in 0..9 %}
+                {% include "components/backSavedAnswerItem.twig" %}
+            {% endfor %}
 
-			{% include "components/pagination.twig" %}
-		</div>
-	</div>
+            {% include "components/pagination.twig" %}
+        </div>
+    </div>
 
 {% endblock %}

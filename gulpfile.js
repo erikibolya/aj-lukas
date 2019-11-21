@@ -19,7 +19,8 @@ gulp.task('styles', function () {
             .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
             .pipe(sourcemaps.write())
-            .pipe(gulp.dest(config.styles.dist));
+            .pipe(gulp.dest(config.styles.dist))
+            .pipe(browserSync.stream());
 });
 
 var iconsPlugins = [{
@@ -83,9 +84,9 @@ gulp.task('clean', () => {
 
 //
 gulp.task('serve', function () {
-//    browserSync.use(htmlInjector, {
-//        files: "./dist/*.html"
-//    });
+    browserSync.use(htmlInjector, {
+        files: "./dist/*.html"
+    });
     browserSync.init({
         server: {
             baseDir: "./dist/"
@@ -94,9 +95,9 @@ gulp.task('serve', function () {
             awaitWriteFinish: true
         }
     });
-    gulp.watch(config.styles.src + '**/*.scss', gulp.series("styles")).on('change', browserSync.reload);
+    gulp.watch(config.styles.src + '**/*.scss', gulp.series("styles"));
     gulp.watch(config.scripts.src + '**/*.js', gulp.series("scripts")).on('change', browserSync.reload);
-    gulp.watch([config.templates.src + '**/*.twig', config.templates.src + 'data/*.json'], gulp.series("templates")).on('change', browserSync.reload);
+    gulp.watch([config.templates.src + '**/*.twig', config.templates.src + 'data/*.json'], gulp.series("templates"));
 
 });
 

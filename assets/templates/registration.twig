@@ -36,12 +36,25 @@
                                 </div>
                             </fieldset>
 
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck{{ i }}">
-                                <label class="form-check-label" for="defaultCheck{{ i }}">
-                                    <faker-lorem-sentence/>
-                                    <a href="{{ linkBusinessConditions }}">Více zde</a>
-                                </label>
+                            <div class="form-group mb-3">
+                                <div class="checkbox">
+                                    <label class="checkbox__shadow-label "for="defaultCheck"></label>
+                                    <input class="checkbox__trigger" id="defaultCheck" type="checkbox">
+                                    <label class="checkbox__label" for="defaultCheck">
+                                        Souhlasím s
+                                    </label>
+                                    <a class="checkbox__link" href="#">
+                                        podmínkami používání
+                                    </a>
+                                    <label class="checkbox__label" for="defaultCheck">
+                                        portálů ActiUnit s.r.o.
+                                    </label>
+                                    <label class="checkbox__substitute" for="defaultCheck">
+                                        <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                        <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                        </svg>
+                                    </label>
+                                </div>
                             </div>
 
 

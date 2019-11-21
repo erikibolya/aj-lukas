@@ -39,8 +39,12 @@
 
 .svgicon__path{
     fill: $brand-success;
-
-
+    @at-root .radio-button__svg &{
+        fill: #009999;
+    }
+    @at-root .checkbox__svg &{
+        fill: #009999;
+    }    
     @at-root .link-box &:not(.svgicon__path--transparent){
         fill: #22528E;
     }
@@ -89,9 +93,6 @@
     .svgicon__path--transparent{
         fill: currentColor !important;
     }
-
-
-
 }
 
 

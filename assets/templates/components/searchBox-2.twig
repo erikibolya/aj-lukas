@@ -1,49 +1,41 @@
 <div class="section section--bg-decorative section--border-bottom-always py-4 mt-3">
     <div id="accordion" class="container">
         {% set selectedButtons = [
-			"Asistentka",
+			"Asistent/ka",
 			"Jihlava",
 			"Plný úvazek",
-			"Od 25 000,- Kč",
-			"Pro studenta",
-                        "Asistentka",
-			"Jihlava",
-			"Plný úvazek",
-			"Od 25 000,- Kč",
-			"Pro studenta",
-                        "Asistentka",
-			"Jihlava",
-			"Plný úvazek",
-			"Od 25 000,- Kč",
-			"Pro studenta"
+			"Od 25 000 Kč",
+			"Pro studenta/Pro studentku",
+                        "Gastronomie - Pohostinství"
+                        
 		] %}
         <div id="searchBoxTop" class="search-box__btn-container collapse no-transition show text-center" data-parent="#accordion">
             {% for btn in selectedButtons %}
                 <span class="search-box__tag">
-                    {{ btn }}{%if not loop.last%}, {%endif%}
-                </span>
-            {% endfor %}
-        </div>
-
-        <div id="searchBoxShowMore" class="collapse no-transition py-2 py-sm-4" data-parent="#accordion">
-            <div class="row pb-4">
-                <div class="col-lg-6 mb-3 mb-lg-0">
-                    <label class="form-label">Hledaná práce</label>
-                    {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "+ Doprava, obchod, kuchař...", dataset: "names.json"} %}
-                </div>
-                <div class="col-lg-6">
-                    <label class="form-label">Kde hledám práci</label>
-                    <div class="input-group job-search mb-3">
-                        <select class="form-control" data-selectric-flags>
-                            <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
-                            <option data-ico="sk" data-placeholder="SK">Slovensko</option>
-                        </select>
-                        {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                    {{ btn }}{%if not loop.last%} - {%endif%}
+                    </span>
+                    {% endfor %}
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                {% set extendedFilter = [
+
+                    <div id="searchBoxShowMore" class="collapse no-transition py-2 py-sm-4" data-parent="#accordion">
+                        <div class="row pb-4">
+                            <div class="col-lg-6 mb-3 mb-lg-0">
+                                <label class="form-label">Hledaná práce</label>
+                                {% include "autocompleteInput.twig" with {type:"tag",id:"taginput1", plain: true, inWindow: false, placeholder: "+ Doprava, obchod, kuchař...", dataset: "names.json"} %}
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Kde hledám práci</label>
+                                <div class="input-group job-search mb-3">
+                                    <select class="form-control" data-selectric-flags>
+                                        <option data-ico="cz" data-placeholder="ČR">Česká republika</option>
+                                        <option data-ico="sk" data-placeholder="SK">Slovensko</option>
+                                    </select>
+                                    {% include "autocompleteInput.twig" with {type:"search",id:"taginput11", plain: true, inWindow: false, placeholder: "Obec, město, kraj...", dataset: "names.json"} %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% set extendedFilter = [
 					"Pracovní poměr",
 					"Plat",
 					"Vzdělání",
@@ -53,39 +45,39 @@
 				] %}
 
 
-                {% for i in extendedFilter %}
-                    <div class="col-md-6 col-lg-4  mb-3">
-                        <label class="form-label">{{ i }}</label>
-                        <select class="form-control" data-selectric id="exampleFormControlSelect1">
-                            <option><faker-lorem-words/></option>
-                            <option><faker-lorem-words/></option>
-                            <option><faker-lorem-words/></option>
-                            <option><faker-lorem-words/></option>
-                            <option><faker-lorem-words/></option>
-                        </select>
+                            {% for i in extendedFilter %}
+                                <div class="col-md-6 col-lg-4  mb-3">
+                                    <label class="form-label">{{ i }}</label>
+                                    <select class="form-control" data-selectric id="exampleFormControlSelect1">
+                                        <option><faker-lorem-words/></option>
+                                        <option><faker-lorem-words/></option>
+                                        <option><faker-lorem-words/></option>
+                                        <option><faker-lorem-words/></option>
+                                        <option><faker-lorem-words/></option>
+                                    </select>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
 
-    </div>
-</div>
-<div class="section bg-light text-center py-3">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-3 col-lg-2">
-                <a href="#" class="btn btn-info w-100">
-                    <span class="icon icon-agent-fill"></span>
-                    <span class="hidden-sm-down ml-2">ActiAgent</span>
-                </a>
+                </div>
             </div>
-            <div class="col-9 col-lg-4">
-                <button class="btn w-100 btn-success btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
-                    <span class="icon icon-search mr-2 icon-arrow-up-point"></span>
-                    Upravit hledání
-                </button>
+            <div class="section bg-light text-center py-3">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-3 col-lg-2">
+                            <a href="#" class="btn btn-info w-100">
+                                <span class="icon icon-agent-fill"></span>
+                                <span class="hidden-sm-down ml-2">ActiAgent</span>
+                            </a>
+                        </div>
+                        <div class="col-9 col-lg-4">
+                            <button class="btn w-100 btn-success btn-bottom" type="button" data-toggle="collapse" data-target="#searchBoxShowMore" aria-expanded="false" aria-controls="searchBoxShowMore">
+                                <span class="icon icon-search mr-2 icon-arrow-up-point"></span>
+                                Upravit hledání
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 

@@ -291,15 +291,15 @@
 
 
 
+
         &:not(.menu__extra-button--disabled) {
+
+        }
+
+        &--active,&:not(.menu__extra-button--disabled):hover {
             background: $brand-success;
             color: $white;
             text-decoration: none;
-        }
-
-        &--active {
-            background: $brand-success;
-            color: $white;
         }
         &--disabled{
             text-decoration: none !important;

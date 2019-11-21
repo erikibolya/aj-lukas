@@ -245,6 +245,7 @@ $choices-border-color-active: $brand-success;
         margin-bottom: -1px;
     }
     @at-root .autocomplete--fullscreen &{
+        display: block;
         position: relative;
         flex-grow: 1;
         margin-top: 0;
@@ -323,11 +324,10 @@ $choices-border-color-active: $brand-success;
     cursor: default;
 
     @at-root [data-type="select-one"] .choices__inner > &{
-        /*display: none;*/
+        display: none;
     }
 
     @at-root .choices__inner > &{
-        display: none;
         cursor: default;
         display: inline-flex;
         align-items: center;
@@ -343,6 +343,9 @@ $choices-border-color-active: $brand-success;
         border: 1px solid $brand-primary-light;
         color: #464a4c;
         word-break: break-all;
+        @at-root .autocomplete--fullscreen &{
+            display: none;
+        }
     }
 
     &--selectable{

@@ -2567,7 +2567,7 @@ function () {
 
       if (hasActiveDropdown && this._isSelectOneElement) {
         this.hideDropdown(true);
-        this.containerOuter.focus();
+//        this.containerOuter.focus();
       }
     }
   }, {
@@ -5917,21 +5917,10 @@ function () {
     key: "addFocusState",
     value: function addFocusState() {
       this.element.classList.add(this.classNames.focusState);
-      this.element.children[0].children[0].dispatchEvent(new CustomEvent("focus",{
-                detail: {
-                         input: this.element.children[0].children[2]
-                }
-        } )); 
     }
   }, {
     key: "removeFocusState",
     value: function removeFocusState() {
-        
-      this.element.children[0].children[0].dispatchEvent(new CustomEvent("blur",{
-                detail: {
-                         input: this.element.children[0].children[2]
-                }
-        } )); 
       this.element.classList.remove(this.classNames.focusState);
     }
     /**

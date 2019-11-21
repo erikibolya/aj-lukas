@@ -1,79 +1,82 @@
 {% extends "layout/layout-lite.twig" %}
 {% block title %}Objednávka služeb{% endblock %}
 {% block body %}
-	<div class="container">
-		<div class="section py-3 mb-5">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="{{ linkRegistrationCompany6 }}">Obednávka služeb</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Ceník inzerce</li>
-				</ol>
-			</nav>
+    <div class="container">
+        <div class="section py-3 mb-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ linkRegistrationCompany6 }}">Obednávka služeb</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ceník inzerce</li>
+                </ol>
+            </nav>
 
-			<div class="mb-4">
-				{% set memberClass = ["Bronze", "Silver", "Gold", "Platinum"] %}
-				{% include "components/sectionTitle.twig"  with { title: "Ceník inzerce pro člesntví Classic"}  %}
-				{% for class in memberClass %}
-					<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between{% if not loop.last %} border-b{% endif %}">
-						<div>
-							<strong class="mb-3 d-inline-block">{{ class }}</strong>
-							<ul>
+            <div class="mb-4">
+                {% set memberClass = ["Bronze", "Silver", "Gold", "Platinum"] %}
 
-								{%for i in 0..loop.index %}
-									<li><faker-lorem-sentence/></li>
-								{% endfor %}
-							</ul>
-						</div>
-						<div class="d-inline-flex flex-column justify-content-center align-items-end">
-							{% if loop.index > 1 %}
-								<strong class="display-6">{{ loop.index }} 999 AB</strong>
-								* 1000 Kč
-							{% else %}
-								<strong class="display-6 text-success ">Zdarma</strong>
-								<p class="text-success">v rámci ročního členství</p>
-							{% endif %}
-						</div>
-					</div>
-				{% endfor %}
-				<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
-			</div>
+                {% include "components/sectionTitle.twig"  with { title: "Ceník inzerce pro člesntví Classic"} %}
+
+                {% for class in memberClass %}
+                    <div class="bg-white p-3 d-md-flex {% if not loop.last %} border-b{% endif %}">
+                        <div class="text-left">
+                            <div class="font-weight-bold mb-2">{{ class }}</div>
+                            <ul class="list-group">
+                                {% for i in 0..7 %}
+                                    <li>
+                                    <faker-lorem-sentence/>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                            {% if loop.index > 1 %}
+                                <strong class="display-6">{{ loop.index }} 999 AB</strong>
+                                <p>* 1000 Kč</p>
+
+                            {% else %}
+                                <strong class="display-6 text-success ">Zdarma</strong>
+                                <p class="text-success">v rámci ročního členství</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+            </div>
 
 
-			<div class="mb-4">
-				{% include "components/sectionTitle.twig"  with { title: "Ceník inzerce pro člesntví VIP"}  %}
+            <div class="mb-4">
+                {% include "components/sectionTitle.twig"  with { title: "Ceník inzerce pro člesntví VIP"} %}
+                {% for class in memberClass %}
+                    <div class="bg-white p-3 d-md-flex {% if not loop.last %} border-b{% endif %}">
+                        <div class="text-left">
+                            <div class="font-weight-bold mb-2">{{ class }}{% if loop.index > 2 %}<span class="text-info">(-50%)</span>{% endif %}</div>
+                            <ul class="list-group">
+                                {% for i in 0..7 %}
+                                    <li>
+                                    <faker-lorem-sentence/>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                            {% if loop.index > 2 %}
+                                <strong class="display-6">{{ loop.index }} 999 AB</strong>
+                                <p>* 1000 Kč</p>
 
-				{% for class in memberClass %}
-					<div class="bg-white p-3 d-flex flex-column flex-lg-row justify-content-between{% if not loop.last %} border-b{% endif %}">
-						<div>
-							<strong class="mb-3 d-inline-block">
-								{{ class }}
-								{% if loop.index > 2 %}<span class="text-info">(-50%)</span>{% endif %}
-							</strong>
-							<ul>
-								{%for i in 0..loop.index%}
-									<li><faker-lorem-sentence/></li>
-								{% endfor %}
-							</ul>
-						</div>
-						<div class="d-inline-flex flex-column justify-content-center align-items-end">
-							{% if loop.index > 2 %}
-								<strong class="display-6">{{ loop.index }} 999 AB</strong>
-								* 1000 Kč
-							{% else %}
-								<strong class="display-6 text-success ">Zdarma</strong>
-								<p class="text-success">v rámci ročního členství</p>
-							{% endif %}
-						</div>
-					</div>
-				{% endfor %}
-				<small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
-			</div>
+                            {% else %}
+                                <strong class="display-6 text-success ">Zdarma</strong>
+                                <p class="text-success">v rámci ročního členství</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <small class="text-muted d-block mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
+            </div>
 
-			<div class="text-center">
-						<a href="{{ linkRegistrationCompany }}" class="btn btn-success btn-bottom">Pokračovat v objednávce</a>
-			</div>
-		</div>
-	</div>
+            <div class="text-center">
+                <a href="{{ linkRegistrationCompany }}" class="btn btn-success btn-bottom">Pokračovat v objednávce</a>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

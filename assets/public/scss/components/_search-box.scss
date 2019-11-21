@@ -1,3 +1,9 @@
+$choices-inner-space: 5px;
+$choices-tag-height: 26px;
+$choices-border-color: #c9cbcb;
+$choices-border-color-active: $brand-success;
+
+
 .search-box {
 
     &__btn-container {
@@ -18,7 +24,21 @@
 }
 
 .search-box__tag{
-    font-weight: bold;
+/*    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    height: $choices-tag-height;
+    padding: 0 $choices-inner-space * 2 0 $choices-inner-space * 2;
+    font-size: 0.875rem;
+    font-weight: 500;
+    max-width: calc(50% - #{$choices-inner-space});
+    margin-right: $choices-inner-space;
+    margin-bottom: $choices-inner-space;
+    background-color: $brand-background;
+    border: 1px solid $brand-primary-light;
+    color: #464a4c;
+    word-break: break-all;*/
 }
 
 .search-box__tag__button{

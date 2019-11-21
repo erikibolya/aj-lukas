@@ -1,61 +1,65 @@
 .no-transition {
-	transition: none !important;
+    transition: none !important;
 }
 
 .shadow {
-	box-shadow: $box-shadow !important;
+    box-shadow: $box-shadow !important;
 }
 
 .disabled-block,
 .disabled-block * {
-	color: $gray-light;
+    color: $gray-light;
 
-	&:hover {
-		cursor: initial;
-	}
+    &:hover {
+        cursor: initial;
+    }
 }
 
 a.block * {
-	text-decoration: none;
+    text-decoration: none;
 
-	&:hover {
-		text-decoration: none;
-	}
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .no-wrap {
-	white-space: nowrap !important;
+    white-space: nowrap !important;
 }
 
 @include media-breakpoint-up(sm) {
-	.w-sm-auto {
-		width: auto !important;
-	}
+    .w-sm-auto {
+        width: auto !important;
+    }
 }
 
 .overflow-hidden {
-	overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 
 .border-b {
-	border-bottom: $hr-border-width solid $hr-border-color;
+    border-bottom: $hr-border-width solid $hr-border-color;
 }
 
 .mx-minus-3 {
-	margin-left: -1rem;
-	margin-right: -1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 
 
 .text-share {
-	color: #8E7CC3;
+    color: #8E7CC3;
 }
 
 
 a.text-primary:hover {
-	color: $brand-primary !important;
+    color: $brand-primary !important;
+}
+
+.flex-shrink-0{
+    flex-shrink: 0;
 }

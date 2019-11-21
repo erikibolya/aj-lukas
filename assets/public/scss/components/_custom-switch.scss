@@ -11,6 +11,7 @@ $custom-switch-transition-timing-function: ease;
 
 
 .custom-switch{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +22,12 @@ $custom-switch-transition-timing-function: ease;
 }
 
 .custom-switch__input{
-    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+
     &:checked{
         & + .custom-switch__wrapper{
             background-color: $custom-switch-checked-background-color;
@@ -32,7 +38,11 @@ $custom-switch-transition-timing-function: ease;
                 background-color: $custom-switch-checked-bullet-color;
             }
         }
-
+    }
+    &[data-focus-visible-added]{
+         & + .custom-switch__wrapper{
+          outline: auto 5px -webkit-focus-ring-color;
+        }
     }
 }
 

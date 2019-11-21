@@ -133,7 +133,7 @@
                 <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
                       l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
                 </svg>
-                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(80)
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(55)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -238,13 +238,13 @@
             </div>
 
             <div class="mb-4">
-                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Místo výkonu práce *</h2>                <div class="bg-white p-3">
-                    <div class="show-content__wrapper">
-                        <div class="mb-3">
-                            <input class="form-check-input show-content__controll" type="radio" name="jobLocation" id="exampleRadios1" value="work" checked>
-                            <label class="form-check-label" for="exampleRadios1">Práce vykonávaná na pravidelném pracovišti</label>
+                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Místo výkonu práce *</h2>                <div class="bg-white">
+                    <label class="radio-button border-b">
+                        <input class="radio-button__trigger" id="jobs1" type="radio" name="jobs" value="option1" checked>
+                        <div class="radio-button__content radio-button__content--margin-bottom">
+                            Práce vykonávaná na pravidelném pracovišti
                         </div>
-                        <div class="mt-3 show-content__content">
+                        <div class="radio-button__content radio-button__content--ignore-padding radio-button__content--show-if-checked">
                             <div class="form-group">
                                 <label for="exampleInputName" class="form-label">Stát*</label>
                                 <select class="form-control" data-selectric required>
@@ -279,18 +279,29 @@
 
                             </div>
                         </div>
-                    </div>
-
-                    <div class="mb-3"> 
-                        <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios2" value="home">
-                        <label class="form-check-label" for="exampleRadios2">Práce nevyžaduje návštěvu pracoviště (např. Práce doma)</label>
-                    </div>
-                    <section class="travel-input__wrapper">
-                        <div class="mb-3">
-                            <input class="form-check-input" type="radio" name="jobLocation" id="exampleRadios3" value="remote">
-                            <label class="form-check-label" for="exampleRadios3">Práce vyžaduje cestování (např. Řidič, Obchodní zástupce)</label>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
                         </div>
-                        <div class="travel-input__content hidden">
+                    </label>
+                    <label class="radio-button border-b">
+                        <input class="radio-button__trigger" id="jobs2" type="radio" name="jobs" value="option2">
+                        <div class="radio-button__content">
+                            Práce nevyžaduje návštěvu pracoviště (např. Práce doma)
+                        </div>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
+                        </div>
+                    </label>
+                    <label class="radio-button">
+                        <input class="radio-button__trigger" id="jobs3" type="radio" name="jobs" value="option3">
+                        <div class="radio-button__content radio-button__content--margin-bottom">
+                            Práce vykonávaná na pravidelném pracovišti
+                        </div>
+                        <div class="radio-button__content radio-button__content--ignore-padding radio-button__content--show-if-checked">
                             <div class="form-group">
                                 <label for="autocomplete3" class="form-label">Lokalita/y *</label>
                                 <div class="autocomplete autocomplete--tag ">
@@ -317,11 +328,14 @@
 
 
                             </div>
-
                         </div>
-                    </section>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
+                        </div>
+                    </label>
                 </div>
-
             </div>
 
             <div class="mb-4">
@@ -336,43 +350,83 @@
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Pracovní poměr *</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="work1">
-                                    <label class="form-check-label" for="work1">
-                                        Plný úvazek
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="work1"></label>
+                                        <input class="checkbox__trigger" id="work1" type="checkbox">
+                                        <label class="checkbox__label" for="work1">
+                                            Plný úvazek
+                                        </label>
+                                        <label class="checkbox__substitute" for="work1">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="work2">
-                                    <label class="form-check-label" for="work2">
-                                        Zkrácený úvazek
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="work2"></label>
+                                        <input class="checkbox__trigger" id="work2" type="checkbox">
+                                        <label class="checkbox__label" for="work2">
+                                            Zkrácený úvazek
+                                        </label>
+                                        <label class="checkbox__substitute" for="work2">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="work3">
-                                    <label class="form-check-label" for="work3">
-                                        Živnostenský list
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="work3"></label>
+                                        <input class="checkbox__trigger" id="work3" type="checkbox">
+                                        <label class="checkbox__label" for="work3">
+                                            Živnostenský list
+                                        </label>
+                                        <label class="checkbox__substitute" for="work3">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="work4">
-                                    <label class="form-check-label" for="work4">
-                                        Brigáda
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="work4"></label>
+                                        <input class="checkbox__trigger" id="work4" type="checkbox">
+                                        <label class="checkbox__label" for="work4">
+                                            Brigáda
+                                        </label>
+                                        <label class="checkbox__substitute" for="work4">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="work5">
-                                    <label class="form-check-label" for="work5">
-                                        Stáž
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="work5"></label>
+                                        <input class="checkbox__trigger" id="work5" type="checkbox">
+                                        <label class="checkbox__label" for="work5">
+                                            Stáž
+                                        </label>
+                                        <label class="checkbox__substitute" for="work5">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                             </div>
@@ -383,51 +437,99 @@
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Práce je vhodná i pro</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Osoby bez praxe
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck1"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck1" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck1">
+                                            Osoby bez praxe
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck1">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                    <label class="form-check-label" for="defaultCheck2">
-                                        Absolventy SŠ
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck2"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck2" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck2">
+                                            Absolventy SŠ
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck2">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                                    <label class="form-check-label" for="defaultCheck3">
-                                        Absolventy VŠ
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck3"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck3" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck3">
+                                            Absolventy VŠ
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck3">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                                    <label class="form-check-label" for="defaultCheck4">
-                                        Studenty
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck4"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck4" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck4">
+                                            Studenty
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck4">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-                                    <label class="form-check-label" for="defaultCheck5">
-                                        Důchodce
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck5"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck5" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck5">
+                                            Důchodce
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck5">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
-                                    <label class="form-check-label" for="defaultCheck6">
-                                        Osoby na mateřské dovolené
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="defaultCheck6"></label>
+                                        <input class="checkbox__trigger" id="defaultCheck6" type="checkbox">
+                                        <label class="checkbox__label" for="defaultCheck6">
+                                            Osoby na mateřské dovolené
+                                        </label>
+                                        <label class="checkbox__substitute" for="defaultCheck6">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                             </div>
@@ -457,75 +559,147 @@
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Vzdělání uchazeče *</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school1">
-                                    <label class="form-check-label" for="school1">
-                                        Nazáleží
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school1"></label>
+                                        <input class="checkbox__trigger" id="school1" type="checkbox">
+                                        <label class="checkbox__label" for="school1">
+                                            Nazáleží
+                                        </label>
+                                        <label class="checkbox__substitute" for="school1">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school2">
-                                    <label class="form-check-label" for="school2">
-                                        Základní
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school2"></label>
+                                        <input class="checkbox__trigger" id="school2" type="checkbox">
+                                        <label class="checkbox__label" for="school2">
+                                            Základní
+                                        </label>
+                                        <label class="checkbox__substitute" for="school2">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school3">
-                                    <label class="form-check-label" for="school3">
-                                        Odborné s výučním listem
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school3"></label>
+                                        <input class="checkbox__trigger" id="school3" type="checkbox">
+                                        <label class="checkbox__label" for="school3">
+                                            Odborné s výučním listem
+                                        </label>
+                                        <label class="checkbox__substitute" for="school3">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school4">
-                                    <label class="form-check-label" for="school4">
-                                        Odborné s maturitou
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school4"></label>
+                                        <input class="checkbox__trigger" id="school4" type="checkbox">
+                                        <label class="checkbox__label" for="school4">
+                                            Odborné s maturitou
+                                        </label>
+                                        <label class="checkbox__substitute" for="school4">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school5">
-                                    <label class="form-check-label" for="school5">
-                                        Středoškolské s maturitou
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school5"></label>
+                                        <input class="checkbox__trigger" id="school5" type="checkbox">
+                                        <label class="checkbox__label" for="school5">
+                                            Středoškolské s maturitou
+                                        </label>
+                                        <label class="checkbox__substitute" for="school5">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school6">
-                                    <label class="form-check-label" for="school6">
-                                        Vyšší odborné studium
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school6"></label>
+                                        <input class="checkbox__trigger" id="school6" type="checkbox">
+                                        <label class="checkbox__label" for="school6">
+                                            Vyšší odborné studium
+                                        </label>
+                                        <label class="checkbox__substitute" for="school6">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school7">
-                                    <label class="form-check-label" for="school7">
-                                        Bakalářské
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school7"></label>
+                                        <input class="checkbox__trigger" id="school7" type="checkbox">
+                                        <label class="checkbox__label" for="school7">
+                                            Bakalářské
+                                        </label>
+                                        <label class="checkbox__substitute" for="school7">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school8">
-                                    <label class="form-check-label" for="school8">
-                                        Vysokoškolské
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school8"></label>
+                                        <input class="checkbox__trigger" id="school8" type="checkbox">
+                                        <label class="checkbox__label" for="school8">
+                                            Vysokoškolské
+                                        </label>
+                                        <label class="checkbox__substitute" for="school8">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="school9">
-                                    <label class="form-check-label" for="school9">
-                                        Doktorandské
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="school9"></label>
+                                        <input class="checkbox__trigger" id="school9" type="checkbox">
+                                        <label class="checkbox__label" for="school9">
+                                            Doktorandské
+                                        </label>
+                                        <label class="checkbox__substitute" for="school9">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                             </div>
@@ -593,67 +767,131 @@
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Řidičské oprávnění uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence1">
-                                    <label class="form-check-label" for="licence1">
-                                        A
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence1"></label>
+                                        <input class="checkbox__trigger" id="licence1" type="checkbox">
+                                        <label class="checkbox__label" for="licence1">
+                                            A
+                                        </label>
+                                        <label class="checkbox__substitute" for="school1">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence2">
-                                    <label class="form-check-label" for="licence2">
-                                        B
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence2"></label>
+                                        <input class="checkbox__trigger" id="licence2" type="checkbox">
+                                        <label class="checkbox__label" for="licence2">
+                                            B
+                                        </label>
+                                        <label class="checkbox__substitute" for="school2">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence3">
-                                    <label class="form-check-label" for="licence3">
-                                        BE
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence3"></label>
+                                        <input class="checkbox__trigger" id="licence3" type="checkbox">
+                                        <label class="checkbox__label" for="licence3">
+                                            BE
+                                        </label>
+                                        <label class="checkbox__substitute" for="school3">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence4">
-                                    <label class="form-check-label" for="licence4">
-                                        C
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence4"></label>
+                                        <input class="checkbox__trigger" id="licence4" type="checkbox">
+                                        <label class="checkbox__label" for="licence4">
+                                            C
+                                        </label>
+                                        <label class="checkbox__substitute" for="school4">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence5">
-                                    <label class="form-check-label" for="licence5">
-                                        CE
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence5"></label>
+                                        <input class="checkbox__trigger" id="licence5" type="checkbox">
+                                        <label class="checkbox__label" for="licence5">
+                                            CE
+                                        </label>
+                                        <label class="checkbox__substitute" for="school5">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence6">
-                                    <label class="form-check-label" for="licence6">
-                                        D
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence6"></label>
+                                        <input class="checkbox__trigger" id="licence6" type="checkbox">
+                                        <label class="checkbox__label" for="licence6">
+                                            D
+                                        </label>
+                                        <label class="checkbox__substitute" for="school6">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence7">
-                                    <label class="form-check-label" for="licence7">
-                                        E
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence7"></label>
+                                        <input class="checkbox__trigger" id="licence7" type="checkbox">
+                                        <label class="checkbox__label" for="licence7">
+                                            E
+                                        </label>
+                                        <label class="checkbox__substitute" for="school7">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="licence8">
-                                    <label class="form-check-label" for="licence8">
-                                        T
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="licence8"></label>
+                                        <input class="checkbox__trigger" id="licence8" type="checkbox">
+                                        <label class="checkbox__label" for="licence8">
+                                            T
+                                        </label>
+                                        <label class="checkbox__substitute" for="school8">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                             </div>
@@ -664,75 +902,147 @@
                 <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Počítačové znalosti uchazeče</h2>                                <div class="bg-white p-3">
                     <div class="row">
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer1">
-                                    <label class="form-check-label" for="computer1">
-                                        Interner
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer1"></label>
+                                        <input class="checkbox__trigger" id="computer1" type="checkbox">
+                                        <label class="checkbox__label" for="computer1">
+                                            Internet
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer1">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer2">
-                                    <label class="form-check-label" for="computer2">
-                                        MS Word
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer2"></label>
+                                        <input class="checkbox__trigger" id="computer2" type="checkbox">
+                                        <label class="checkbox__label" for="computer2">
+                                            MS Word
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer2">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer3">
-                                    <label class="form-check-label" for="computer3">
-                                        MS Excel
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer3"></label>
+                                        <input class="checkbox__trigger" id="computer3" type="checkbox">
+                                        <label class="checkbox__label" for="computer3">
+                                            MS Excel
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer3">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer4">
-                                    <label class="form-check-label" for="computer4">
-                                        Interner
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer4"></label>
+                                        <input class="checkbox__trigger" id="computer4" type="checkbox">
+                                        <label class="checkbox__label" for="computer4">
+                                            Internet
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer4">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer5">
-                                    <label class="form-check-label" for="computer5">
-                                        MS Word
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer5"></label>
+                                        <input class="checkbox__trigger" id="computer5" type="checkbox">
+                                        <label class="checkbox__label" for="computer5">
+                                            MS Word
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer5">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer6">
-                                    <label class="form-check-label" for="computer6">
-                                        MS Excel
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer6"></label>
+                                        <input class="checkbox__trigger" id="computer6" type="checkbox">
+                                        <label class="checkbox__label" for="computer6">
+                                            MS Excel
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer6">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer7">
-                                    <label class="form-check-label" for="computer7">
-                                        Interner
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer7"></label>
+                                        <input class="checkbox__trigger" id="computer7" type="checkbox">
+                                        <label class="checkbox__label" for="computer7">
+                                            Internet
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer7">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer8">
-                                    <label class="form-check-label" for="computer8">
-                                        MS Word
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer8"></label>
+                                        <input class="checkbox__trigger" id="computer8" type="checkbox">
+                                        <label class="checkbox__label" for="computer8">
+                                            MS Word
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer8">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                                     <div class="col-sm-6 col-md-4 mb-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="computer9">
-                                    <label class="form-check-label" for="computer9">
-                                        MS Excel
-                                    </label>
+                                <div class="form-group mb-2">
+                                    <div class="checkbox">
+                                        <label class="checkbox__shadow-label "for="computer9"></label>
+                                        <input class="checkbox__trigger" id="computer9" type="checkbox">
+                                        <label class="checkbox__label" for="computer9">
+                                            MS Excel
+                                        </label>
+                                        <label class="checkbox__substitute" for="computer9">
+                                            <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                            <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                            </svg>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                                             </div>
@@ -833,11 +1143,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="payment">
-                        <label class="form-check-label" for="payment">
-                            Skrýt mzdu v inzerátu
-                        </label>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label class="checkbox__shadow-label "for="payment"></label>
+                            <input class="checkbox__trigger" id="payment" type="checkbox">
+                            <label class="checkbox__label" for="payment">
+                                Skrýt mzdu v inzerátu
+                            </label>
+                            <label class="checkbox__substitute" for="payment"> 
+                                <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                </svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -900,15 +1219,35 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="sidlo">
-                                <label class="form-check-label" for="sidlo">Zobrazit v inzerátu sídlo firmy</label>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label class="checkbox__shadow-label "for="sidlo"></label>
+                                    <input class="checkbox__trigger" id="sidlo" type="checkbox">
+                                    <label class="checkbox__label" for="sidlo">
+                                        Zobrazit v inzerátu sídlo firmy
+                                    </label>
+                                    <label class="checkbox__substitute" for="sidlo"> 
+                                        <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                        <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                        </svg>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="form-check pl-3">
-                                <input type="checkbox" class="form-check-input" id="telefon">
-                                <label class="form-check-label" for="telefon">Zobrazit v inzerátu telefon</label>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label class="checkbox__shadow-label "for="telefon"></label>
+                                    <input class="checkbox__trigger" id="telefon" type="checkbox">
+                                    <label class="checkbox__label" for="telefon">
+                                        Zobrazit v inzerátu telefon
+                                    </label>
+                                    <label class="checkbox__substitute" for="telefon"> 
+                                        <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                        <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                        </svg>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -937,88 +1276,199 @@
             </div>
 
             <div class="mb-4">
-                                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Možnost zvýhodnění *</h2>                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b custom-radio__wrapper--checked">
-                        <div>
-                            <div class="custom-radio">
-                                <input class="form-check-input" type="radio" name="classes" id="class1" value="option1" checked>
-                                <label class="form-check-label font-weight-bold" for="class1">Bronze</label>
+                                <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3">Možnost zvýhodnění *</h2>
+                                    <label class="radio-button bg-white  border-b ">
+                        <input class="radio-button__trigger" id="class1" type="radio" name="classes" value="option1"  checked>
+                        <div class="radio-button__content">
+                            <div class="d-md-flex">
+                                <div class="text-left">
+                                    <div class="radio-button__color font-weight-bold mb-2">
+                                        Bronze
+                                    </div>
+                                    <ul class="list-group">
+                                                                                    <li>
+                                            Dignissimos non iusto.
+                                            </li>
+                                                                                    <li>
+                                            Nemo veniam dolor et libero.
+                                            </li>
+                                                                                    <li>
+                                            Quibusdam quia omnis in voluptatem.
+                                            </li>
+                                                                                    <li>
+                                            Explicabo consequatur earum tempore dolor.
+                                            </li>
+                                                                                    <li>
+                                            Est illo consequatur aut.
+                                            </li>
+                                                                                    <li>
+                                            Tempore neque ut minus corporis doloribus.
+                                            </li>
+                                                                                    <li>
+                                            Optio veritatis vero ducimus corrupti asperiores libero mollitia omnis non.
+                                            </li>
+                                                                                    <li>
+                                            Et praesentium et et aliquid veritatis nobis beatae vero quia.
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="radio-button__color text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                                                                            <strong class="display-6">Zdarma</strong>
+                                        <p>v rámci ročního členství</p>
+                                                                    </div>
                             </div>
-                            <ul>
 
-                                                                    <li>Consequatur voluptate velit.</li>
-                                                                    <li>Voluptas velit natus nemo qui dolorum dolores consectetur.</li>
-                                                            </ul>
                         </div>
-                        <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
-                            <label for="class1" class="text-right">
-                                                                    <strong class="display-6">Zdarma</strong>
-                                    <p>v rámci ročního členství</p>
-                                                            </label>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
                         </div>
-                    </div>
-                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b ">
-                        <div>
-                            <div class="custom-radio">
-                                <input class="form-check-input" type="radio" name="classes" id="class2" value="option1" >
-                                <label class="form-check-label font-weight-bold" for="class2">Silver</label>
+                    </label>
+                                    <label class="radio-button bg-white  border-b ">
+                        <input class="radio-button__trigger" id="class2" type="radio" name="classes" value="option2" >
+                        <div class="radio-button__content">
+                            <div class="d-md-flex">
+                                <div class="text-left">
+                                    <div class="radio-button__color font-weight-bold mb-2">
+                                        Silver
+                                    </div>
+                                    <ul class="list-group">
+                                                                                    <li>
+                                            Eum accusamus consequatur velit voluptatem.
+                                            </li>
+                                                                                    <li>
+                                            Dolorem autem culpa voluptatem sint sit voluptatem eum aspernatur.
+                                            </li>
+                                                                                    <li>
+                                            Ducimus et enim est expedita.
+                                            </li>
+                                                                                    <li>
+                                            Architecto neque et id officiis sunt inventore illum.
+                                            </li>
+                                                                                    <li>
+                                            Et laboriosam consequuntur debitis qui.
+                                            </li>
+                                                                                    <li>
+                                            Repellat dolorum totam dolores laborum aut laboriosam ipsam eos.
+                                            </li>
+                                                                                    <li>
+                                            Sint voluptatum quia eius natus eum possimus repellat.
+                                            </li>
+                                                                                    <li>
+                                            Est quos tempore rerum assumenda.
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="radio-button__color text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                                                                            <strong class="display-6">2 999 AB</strong>
+                                        <p>* 1000 Kč</p>
+                                                                    </div>
                             </div>
-                            <ul>
 
-                                                                    <li>Nesciunt ex ut amet officia iure non sed earum.</li>
-                                                                    <li>Voluptas nihil rerum qui.</li>
-                                                                    <li>Atque delectus dolorem voluptas.</li>
-                                                            </ul>
                         </div>
-                        <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
-                            <label for="class2" class="text-right">
-                                                                    <strong class="display-6">2 999 AB</strong>
-                                    <p>* 1000 Kč</p>
-                                                            </label>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
                         </div>
-                    </div>
-                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between border-b ">
-                        <div>
-                            <div class="custom-radio">
-                                <input class="form-check-input" type="radio" name="classes" id="class3" value="option1" >
-                                <label class="form-check-label font-weight-bold" for="class3">Gold</label>
+                    </label>
+                                    <label class="radio-button bg-white  border-b ">
+                        <input class="radio-button__trigger" id="class3" type="radio" name="classes" value="option3" >
+                        <div class="radio-button__content">
+                            <div class="d-md-flex">
+                                <div class="text-left">
+                                    <div class="radio-button__color font-weight-bold mb-2">
+                                        Gold
+                                    </div>
+                                    <ul class="list-group">
+                                                                                    <li>
+                                            Magni sint tempora illo voluptatum est eos qui ut.
+                                            </li>
+                                                                                    <li>
+                                            Sint qui quod non corrupti ratione.
+                                            </li>
+                                                                                    <li>
+                                            Labore labore numquam incidunt dignissimos.
+                                            </li>
+                                                                                    <li>
+                                            Doloribus tempore debitis voluptatibus harum sapiente dolorum ut tenetur rerum.
+                                            </li>
+                                                                                    <li>
+                                            Pariatur dolorem neque quibusdam et consequuntur.
+                                            </li>
+                                                                                    <li>
+                                            Veritatis cumque aspernatur temporibus sequi.
+                                            </li>
+                                                                                    <li>
+                                            Earum et architecto.
+                                            </li>
+                                                                                    <li>
+                                            Velit quaerat in iusto.
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="radio-button__color text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                                                                            <strong class="display-6">3 999 AB</strong>
+                                        <p>* 1000 Kč</p>
+                                                                    </div>
                             </div>
-                            <ul>
 
-                                                                    <li>Id in autem.</li>
-                                                                    <li>Dolore maiores et.</li>
-                                                                    <li>Rem sed et provident itaque facilis ut vero dolor.</li>
-                                                                    <li>Voluptatem est neque earum alias qui et quasi.</li>
-                                                            </ul>
                         </div>
-                        <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
-                            <label for="class3" class="text-right">
-                                                                    <strong class="display-6">3 999 AB</strong>
-                                    <p>* 1000 Kč</p>
-                                                            </label>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
                         </div>
-                    </div>
-                                    <div class="custom-radio__wrapper bg-white p-3 d-flex flex-column flex-lg-row justify-content-between ">
-                        <div>
-                            <div class="custom-radio">
-                                <input class="form-check-input" type="radio" name="classes" id="class4" value="option1" >
-                                <label class="form-check-label font-weight-bold" for="class4">Platinum</label>
+                    </label>
+                                    <label class="radio-button bg-white  ">
+                        <input class="radio-button__trigger" id="class4" type="radio" name="classes" value="option4" >
+                        <div class="radio-button__content">
+                            <div class="d-md-flex">
+                                <div class="text-left">
+                                    <div class="radio-button__color font-weight-bold mb-2">
+                                        Platinum
+                                    </div>
+                                    <ul class="list-group">
+                                                                                    <li>
+                                            Earum vitae aut ea quisquam veniam molestias non placeat quasi.
+                                            </li>
+                                                                                    <li>
+                                            Quis doloribus repudiandae et nam quis asperiores et et eum.
+                                            </li>
+                                                                                    <li>
+                                            Sit rerum omnis minima.
+                                            </li>
+                                                                                    <li>
+                                            Iure recusandae beatae.
+                                            </li>
+                                                                                    <li>
+                                            Incidunt et autem nostrum asperiores ab aut.
+                                            </li>
+                                                                                    <li>
+                                            Non nam id sunt minus id officiis voluptatem iusto repudiandae.
+                                            </li>
+                                                                                    <li>
+                                            Neque earum quaerat velit.
+                                            </li>
+                                                                                    <li>
+                                            In maiores enim voluptas sequi iusto a cupiditate nulla similique.
+                                            </li>
+                                                                            </ul>
+                                </div>
+                                <div class="radio-button__color text-right ml-auto pl-md-5 flex-shrink-0 align-self-center mt-2 mt-md-0">
+                                                                            <strong class="display-6">4 999 AB</strong>
+                                        <p>* 1000 Kč</p>
+                                                                    </div>
                             </div>
-                            <ul>
 
-                                                                    <li>Mollitia nisi aspernatur consequuntur non ad.</li>
-                                                                    <li>Error amet eos voluptatem dolorem animi.</li>
-                                                                    <li>Eos sint aut rem saepe eveniet.</li>
-                                                                    <li>Nostrum et aliquam autem totam et eius velit asperiores.</li>
-                                                                    <li>Non provident quis excepturi qui qui alias illo sit.</li>
-                                                            </ul>
                         </div>
-                        <div class="custom-radio__indicator d-inline-flex flex-column justify-content-center align-items-sm-end">
-                            <label for="class4" class="text-right">
-                                                                    <strong class="display-6">4 999 AB</strong>
-                                    <p>* 1000 Kč</p>
-                                                            </label>
+                        <div class="radio-button__substitute">
+                            <svg class="radio-button__svg svgicon__circle svgicon--absolute" viewBox="0 0 20 20" >
+                            <circle class="svgicon__path" cx="10" cy="10" r="7"/>
+                            </svg>
                         </div>
-                    </div>
+                    </label>
                                 <small class="text-muted d-block  mt-2">* Aperiam autem iste laborum labore ut fuga excepturi quas est.</small>
             </div>
 
@@ -1109,6 +1559,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
     <script src="public/js/plugins/autoComplete.js"></script>
+    <script src="public/js/plugins/focus-visible-polyfill.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>

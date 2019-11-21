@@ -126,7 +126,7 @@
                 <path class="svgicon__path" d="M12.5,7.1L10,0L7.5,7.1H0l5.8,4.6l-2.1,7.1l6.3-4.2l6.3,4.2l-2.1-7.1L20,7.1H12.5z M13.2,12l1.3,4.4l-4-2.6L10,13.4
                       l-0.6,0.4l-4,2.6L6.7,12L7,11.3l-0.5-0.4L2.9,8.1h4.6h0.7l0.2-0.7L10,3l1.6,4.4l0.2,0.7h0.7h4.6l-3.6,2.8L13,11.3L13.2,12z"/>
                 </svg>
-                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(32)
+                <span class="hidden-sm-down">Uložené nabídky</span>&nbsp;(96)
             </a>
             <ul class="menu__list">
                 <li class="menu__item">
@@ -156,46 +156,55 @@
             </div>
 </header>
             <div class="site__content">
-            
-	<div class="container">
-		<div class="section py-3 mb-5">
-			<h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Přihlášení</h2>
-			<div class="bg-white p-3 py-sm-5">
-				<div class="row justify-content-center">
-					<div class="col-sm-10 col-md-8 col-lg-6">
-						<div class="alert alert-danger" role="alert">
-							<spa class="icon icon-warning-circle-fill"></spa>
-							Nesprávné přihlašovací údaje
-						</div>
-						<form>
-							<div class="form-group">
-								<label for="exampleInputEmail1" class="form-label">Emailová addresa</label>
-								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <div class="container">
+        <div class="section py-3 mb-5">
+            <h2 class="section__title h6 font-weight-bold bg-light w-100 p-3 text-center">Přihlášení</h2>
+            <div class="bg-white p-3 py-sm-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-md-8 col-lg-6">
+                        <div class="alert alert-danger" role="alert">
+                            <spa class="icon icon-warning-circle-fill"></spa>
+                            Nesprávné přihlašovací údaje
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="form-label">Emailová addresa</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
-							</div>
-							<div class="form-group is-invalid">
-								<label for="exampleInputPassword1" class="form-label">Heslo</label>
-								<input type="password" class="form-control is-invalid" id="exampleInputPassword1" placeholder="Password">
-								<div class="invalid-feedback">
-									Špatné heslo
-								</div>
-					</div>
-							<div class="form-check mb-3">
-								<input type="checkbox" class="form-check-input form-label" id="exampleCheck1">
-								<label class="form-check-label" for="exampleCheck1">Zůstat přihlášen/a</label>
-							</div>
-							<button type="submit" class="btn btn-success w-100">Přihlásit</button>
-						</form>
-						<p class="text-center my-3">nebo se zaregistrovat</p>
-						<div class="mb-3">
-							<a href="/registration.html" class="btn btn-primary w-100">Zaregistrovat se</a>
-						</div>
-						<a href="/password-forgot.html" class="btn btn-secondary w-100 text-center">Zapomenuté heslo</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            </div>
+                            <div class="form-group is-invalid">
+                                <label for="exampleInputPassword1" class="form-label">Heslo</label>
+                                <input type="password" class="form-control is-invalid" id="exampleInputPassword1" placeholder="Password">
+                                <div class="invalid-feedback">
+                                    Špatné heslo
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="checkbox">
+                                    <label class="checkbox__shadow-label "for="exampleCheck1"></label>
+                                    <input class="checkbox__trigger" id="exampleCheck1" type="checkbox">
+                                    <label class="checkbox__label" for="exampleCheck1">
+                                        Zůstat přihlášen/a
+                                    </label>
+                                    <label class="checkbox__substitute" for="defaultCheck2">
+                                        <svg class="checkbox__svg svgicon--absolute" viewBox="0 0 20 20">
+                                        <polygon class="svgicon__path" points="8.3,16.4 2.9,11.2 4.9,9.1 8,12.1 14.8,3.6 17.1,5.4"/>
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Přihlásit</button>
+                        </form>
+                        <p class="text-center my-3">nebo se zaregistrovat</p>
+                        <div class="mb-3">
+                            <a href="/registration.html" class="btn btn-primary w-100">Zaregistrovat se</a>
+                        </div>
+                        <a href="/password-forgot.html" class="btn btn-secondary w-100 text-center">Zapomenuté heslo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         </div>
             <div class="bg-white">
         <div class="container p-3 text-center">
@@ -248,6 +257,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
     <script src="public/js/plugins/autoComplete.js"></script>
+    <script src="public/js/plugins/focus-visible-polyfill.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.0.1/dist/js/autoComplete.min.js"></script>-->
     <!--script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script-->
     <script src="public/js/plugins/choices.js"></script>
