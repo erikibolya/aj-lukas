@@ -24,6 +24,12 @@ $radio-checked-font-color: #009999;
     padding-bottom: $radio-padding;
     padding-right: $radio-padding;
     margin-bottom: 0;
+
+    &--small{
+        padding-bottom: 0.4rem;
+        padding-top: 0.4rem;
+    }
+
     &:hover{
         .radio-button__substitute{
             .radio-button__svg{
@@ -82,6 +88,10 @@ $radio-checked-font-color: #009999;
     margin-bottom: 0;
     cursor: pointer;
 
+    @at-root .radio-button--small &{
+        top: $radio-padding * 0.5;
+    }
+
 }
 
 .radio-button__svg{
@@ -93,6 +103,10 @@ $radio-checked-font-color: #009999;
     top: -0.1em;
     margin-bottom: 0;
     cursor: pointer;
+
+    @at-root .radio-button--small &{
+        top: 0;
+    }
 
     &--ignore-padding{
         margin-left: ($checkbox-size + $checkbox-spacing) * -1;

@@ -44,6 +44,9 @@ a.block * {
 .border-b {
     border-bottom: $hr-border-width solid $hr-border-color;
 }
+.border-r {
+    border-right: $hr-border-width solid $hr-border-color;
+}
 
 .mx-minus-3 {
     margin-left: -1rem;

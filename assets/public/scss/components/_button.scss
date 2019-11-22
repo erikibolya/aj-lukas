@@ -8,6 +8,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    &[data-focus-visible-added]{
+        outline: auto 5px -webkit-focus-ring-color;
+    }
 }
 
 .btn-sm{

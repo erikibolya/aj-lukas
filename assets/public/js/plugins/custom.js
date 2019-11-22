@@ -4,6 +4,42 @@ var tagAutocompletes = document.querySelectorAll(".autocomplete--tag");
 var breakpoint = 700;
 var scrollPosition = 0;
 
+function throttle(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options)
+        options = {};
+    var later = function () {
+        previous = options.leading === false ? 0 : Date.now();
+        timeout = null;
+        result = func.apply(context, args);
+        if (!timeout)
+            context = args = null;
+    };
+    return function () {
+        var now = Date.now();
+        if (!previous && options.leading === false)
+            previous = now;
+        var remaining = wait - (now - previous);
+        context = this;
+        args = arguments;
+        if (remaining <= 0 || remaining > wait) {
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+            previous = now;
+            result = func.apply(context, args);
+            if (!timeout)
+                context = args = null;
+        } else if (!timeout && options.trailing !== false) {
+            timeout = setTimeout(later, remaining);
+        }
+        return result;
+    };
+}
+;
 
 function hasWebkitOverflowScrollingSupport() {
     var testDiv = document.createElement('div');
@@ -234,7 +270,6 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
         callbackOnInit: function () {
             this.input.element.placeholder = placeholder;
             this.input.element.classList.add("choices__input--singleselect");
-
         }
     };
 
@@ -243,6 +278,8 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
     let currentSearch = "";
     let currentSelectedLabel = "";
     let alreadyHave = [];
+
+
 
     input.addEventListener('search', function (event) {
         currentSearch = event.detail.value.trim();
@@ -302,19 +339,19 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
             }
         }
         if (alreadyHave.length !== 0) {
-//            let data = getSearchData(currentSelectedLabel, [], maxItemRender, dataUrl); //nahradit voláním na api
-//            instance.setChoices(data, 'value', 'label', true);
+            let data = getSearchData(currentSelectedLabel, [], maxItemRender, dataUrl); //nahradit voláním na api
+            instance.setChoices(data, 'value', 'label', true);
         } else {
-//            if (dataPreview !== false) {
-//                alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
-//                let data = getDefaultData(dataPreview, alreadyHave);
-//                if (addLocation !== false) {
-//                    data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
-//                }
-//                instance.setChoices(data, 'value', 'label', true);
-//            } else {
-//                instance.clearChoices();
-//            }
+            if (dataPreview !== false) {
+                alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
+                let data = getDefaultData(dataPreview, alreadyHave);
+                if (addLocation !== false) {
+                    data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+                }
+                instance.setChoices(data, 'value', 'label', true);
+            } else {
+                instance.clearChoices();
+            }
         }
     }, false);
     inputCloned.addEventListener('blur', function (event) {
@@ -401,10 +438,12 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         }
     };
     let instance = new Choices(input, options);
+    let resetScrolling = false;
     let inputCloned = instance.input.element;
     let currentSearch = "";
     let alreadyHave = instance.getValue(true);
-    console.log(alreadyHave);
+    let hasScrolled = false;
+
     input.addEventListener('search', function (event) {
         currentSearch = event.detail.value.trim();
 //        console.log("searching");
@@ -546,8 +585,20 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                     instance.clearChoices();
                 }
             }
+        } else {
+            resetScrolling = true;
+            instance.choiceList.element.scrollTop = 0;
         }
     }, false);
+    instance.choiceList.element.addEventListener("scroll", function (e) {
+        if (isBelowBreakpoint(breakpoint) && !resetScrolling) {
+            inputCloned.blur();
+        } else {
+            resetScrolling = false;
+        }
+
+    });
+
 
     $(closeButton).on("click", function () {
         instance.config.removeItems = true;

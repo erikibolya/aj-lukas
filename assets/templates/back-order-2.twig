@@ -112,7 +112,7 @@
                     <faker-lorem-sentence/>
                 </div>
                 {% for i in 0..5 %}
-                    <label class="radio-button bg-white border-b">
+                    <label class="radio-button bg-white {%if not loop.last%}border-b{%endif%}">
                         <input class="radio-button__trigger" id="actibons{{ loop.index }}" type="radio" name="classes" value="option{{ loop.index }}">
                         <div class="radio-button__content">
                             <div class="d-md-flex radio-button__color">
@@ -202,7 +202,7 @@
             <div class="mb-4">
                 {% include "components/sectionTitle.twig"  with { title: "Platební metody"} %}
                 {% for method in paymentMethods %}
-                    <label class="radio-button bg-white border-b">
+                    <label class="radio-button bg-white {%if not loop.last%}border-b{%endif%}">
                         <input class="radio-button__trigger" id="optradioPay{{ loop.index }}" type="radio" name="optradioPay" value="option{{ loop.index }}">
                         <div class="radio-button__content">
                             <div class="d-md-flex radio-button__color">
