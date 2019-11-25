@@ -369,7 +369,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
 for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
     let element = tagAutocompletes[i];
     let input = element.querySelector(".autocomplete__input");
-    let closeButton = element.querySelector("[data-autocomplete-close]");
+    let closeButton = element.querySelectorAll("[data-autocomplete-close]");
     let selector = "#" + input.id;
     let placeholder = input.getAttribute("data-placeholder");
     let placeholderAdd = input.getAttribute("data-placeholder-add");
@@ -492,13 +492,16 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
             alreadyHave = instance.getValue(true);
             instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true); //nahradit voláním na api
         } else {
-            instance.config.noChoicesText = initialHint;
+            if (alreadyHave.length === maxItem) {
+                instance.config.noChoicesText = maxItemText;
+            } else {
+                instance.config.noChoicesText = initialHint;
+            }
             instance.clearChoices();
         }
         instance.hideDropdown();
         if (isAutoCompleteInFullScreenMode(element)) {
             instance.config.removeItems = true;
-            hideAutocompleteFromFullscreen(element);
             if (!isAutoCompleteInWindow(element)) {
                 disableNoBounce();
                 hideAutocompleteFromFullscreen(element);
@@ -541,7 +544,6 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
 
     }, false);
     inputCloned.addEventListener('blur', function (event) {
-//        console.log("bluring");
         if (!isAutoCompleteInFullScreenMode(element)) {
             event.target.value = "";
             currentSearch = "";
@@ -550,7 +552,11 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 alreadyHave = instance.getValue(true);
                 instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true);
             } else {
-                instance.config.noChoicesText = initialHint;
+                if (alreadyHave.length === maxItem) {
+                    instance.config.noChoicesText = maxItemText;
+                } else {
+                    instance.config.noChoicesText = initialHint;
+                }
                 instance.clearChoices();
             }
         }
@@ -566,10 +572,12 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 }
                 instance.config.removeItems = false;
                 inputCloned.blur();
+                if (alreadyHave.length === maxItem) {
+                    element.classList.add("autocomplete--message");
+                }
                 showAutocompleteInFullscreen(element);
                 inputCloned.focus();
                 enableNoBounce();
-
             } else {
                 if (dataPreview !== false) {
                     instance.config.noChoicesText = dataNoResult;
@@ -598,17 +606,21 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         }
 
     });
-
-
-    $(closeButton).on("click", function () {
-        instance.config.removeItems = true;
-        if (!isAutoCompleteInWindow(element)) {
-            disableNoBounce();
-            hideAutocompleteFromFullscreen(element);
-            restoreBodyScrollPosition();
-        } else {
-            element.closest(".modal").removeClass("modal--innerwindow");
-        }
+    closeButton.forEach(function (item, idx) {
+        item.addEventListener('click', function () {
+            instance.config.removeItems = true;
+            if (!isAutoCompleteInWindow(element)) {
+                disableNoBounce();
+                hideAutocompleteFromFullscreen(element);
+                if (alreadyHave.length === maxItem) {
+                    element.classList.remove("autocomplete--message");
+                }
+                restoreBodyScrollPosition();
+            } else {
+                element.closest(".modal").removeClass("modal--innerwindow");
+            }
+            inputCloned.value = "";
+        });
     });
 }
 

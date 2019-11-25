@@ -17,6 +17,7 @@ $choices-border-color-active: $brand-success;
     @at-root .autocomplete--fullscreen &{
         display: flex;
         padding: 0 1rem 1rem 1rem;
+        margin-bottom: 0;
         flex-direction: column;
         flex-grow: 1;
     }
@@ -32,13 +33,17 @@ $choices-border-color-active: $brand-success;
     font-size: 0px;
     overflow: hidden;
 
+    @at-root .autocomplete--message &{
+        display: none;
+    } 
+
     @at-root .is-focused &{
         border-color: $brand-success;
     } 
 
     @at-root .is-open &{
         border-color: $brand-success;
-    } 
+    }
 
     @at-root .choices[data-type*=select-one] &{
 
@@ -276,33 +281,6 @@ $choices-border-color-active: $brand-success;
     text-align: right;
 }
 
-@media (min-width: 640px) {
-    .choices__list--dropdown .choices__item--selectable {
-        padding-right:100px;
-    }
-
-    .choices__list--dropdown .choices__item--selectable:after {
-        content: attr(data-select-text);
-        font-size: 12px;
-        opacity: 0;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    [dir=rtl] .choices__list--dropdown .choices__item--selectable {
-        text-align: right;
-        padding-left: 100px;
-        padding-right: 10px;
-    }
-
-    [dir=rtl] .choices__list--dropdown .choices__item--selectable:after {
-        right: auto;
-        left: 10px;
-    }
-}
-
 .choices__list--dropdown .choices__item--selectable.is-highlighted {
     background-color: #f3f3f3;
 }
@@ -312,10 +290,6 @@ $choices-border-color-active: $brand-success;
     &:hover{
         background-color: #f2f2f2;
     }
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted:after {
-    opacity: .5
 }
 
 
@@ -347,6 +321,14 @@ $choices-border-color-active: $brand-success;
             display: none;
         }
     }
+
+    @at-root .autocomplete--fullscreen &.is-highlighted{
+        background-color: white;
+    }
+
+    @at-root .autocomplete--message &{
+        justify-content: center;
+    } 
 
     &--selectable{
         cursor: pointer;
@@ -382,6 +364,7 @@ $choices-border-color-active: $brand-success;
         font-size: 16px;
         padding: 0.625rem;
         line-height: 1.25;
+        word-break: break-word;
         &:not(:last-child){
             border-bottom: 1px solid #eceeef;
         }
@@ -390,6 +373,8 @@ $choices-border-color-active: $brand-success;
 
 .choices__item__ico{
     margin-right: 0.625rem;
+    margin-top: 2px;
+    align-self: flex-start;
 }
 
 .choices__item__content{
