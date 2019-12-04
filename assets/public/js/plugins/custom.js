@@ -1,7 +1,7 @@
 var scrollSupport = hasWebkitOverflowScrollingSupport();
 var autocompletes = document.querySelectorAll(".autocomplete--search");
 var tagAutocompletes = document.querySelectorAll(".autocomplete--tag");
-var breakpoint = 700;
+var breakpoint = 1300;
 var scrollPosition = 0;
 
 function throttle(func, wait, options) {
@@ -207,6 +207,8 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
     let input = element.querySelector(".autocomplete__input");
     let selector = "#" + input.id;
 
+
+    let closeButton = element.querySelectorAll("[data-autocomplete-close]");
     let placeholder = input.getAttribute("data-placeholder");
 
     let maxItemRender = input.hasAttribute("data-max-item-render") ? parseInt(input.getAttribute("data-max-item-render")) : 20;
@@ -275,6 +277,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
 
     let instance = new Choices(input, options);
     let inputCloned = instance.input.element;
+    let hasResetedScrolling = false;
     let currentSearch = "";
     let currentSelectedLabel = "";
     let alreadyHave = [];
@@ -303,6 +306,7 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
             instance.setChoices(data, 'value', 'label', true);
         }
     }, false);
+
     input.addEventListener('addItem', function (event) {
         if (event.detail.value === -1) {
             navigator.geolocation.getCurrentPosition(function (position) {
@@ -316,50 +320,101 @@ for (var i = 0, max = autocompletes.length; i < max; i++) {
             alreadyHave = [event.detail.value];
             currentSelectedLabel = event.detail.label;
             instance.hideDropdown();
+            if (isAutoCompleteInFullScreenMode(element)) {
+                hideAutocompleteFromFullscreen(element);
+            }
         }
 
 
 //        instance.setChoices(getSearchData(currentSearch, alreadyHave, 20), 'value', 'label', true);
     }, false);
 
+
     inputCloned.addEventListener('focus', function (event) {
-        console.log("focusing");
         if (!isAutoCompleteInFullScreenMode(element)) {
             if (isBelowBreakpoint(breakpoint)) {
                 if (isAutoCompleteInWindow(element)) {
                     element.closest(".modal").addClass("modal--innerwindow");
                 } else {
+
                     saveBodyScrollPosition();
+
                     resetBodyScrollPosition();
                 }
-//                inputCloned.blur();
+
                 showAutocompleteInFullscreen(element);
-//                inputCloned.focus();
+
+
                 enableNoBounce();
-            }
-        }
-        if (alreadyHave.length !== 0) {
-            let data = getSearchData(currentSelectedLabel, [], maxItemRender, dataUrl); //nahradit voláním na api
-            instance.setChoices(data, 'value', 'label', true);
-        } else {
-            if (dataPreview !== false) {
-                alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
-                let data = getDefaultData(dataPreview, alreadyHave);
-                if (addLocation !== false) {
-                    data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
-                }
-                instance.setChoices(data, 'value', 'label', true);
+                input.focus();
+                console.log("afterBlur?");
             } else {
-                instance.clearChoices();
+                if (alreadyHave.length !== 0) {
+                    let data = getSearchData(currentSelectedLabel, [], maxItemRender, dataUrl); //nahradit voláním na api
+                    instance.setChoices(data, 'value', 'label', true);
+                } else {
+                    if (dataPreview !== false) {
+                        alreadyHave = (instance.getValue(true) == null) ? [] : [instance.getValue(true)];
+                        let data = getDefaultData(dataPreview, alreadyHave);
+                        if (addLocation !== false) {
+                            data.unshift({value: -1, label: addLocation, customProperties: {type: "location"}});
+                        }
+                        instance.setChoices(data, 'value', 'label', true);
+                    } else {
+                        instance.clearChoices();
+
+                    }
+                }
+            }
+        } else {
+            console.log("wat");
+            hasResetedScrolling = true;
+            instance.choiceList.element.scrollTop = 0;
+        }
+
+    }, false);
+
+    inputCloned.addEventListener('blur', function (event) {
+        console.log("blurring");
+        if (!isAutoCompleteInFullScreenMode(element)) {
+            if (alreadyHave.length === 0) {
+                event.target.value = "";
+                currentSearch = "";
+                if (dataPreview !== false) {
+                    instance.config.noChoicesText = dataNoResult;
+                    alreadyHave = [instance.getValue(true)];
+                    instance.setChoices(getDefaultData(dataPreview, alreadyHave), 'value', 'label', true);
+                } else {
+                    instance.config.noChoicesText = initialHint;
+                    instance.clearChoices();
+                }
             }
         }
     }, false);
-    inputCloned.addEventListener('blur', function (event) {
-        console.log(event);
-        if (alreadyHave.length === 0) {
-            inputCloned.value = "";
+
+    instance.choiceList.element.addEventListener("scroll", function (e) {
+        if (isBelowBreakpoint(breakpoint) && !hasResetedScrolling) {
+            inputCloned.blur();
+        } else {
+            hasResetedScrolling = false;
         }
-    }, false);
+
+    });
+
+    closeButton.forEach(function (item, idx) {
+        item.addEventListener('click', function () {
+            if (!isAutoCompleteInWindow(element)) {
+                disableNoBounce();
+                hideAutocompleteFromFullscreen(element);
+                restoreBodyScrollPosition();
+            } else {
+                element.closest(".modal").removeClass("modal--innerwindow");
+            }
+            if (alreadyHave.length === 0) {
+                inputCloned.value = "";
+            }
+        });
+    });
 
 
 
@@ -438,11 +493,10 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
         }
     };
     let instance = new Choices(input, options);
-    let resetScrolling = false;
+    let hasResetedScrolling = false;
     let inputCloned = instance.input.element;
     let currentSearch = "";
     let alreadyHave = instance.getValue(true);
-    let hasScrolled = false;
 
     input.addEventListener('search', function (event) {
         currentSearch = event.detail.value.trim();
@@ -594,15 +648,15 @@ for (var i = 0, max = tagAutocompletes.length; i < max; i++) {
                 }
             }
         } else {
-            resetScrolling = true;
+            hasResetedScrolling = true;
             instance.choiceList.element.scrollTop = 0;
         }
     }, false);
     instance.choiceList.element.addEventListener("scroll", function (e) {
-        if (isBelowBreakpoint(breakpoint) && !resetScrolling) {
+        if (isBelowBreakpoint(breakpoint) && !hasResetedScrolling) {
             inputCloned.blur();
         } else {
-            resetScrolling = false;
+            hasResetedScrolling = false;
         }
 
     });

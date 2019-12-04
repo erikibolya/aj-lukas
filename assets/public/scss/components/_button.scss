@@ -5,13 +5,17 @@
 .btn {
     min-height: 2.375rem;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
 
     &[data-focus-visible-added]{
         outline: auto 5px -webkit-focus-ring-color;
     }
+}
+
+.btn-text{
+    text-align: center;
 }
 
 .btn-sm{

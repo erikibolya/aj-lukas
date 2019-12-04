@@ -1,7 +1,7 @@
 .svgicon{
     width: 1.25rem;
     height: 1.25rem;
-    display: block;
+    display: inline-block; 
     pointer-events: none;
 
     &--grey{
@@ -13,8 +13,9 @@
     }
 
     &--small{
-        width: 1rem;
-        height: 1rem;
+        /*        width: 1rem;
+                height: 1rem;*/
+        transform: scale(0.8);
     }
 
     &--large{
