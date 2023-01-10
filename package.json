@@ -46,7 +46,7 @@
         "gulp-twig": "^1.2.0",
         "gulp-uglify": "^3.0.0",
         "gulp-util": "^3.0.8",
-        "postcss-flexbox": "^1.0.2",
+        "postcss-flexbox": "^1.0.3",
         "postcss-inline-svg": "^3.0.0",
         "postcss-minify-selectors": "^2.1.1",
         "postcss-nesting": "^4.0.1",
